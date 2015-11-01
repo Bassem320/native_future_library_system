@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Library System</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- Navigator items -->
+    <string name="nav_start">Start</string>
+    <string name="nav_holdings">Holdings</string>
+    <string name="nav_internet_search">Internet Search</string>
+    <string name="nav_databases">Databases</string>
+    <string name="nav_thesis">Thesis</string>
+    <string name="nav_draft_thesis">Draft Thesis</string>
+    <string name="nav_papers">Papers</string>
+    <string name="nav_local_journals">Local Journals</string>
+    <string name="nav_e_publish">E-Publish</string>
+    <string name="nav_digital_contents">Digital Contents</string>
+    <string name="nav_my_account">My Account</string>
+</resources>
