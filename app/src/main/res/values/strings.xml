@@ -18,4 +18,9 @@
     <string name="nav_e_publish">E-Publish</string>
     <string name="nav_digital_contents">Digital Contents</string>
     <string name="nav_my_account">My Account</string>
+
+    <!-- Settings -->
+    <string name="lang">Language</string>
+    <string name="ar">Arabic</string>
+    <string name="en">English</string>
 </resources>
