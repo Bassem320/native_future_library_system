@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new StartFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new StartFragment(), "FragmentStart").commit();
     }
 
     @Override
@@ -63,11 +63,20 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else if (!navigationView.getMenu().getItem(0).isChecked()) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new StartFragment()).commit();
-            setSelectedItem(0);
         } else {
-            super.onBackPressed();
+            if (navigationView.getMenu().getItem(0).isChecked()) {
+                StartFragment startFragment = (StartFragment)getSupportFragmentManager().findFragmentByTag("FragmentStart");
+                if (startFragment.getLayoutVisibility()) {
+                    startFragment.showSearch();
+                } else {
+                    super.onBackPressed();
+                }
+            } /*else if (navigationView.getMenu().getItem(1).isChecked()) {
+                //
+            }*/ else {
+                getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new StartFragment(), "FragmentStart").commit();
+                setSelectedItem(0);
+            }
         }
     }
 
@@ -96,34 +105,46 @@ public class MainActivity extends AppCompatActivity
 
         int id = item.getItemId();
         Fragment fragment = null;
+        String tag = "";
 
         if (id == R.id.nav_start) {
             fragment = new StartFragment();
+            tag = "FragmentStart";
         } else if (id == R.id.nav_holdings) {
             fragment = new HoldingsFragment();
+            tag = "FragmentHoldings";
         } else if (id == R.id.nav_internet_search) {
             fragment = new InternetSearchFragment();
+            tag = "FragmentInternetSearch";
         } else if (id == R.id.nav_databases) {
             fragment = new DatabasesFragment();
+            tag = "FragmentDatabases";
         } else if (id == R.id.nav_thesis) {
             fragment = new ThesesFragment();
+            tag = "FragmentTheses";
         } else if (id == R.id.nav_draft_thesis) {
             fragment = new DraftThesesFragment();
+            tag = "FragmentDraftTheses";
         } else if (id == R.id.nav_papers) {
             fragment = new PapersFragment();
+            tag = "FragmentPapers";
         } else if (id == R.id.nav_local_journals) {
             fragment = new LocalJournalsFragment();
+            tag = "FragmentLocalJournals";
         } else if (id == R.id.nav_e_publish) {
             fragment = new EPublishFragment();
+            tag = "FragmentEPublish";
         } else if (id == R.id.nav_digital_contents) {
             fragment = new DigitalContentsFragment();
+            tag = "FragmentDigitalContents";
         } else if (id == R.id.nav_my_account) {
             fragment = new MyAccountFragment();
+            tag = "FragmentMyAccount";
         }
 
         if (fragment != null) {
             FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.frame_container, fragment).commit();
+            fragmentManager.beginTransaction().replace(R.id.frame_container, fragment, tag).commit();
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

@@ -38,4 +38,20 @@
     <string name="search">Search</string>
     <string name="advanced_search">Advanced Search</string>
     <string name="enter_text">Enter search text first</string>
+    <string name="site_news">Site News</string>
+    <string name="browse_by_subject">Browse by Subject</string>
+    <string name="about_site">About Site</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="subject0" translatable="false">Computer science, knowledge &amp; systems</string>
+    <string name="subject1" translatable="false">Philosophy and Psychology</string>
+    <string name="subject2" translatable="false">Religion</string>
+    <string name="subject3" translatable="false">Social sciences</string>
+    <string name="subject4" translatable="false">Language</string>
+    <string name="subject5" translatable="false">Natural sciences &amp; mathematics</string>
+    <string name="subject6" translatable="false">Technology (Applied sciences)/General technology</string>
+    <string name="subject7" translatable="false">The arts; fine &amp; decorative arts</string>
+    <string name="subject8" translatable="false">Literature &amp; rhetoric</string>
+    <string name="subject9" translatable="false">History &amp; geography</string>
+    <string name="about_site_details">One site provides all the sources of knowledge for the Egyptian Researcher :\n\t&#8226; Holdings of the Egyptian universities libraries\n\t&#8226; Masters and PhD of Egyptian researchers\n\t&#8226; Theses under study in Egyptian universities\n\t&#8226; Researches of Staff Members in Egyptian Universities\n\t&#8226; Scientific Journals Published by the Egyptian Universities\n\t&#8226; Electronic Holdings Owned by the Egyptian Universities\n\t&#8226; Transmission of Electronic Lectures\n\t&#8226; Communicating with major libraries throughout the world to see the latest books\n\t&#8226; Communicating with the largest International databases contracted by the Supreme Council of Universities to get to know the latest scientific researches in the world, in addition to access to more than 25 thousands periodicals and download the full text of it</string>
+    <string name="contact_details">\t&#8226; Address: وحدة المكتبة الرقمية - مقر شبكة الجامعات المصرية (جامعة القاهرة) - الدور الثالث\n\t&#8226; Phone: 002020108896067 , 0020235704158, 0020235738583, 0020235697645\n\t&#8226; Fax: +20235704194/ 333\n\t&#8226; Zip Code: 12441 جيزه</string>
 </resources>

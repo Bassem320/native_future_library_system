@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 
 /**
@@ -21,6 +22,7 @@ public class StartFragment extends Fragment {
     private Spinner searchTypeSpinner;
     private int searchType = 0;
     private Button startSearch, startAdvancedSearch;
+    private RelativeLayout searchLayout, resultLayout;
 
     public StartFragment() {
     }
@@ -33,6 +35,8 @@ public class StartFragment extends Fragment {
         searchTypeSpinner = (Spinner) rootView.findViewById(R.id.start_search_type);
         startSearch = (Button) rootView.findViewById(R.id.search_button);
         startAdvancedSearch = (Button) rootView.findViewById(R.id.advanced_search_button);
+        searchLayout = (RelativeLayout) rootView.findViewById(R.id.RelativeLayoutSearch);
+        resultLayout = (RelativeLayout) rootView.findViewById(R.id.RelativeLayoutResults);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.start_search_type, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         searchTypeSpinner.setAdapter(adapter);
@@ -49,7 +53,7 @@ public class StartFragment extends Fragment {
         startAdvancedSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getFragmentManager().beginTransaction().replace(R.id.frame_container, new HoldingsFragment()).commit();
+                getFragmentManager().beginTransaction().replace(R.id.frame_container, new HoldingsFragment(), "FragmentHoldings").commit();
                 ((MainActivity) getActivity()).setSelectedItem(1);
             }
         });
@@ -57,13 +61,26 @@ public class StartFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 String searchText = startSearchText.getText().toString();
-                if (searchText.equals("") || searchText == null){
+                if (searchText.equals("") || searchText == null) {
                     Snackbar.make(v, getResources().getText(R.string.enter_text), Snackbar.LENGTH_LONG).show();
                 } else {
-                    Snackbar.make(v, searchText, Snackbar.LENGTH_LONG).show();
+                    searchLayout.setVisibility(View.GONE);
+                    resultLayout.setVisibility(View.VISIBLE);
                 }
             }
         });
         return rootView;
+    }
+
+    public boolean getLayoutVisibility() {
+        if (resultLayout.getVisibility() == View.VISIBLE) {
+            return true;
+        }
+        return false;
+    }
+
+    public void showSearch() {
+        resultLayout.setVisibility(View.GONE);
+        searchLayout.setVisibility(View.VISIBLE);
     }
 }

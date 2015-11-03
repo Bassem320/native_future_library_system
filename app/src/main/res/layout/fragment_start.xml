@@ -1,51 +1,385 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/text"
-        style="@style/Base.TextAppearance.AppCompat.Large"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="@string/holdings_search" />
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/start_search_EditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/text"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:hint="@string/search_hint" />
+        <RelativeLayout
+            android:id="@+id/RelativeLayoutSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <Spinner
-        android:id="@+id/start_search_type"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/start_search_EditText" />
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/logo" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/start_search_type"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:orientation="horizontal"
-        android:weightSum="2">
+            <TextView
+                android:id="@+id/text"
+                style="@style/Base.TextAppearance.AppCompat.Large"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/logo"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:gravity="center_horizontal"
+                android:text="@string/holdings_search" />
 
-        <Button
-            android:id="@+id/search_button"
+            <EditText
+                android:id="@+id/start_search_EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:hint="@string/search_hint" />
+
+            <Spinner
+                android:id="@+id/start_search_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/start_search_EditText" />
+
+            <LinearLayout
+                android:id="@+id/LinearButtons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/start_search_type"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <Button
+                    android:id="@+id/search_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/search" />
+
+                <Button
+                    android:id="@+id/advanced_search_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/advanced_search" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/LinearButtons"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/HeadingText"
+                    android:text="@string/site_news" />
+
+                <View style="@style/HorizontalLine" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/RecyclerNews"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/layout1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/HeadingText"
+                    android:text="@string/browse_by_subject" />
+
+                <View style="@style/HorizontalLine" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:id="@+id/Subject0"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/fab_margin"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                style="@style/SubjectImage"
+                                android:src="@drawable/s0" />
+
+                            <TextView
+                                style="@style/SubjectTitle"
+                                android:text="@string/subject0" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/Subject1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/fab_margin"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                style="@style/SubjectImage"
+                                android:src="@drawable/s1" />
+
+                            <TextView
+                                style="@style/SubjectTitle"
+                                android:text="@string/subject1" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:id="@+id/Subject2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/fab_margin"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                style="@style/SubjectImage"
+                                android:src="@drawable/s2" />
+
+                            <TextView
+                                style="@style/SubjectTitle"
+                                android:text="@string/subject2" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/Subject3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/fab_margin"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                style="@style/SubjectImage"
+                                android:src="@drawable/s3" />
+
+                            <TextView
+                                style="@style/SubjectTitle"
+                                android:text="@string/subject3" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:id="@+id/Subject4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/fab_margin"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                style="@style/SubjectImage"
+                                android:src="@drawable/s4" />
+
+                            <TextView
+                                style="@style/SubjectTitle"
+                                android:text="@string/subject4" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/Subject5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/fab_margin"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                style="@style/SubjectImage"
+                                android:src="@drawable/s5" />
+
+                            <TextView
+                                style="@style/SubjectTitle"
+                                android:text="@string/subject5" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:id="@+id/Subject6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/fab_margin"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                style="@style/SubjectImage"
+                                android:src="@drawable/s6" />
+
+                            <TextView
+                                style="@style/SubjectTitle"
+                                android:text="@string/subject6" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/Subject7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/fab_margin"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                style="@style/SubjectImage"
+                                android:src="@drawable/s7" />
+
+                            <TextView
+                                style="@style/SubjectTitle"
+                                android:text="@string/subject7" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:id="@+id/Subject8"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/fab_margin"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                style="@style/SubjectImage"
+                                android:src="@drawable/s8" />
+
+                            <TextView
+                                style="@style/SubjectTitle"
+                                android:text="@string/subject8" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/Subject9"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/fab_margin"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                style="@style/SubjectImage"
+                                android:src="@drawable/s9" />
+
+                            <TextView
+                                style="@style/SubjectTitle"
+                                android:text="@string/subject9" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/layout2"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/HeadingText"
+                    android:text="@string/about_site" />
+
+                <View style="@style/HorizontalLine" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/about_site_details" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/layout3"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/HeadingText"
+                    android:text="@string/contact_us" />
+
+                <View style="@style/HorizontalLine" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/contact_details" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/RelativeLayoutResults"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/search" />
+            android:visibility="gone">
 
-        <Button
-            android:id="@+id/advanced_search_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/advanced_search" />
-    </LinearLayout>
-</RelativeLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Search Results" />
+        </RelativeLayout>
+    </RelativeLayout>
+</ScrollView>
