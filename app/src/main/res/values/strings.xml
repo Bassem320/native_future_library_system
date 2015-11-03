@@ -11,8 +11,8 @@
     <string name="nav_holdings">Holdings</string>
     <string name="nav_internet_search">Internet Search</string>
     <string name="nav_databases">Databases</string>
-    <string name="nav_thesis">Thesis</string>
-    <string name="nav_draft_thesis">Draft Thesis</string>
+    <string name="nav_theses">Theses</string>
+    <string name="nav_draft_theses">Draft Theses</string>
     <string name="nav_papers">Papers</string>
     <string name="nav_local_journals">Local Journals</string>
     <string name="nav_e_publish">E-Publish</string>
@@ -21,6 +21,21 @@
 
     <!-- Settings -->
     <string name="lang">Language</string>
-    <string name="ar">Arabic</string>
-    <string name="en">English</string>
+    <string-array name="langs">
+        <item>Arabic</item>
+        <item>English</item>
+    </string-array>
+
+    <!-- Start fragment -->
+    <string name="holdings_search">Holdings Search</string>
+    <string name="search_hint">Enter text to search for</string>
+    <string-array name="start_search_type">
+        <item>All Items</item>
+        <item>Books</item>
+        <item>Theses</item>
+        <item>Periodicals</item>
+    </string-array>
+    <string name="search">Search</string>
+    <string name="advanced_search">Advanced Search</string>
+    <string name="enter_text">Enter search text first</string>
 </resources>

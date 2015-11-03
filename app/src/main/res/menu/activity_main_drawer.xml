@@ -16,10 +16,10 @@
             android:title="@string/nav_databases" />
         <item
             android:id="@+id/nav_thesis"
-            android:title="@string/nav_thesis" />
+            android:title="@string/nav_theses" />
         <item
             android:id="@+id/nav_draft_thesis"
-            android:title="@string/nav_draft_thesis" />
+            android:title="@string/nav_draft_theses" />
         <item
             android:id="@+id/nav_papers"
             android:title="@string/nav_papers" />

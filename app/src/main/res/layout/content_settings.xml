@@ -19,8 +19,8 @@
         android:text="@string/lang" />
 
     <Spinner
+        android:id="@+id/lang_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner"
         android:layout_below="@+id/settings_lang" />
 </RelativeLayout>

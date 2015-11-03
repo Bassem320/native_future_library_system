@@ -1,39 +1,50 @@
 package eg.edu.eulc.librarysystem;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    public static final String PREF_FILE_NAME = "LibrarySystemPref";
+    private SharedPreferences sharedPreferences;
+    private NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        sharedPreferences = MainActivity.this.getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("langChanged", false);
+        editor.apply();
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+        if (sharedPreferences.getInt("lang", 0) == 0) {
+            conf.locale = new Locale("ar");
+        } else {
+            conf.locale = new Locale("en");
+        }
+        res.updateConfiguration(conf, dm);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -41,7 +52,7 @@ public class MainActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new StartFragment()).commit();
@@ -52,6 +63,9 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
+        } else if (!navigationView.getMenu().getItem(0).isChecked()) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new StartFragment()).commit();
+            setSelectedItem(0);
         } else {
             super.onBackPressed();
         }
@@ -92,9 +106,9 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_databases) {
             fragment = new DatabasesFragment();
         } else if (id == R.id.nav_thesis) {
-            fragment = new ThesisFragment();
+            fragment = new ThesesFragment();
         } else if (id == R.id.nav_draft_thesis) {
-            fragment = new DraftThesisFragment();
+            fragment = new DraftThesesFragment();
         } else if (id == R.id.nav_papers) {
             fragment = new PapersFragment();
         } else if (id == R.id.nav_local_journals) {
@@ -114,5 +128,27 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (sharedPreferences.getBoolean("langChanged", false)) {
+            Resources res = getResources();
+            DisplayMetrics dm = res.getDisplayMetrics();
+            Configuration conf = res.getConfiguration();
+            if (sharedPreferences.getInt("lang", 0) == 0) {
+                conf.locale = new Locale("ar");
+            } else {
+                conf.locale = new Locale("en");
+            }
+            res.updateConfiguration(conf, dm);
+            finish();
+            startActivity(getIntent());
+        }
+    }
+
+    public void setSelectedItem(int position) {
+        navigationView.getMenu().getItem(position).setChecked(true);
     }
 }

@@ -4,18 +4,31 @@
     <string name="action_settings">الإعدادات</string>
     <string name="nav_databases">قواعد البيانات العالمية</string>
     <string name="nav_digital_contents">المقتنيات الإلكترونية</string>
-    <string name="nav_draft_thesis">رسائل قيد الدراسة</string>
+    <string name="nav_draft_theses">رسائل قيد الدراسة</string>
     <string name="nav_e_publish">النشر الإلكتروني</string>
     <string name="nav_holdings">مقتنيات المكتبات</string>
     <string name="nav_my_account">حسابي</string>
-    <string name="ar">العربية</string>
-    <string name="en">الإنجليزية</string>
     <string name="lang">اللغة</string>
+    <string-array name="langs">
+        <item>العربية</item>
+        <item>الإنجليزية</item>
+    </string-array>
     <string name="nav_internet_search">بحث الانترنت</string>
     <string name="nav_local_journals">الدوريات المحلية</string>
     <string name="nav_papers">الأبحاث العلمية</string>
     <string name="nav_start">البداية</string>
-    <string name="nav_thesis">الرسائل العلمية</string>
+    <string name="nav_theses">الرسائل العلمية</string>
     <string name="navigation_drawer_close">إغلاق قائمة الأقسام</string>
     <string name="navigation_drawer_open">فتح قائمة الأقسام</string>
+    <string name="holdings_search">بحث المقتنيات</string>
+    <string name="advanced_search">بحث متقدم</string>
+    <string name="search">بحث</string>
+    <string-array name="start_search_type">
+        <item>كل المقتنيات</item>
+        <item>الكتب</item>
+        <item>الرسائل</item>
+        <item>الدوريات</item>
+    </string-array>
+    <string name="search_hint">ادخل نص البحث</string>
+    <string name="enter_text">ادخل نص البحث اولاً</string>
 </resources>

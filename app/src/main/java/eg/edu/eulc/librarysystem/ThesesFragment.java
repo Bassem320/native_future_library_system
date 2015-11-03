@@ -10,14 +10,14 @@ import android.view.ViewGroup;
 /**
  * Created by Eslam El-Meniawy on 01-Nov-15.
  */
-public class ThesisFragment extends Fragment {
-    public ThesisFragment() {
+public class ThesesFragment extends Fragment {
+    public ThesesFragment() {
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_thesis, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_theses, container, false);
         return rootView;
     }
 }
