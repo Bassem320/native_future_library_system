@@ -12,7 +12,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.Spinner;
 
 /**
@@ -23,8 +22,7 @@ public class HoldingsFragment extends Fragment {
     private int itemType = 0, keywords1 = 0, keywords2 = 0, keywords3 = 0, conc1 = 0, conc2 = 0, wordProcessing = 0, orderBy = 0;
     private EditText searchTextET1, searchTextET2, searchTextET3, attachContainsET, bibIDET, publishYearET;
     private Button searchButton;
-    private LinearLayout searchLayout;
-    private RelativeLayout resultsLayout;
+    private LinearLayout searchLayout, resultsLayout;
 
     public HoldingsFragment() {
     }
@@ -49,7 +47,7 @@ public class HoldingsFragment extends Fragment {
         publishYearET = (EditText) rootView.findViewById(R.id.Publishyear);
         searchButton = (Button) rootView.findViewById(R.id.searchButton);
         searchLayout = (LinearLayout) rootView.findViewById(R.id.searchLayout);
-        resultsLayout = (RelativeLayout) rootView.findViewById(R.id.resultsLayout);
+        resultsLayout = (LinearLayout) rootView.findViewById(R.id.resultsLayout);
         ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(getContext(), R.array.holdings_item_types, android.R.layout.simple_spinner_item);
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(getContext(), R.array.keywords, android.R.layout.simple_spinner_item);
         ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(getContext(), R.array.concs, android.R.layout.simple_spinner_item);

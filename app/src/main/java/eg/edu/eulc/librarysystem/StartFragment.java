@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 
@@ -22,7 +23,7 @@ public class StartFragment extends Fragment {
     private Spinner searchTypeSpinner;
     private int searchType = 0;
     private Button startSearch, startAdvancedSearch;
-    private RelativeLayout searchLayout, resultLayout;
+    private LinearLayout searchLayout, resultsLayout;
 
     public StartFragment() {
     }
@@ -35,8 +36,8 @@ public class StartFragment extends Fragment {
         searchTypeSpinner = (Spinner) rootView.findViewById(R.id.start_search_type);
         startSearch = (Button) rootView.findViewById(R.id.search_button);
         startAdvancedSearch = (Button) rootView.findViewById(R.id.advanced_search_button);
-        searchLayout = (RelativeLayout) rootView.findViewById(R.id.RelativeLayoutSearch);
-        resultLayout = (RelativeLayout) rootView.findViewById(R.id.RelativeLayoutResults);
+        searchLayout = (LinearLayout) rootView.findViewById(R.id.searchLayout);
+        resultsLayout = (LinearLayout) rootView.findViewById(R.id.resultsLayout);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.start_search_type, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         searchTypeSpinner.setAdapter(adapter);
@@ -65,7 +66,7 @@ public class StartFragment extends Fragment {
                     Snackbar.make(v, getResources().getText(R.string.enter_text), Snackbar.LENGTH_LONG).show();
                 } else {
                     searchLayout.setVisibility(View.GONE);
-                    resultLayout.setVisibility(View.VISIBLE);
+                    resultsLayout.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -73,14 +74,14 @@ public class StartFragment extends Fragment {
     }
 
     public boolean getLayoutVisibility() {
-        if (resultLayout.getVisibility() == View.VISIBLE) {
+        if (resultsLayout.getVisibility() == View.VISIBLE) {
             return true;
         }
         return false;
     }
 
     public void showSearch() {
-        resultLayout.setVisibility(View.GONE);
+        resultsLayout.setVisibility(View.GONE);
         searchLayout.setVisibility(View.VISIBLE);
     }
 }
