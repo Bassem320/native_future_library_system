@@ -23,7 +23,7 @@ public class StartFragment extends Fragment {
     private Spinner searchTypeSpinner;
     private int searchType = 0;
     private Button startSearch, startAdvancedSearch;
-    private LinearLayout searchLayout, resultsLayout;
+    private LinearLayout searchLayout, resultsLayout, subject0, subject1, subject2, subject3, subject4, subject5, subject6, subject7, subject8, subject9;
 
     public StartFragment() {
     }
@@ -38,6 +38,16 @@ public class StartFragment extends Fragment {
         startAdvancedSearch = (Button) rootView.findViewById(R.id.advanced_search_button);
         searchLayout = (LinearLayout) rootView.findViewById(R.id.searchLayout);
         resultsLayout = (LinearLayout) rootView.findViewById(R.id.resultsLayout);
+        subject0 = (LinearLayout) rootView.findViewById(R.id.Subject0);
+        subject1 = (LinearLayout) rootView.findViewById(R.id.Subject1);
+        subject2 = (LinearLayout) rootView.findViewById(R.id.Subject2);
+        subject3 = (LinearLayout) rootView.findViewById(R.id.Subject3);
+        subject4 = (LinearLayout) rootView.findViewById(R.id.Subject4);
+        subject5 = (LinearLayout) rootView.findViewById(R.id.Subject5);
+        subject6 = (LinearLayout) rootView.findViewById(R.id.Subject6);
+        subject7 = (LinearLayout) rootView.findViewById(R.id.Subject7);
+        subject8 = (LinearLayout) rootView.findViewById(R.id.Subject8);
+        subject9 = (LinearLayout) rootView.findViewById(R.id.Subject9);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.start_search_type, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         searchTypeSpinner.setAdapter(adapter);
@@ -68,6 +78,66 @@ public class StartFragment extends Fragment {
                     searchLayout.setVisibility(View.GONE);
                     resultsLayout.setVisibility(View.VISIBLE);
                 }
+            }
+        });
+        subject0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v, "Subject 0", Snackbar.LENGTH_LONG).show();
+            }
+        });
+        subject1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v, "Subject 1", Snackbar.LENGTH_LONG).show();
+            }
+        });
+        subject2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v, "Subject 2", Snackbar.LENGTH_LONG).show();
+            }
+        });
+        subject3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v, "Subject 3", Snackbar.LENGTH_LONG).show();
+            }
+        });
+        subject4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v, "Subject 4", Snackbar.LENGTH_LONG).show();
+            }
+        });
+        subject5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v, "Subject 5", Snackbar.LENGTH_LONG).show();
+            }
+        });
+        subject6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v, "Subject 6", Snackbar.LENGTH_LONG).show();
+            }
+        });
+        subject7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v, "Subject 7", Snackbar.LENGTH_LONG).show();
+            }
+        });
+        subject8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v, "Subject 8", Snackbar.LENGTH_LONG).show();
+            }
+        });
+        subject9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v, "Subject 9", Snackbar.LENGTH_LONG).show();
             }
         });
         return rootView;
