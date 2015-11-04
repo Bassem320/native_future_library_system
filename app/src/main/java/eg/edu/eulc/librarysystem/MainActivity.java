@@ -64,16 +64,17 @@ public class MainActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
+            StartFragment startFragment = (StartFragment)getSupportFragmentManager().findFragmentByTag("FragmentStart");
+            HoldingsFragment holdingsFragment = (HoldingsFragment)getSupportFragmentManager().findFragmentByTag("FragmentHoldings");
             if (navigationView.getMenu().getItem(0).isChecked()) {
-                StartFragment startFragment = (StartFragment)getSupportFragmentManager().findFragmentByTag("FragmentStart");
                 if (startFragment.getLayoutVisibility()) {
                     startFragment.showSearch();
                 } else {
                     super.onBackPressed();
                 }
-            } /*else if (navigationView.getMenu().getItem(1).isChecked()) {
-                //
-            }*/ else {
+            } else if (navigationView.getMenu().getItem(1).isChecked() && holdingsFragment.getLayoutVisibility()) {
+                holdingsFragment.showSearch();
+            } else {
                 getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new StartFragment(), "FragmentStart").commit();
                 setSelectedItem(0);
             }

@@ -2,6 +2,7 @@ package eg.edu.eulc.librarysystem;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -147,6 +148,30 @@ public class HoldingsFragment extends Fragment {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String searchText1 = searchTextET1.getText().toString();
+                if (searchText1.equals("") || searchText1 == null) {
+                    Snackbar.make(v, getResources().getText(R.string.enter_text), Snackbar.LENGTH_LONG).show();
+                } else {
+                    searchLayout.setVisibility(View.GONE);
+                    resultsLayout.setVisibility(View.VISIBLE);
+                }
+            }
+        });
         return rootView;
+    }
+
+    public boolean getLayoutVisibility() {
+        if (resultsLayout.getVisibility() == View.VISIBLE) {
+            return true;
+        }
+        return false;
+    }
+
+    public void showSearch() {
+        resultsLayout.setVisibility(View.GONE);
+        searchLayout.setVisibility(View.VISIBLE);
     }
 }
