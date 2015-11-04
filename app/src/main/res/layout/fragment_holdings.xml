@@ -164,6 +164,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/search_tips_details" />
             </LinearLayout>
+
+            <TextView style="@style/Footer" />
         </LinearLayout>
 
         <LinearLayout

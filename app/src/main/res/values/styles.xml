@@ -96,4 +96,13 @@
         <item name="android:layout_gravity">center_vertical</item>
     </style>
 
+    <style name="Footer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/activity_vertical_margin</item>
+        <item name="android:text">@string/footer_text</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:padding">@dimen/footer_padding</item>
+    </style>
+
 </resources>

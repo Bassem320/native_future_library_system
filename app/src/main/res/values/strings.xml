@@ -26,6 +26,9 @@
         <item>English</item>
     </string-array>
 
+    <!-- Footer -->
+    <string name="footer_text">Powered by <b>Future Library Software</b>\nAll rights reserved \u00A9 <b>CITC</b> - 2013 - Mansoura University</string>
+
     <!-- Start fragment -->
     <string name="holdings_search">Holdings Search</string>
     <string name="search_hint">Search Text</string>
