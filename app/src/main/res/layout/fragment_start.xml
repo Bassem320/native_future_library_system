@@ -36,7 +36,9 @@
                 style="@style/TypeLayout"
                 android:layout_below="@+id/start_search_EditText">
 
-                <TextView style="@style/SelectType" />
+                <TextView
+                    style="@style/SelectType"
+                    android:text="@string/select_type" />
 
                 <Spinner
                     android:id="@+id/start_search_type"

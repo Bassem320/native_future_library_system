@@ -57,13 +57,72 @@
     <string name="contact_details">\t&#8226; Address: وحدة المكتبة الرقمية - مقر شبكة الجامعات المصرية (جامعة القاهرة) - الدور الثالث\n\t&#8226; Phone: 002020108896067 , 0020235704158, 0020235738583, 0020235697645\n\t&#8226; Fax: +20235704194/ 333\n\t&#8226; Zip Code: 12441 جيزه</string>
 
     <!-- Holdings fragment -->
+    <string-array name="holdings_item_types">
+        <item>All Holdings</item>
+        <item>Book</item>
+        <item>Manuscript cartographic material</item>
+        <item>Projected medium/Video</item>
+        <item>Micro printed</item>
+        <item>Nonmusical sound recording</item>
+        <item>Musical sound recording</item>
+        <item>Two-dimensional nonprojectable graphic</item>
+        <item>Special instructional materials</item>
+        <item>Kit</item>
+        <item>Mixed materials</item>
+        <item>Three-dimension object</item>
+        <item>Periodical</item>
+        <item>Unknown</item>
+        <item>Conferences</item>
+        <item>Encyclopedias</item>
+        <item>Books Chapters</item>
+        <item>Thesis Chapters</item>
+        <item>Encyclopedias Chapters</item>
+        <item>Periodical Articles</item>
+        <item>Scientific Paper</item>
+        <item>Exam</item>
+        <item>Scientific Projects</item>
+        <item>Computer File</item>
+        <item>Manuscript language material/Theses</item>
+        <item>Notated music</item>
+        <item>Manuscript notated music</item>
+        <item>Control manuscript and archives</item>
+        <item>Cartographic material</item>
+    </string-array>
+    <string-array name="keywords">
+        <item>Keyword anywhere</item>
+        <item>Title</item>
+        <item>Author</item>
+        <item>Subject headings</item>
+        <item>Publisher info.</item>
+        <item>ISBN</item>
+        <item>ISSN</item>
+        <item>Table of contents</item>
+        <item>Dewey class. num.</item>
+    </string-array>
+    <string-array name="concs">
+        <item>And</item>
+        <item>Or</item>
+        <item>But</item>
+    </string-array>
     <string name="attach_contains">FT attach contains</string>
     <string name="word_processing">Word Processing</string>
+    <string-array name="word_processing_list">
+        <item>No Processing</item>
+        <item>Words and declension</item>
+        <item>Words and synonymous</item>
+    </string-array>
     <string name="bib_id">BibID</string>
     <string name="bib_id_hint">Ex: 100 or 350&#8211;480</string>
     <string name="pub_year">Publish Year</string>
     <string name="pub_year_hint">Ex: 1987 or 1970&#8211;1980</string>
     <string name="order_by">Order By</string>
+    <string-array name="order_by_list">
+        <item>-----</item>
+        <item>Title</item>
+        <item>Author</item>
+        <item>Publish Year Ascending</item>
+        <item>Publish Year Descending</item>
+    </string-array>
     <string name="search_tips">Search Tips</string>
     <string name="search_tips_details">\t&#8226; If search word is incomplete put * (Infrastr*)\n\t&#8226; Search for two words put &amp; (Infrastructure &amp; Networking)\n\t&#8226; Search for two related words put ~ (Infrastructure ~ Networking)</string>
 </resources>

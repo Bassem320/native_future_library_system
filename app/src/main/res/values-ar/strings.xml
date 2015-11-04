@@ -38,11 +38,70 @@
     <string name="about_site_details">موقع واحد يتيح جميع مصادر المعرفة للباحث المصري :\n\t&#8226; مقتنيات مكتبات الجامعات المصرية\n\t&#8226; رسائل الماجستير و الدكتوراه للباحثين المصريين\n\t&#8226; الرسائل قيد الدراسة بالجامعات المصرية\n\t&#8226; أبحاث أعضاء هيئة التدريس بالجامعات المصرية\n\t&#8226; المجلات العلمية التي تصدرها الجامعات المصرية\n\t&#8226; المقتنيات الإلكترونية التي تملكها الجامعات المصرية\n\t&#8226; البث الأرشيفي للمحاضرات الإلكترونية\n\t&#8226; التواصل مع كبرى المكتبات العالمية لمعرفة أحدث الكتب\n\t&#8226; التواصل مع كبرى قواعد البيانات العالمية المشترك بها المجلس الأعلى للجامعات للتعرف على أحدث الأبحاث العلمية على مستوي العالم بالإضافة إلى الاطلاع على أكثر من 25 ألف دورية وتحميل النص الكامل لها</string>
     <string name="contact_details">\t&#8226; العنوان: وحدة المكتبة الرقمية - مقر شبكة الجامعات المصرية (جامعة القاهرة) - الدور الثالث\n\t&#8226; رقم الهاتف: 002020108896067 , 0020235704158, 0020235738583, 0020235697645\n\t&#8226; رقم الفاكس: +20235704194/ 333\n\t&#8226; الرقم البريدي: 12441 جيزه</string>
     <string name="select_type">نوع المقتنيات</string>
+    <string-array name="holdings_item_types">
+        <item>جميع المقنيات</item>
+        <item>كتاب</item>
+        <item>ماده خرائطية مخطوطة</item>
+        <item>وسيط إسقاطي/فيديو</item>
+        <item>مطبوعات مصغرة</item>
+        <item>تسجيل صوتي غير موسيقي</item>
+        <item>تسجيل صوتي موسيقي</item>
+        <item>صورة ثنائية الأبعاد</item>
+        <item>مادة تعليمية خاصة</item>
+        <item>توليفة</item>
+        <item>مادة متنوعة</item>
+        <item>مجسم اصطناعي / طبيعي</item>
+        <item>دورية</item>
+        <item>غير معروف</item>
+        <item>مؤتمرات</item>
+        <item>موسوعات</item>
+        <item>اجزاء اصدارات</item>
+        <item>اجزاء اطروحات</item>
+        <item>اجزاء موسوعات</item>
+        <item>مقالات دورية</item>
+        <item>بحث علمي</item>
+        <item>اختبار جامعي</item>
+        <item>المشاريع البحثية</item>
+        <item>ملف كمبيوتر</item>
+        <item>مخطوطة/رسالة علمية</item>
+        <item>نوته موسيقية</item>
+        <item>نوته موسيقية مخطوطة</item>
+        <item>ضبط المخطوطات و الأرشيفات</item>
+        <item>مادة خرائطية</item>
+    </string-array>
+    <string-array name="keywords">
+        <item>كلمة في كل مكان</item>
+        <item>العنوان</item>
+        <item>المؤلف</item>
+        <item>رءوس الموضوعات</item>
+        <item>بيانات الناشر</item>
+        <item>ISBN</item>
+        <item>ISSN</item>
+        <item>جدول المحتويات</item>
+        <item>رقم تصنيف ديوي</item>
+    </string-array>
+    <string-array name="concs">
+        <item>و</item>
+        <item>أو</item>
+        <item>إلا</item>
+    </string-array>
     <string name="attach_contains">المرفقات تحتوي النص</string>
     <string name="word_processing">معالجة الكلمات</string>
+    <string-array name="word_processing_list">
+        <item>لا معالجة</item>
+        <item>كلمات البحث وتصريفاتها</item>
+        <item>كلمات البحث ومرادفاتها</item>
+    </string-array>
     <string name="bib_id">الرقم الببليوجرافي</string>
     <string name="bib_id_hint">مثال: 100 أو 350&#8211;480</string>
     <string name="order_by">ترتيب حسب</string>
+    <string-array name="order_by_list">
+        <item>-----</item>
+        <item>العنوان</item>
+        <item>المؤلف</item>
+        <item>سنة النشر تصاعدي</item>
+        <item>سنة النشر تنازلي</item>
+    </string-array>
     <string name="pub_year">سنة النشر</string>
     <string name="pub_year_hint">مثال: 1987 أو 1970&#8211;1980</string>
     <string name="search_tips">تنويهات البحث</string>
