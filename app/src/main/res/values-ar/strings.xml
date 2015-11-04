@@ -29,7 +29,7 @@
         <item>الرسائل</item>
         <item>الدوريات</item>
     </string-array>
-    <string name="search_hint">ادخل نص البحث</string>
+    <string name="search_hint">نص البحث</string>
     <string name="enter_text">ادخل نص البحث اولاً</string>
     <string name="site_news">آخر الأخبار</string>
     <string name="about_site">عن الموقع</string>
@@ -37,4 +37,14 @@
     <string name="contact_us">اتصل بنا</string>
     <string name="about_site_details">موقع واحد يتيح جميع مصادر المعرفة للباحث المصري :\n\t&#8226; مقتنيات مكتبات الجامعات المصرية\n\t&#8226; رسائل الماجستير و الدكتوراه للباحثين المصريين\n\t&#8226; الرسائل قيد الدراسة بالجامعات المصرية\n\t&#8226; أبحاث أعضاء هيئة التدريس بالجامعات المصرية\n\t&#8226; المجلات العلمية التي تصدرها الجامعات المصرية\n\t&#8226; المقتنيات الإلكترونية التي تملكها الجامعات المصرية\n\t&#8226; البث الأرشيفي للمحاضرات الإلكترونية\n\t&#8226; التواصل مع كبرى المكتبات العالمية لمعرفة أحدث الكتب\n\t&#8226; التواصل مع كبرى قواعد البيانات العالمية المشترك بها المجلس الأعلى للجامعات للتعرف على أحدث الأبحاث العلمية على مستوي العالم بالإضافة إلى الاطلاع على أكثر من 25 ألف دورية وتحميل النص الكامل لها</string>
     <string name="contact_details">\t&#8226; العنوان: وحدة المكتبة الرقمية - مقر شبكة الجامعات المصرية (جامعة القاهرة) - الدور الثالث\n\t&#8226; رقم الهاتف: 002020108896067 , 0020235704158, 0020235738583, 0020235697645\n\t&#8226; رقم الفاكس: +20235704194/ 333\n\t&#8226; الرقم البريدي: 12441 جيزه</string>
+    <string name="select_type">نوع المقتنيات</string>
+    <string name="attach_contains">المرفقات تحتوي النص</string>
+    <string name="word_processing">معالجة الكلمات</string>
+    <string name="bib_id">الرقم الببليوجرافي</string>
+    <string name="bib_id_hint">مثال: 100 أو 350&#8211;480</string>
+    <string name="order_by">ترتيب حسب</string>
+    <string name="pub_year">سنة النشر</string>
+    <string name="pub_year_hint">مثال: 1987 أو 1970&#8211;1980</string>
+    <string name="search_tips">تنويهات البحث</string>
+    <string name="search_tips_details">\t&#8226; إذا كانت الكلمة ناقصة نضع * (Infrastr*)\n\t&#8226; للبحث عن كلمتين معاً نضع &amp; (Infrastructure &amp; Networking)\n\t&#8226; للبحث عن كلمتين قريبتين نضع ~ (Infrastructure ~ Networking)</string>
 </resources>

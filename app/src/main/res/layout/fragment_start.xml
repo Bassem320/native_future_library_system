@@ -14,18 +14,12 @@
 
             <ImageView
                 android:id="@+id/logo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/logo" />
+                style="@style/Logo" />
 
             <TextView
                 android:id="@+id/text"
-                style="@style/Base.TextAppearance.AppCompat.Large"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/MainTitle"
                 android:layout_below="@+id/logo"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:gravity="center_horizontal"
                 android:text="@string/holdings_search" />
 
             <EditText
@@ -37,17 +31,23 @@
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:hint="@string/search_hint" />
 
-            <Spinner
-                android:id="@+id/start_search_type"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/start_search_EditText" />
+            <LinearLayout
+                android:id="@+id/search_type_layout"
+                style="@style/TypeLayout"
+                android:layout_below="@+id/start_search_EditText">
+
+                <TextView style="@style/SelectType" />
+
+                <Spinner
+                    android:id="@+id/start_search_type"
+                    style="@style/TypeSpinner" />
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/LinearButtons"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/start_search_type"
+                android:layout_below="@+id/search_type_layout"
                 android:layout_marginBottom="@dimen/activity_vertical_margin"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:orientation="horizontal"
