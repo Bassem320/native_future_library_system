@@ -132,4 +132,15 @@
     </string-array>
     <string name="search_tips">Search Tips</string>
     <string name="search_tips_details">\t&#8226; If search word is incomplete put * (Infrastr*)\n\t&#8226; Search for two words put &amp; (Infrastructure &amp; Networking)\n\t&#8226; Search for two related words put ~ (Infrastructure ~ Networking)</string>
+
+    <!-- InternetSearch fragment -->
+    <string-array name="search_in_list">
+        <item>ISBN</item>
+        <item>Title</item>
+        <item>Author</item>
+        <item>Subject</item>
+        <item>Keyword</item>
+        <item>ISSN</item>
+    </string-array>
+
 </resources>

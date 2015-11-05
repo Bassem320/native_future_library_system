@@ -118,4 +118,12 @@
     <string name="subject9">الجغرافيا والرحلات والتراجم والتاريخ</string>
     <string name="error_fetching_site_news">حدث خطأ اثناء تحميل أخبار الموقع!</string>
     <string name="no_internet">لا يوجد اتصال بالانترنت!</string>
+    <string-array name="search_in_list">
+        <item>ISBN</item>
+        <item>العنوان</item>
+        <item>المؤلف</item>
+        <item>الموضوع</item>
+        <item>الكلمة الدالة</item>
+        <item>ISSN</item>
+    </string-array>
 </resources>

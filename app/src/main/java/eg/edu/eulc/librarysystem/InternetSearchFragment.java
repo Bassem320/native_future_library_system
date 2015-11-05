@@ -44,13 +44,14 @@ public class InternetSearchFragment extends Fragment {
         searchLayout = (LinearLayout) rootView.findViewById(R.id.searchLayout);
         resultsLayout = (LinearLayout) rootView.findViewById(R.id.resultsLayout);
 
-        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(getContext(), R.array.keywords, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(getContext(), R.array.search_in_list, android.R.layout.simple_spinner_item);
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(getContext(), R.array.concs, android.R.layout.simple_spinner_item);
 
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         keywordsSpinner1.setAdapter(adapter1);
+        keywordsSpinner1.setSelection(1);
         keywordsSpinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -63,6 +64,7 @@ public class InternetSearchFragment extends Fragment {
         });
 
         keywordsSpinner2.setAdapter(adapter1);
+        keywordsSpinner2.setSelection(1);
         keywordsSpinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -75,6 +77,7 @@ public class InternetSearchFragment extends Fragment {
         });
 
         keywordsSpinner3.setAdapter(adapter1);
+        keywordsSpinner3.setSelection(1);
         keywordsSpinner3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
