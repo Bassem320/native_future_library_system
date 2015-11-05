@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity
         } else {
             StartFragment startFragment = (StartFragment) getSupportFragmentManager().findFragmentByTag("FragmentStart");
             HoldingsFragment holdingsFragment = (HoldingsFragment) getSupportFragmentManager().findFragmentByTag("FragmentHoldings");
+            InternetSearchFragment internetSearchFragment = (InternetSearchFragment) getSupportFragmentManager().findFragmentByTag("FragmentInternetSearch");
             ThesesFragment thesesFragment = (ThesesFragment) getSupportFragmentManager().findFragmentByTag("FragmentTheses");
             if (navigationView.getMenu().getItem(0).isChecked()) {
                 if (startFragment.getLayoutVisibility()) {
@@ -75,6 +76,8 @@ public class MainActivity extends AppCompatActivity
                 }
             } else if (navigationView.getMenu().getItem(1).isChecked() && holdingsFragment.getLayoutVisibility()) {
                 holdingsFragment.showSearch();
+            } else if (navigationView.getMenu().getItem(2).isChecked() && internetSearchFragment.getLayoutVisibility()) {
+                internetSearchFragment.showSearch();
             } else if (navigationView.getMenu().getItem(4).isChecked() && thesesFragment.getLayoutVisibility()) {
                 thesesFragment.showSearch();
             } else {
