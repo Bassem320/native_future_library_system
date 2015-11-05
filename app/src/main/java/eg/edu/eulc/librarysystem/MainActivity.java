@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity
         } else {
             StartFragment startFragment = (StartFragment)getSupportFragmentManager().findFragmentByTag("FragmentStart");
             HoldingsFragment holdingsFragment = (HoldingsFragment)getSupportFragmentManager().findFragmentByTag("FragmentHoldings");
+            ThesesFragment thesesFragment = (ThesesFragment)getSupportFragmentManager().findFragmentByTag("FragmentTheses");
             if (navigationView.getMenu().getItem(0).isChecked()) {
                 if (startFragment.getLayoutVisibility()) {
                     startFragment.showSearch();
@@ -74,6 +75,8 @@ public class MainActivity extends AppCompatActivity
                 }
             } else if (navigationView.getMenu().getItem(1).isChecked() && holdingsFragment.getLayoutVisibility()) {
                 holdingsFragment.showSearch();
+            } else if (navigationView.getMenu().getItem(4).isChecked() && thesesFragment.getLayoutVisibility()) {
+                thesesFragment.showSearch();
             } else {
                 getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new StartFragment(), "FragmentStart").commit();
                 setSelectedItem(0);
