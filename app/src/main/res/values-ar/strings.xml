@@ -106,14 +106,16 @@
     <string name="pub_year_hint">مثال: 1987 أو 1970&#8211;1980</string>
     <string name="search_tips">تنويهات البحث</string>
     <string name="search_tips_details">\t&#8226; إذا كانت الكلمة ناقصة نضع * (Infrastr*)\n\t&#8226; للبحث عن كلمتين معاً نضع &amp; (Infrastructure &amp; Networking)\n\t&#8226; للبحث عن كلمتين قريبتين نضع ~ (Infrastructure ~ Networking)</string>
-    <string name="subject0" translatable="false">المعارف العامة</string>
-    <string name="subject1" translatable="false">الفلسفة و علم النفس</string>
-    <string name="subject2" translatable="false">الديانات</string>
-    <string name="subject3" translatable="false">العلوم الاجتماعية</string>
-    <string name="subject4" translatable="false">اللغات</string>
-    <string name="subject5" translatable="false">الرياضيات و العلوم الطبيعية</string>
-    <string name="subject6" translatable="false">العلوم التطبيقية - التكنولوجيا</string>
-    <string name="subject7" translatable="false">الفنون الجميلة و الزخرفية</string>
-    <string name="subject8" translatable="false">الآداب و البلاغة</string>
-    <string name="subject9" translatable="false">الجغرافيا والرحلات والتراجم والتاريخ</string>
+    <string name="subject0">المعارف العامة</string>
+    <string name="subject1">الفلسفة و علم النفس</string>
+    <string name="subject2">الديانات</string>
+    <string name="subject3">العلوم الاجتماعية</string>
+    <string name="subject4">اللغات</string>
+    <string name="subject5">الرياضيات و العلوم الطبيعية</string>
+    <string name="subject6">العلوم التطبيقية - التكنولوجيا</string>
+    <string name="subject7">الفنون الجميلة و الزخرفية</string>
+    <string name="subject8">الآداب و البلاغة</string>
+    <string name="subject9">الجغرافيا والرحلات والتراجم والتاريخ</string>
+    <string name="error_fetching_site_news">حدث خطأ اثناء تحميل أخبار الموقع!</string>
+    <string name="no_internet">لا يوجد اتصال بالانترنت!</string>
 </resources>
