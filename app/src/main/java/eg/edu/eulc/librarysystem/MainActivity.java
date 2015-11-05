@@ -64,9 +64,9 @@ public class MainActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            StartFragment startFragment = (StartFragment)getSupportFragmentManager().findFragmentByTag("FragmentStart");
-            HoldingsFragment holdingsFragment = (HoldingsFragment)getSupportFragmentManager().findFragmentByTag("FragmentHoldings");
-            ThesesFragment thesesFragment = (ThesesFragment)getSupportFragmentManager().findFragmentByTag("FragmentTheses");
+            StartFragment startFragment = (StartFragment) getSupportFragmentManager().findFragmentByTag("FragmentStart");
+            HoldingsFragment holdingsFragment = (HoldingsFragment) getSupportFragmentManager().findFragmentByTag("FragmentHoldings");
+            ThesesFragment thesesFragment = (ThesesFragment) getSupportFragmentManager().findFragmentByTag("FragmentTheses");
             if (navigationView.getMenu().getItem(0).isChecked()) {
                 if (startFragment.getLayoutVisibility()) {
                     startFragment.showSearch();

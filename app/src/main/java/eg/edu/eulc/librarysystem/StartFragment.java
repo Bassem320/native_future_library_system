@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.android.volley.NoConnectionError;
 import com.android.volley.Request;
@@ -228,9 +229,9 @@ public class StartFragment extends Fragment {
             public void onErrorResponse(VolleyError error) {
                 loadingItems.setVisibility(View.GONE);
                 if (error instanceof TimeoutError || error instanceof NoConnectionError) {
-                    Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), R.string.no_internet, Snackbar.LENGTH_LONG);
+                    Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.no_internet), Snackbar.LENGTH_LONG).show();
                 } else {
-                    Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), R.string.error_fetching_site_news, Snackbar.LENGTH_LONG);
+                    Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.error_fetching_site_news), Snackbar.LENGTH_LONG).show();
                 }
                 String strJson = sharedPreferences.getString("siteNewsList", "");
                 if (!strJson.equals("")) {
