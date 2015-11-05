@@ -23,7 +23,7 @@
             <LinearLayout style="@style/KeywordLayout">
 
                 <Spinner
-                    android:id="@+id/keyword1"
+                    android:id="@+id/searchin1"
                     style="@style/KeywordSpinner"
                     android:layout_weight="1" />
 
@@ -41,7 +41,7 @@
             <LinearLayout style="@style/KeywordLayout">
 
                 <Spinner
-                    android:id="@+id/keyword2"
+                    android:id="@+id/searchin2"
                     style="@style/KeywordSpinner"
                     android:layout_weight="1" />
 
@@ -57,7 +57,7 @@
                 android:hint="@string/search_hint" />
 
             <Spinner
-                android:id="@+id/keyword3"
+                android:id="@+id/searchin3"
                 style="@style/KeywordSpinner" />
 
             <Button

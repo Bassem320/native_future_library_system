@@ -18,8 +18,8 @@ import android.widget.Spinner;
  * Created by Eslam El-Meniawy on 01-Nov-15.
  */
 public class InternetSearchFragment extends Fragment {
-    private Spinner keywordsSpinner1, keywordsSpinner2, keywordsSpinner3, concSpinner1, concSpinner2;
-    private int keywords1 = 0, keywords2 = 0, keywords3 = 0, conc1 = 0, conc2 = 0;
+    private Spinner searchinSpinner1, searchinSpinner2, searchinSpinner3, concSpinner1, concSpinner2;
+    private int searchin1 = 0, searchin2 = 0, searchin3 = 0, conc1 = 0, conc2 = 0;
     private LinearLayout searchLayout, resultsLayout;
     private EditText searchTextET1, searchTextET2, searchTextET3;
     private Button searchButton;
@@ -32,9 +32,9 @@ public class InternetSearchFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_internet_search, container, false);
 
-        keywordsSpinner1 = (Spinner) rootView.findViewById(R.id.keyword1);
-        keywordsSpinner2 = (Spinner) rootView.findViewById(R.id.keyword2);
-        keywordsSpinner3 = (Spinner) rootView.findViewById(R.id.keyword3);
+        searchinSpinner1 = (Spinner) rootView.findViewById(R.id.searchin1);
+        searchinSpinner2 = (Spinner) rootView.findViewById(R.id.searchin2);
+        searchinSpinner3 = (Spinner) rootView.findViewById(R.id.searchin3);
         concSpinner1 = (Spinner) rootView.findViewById(R.id.conc1);
         concSpinner2 = (Spinner) rootView.findViewById(R.id.conc2);
         searchTextET1 = (EditText) rootView.findViewById(R.id.SearchText1);
@@ -50,12 +50,12 @@ public class InternetSearchFragment extends Fragment {
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        keywordsSpinner1.setAdapter(adapter1);
-        keywordsSpinner1.setSelection(1);
-        keywordsSpinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        searchinSpinner1.setAdapter(adapter1);
+        searchinSpinner1.setSelection(1);
+        searchinSpinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                keywords1 = position;
+                searchin1 = position;
             }
 
             @Override
@@ -63,12 +63,12 @@ public class InternetSearchFragment extends Fragment {
             }
         });
 
-        keywordsSpinner2.setAdapter(adapter1);
-        keywordsSpinner2.setSelection(1);
-        keywordsSpinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        searchinSpinner2.setAdapter(adapter1);
+        searchinSpinner2.setSelection(1);
+        searchinSpinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                keywords2 = position;
+                searchin2 = position;
             }
 
             @Override
@@ -76,12 +76,12 @@ public class InternetSearchFragment extends Fragment {
             }
         });
 
-        keywordsSpinner3.setAdapter(adapter1);
-        keywordsSpinner3.setSelection(1);
-        keywordsSpinner3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        searchinSpinner3.setAdapter(adapter1);
+        searchinSpinner3.setSelection(1);
+        searchinSpinner3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                keywords3 = position;
+                searchin3 = position;
             }
 
             @Override
