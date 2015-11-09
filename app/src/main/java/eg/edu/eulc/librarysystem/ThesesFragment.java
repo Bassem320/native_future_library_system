@@ -31,6 +31,7 @@ public class ThesesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_theses, container, false);
+
         itemTypeSpinner = (Spinner) rootView.findViewById(R.id.theses_search_type);
         keywordsSpinner1 = (Spinner) rootView.findViewById(R.id.keyword1);
         keywordsSpinner2 = (Spinner) rootView.findViewById(R.id.keyword2);
@@ -48,16 +49,19 @@ public class ThesesFragment extends Fragment {
         searchButton = (Button) rootView.findViewById(R.id.searchButton);
         searchLayout = (LinearLayout) rootView.findViewById(R.id.searchLayout);
         resultsLayout = (LinearLayout) rootView.findViewById(R.id.resultsLayout);
+
         ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(getContext(), R.array.holdings_item_types, android.R.layout.simple_spinner_item);
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(getContext(), R.array.keywords, android.R.layout.simple_spinner_item);
         ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(getContext(), R.array.concs, android.R.layout.simple_spinner_item);
         ArrayAdapter<CharSequence> adapter4 = ArrayAdapter.createFromResource(getContext(), R.array.word_processing_list, android.R.layout.simple_spinner_item);
         ArrayAdapter<CharSequence> adapter5 = ArrayAdapter.createFromResource(getContext(), R.array.order_by_list, android.R.layout.simple_spinner_item);
+
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         adapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         adapter5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
         itemTypeSpinner.setAdapter(adapter1);
         itemTypeSpinner.setSelection(24);
         itemTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -70,6 +74,7 @@ public class ThesesFragment extends Fragment {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+
         keywordsSpinner1.setAdapter(adapter2);
         keywordsSpinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -81,6 +86,7 @@ public class ThesesFragment extends Fragment {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+
         keywordsSpinner2.setAdapter(adapter2);
         keywordsSpinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -92,6 +98,7 @@ public class ThesesFragment extends Fragment {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+
         keywordsSpinner3.setAdapter(adapter2);
         keywordsSpinner3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -103,6 +110,7 @@ public class ThesesFragment extends Fragment {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+
         concSpinner1.setAdapter(adapter3);
         concSpinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -114,6 +122,7 @@ public class ThesesFragment extends Fragment {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+
         concSpinner2.setAdapter(adapter3);
         concSpinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -125,6 +134,7 @@ public class ThesesFragment extends Fragment {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+
         wordProcessingSpinner.setAdapter(adapter4);
         wordProcessingSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -136,6 +146,7 @@ public class ThesesFragment extends Fragment {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+
         orderBySpinner.setAdapter(adapter5);
         orderBySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -147,6 +158,7 @@ public class ThesesFragment extends Fragment {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -159,6 +171,7 @@ public class ThesesFragment extends Fragment {
                 }
             }
         });
+
         return rootView;
     }
 

@@ -745,4 +745,13 @@
         <item>PHD</item>
     </string-array>
 
+    <!-- Paper fragment -->
+    <string name="paper_title">Paper Title</string>
+    <string name="authors">Authors</string>
+    <string name="keywords">Keywords</string>
+    <string name="paper_abstract">Abstract</string>
+    <string name="author_national_id">Author National ID</string>
+    <string name="author_id">Author ID</string>
+    <string name="has_attachments">Has Attachments</string>
+
 </resources>

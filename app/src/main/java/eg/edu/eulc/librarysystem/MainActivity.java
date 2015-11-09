@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity
             InternetSearchFragment internetSearchFragment = (InternetSearchFragment) getSupportFragmentManager().findFragmentByTag("FragmentInternetSearch");
             ThesesFragment thesesFragment = (ThesesFragment) getSupportFragmentManager().findFragmentByTag("FragmentTheses");
             DraftThesesFragment draftThesesFragment = (DraftThesesFragment) getSupportFragmentManager().findFragmentByTag("FragmentDraftTheses");
+            PapersFragment papersFragment = (PapersFragment) getSupportFragmentManager().findFragmentByTag("FragmentPapers");
             if (navigationView.getMenu().getItem(0).isChecked()) {
                 if (startFragment.getLayoutVisibility()) {
                     startFragment.showSearch();
@@ -83,6 +84,8 @@ public class MainActivity extends AppCompatActivity
                 thesesFragment.showSearch();
             } else if (navigationView.getMenu().getItem(5).isChecked() && draftThesesFragment.getLayoutVisibility()) {
                 draftThesesFragment.showSearch();
+            } else if (navigationView.getMenu().getItem(6).isChecked() && papersFragment.getLayoutVisibility()) {
+                papersFragment.showSearch();
             } else {
                 getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new StartFragment(), "FragmentStart").commit();
                 setSelectedItem(0);

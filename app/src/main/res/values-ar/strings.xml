@@ -726,4 +726,11 @@
         <item>هندسة الغزل والنسيج</item>
         <item>هندسة القوى الميكانيكية</item>
     </string-array>
+    <string name="author_id">رقم الباحث كمستعير</string>
+    <string name="author_national_id">الرقم القومي للباحث</string>
+    <string name="authors">المؤلفين</string>
+    <string name="has_attachments">تحتوي مرفقات</string>
+    <string name="keywords">الكلمات الدالة</string>
+    <string name="paper_abstract">الملخص</string>
+    <string name="paper_title">عنوان المقال</string>
 </resources>
