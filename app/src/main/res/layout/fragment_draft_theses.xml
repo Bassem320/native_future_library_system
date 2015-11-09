@@ -1,11 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="@string/nav_draft_theses" />
-</RelativeLayout>
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/searchLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView style="@style/Logo" />
+
+            <EditText
+                android:id="@+id/SearchText1"
+                style="@style/HoldingsEditText"
+                android:hint="@string/search_hint" />
+
+            <LinearLayout style="@style/KeywordLayout">
+
+                <Spinner
+                    android:id="@+id/searchin1"
+                    style="@style/KeywordSpinner"
+                    android:layout_weight="1" />
+
+                <Spinner
+                    android:id="@+id/conc1"
+                    style="@style/KeywordSpinner"
+                    android:layout_weight="3" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/SearchText2"
+                style="@style/HoldingsEditText"
+                android:hint="@string/search_hint" />
+
+            <LinearLayout style="@style/KeywordLayout">
+
+                <Spinner
+                    android:id="@+id/searchin2"
+                    style="@style/KeywordSpinner"
+                    android:layout_weight="1" />
+
+                <Spinner
+                    android:id="@+id/conc2"
+                    style="@style/KeywordSpinner"
+                    android:layout_weight="3" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/SearchText3"
+                style="@style/HoldingsEditText"
+                android:hint="@string/search_hint" />
+
+            <Spinner
+                android:id="@+id/searchin3"
+                style="@style/KeywordSpinner" />
+
+            <LinearLayout
+                style="@style/TypeLayout"
+                android:layout_marginTop="@dimen/activity_vertical_margin">
+
+                <TextView
+                    style="@style/SelectType"
+                    android:text="@string/submit_date" />
+
+                <LinearLayout
+                    style="@style/TypeSpinner"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/date_from"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="@string/from"
+                        android:inputType="date" />
+
+                    <EditText
+                        android:id="@+id/date_to"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="@string/to"
+                        android:inputType="date" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/TypeLayout"
+                android:layout_marginTop="@dimen/activity_vertical_margin">
+
+                <TextView
+                    style="@style/SelectType"
+                    android:text="@string/speciality" />
+
+                <Spinner
+                    android:id="@+id/SpecialitySpinner"
+                    style="@style/TypeSpinner" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/TypeLayout"
+                android:layout_marginTop="@dimen/activity_vertical_margin">
+
+                <TextView
+                    style="@style/SelectType"
+                    android:text="@string/sub_speciality" />
+
+                <Spinner
+                    android:id="@+id/SubSpecialitySpinner"
+                    style="@style/TypeSpinner" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/DraftTheses_ID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/draft_theses_id"
+                android:inputType="numberDecimal" />
+
+            <LinearLayout
+                style="@style/TypeLayout"
+                android:layout_marginTop="@dimen/activity_vertical_margin">
+
+                <TextView
+                    style="@style/SelectType"
+                    android:text="@string/degree" />
+
+                <Spinner
+                    android:id="@+id/DegreeSpinner"
+                    style="@style/TypeSpinner" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/searchButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:text="@string/search" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/tips_border"
+                android:orientation="vertical"
+                android:padding="@dimen/fab_margin">
+
+                <TextView
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/search_tips"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/search_tips_details" />
+            </LinearLayout>
+
+            <TextView style="@style/Footer" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/resultsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Search Results" />
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>

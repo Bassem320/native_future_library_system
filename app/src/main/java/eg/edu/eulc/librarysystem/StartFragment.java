@@ -18,7 +18,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.android.volley.NoConnectionError;
 import com.android.volley.Request;
@@ -195,7 +194,7 @@ public class StartFragment extends Fragment {
             }
         });
 
-        sendJSONRequest();
+        requestSiteNews();
 
         return rootView;
     }
@@ -212,14 +211,14 @@ public class StartFragment extends Fragment {
         searchLayout.setVisibility(View.VISIBLE);
     }
 
-    private void sendJSONRequest() {
+    private void requestSiteNews() {
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://10.19.1.34:1234/librarySystem/siteNews.json", new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("siteNewsList", response.toString());
                 editor.apply();
-                siteNewsList = parseJSONResponse(response);
+                siteNewsList = parseSiteNews(response);
                 itemsListAdapter.setListSiteNewsItems(siteNewsList);
                 listItemsRecycler.setMinimumHeight(listItemsRecycler.getHeight());
                 loadingItems.setVisibility(View.GONE);
@@ -237,7 +236,7 @@ public class StartFragment extends Fragment {
                 if (!strJson.equals("")) {
                     try {
                         JSONObject jsonData = new JSONObject(strJson);
-                        siteNewsList = parseJSONResponse(jsonData);
+                        siteNewsList = parseSiteNews(jsonData);
                         itemsListAdapter.setListSiteNewsItems(siteNewsList);
                     } catch (JSONException e) {
                     }
@@ -247,7 +246,7 @@ public class StartFragment extends Fragment {
         requestQueue.add(request);
     }
 
-    private ArrayList<SiteNewsItem> parseJSONResponse(JSONObject response) {
+    private ArrayList<SiteNewsItem> parseSiteNews(JSONObject response) {
         ArrayList<SiteNewsItem> listItems = new ArrayList<>();
         if (response != null && response.length() > 0) {
             try {
@@ -275,7 +274,7 @@ public class StartFragment extends Fragment {
                     if (!strJson.equals("")) {
                         try {
                             JSONObject jsonData = new JSONObject(strJson);
-                            siteNewsList = parseJSONResponse(jsonData);
+                            siteNewsList = parseSiteNews(jsonData);
                             itemsListAdapter.setListSiteNewsItems(siteNewsList);
                         } catch (JSONException e) {
                         }
@@ -286,7 +285,7 @@ public class StartFragment extends Fragment {
                 if (!strJson.equals("")) {
                     try {
                         JSONObject jsonData = new JSONObject(strJson);
-                        siteNewsList = parseJSONResponse(jsonData);
+                        siteNewsList = parseSiteNews(jsonData);
                         itemsListAdapter.setListSiteNewsItems(siteNewsList);
                     } catch (JSONException ex) {
                     }

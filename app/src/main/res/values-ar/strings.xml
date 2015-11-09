@@ -126,4 +126,604 @@
         <item>الكلمة الدالة</item>
         <item>ISSN</item>
     </string-array>
+    <string-array name="draft_theses_search_in">
+        <item>في كل مكان</item>
+        <item>العنوان</item>
+        <item>الملخص</item>
+        <item>الموضوع</item>
+    </string-array>
+    <string name="from">من تاريخ</string>
+    <string name="submit_date">التسجيل</string>
+    <string name="to">إلى تاريخ</string>
+    <string name="degree">الدرجة</string>
+    <string-array name="degrees">
+        <item>-----</item>
+        <item>ماجستير</item>
+        <item>الدكتوراه</item>
+    </string-array>
+    <string name="draft_theses_id">رقم الرسالة</string>
+    <string name="speciality">تخصص عام</string>
+    <string-array name="draft_theses_specialities">
+        <item>الكل</item>
+        <item>العلوم الزراعية والبيولوجية</item>
+        <item>علوم الأرض والكواكب</item>
+        <item>الإقتصاد والمالية</item>
+        <item>الطاقة</item>
+        <item>الهندسة</item>
+        <item>علوم البيئة</item>
+        <item>المهن الصحية</item>
+        <item>علم المناعة وعلم الأحياء الدقيقة</item>
+        <item>علوم المواد</item>
+        <item>الرياضيات</item>
+        <item>الطب</item>
+        <item>الآداب والعلوم الإنسانية</item>
+        <item>تعددية التخصصات</item>
+        <item>علم الآعصاب</item>
+        <item>التمريض</item>
+        <item>الصيدلة ، علم السموم والصيدلانيات</item>
+        <item>الفيزياء وعلم الفلك</item>
+        <item>علم النفس</item>
+        <item>العلوم الاجتماعية</item>
+        <item>البيطري</item>
+        <item>التربية الرياضية</item>
+        <item>الكيمياء الحيوية ، علم الوراثة والبيولوجيا الجزيئية</item>
+        <item>الأعمال والإدارة والمحاسبة</item>
+        <item>الهندسة الكيميائية</item>
+        <item>الكيمياء</item>
+        <item>علوم الحاسب الآلي</item>
+        <item>علم اتخاذ القرار</item>
+        <item>طب الأسنان</item>
+        <item>اختبارات جامعية</item>
+    </string-array>
+    <string name="sub_speciality">تخصص فرعي</string>
+    <string-array name="draft_theses_sub_specialities_0">
+        <item>-----</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_1">
+        <item>-----</item>
+        <item>الهندسة الزراعية وعلوم المحاصيل</item>
+        <item>البساتين</item>
+        <item>الزراعية والعلوم البيولوجية (المتنوعة)</item>
+        <item>الغابات</item>
+        <item>علم البيئة ، التطور والسلوك وعلم التصنيف</item>
+        <item>علم الحيوان والطب البيطري</item>
+        <item>علوم الأحياء المائية</item>
+        <item>علوم التربة</item>
+        <item>علوم الحشرات</item>
+        <item>علوم النبات</item>
+        <item>علوم وتكنولوجيا الأغذية</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_2">
+        <item>-----</item>
+        <item>الجيوفيزياء</item>
+        <item>Stratigraphy</item>
+        <item>الجيولوجيا الاقتصادية</item>
+        <item>الجيولوجيا</item>
+        <item>الكيمياء الجيولوجية والصخور</item>
+        <item>الهندسة الجيوتقنية والجيولوجيا الهندسية</item>
+        <item>علم المتحجرات - حفريات</item>
+        <item>علم المحيطات</item>
+        <item>علوم الأرض والكواكب (متفرقات)</item>
+        <item>علوم الغلاف الجوي</item>
+        <item>علوم الفضاء وعلوم الكواكب</item>
+        <item>كمبيوتر في علوم الأرض</item>
+        <item>معالجات سطح الارض</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_3">
+        <item>-----</item>
+        <item>المالية</item>
+        <item>الإقتصاد والمالية (متفرقات)</item>
+        <item>الإقتصاد والاقتصاد القياسي</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_4">
+        <item>-----</item>
+        <item>الطاقة المتجددة والاستدامة والبيئة</item>
+        <item>الطاقة (متفرقات)</item>
+        <item>الطاقة النووية والهندسة</item>
+        <item>تكنولوجيا الوقود</item>
+        <item>هندسة الطاقة وتكنولوجيا الطاقة</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_5">
+        <item>-----</item>
+        <item>الهندسة الكهربائية والالكترونية</item>
+        <item>الهندسة المدنية والإنشائية</item>
+        <item>Computational Mechanics</item>
+        <item>البناء والتشييد</item>
+        <item>السلامة ، والمخاطر ، والموثوقية والجودة</item>
+        <item>الهندسة (متفرقات)</item>
+        <item>الهندسة الصناعية والتصنيع</item>
+        <item>الهندسة الطبية الحيوية</item>
+        <item>الهندسة المعمارية</item>
+        <item>الهندسة الميكانيكية</item>
+        <item>ميكانيكا المواد</item>
+        <item>هندسة السيارات</item>
+        <item>هندسة الطيران والفضاء</item>
+        <item>هندسة المحيطات</item>
+        <item>هندسة النظم والتحكم</item>
+        <item>وسائل الاعلام وتكنولوجيا</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_6">
+        <item>-----</item>
+        <item>Ecological Modeling</item>
+        <item>Global and Planetary Change</item>
+        <item>Nature and Landscape Conservation</item>
+        <item>إدارة النفايات والتخلص منها</item>
+        <item>الإدارة والرصد والسياسة والقانون</item>
+        <item>التلوث</item>
+        <item>الصحة وعلم السموم والطفرات</item>
+        <item>العلوم البيئية (متفرقات)</item>
+        <item>الكيمياء البيئية</item>
+        <item>الهندسة البيئية</item>
+        <item>علم البيئة</item>
+        <item>علوم المياه والتكنولوجيا</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_7">
+        <item>-----</item>
+        <item>Chiropractics</item>
+        <item>Occupational Therapy</item>
+        <item>Optometry</item>
+        <item>التكنولوجيا الطبية المخبرية</item>
+        <item>العلاج التكميلي والمختصر</item>
+        <item>العلاج الطبيعي والرياضة والعلاج وإعادة التأهيل</item>
+        <item>المهن الصحية (متفرقات)</item>
+        <item>النطق والسمع</item>
+        <item>تكنولوجيا الموجات فوق الصوتية والأشعة</item>
+        <item>خدمات الطوارىء الطبية</item>
+        <item>صيدلة</item>
+        <item>طب الأقدام</item>
+        <item>معلومات إدارة الصحة</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_8">
+        <item>-----</item>
+        <item>علم الأحياء الدقيقة التطبيقية والتكنولوجيا الحيوية</item>
+        <item>علم الأحياء الدقيقة</item>
+        <item>علم الطفيليات</item>
+        <item>علم الفيروسات</item>
+        <item>علم المناعة وعلم الأحياء الدقيقة (متفرقات)</item>
+        <item>علم المناعة</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_9">
+        <item>-----</item>
+        <item>Biomaterials</item>
+        <item>Ceramics and Composites</item>
+        <item>الإلكترونية ، والمواد البصرية والمغناطيسي</item>
+        <item>البوليمرات واللدائن</item>
+        <item>السطوح ، عوازل والأفلام</item>
+        <item>كيمياء المواد</item>
+        <item>معادن والسبائك</item>
+        <item>مواد العلوم (المتنوعة)</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_10">
+        <item>-----</item>
+        <item>Control and Optimization</item>
+        <item>Discrete Mathematics and Combinatorics</item>
+        <item>Geometry and Topology</item>
+        <item>Logic</item>
+        <item>Mathematical Physics</item>
+        <item>الإحصاء والاحتمالات</item>
+        <item>التحليل العددي</item>
+        <item>الجبر ونظرية الأعداد</item>
+        <item>الرياضيات (المتنوعة)</item>
+        <item>الرياضيات التطبيقية</item>
+        <item>الرياضيات الحاسوبية</item>
+        <item>النظرية علوم الحاسب الآلي</item>
+        <item>النمذجة والمحاكاة</item>
+        <item>تحليل</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_11">
+        <item>-----</item>
+        <item>إعادة التأهيل</item>
+        <item>الطب الرئوي والالتهاب الرئوي</item>
+        <item>جراحة العظام والطب الرياضي</item>
+        <item>Health Policy</item>
+        <item>Reviews and References (medical)</item>
+        <item>Transplantation</item>
+        <item>أدلة المخدرات</item>
+        <item>أمراض الدم</item>
+        <item>أمراض القلب والطب القلب والأوعية الدموية</item>
+        <item>أمراض الكلى</item>
+        <item>أمراض النساء والتوليد</item>
+        <item>الأشعة والطب النووي والتصوير</item>
+        <item>الأمراض الجلدية</item>
+        <item>الأمراض المعدية</item>
+        <item>التخدير وعلاج الألم</item>
+        <item>الحنجرة</item>
+        <item>الروماتيزم</item>
+        <item>الصحة العامة والصحة البيئية والمهنية</item>
+        <item>الطب (متفرقات)</item>
+        <item>الطب الباطني</item>
+        <item>الطب البديل والتكميلي</item>
+        <item>الطب التناسلي</item>
+        <item>الطب النفسي والصحة العقلية</item>
+        <item>العناية المركزة والطب العناية المركزة</item>
+        <item>الكبد</item>
+        <item>الكيمياء الحيوية (الطبية)</item>
+        <item>تشريح</item>
+        <item>جراحة المسالك البولية</item>
+        <item>جراحة</item>
+        <item>طب الأطفال ، الفترة المحيطة بالزلادة وصحة الطفل</item>
+        <item>طب الجهاز الهضمي</item>
+        <item>طب الشيخوخة وعلم الشيخوخة</item>
+        <item>طب الطوارىء</item>
+        <item>طب العيون</item>
+        <item>علم الأجنة</item>
+        <item>علم الأحياء الدقيقة (الطبية)</item>
+        <item>علم الأدوية (الطبية)</item>
+        <item>علم الأعصاب السريري</item>
+        <item>علم الأمراض والطب الشرعي</item>
+        <item>علم الأنسجة</item>
+        <item>علم الأوبئة</item>
+        <item>علم الأورام</item>
+        <item>علم الغدد الصماء والسكري والأيض</item>
+        <item>علم المناعة والحساسية</item>
+        <item>علم الوراثة (السريرية)</item>
+        <item>علم وظائف الأعضاء (الطبية)</item>
+        <item>ممارسة طب الأسرة</item>
+        <item>نظم المعلومات الصحية</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_12">
+        <item>-----</item>
+        <item>الأداب والنظرية الأدبية</item>
+        <item>Conservation</item>
+        <item>الأداب والعلوم الإنسانية (متفرقات)</item>
+        <item>التاريخ</item>
+        <item>الدراسات الدينية</item>
+        <item>الفنون البصرية والفنون المسرحية</item>
+        <item>الكلاسيكسة</item>
+        <item>اللغة واللسانيات</item>
+        <item>تاريخ وفلسفة العلوم</item>
+        <item>علم الآثار (الآداب والعلوم الإنسانية)</item>
+        <item>علم المتاحف</item>
+        <item>فلسفة</item>
+        <item>موسيقى</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_13">
+        <item>-----</item>
+        <item>Multidisciplinary</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_14">
+        <item>-----</item>
+        <item>علم الأعصاب السلوكي</item>
+        <item>الأنظمة الحسية</item>
+        <item>الطب النفسي البيولوجي</item>
+        <item>العلوم العصبية الخلوية والجزيئية</item>
+        <item>الغدد الصماء والاستقلال الذاتي</item>
+        <item>علم الأعصاب (متفرقات)</item>
+        <item>علم الأعصاب الإدراكي</item>
+        <item>علم الأعصاب التنموي</item>
+        <item>علم الأعصاب</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_15">
+        <item>-----</item>
+        <item>التغذية وعلم التغذية</item>
+        <item>التمريض الطبية والجراحية</item>
+        <item>LPN and LVN</item>
+        <item>أساسيات ومهارات</item>
+        <item>الأبحاث والنظريات</item>
+        <item>الأمومة والقبالة</item>
+        <item>الأورام (تمريض)</item>
+        <item>التقييم والتشخيص</item>
+        <item>التمريض (متفرقات)</item>
+        <item>التمريض المتقدمة والمتخصصة</item>
+        <item>الصحة العقلية النفسية</item>
+        <item>الصيدلة (تمريض)</item>
+        <item>القيادة والإدارة</item>
+        <item>المجتمع والرعاية المنزلية</item>
+        <item>تخطيط الرعاية</item>
+        <item>تمريض الطوارىء</item>
+        <item>تمريض العناية الحرجة</item>
+        <item>طب الأطفال</item>
+        <item>علم الشيخوخة</item>
+        <item>قضايا والأخلاق والجوانب القانونية</item>
+        <item>مراجعة وإعداد الامتحانات</item>
+        <item>ممرضة مساعدة</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_16">
+        <item>-----</item>
+        <item>اكتشاف المخدرات</item>
+        <item>الصيدلة ، علم السموم والصيدلانيات (المتنوعة)</item>
+        <item>الصيدلة</item>
+        <item>العلوم الصيدلية</item>
+        <item>علم السموم</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_17">
+        <item>-----</item>
+        <item>الفيزياء الأحصائية وغير الخطية</item>
+        <item>الفيزياء والفلك (المتنوعة)</item>
+        <item>Surfaces and Interfaces</item>
+        <item>الأجهزة</item>
+        <item>الإشعاع</item>
+        <item>الصوتيات والموجات فوق الصوتية</item>
+        <item>الفيزياء الذرية والجزيئية ، وعلم البصريات</item>
+        <item>الفيزياء النووية والطاقة العالية</item>
+        <item>علم الفلك والفيزياء الفلكية</item>
+        <item>فيزياء المادة المكثفة</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_18">
+        <item>-----</item>
+        <item>علم النفس (متفرقات)</item>
+        <item>علم النفس الاجتماعي</item>
+        <item>علم النفس التجريبي والمعرفي</item>
+        <item>علم النفس التطبيقي</item>
+        <item>علم النفس التنموي والتربوي</item>
+        <item>علم النفس العصبي وعلم النفس الفسيولوجي</item>
+        <item>علم النفس العيادي</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_19">
+        <item>-----</item>
+        <item>Life-span and Life-course Studies</item>
+        <item>Safety Research</item>
+        <item>اعلام تربوي</item>
+        <item>اقتصاد منزلي</item>
+        <item>الإدارة العامة</item>
+        <item>الأنثروبولوجيا - علم الإنسان</item>
+        <item>الاتصالات</item>
+        <item>التعليم</item>
+        <item>التنمية</item>
+        <item>الجغرافيا والتخطيط والتنمية</item>
+        <item>الدراسات الثقافية</item>
+        <item>الدراسات الحضرية</item>
+        <item>الديموغرافيا</item>
+        <item>الصحة (العلوم الاجتماعية)</item>
+        <item>العلوم الاجتماعية (متفرقات)</item>
+        <item>العلوم السياسية والعلاقات الدولية</item>
+        <item>العوامل البشرية وبيئة العمل</item>
+        <item>اللسانيات واللغة</item>
+        <item>النقل</item>
+        <item>تربية فنية</item>
+        <item>تربية موسيقية</item>
+        <item>دراسات الجنس</item>
+        <item>علم الآثار</item>
+        <item>علم الاجتماع والعلوم السياسية</item>
+        <item>علوم المكتبات والمعلومات</item>
+        <item>قانون</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_20">
+        <item>-----</item>
+        <item>Food Animals</item>
+        <item>Small Animals</item>
+        <item>Veterinary (miscellaneous)</item>
+        <item>الخيول</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_21">
+        <item>-----</item>
+        <item>الإدارة الرياضية</item>
+        <item>التدريب الرياضي</item>
+        <item>الترويح الرياضي</item>
+        <item>علم النفس الرياضي</item>
+        <item>علوم الحركة الرياضية</item>
+        <item>علوم الصحة الرياضية</item>
+        <item>مناهج وطرق تدريس</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_22">
+        <item>-----</item>
+        <item>Aging</item>
+        <item>Biochemistry, Genetics and Molecular Biology (miscellaneous)</item>
+        <item>Biochemistry</item>
+        <item>Biophysics</item>
+        <item>Biotechnology</item>
+        <item>Cancer Research</item>
+        <item>Cell Biology</item>
+        <item>Clinical Biochemistry</item>
+        <item>Development Biology</item>
+        <item>Endocrinology</item>
+        <item>Genetics</item>
+        <item>Molecular Biology</item>
+        <item>Molecular Medicine</item>
+        <item>Physiology</item>
+        <item>Structural Biology</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_23">
+        <item>-----</item>
+        <item>إدارة التكنولوجيا والابتكار</item>
+        <item>الإدارة والأعمال الدولية</item>
+        <item>الأعمال والإدارة والمحاسبة (المتنوعة)</item>
+        <item>الاستراتيجية والتنظيم</item>
+        <item>التسويق</item>
+        <item>السلوك التنظيمي وإدارة الموارد البشرية</item>
+        <item>السياحة والترفيه وإدارة الضيافة</item>
+        <item>العلاقات الصناعية</item>
+        <item>المحاسبة</item>
+        <item>نظم المعلومات الإدارية</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_24">
+        <item>-----</item>
+        <item>Catalysis</item>
+        <item>Colloid and Surface Chemistry</item>
+        <item>Filtration and Separation</item>
+        <item>Fluid Flow and Transfer Processes</item>
+        <item>Process Chemistry and Technology</item>
+        <item>الصحة والسلامة الكيميائية</item>
+        <item>الهندسة الحيوية</item>
+        <item>الهندسة الكيميائية (متفرقات)</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_25">
+        <item>-----</item>
+        <item>Analytical Chemistry</item>
+        <item>Chemistry (miscellaneous)</item>
+        <item>Electrochemistry</item>
+        <item>Inorganic Chemistry</item>
+        <item>Organic Chemistry</item>
+        <item>Physical and Theoretical Chemistry</item>
+        <item>Spectroscopy</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_26">
+        <item>-----</item>
+        <item>Artificial Intelligence</item>
+        <item>Computational Theory and Mathematics</item>
+        <item>Computer Graphics and Computer-Aided Design</item>
+        <item>Computer Networks and Communications</item>
+        <item>Computer Science (miscellaneous)</item>
+        <item>Computer Science Applications</item>
+        <item>Computer Vision and Pattern Recognition</item>
+        <item>Hardware and Architecture</item>
+        <item>Human-Computer Interaction</item>
+        <item>Information Systems</item>
+        <item>Signal Processing</item>
+        <item>Software</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_27">
+        <item>-----</item>
+        <item>Decision Sciences (miscellaneous)</item>
+        <item>Information Systems and Management</item>
+        <item>Management Science and Operations Research</item>
+        <item>Statistics, Probability and Uncertainty</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_28">
+        <item>-----</item>
+        <item>Dental Assisting</item>
+        <item>Dental Hygiene</item>
+        <item>Dentistry (miscellaneous)</item>
+        <item>Oral Surgery</item>
+        <item>Orthodontics</item>
+        <item>Periodontics</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_29">
+        <item>-----</item>
+        <item>ANATOMY</item>
+        <item>ANETHESIA</item>
+        <item>BIOCHEMISTRY</item>
+        <item>CARDIOLOGY</item>
+        <item>CHEST</item>
+        <item>CLINICAL PATHOLOGY</item>
+        <item>DERMATOLOGY</item>
+        <item>E N T</item>
+        <item>FORENSIC MEDICINE &amp; TOXICOLOGY</item>
+        <item>GENERAL MEDICINE</item>
+        <item>HISTOLOGY</item>
+        <item>MICROBIOLOGY</item>
+        <item>NEUROPSYCHIATRY</item>
+        <item>NUCLEAR MEDICINE</item>
+        <item>OBS.&amp;GYN.</item>
+        <item>OPTHALMOLOGY</item>
+        <item>ORTHOPEDICS</item>
+        <item>PARASITOLOGY</item>
+        <item>PATHOLOGY</item>
+        <item>PEDIATRICS</item>
+        <item>PHARMACOLOGY</item>
+        <item>PHYSIOLOGY</item>
+        <item>PUBLIC HEALTH</item>
+        <item>RADIODIAGNOSIS</item>
+        <item>RHEUATOLOGY</item>
+        <item>SURGERY</item>
+        <item>TROPICAL MEDICINE</item>
+        <item>UROLOGY</item>
+        <item>إعدادي هندسة</item>
+        <item>أولى</item>
+        <item>أولى</item>
+        <item>أولى</item>
+        <item>أولى</item>
+        <item>أولى</item>
+        <item>أولى</item>
+        <item>أولى</item>
+        <item>أولى</item>
+        <item>أولى</item>
+        <item>أولى</item>
+        <item>أولى</item>
+        <item>اختبارات جامعة اسيوط</item>
+        <item>اختبارات جامعة الاسكندرية</item>
+        <item>اختبارات جامعة الزقازيق</item>
+        <item>اختبارات جامعة القاهرة</item>
+        <item>اختبارات جامعة المنصورة</item>
+        <item>اختبارات جامعة المنوفية</item>
+        <item>اختبارات جامعة المنيا</item>
+        <item>اختبارات جامعة بنها</item>
+        <item>اختبارات جامعة بني سويف</item>
+        <item>اختبارات جامعة بورسعيد</item>
+        <item>اختبارات جامعة جنوب الوادي</item>
+        <item>اختبارات جامعة حلوان</item>
+        <item>اختبارات جامعة دمنهور</item>
+        <item>اختبارات جامعة سوهاج</item>
+        <item>اختبارات جامعة طنطا</item>
+        <item>اختبارات جامعة عين شمس</item>
+        <item>اختبارات جامعة قناة السويس</item>
+        <item>اختبارات جامعة كفر الشيخ</item>
+        <item>الرياضيات والفيزياء الهندسية</item>
+        <item>الهندسة الإنشائية</item>
+        <item>الهندسة الكهربية</item>
+        <item>تمهيدي ماجستير</item>
+        <item>تمهيدي ماجستير</item>
+        <item>تمهيدي ماجستير</item>
+        <item>تمهيدي ماجستير</item>
+        <item>تمهيدي ماجستير</item>
+        <item>تمهيدي ماجستير</item>
+        <item>تمهيدي ماجستير</item>
+        <item>تمهيدي ماجستير</item>
+        <item>تمهيدي ماجستير</item>
+        <item>تمهيدي ماجستير</item>
+        <item>تمهيدي ماجستير</item>
+        <item>ثالثة</item>
+        <item>ثالثة</item>
+        <item>ثالثة</item>
+        <item>ثالثة</item>
+        <item>ثالثة</item>
+        <item>ثالثة</item>
+        <item>ثالثة</item>
+        <item>ثالثة</item>
+        <item>ثالثة</item>
+        <item>ثالثة</item>
+        <item>ثالثة</item>
+        <item>ثانية</item>
+        <item>ثانية</item>
+        <item>ثانية</item>
+        <item>ثانية</item>
+        <item>ثانية</item>
+        <item>ثانية</item>
+        <item>ثانية</item>
+        <item>ثانية</item>
+        <item>ثانية</item>
+        <item>ثانية</item>
+        <item>ثانية</item>
+        <item>دكتوراه</item>
+        <item>دكتوراه</item>
+        <item>دكتوراه</item>
+        <item>دكتوراه</item>
+        <item>دكتوراه</item>
+        <item>دكتوراه</item>
+        <item>دكتوراه</item>
+        <item>دكتوراه</item>
+        <item>دكتوراه</item>
+        <item>دكتوراه</item>
+        <item>دكتوراه</item>
+        <item>رابعة</item>
+        <item>رابعة</item>
+        <item>رابعة</item>
+        <item>رابعة</item>
+        <item>رابعة</item>
+        <item>رابعة</item>
+        <item>رابعة</item>
+        <item>رابعة</item>
+        <item>رابعة</item>
+        <item>رابعة</item>
+        <item>رابعة</item>
+        <item>كلية الآداب</item>
+        <item>كلية التجاره</item>
+        <item>كلية التربية</item>
+        <item>كلية التمريض</item>
+        <item>كلية الحقوق</item>
+        <item>كلية الصيدلة</item>
+        <item>كلية الطب</item>
+        <item>كلية العلوم</item>
+        <item>كلية الهندسة</item>
+        <item>كلية طب الاسنان</item>
+        <item>ماجستير</item>
+        <item>ماجستير</item>
+        <item>ماجستير</item>
+        <item>ماجستير</item>
+        <item>ماجستير</item>
+        <item>ماجستير</item>
+        <item>ماجستير</item>
+        <item>ماجستير</item>
+        <item>ماجستير</item>
+        <item>ماجستير</item>
+        <item>ماجستير</item>
+        <item>هندسة الأشغال العامة</item>
+        <item>هندسة الإلكترونيات والاتصالات</item>
+        <item>هندسة الإنتاج والتصميم</item>
+        <item>هندسة الحاسبات والنظم</item>
+        <item>هندسةالري والهيدروليكا</item>
+        <item>هندسة العمارة</item>
+        <item>هندسة الغزل والنسيج</item>
+        <item>هندسة القوى الميكانيكية</item>
+    </string-array>
 </resources>

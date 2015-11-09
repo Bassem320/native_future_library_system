@@ -143,4 +143,606 @@
         <item>ISSN</item>
     </string-array>
 
+    <!-- DraftTheses fragment -->
+    <string-array name="draft_theses_search_in">
+        <item>Everywhere</item>
+        <item>Title</item>
+        <item>Abstract</item>
+        <item>Subject</item>
+    </string-array>
+    <string name="submit_date">Submit Date</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="speciality">Speciality</string>
+    <string-array name="draft_theses_specialities">
+        <item>All</item>
+        <item>Agricultural and Biological Sciences</item>
+        <item>Earth and Planetary Sciences</item>
+        <item>Economics, Econometrics and Finance</item>
+        <item>Energy</item>
+        <item>Engineering</item>
+        <item>Environmental Science</item>
+        <item>Health Professions</item>
+        <item>Immunology and Microbiology</item>
+        <item>Materials Science</item>
+        <item>Mathematics</item>
+        <item>Medicine</item>
+        <item>Arts and Humanities</item>
+        <item>Multidisciplinary</item>
+        <item>Neuroscience</item>
+        <item>Nursing</item>
+        <item>Pharmacology, Toxicology and Pharmaceutics</item>
+        <item>Physics and Astronomy</item>
+        <item>Psychology</item>
+        <item>Social Sciences</item>
+        <item>Veterinary</item>
+        <item>Sports</item>
+        <item>Biochemistry, Genetics and Molecular Biology</item>
+        <item>Business, Managements and Accounting</item>
+        <item>Chemical Engineering</item>
+        <item>Chemistry</item>
+        <item>Computer Science</item>
+        <item>Decision Sciences</item>
+        <item>Dentistry</item>
+        <item>University exams</item>
+    </string-array>
+    <string name="sub_speciality">Sub Speciality</string>
+    <string-array name="draft_theses_sub_specialities_0">
+        <item>-----</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_1">
+        <item>-----</item>
+        <item>Agronomy and Crop Science</item>
+        <item>Horticulture</item>
+        <item>Agricultural and Biological Sciences (miscellaneous)</item>
+        <item>Forestry</item>
+        <item>Ecology, Evolution, Behavior and Systematics</item>
+        <item>Animal Science and Zoology</item>
+        <item>Aquatic Science</item>
+        <item>Soil Science</item>
+        <item>Insect Science</item>
+        <item>Plant Science</item>
+        <item>Food Science</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_2">
+        <item>-----</item>
+        <item>Geophysics</item>
+        <item>Stratigraphy</item>
+        <item>Economic Geology</item>
+        <item>Geology</item>
+        <item>Geochemistry and Petrology</item>
+        <item>Geotechnical Engineering and Engineering Geology</item>
+        <item>Paleontology</item>
+        <item>Oceanography</item>
+        <item>Earth and Planetary Science (miscellaneous)</item>
+        <item>Atmospheric Science</item>
+        <item>Space and Planetary Science</item>
+        <item>Computers in Earth Sciences</item>
+        <item>Earth-Surface Processes</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_3">
+        <item>-----</item>
+        <item>Finance</item>
+        <item>Economics, Econometrics and Finance (miscellaneous)</item>
+        <item>Economics, Econometrics</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_4">
+        <item>-----</item>
+        <item>Renewable Energy, Sustainability and the Environment</item>
+        <item>Energy (miscellaneous)</item>
+        <item>Nuclear Energy and Engineering</item>
+        <item>Fuel Technology</item>
+        <item>Energy Enginnering and Power Technology</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_5">
+        <item>-----</item>
+        <item>Electrical and Electronic Engineering</item>
+        <item>Civil and Structural Engineering</item>
+        <item>Computational Mechanics</item>
+        <item>Building and Constructions</item>
+        <item>Safety, Risk, Reliability and Quality</item>
+        <item>Engineering (miscellaneous)</item>
+        <item>Industrial and Manufacturing Engineering</item>
+        <item>Biomedical Engineering</item>
+        <item>Architecture</item>
+        <item>Mechanical Engineering</item>
+        <item>Mechanics of Materials</item>
+        <item>Automotive Engineering</item>
+        <item>Aerospace Engineering</item>
+        <item>Ocean Engineering</item>
+        <item>Control and Systems Engineering</item>
+        <item>Media Technology</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_6">
+        <item>-----</item>
+        <item>Ecological Modeling</item>
+        <item>Global and Planetary Change</item>
+        <item>Nature and Landscape Conservation</item>
+        <item>Waste Management and Disposal</item>
+        <item>Management, Monitoring, Policy and Law</item>
+        <item>Pollution</item>
+        <item>Health, Toxicology and Mutagenesis</item>
+        <item>Environmental Science (miscellaneous)</item>
+        <item>Environmental Chemistry</item>
+        <item>Environmental Engineering</item>
+        <item>Ecology</item>
+        <item>Water Science and Technology</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_7">
+        <item>-----</item>
+        <item>Chiropractics</item>
+        <item>Occupational Therapy</item>
+        <item>Optometry</item>
+        <item>Medical Laboratory Technology</item>
+        <item>Complementary and Manual Therapy</item>
+        <item>Physical Therapy, Sports Therapy and Rehabilitation</item>
+        <item>Health Professions (miscellaneous)</item>
+        <item>Speech and Hearing</item>
+        <item>Radiological and Ultrasound Technology</item>
+        <item>Emergency Medical Services</item>
+        <item>Pharmacy</item>
+        <item>Podiatry</item>
+        <item>Health Information Management</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_8">
+        <item>-----</item>
+        <item>Applied Microbiology and Biotechnology</item>
+        <item>Microbiology</item>
+        <item>Parasitology</item>
+        <item>Virology</item>
+        <item>Immunology and Microbiology (miscellaneous)</item>
+        <item>Immunology</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_9">
+        <item>-----</item>
+        <item>Biomaterials</item>
+        <item>Ceramics and Composites</item>
+        <item>Electronic, Optical and Magnetic Materials</item>
+        <item>Polymers and Plastics</item>
+        <item>Surface, Coatings and Films</item>
+        <item>Materials Chemistry</item>
+        <item>Metals and Alloys</item>
+        <item>Materials Science (miscellaneous)</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_10">
+        <item>-----</item>
+        <item>Control and Optimization</item>
+        <item>Discrete Mathematics and Combinatorics</item>
+        <item>Geometry and Topology</item>
+        <item>Logic</item>
+        <item>Mathematical Physics</item>
+        <item>Statistics and Probability</item>
+        <item>Numerical Analysis</item>
+        <item>Algebra and Number Theory</item>
+        <item>Mathematics (miscellaneous)</item>
+        <item>Applied Mathematics</item>
+        <item>Computational Mathematics</item>
+        <item>Theoretical Computer Science</item>
+        <item>Modeling and Simulation</item>
+        <item>Analysis</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_11">
+        <item>-----</item>
+        <item>Rehabilitation</item>
+        <item>Pulmonary and Respiratory Medicine</item>
+        <item>Orthopedics and Sports Medicine</item>
+        <item>Health Policy</item>
+        <item>Reviews and References (medical)</item>
+        <item>Transplantation</item>
+        <item>Drug Guides</item>
+        <item>Hematology</item>
+        <item>Cardiology and Cardiovascular Medicine</item>
+        <item>Nephrology</item>
+        <item>Obstetrics and Gynecology</item>
+        <item>Radiology, Nuclear Medicine and Imaging</item>
+        <item>Dermatology</item>
+        <item>Infectious Diseases</item>
+        <item>Anesthesiology and Pain Medicine</item>
+        <item>Otorhinolaryngology</item>
+        <item>Rheumatology</item>
+        <item>Public Health, Environmental and Occupational Health</item>
+        <item>Medicine (miscellaneous)</item>
+        <item>Internal Medicine</item>
+        <item>Complementary and Alternative Medicine</item>
+        <item>Reproductive Medicine</item>
+        <item>Psychiatry and Mental Health</item>
+        <item>Critical Care and Intensive Care Medicine</item>
+        <item>Hepatology</item>
+        <item>Biochemistry (medical)</item>
+        <item>Anatomy</item>
+        <item>Urology</item>
+        <item>Surgery</item>
+        <item>Pediatrics, Perinatology and Child Health</item>
+        <item>Gastroenterology</item>
+        <item>Geriatrics and Gerontology</item>
+        <item>Emergency Medicine</item>
+        <item>Ophthalmology</item>
+        <item>Embryology</item>
+        <item>Microbiology (medical)</item>
+        <item>Pharmacology (medical)</item>
+        <item>Neurology (clinical)</item>
+        <item>Pathology and Forensic Medicine</item>
+        <item>Histology</item>
+        <item>Epidemiology</item>
+        <item>Oncology</item>
+        <item>Endocrinology, Diabetes and Metabolism</item>
+        <item>Immunology and Allergy</item>
+        <item>Genetics (clinical)</item>
+        <item>Physiology (medical)</item>
+        <item>Family Practice</item>
+        <item>Health Informatics</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_12">
+        <item>-----</item>
+        <item>Literature and Literary Theory</item>
+        <item>Conservation</item>
+        <item>Arts and Humanities (miscellaneous)</item>
+        <item>History</item>
+        <item>Religious Studies</item>
+        <item>Visual Arts and Performing Arts</item>
+        <item>Classics</item>
+        <item>Language and Linguistics</item>
+        <item>History and Philosophy of Science</item>
+        <item>Archeology (arts and humanities)</item>
+        <item>Museology</item>
+        <item>Philosophy</item>
+        <item>Music</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_13">
+        <item>-----</item>
+        <item>Multidisciplinary</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_14">
+        <item>-----</item>
+        <item>Behavioral Neuroscience</item>
+        <item>Sensory Systems</item>
+        <item>Biological Psychiatry</item>
+        <item>Cellular and Molecular Neuroscience</item>
+        <item>Endocrine and Autonomic Systems</item>
+        <item>Neuroscience (miscellaneous)</item>
+        <item>Cognitive Neuroscience</item>
+        <item>Developmental Neuroscience</item>
+        <item>Neurology</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_15">
+        <item>-----</item>
+        <item>Nutrition and Dietetics</item>
+        <item>Medical and Surgical Nursing</item>
+        <item>LPN and LVN</item>
+        <item>Fundamentals and Skills</item>
+        <item>Research and Theory</item>
+        <item>Maternity and Midwifery</item>
+        <item>Oncology (nursing)</item>
+        <item>Assessment and Diagnosis</item>
+        <item>Nursing (miscellaneous)</item>
+        <item>Advanced and Specializes Nursing</item>
+        <item>Psychiatric Mental Health</item>
+        <item>Pharmacology (nursing)</item>
+        <item>Leadership and Management</item>
+        <item>Community and Home Care</item>
+        <item>Care Planning</item>
+        <item>Emergency Nursing</item>
+        <item>Critical Care Nursing</item>
+        <item>Pediatrics</item>
+        <item>Gerontology</item>
+        <item>Issues, Ethics and Legal Aspects</item>
+        <item>Review and Exam Preparation</item>
+        <item>Nurse Assisting</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_16">
+        <item>-----</item>
+        <item>Drug Discovery</item>
+        <item>Pharmacology, Toxicology and Pharmaceutics (miscellaneous)</item>
+        <item>Pharmacology</item>
+        <item>Pharmaceutical Science</item>
+        <item>Toxicology</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_17">
+        <item>-----</item>
+        <item>Statistical and Nonlinear Physics</item>
+        <item>Physics and Astronomy (miscellaneous)</item>
+        <item>Surfaces and Interfaces</item>
+        <item>Instrumentation</item>
+        <item>Radiation</item>
+        <item>Acoustics and Ultrasonics</item>
+        <item>Atomic and Molecular Physics, and Optics</item>
+        <item>Nuclear and High Energy Physics</item>
+        <item>Astronomy and Astrophysics</item>
+        <item>Condensed Matter Physics</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_18">
+        <item>-----</item>
+        <item>Psychology (miscellaneous)</item>
+        <item>Social Psychology</item>
+        <item>Experimental and Cognitive Psychology</item>
+        <item>Applied Psychology</item>
+        <item>Developmental and Educational Psychology</item>
+        <item>Neuropsychology and Physiological Psychology</item>
+        <item>Clinical Psychology</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_19">
+        <item>-----</item>
+        <item>Life-span and Life-course Studies</item>
+        <item>Safety Research</item>
+        <item>اعلام تربوي</item>
+        <item>اقتصاد منزلي</item>
+        <item>Public Administration</item>
+        <item>Anthropology</item>
+        <item>Communication</item>
+        <item>Education</item>
+        <item>Development</item>
+        <item>Geography, Planning and Development</item>
+        <item>Cultural Studies</item>
+        <item>Urban Studies</item>
+        <item>Demography</item>
+        <item>Health (social science)</item>
+        <item>Social Sciences (miscellaneous)</item>
+        <item>Political Science and International Relations</item>
+        <item>Human Factors and Ergonomics</item>
+        <item>Linguistics and Language</item>
+        <item>Transportation</item>
+        <item>تربية فنية</item>
+        <item>تربية موسيقية</item>
+        <item>Gender Studies</item>
+        <item>Archeology</item>
+        <item>Sociology and Political Science</item>
+        <item>Library and Information Sciences</item>
+        <item>Law</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_20">
+        <item>-----</item>
+        <item>Food Animals</item>
+        <item>Small Animals</item>
+        <item>Veterinary (miscellaneous)</item>
+        <item>Equine</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_21">
+        <item>-----</item>
+        <item>الإدارة الرياضية</item>
+        <item>التدريب الرياضي</item>
+        <item>الترويح الرياضي</item>
+        <item>علم النفس الرياضي</item>
+        <item>علوم الحركة الرياضية</item>
+        <item>علوم الصحة الرياضية</item>
+        <item>مناهج وطرق تدريس</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_22">
+        <item>-----</item>
+        <item>Aging</item>
+        <item>Biochemistry, Genetics and Molecular Biology (miscellaneous)</item>
+        <item>Biochemistry</item>
+        <item>Biophysics</item>
+        <item>Biotechnology</item>
+        <item>Cancer Research</item>
+        <item>Cell Biology</item>
+        <item>Clinical Biochemistry</item>
+        <item>Development Biology</item>
+        <item>Endocrinology</item>
+        <item>Genetics</item>
+        <item>Molecular Biology</item>
+        <item>Molecular Medicine</item>
+        <item>Physiology</item>
+        <item>Structural Biology</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_23">
+        <item>-----</item>
+        <item>Management of Technology and Innovation</item>
+        <item>Business and International Management</item>
+        <item>Business, Management and Accounting (miscellaneous)</item>
+        <item>Strategy and Management</item>
+        <item>Marketing</item>
+        <item>Organizational Behavior and Human Resource Management</item>
+        <item>Tourism, Leisure and Hospitality Management</item>
+        <item>Industrial Relations</item>
+        <item>Accounting</item>
+        <item>Management Information Systems</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_24">
+        <item>-----</item>
+        <item>Catalysis</item>
+        <item>Colloid and Surface Chemistry</item>
+        <item>Filtration and Separation</item>
+        <item>Fluid Flow and Transfer Processes</item>
+        <item>Process Chemistry and Technology</item>
+        <item>Chemical Health and Safety</item>
+        <item>Bioengineering</item>
+        <item>Chemical Enginnering (miscellaneous)</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_25">
+        <item>-----</item>
+        <item>Analytical Chemistry</item>
+        <item>Chemistry (miscellaneous)</item>
+        <item>Electrochemistry</item>
+        <item>Inorganic Chemistry</item>
+        <item>Organic Chemistry</item>
+        <item>Physical and Theoretical Chemistry</item>
+        <item>Spectroscopy</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_26">
+        <item>-----</item>
+        <item>Artificial Intelligence</item>
+        <item>Computational Theory and Mathematics</item>
+        <item>Computer Graphics and Computer-Aided Design</item>
+        <item>Computer Networks and Communications</item>
+        <item>Computer Science (miscellaneous)</item>
+        <item>Computer Science Applications</item>
+        <item>Computer Vision and Pattern Recognition</item>
+        <item>Hardware and Architecture</item>
+        <item>Human-Computer Interaction</item>
+        <item>Information Systems</item>
+        <item>Signal Processing</item>
+        <item>Software</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_27">
+        <item>-----</item>
+        <item>Decision Sciences (miscellaneous)</item>
+        <item>Information Systems and Management</item>
+        <item>Management Science and Operations Research</item>
+        <item>Statistics, Probability and Uncertainty</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_28">
+        <item>-----</item>
+        <item>Dental Assisting</item>
+        <item>Dental Hygiene</item>
+        <item>Dentistry (miscellaneous)</item>
+        <item>Oral Surgery</item>
+        <item>Orthodontics</item>
+        <item>Periodontics</item>
+    </string-array>
+    <string-array name="draft_theses_sub_specialities_29">
+        <item>-----</item>
+        <item>ANATOMY</item>
+        <item>ANETHESIA</item>
+        <item>BIOCHEMISTRY</item>
+        <item>CARDIOLOGY</item>
+        <item>CHEST</item>
+        <item>CLINICAL PATHOLOGY</item>
+        <item>DERMATOLOGY</item>
+        <item>E N T</item>
+        <item>FORENSIC MEDICINE &amp; TOXICOLOGY</item>
+        <item>GENERAL MEDICINE</item>
+        <item>HISTOLOGY</item>
+        <item>MICROBIOLOGY</item>
+        <item>NEUROPSYCHIATRY</item>
+        <item>NUCLEAR MEDICINE</item>
+        <item>OBS.&amp;GYN.</item>
+        <item>OPTHALMOLOGY</item>
+        <item>ORTHOPEDICS</item>
+        <item>PARASITOLOGY</item>
+        <item>PATHOLOGY</item>
+        <item>PEDIATRICS</item>
+        <item>PHARMACOLOGY</item>
+        <item>PHYSIOLOGY</item>
+        <item>PUBLIC HEALTH</item>
+        <item>RADIODIAGNOSIS</item>
+        <item>RHEUATOLOGY</item>
+        <item>SURGERY</item>
+        <item>TROPICAL MEDICINE</item>
+        <item>UROLOGY</item>
+        <item>إعدادي هندسة</item>
+        <item>أولى</item>
+        <item>أولى</item>
+        <item>أولى</item>
+        <item>أولى</item>
+        <item>أولى</item>
+        <item>أولى</item>
+        <item>أولى</item>
+        <item>أولى</item>
+        <item>أولى</item>
+        <item>أولى</item>
+        <item>أولى</item>
+        <item>اختبارات جامعة اسيوط</item>
+        <item>اختبارات جامعة الاسكندرية</item>
+        <item>اختبارات جامعة الزقازيق</item>
+        <item>اختبارات جامعة القاهرة</item>
+        <item>اختبارات جامعة المنصورة</item>
+        <item>اختبارات جامعة المنوفية</item>
+        <item>اختبارات جامعة المنيا</item>
+        <item>اختبارات جامعة بنها</item>
+        <item>اختبارات جامعة بني سويف</item>
+        <item>اختبارات جامعة بورسعيد</item>
+        <item>اختبارات جامعة جنوب الوادي</item>
+        <item>اختبارات جامعة حلوان</item>
+        <item>اختبارات جامعة دمنهور</item>
+        <item>اختبارات جامعة سوهاج</item>
+        <item>اختبارات جامعة طنطا</item>
+        <item>اختبارات جامعة عين شمس</item>
+        <item>اختبارات جامعة قناة السويس</item>
+        <item>اختبارات جامعة كفر الشيخ</item>
+        <item>الرياضيات والفيزياء الهندسية</item>
+        <item>الهندسة الإنشائية</item>
+        <item>الهندسة الكهربية</item>
+        <item>تمهيدي ماجستير</item>
+        <item>تمهيدي ماجستير</item>
+        <item>تمهيدي ماجستير</item>
+        <item>تمهيدي ماجستير</item>
+        <item>تمهيدي ماجستير</item>
+        <item>تمهيدي ماجستير</item>
+        <item>تمهيدي ماجستير</item>
+        <item>تمهيدي ماجستير</item>
+        <item>تمهيدي ماجستير</item>
+        <item>تمهيدي ماجستير</item>
+        <item>تمهيدي ماجستير</item>
+        <item>ثالثة</item>
+        <item>ثالثة</item>
+        <item>ثالثة</item>
+        <item>ثالثة</item>
+        <item>ثالثة</item>
+        <item>ثالثة</item>
+        <item>ثالثة</item>
+        <item>ثالثة</item>
+        <item>ثالثة</item>
+        <item>ثالثة</item>
+        <item>ثالثة</item>
+        <item>ثانية</item>
+        <item>ثانية</item>
+        <item>ثانية</item>
+        <item>ثانية</item>
+        <item>ثانية</item>
+        <item>ثانية</item>
+        <item>ثانية</item>
+        <item>ثانية</item>
+        <item>ثانية</item>
+        <item>ثانية</item>
+        <item>ثانية</item>
+        <item>دكتوراه</item>
+        <item>دكتوراه</item>
+        <item>دكتوراه</item>
+        <item>دكتوراه</item>
+        <item>دكتوراه</item>
+        <item>دكتوراه</item>
+        <item>دكتوراه</item>
+        <item>دكتوراه</item>
+        <item>دكتوراه</item>
+        <item>دكتوراه</item>
+        <item>دكتوراه</item>
+        <item>رابعة</item>
+        <item>رابعة</item>
+        <item>رابعة</item>
+        <item>رابعة</item>
+        <item>رابعة</item>
+        <item>رابعة</item>
+        <item>رابعة</item>
+        <item>رابعة</item>
+        <item>رابعة</item>
+        <item>رابعة</item>
+        <item>رابعة</item>
+        <item>كلية الآداب</item>
+        <item>كلية التجاره</item>
+        <item>كلية التربية</item>
+        <item>كلية التمريض</item>
+        <item>كلية الحقوق</item>
+        <item>كلية الصيدلة</item>
+        <item>كلية الطب</item>
+        <item>كلية العلوم</item>
+        <item>كلية الهندسة</item>
+        <item>كلية طب الاسنان</item>
+        <item>ماجستير</item>
+        <item>ماجستير</item>
+        <item>ماجستير</item>
+        <item>ماجستير</item>
+        <item>ماجستير</item>
+        <item>ماجستير</item>
+        <item>ماجستير</item>
+        <item>ماجستير</item>
+        <item>ماجستير</item>
+        <item>ماجستير</item>
+        <item>ماجستير</item>
+        <item>هندسة الأشغال العامة</item>
+        <item>هندسة الإلكترونيات والاتصالات</item>
+        <item>هندسة الإنتاج والتصميم</item>
+        <item>هندسة الحاسبات والنظم</item>
+        <item>هندسةالري والهيدروليكا</item>
+        <item>هندسة العمارة</item>
+        <item>هندسة الغزل والنسيج</item>
+        <item>هندسة القوى الميكانيكية</item>
+    </string-array>
+    <string name="draft_theses_id">Draft Theses ID</string>
+    <string name="degree">Degree</string>
+    <string-array name="degrees">
+        <item>-----</item>
+        <item>Masters</item>
+        <item>PHD</item>
+    </string-array>
+
 </resources>
