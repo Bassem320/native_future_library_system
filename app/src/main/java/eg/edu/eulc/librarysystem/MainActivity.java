@@ -67,9 +67,13 @@ public class MainActivity extends AppCompatActivity
             StartFragment startFragment = (StartFragment) getSupportFragmentManager().findFragmentByTag("FragmentStart");
             HoldingsFragment holdingsFragment = (HoldingsFragment) getSupportFragmentManager().findFragmentByTag("FragmentHoldings");
             InternetSearchFragment internetSearchFragment = (InternetSearchFragment) getSupportFragmentManager().findFragmentByTag("FragmentInternetSearch");
+
             ThesesFragment thesesFragment = (ThesesFragment) getSupportFragmentManager().findFragmentByTag("FragmentTheses");
             DraftThesesFragment draftThesesFragment = (DraftThesesFragment) getSupportFragmentManager().findFragmentByTag("FragmentDraftTheses");
             PapersFragment papersFragment = (PapersFragment) getSupportFragmentManager().findFragmentByTag("FragmentPapers");
+            LocalJournalsFragment localJournalsFragment = (LocalJournalsFragment) getSupportFragmentManager().findFragmentByTag("FragmentLocalJournals");
+
+            DigitalContentsFragment digitalContentsFragment = (DigitalContentsFragment) getSupportFragmentManager().findFragmentByTag("FragmentDigitalContents");
             if (navigationView.getMenu().getItem(0).isChecked()) {
                 if (startFragment.getLayoutVisibility()) {
                     startFragment.showSearch();
@@ -86,6 +90,10 @@ public class MainActivity extends AppCompatActivity
                 draftThesesFragment.showSearch();
             } else if (navigationView.getMenu().getItem(6).isChecked() && papersFragment.getLayoutVisibility()) {
                 papersFragment.showSearch();
+            } else if (navigationView.getMenu().getItem(7).isChecked() && localJournalsFragment.getLayoutVisibility()) {
+                localJournalsFragment.showSearch();
+            } else if (navigationView.getMenu().getItem(9).isChecked() && digitalContentsFragment.getLayoutVisibility()) {
+                digitalContentsFragment.showSearch();
             } else {
                 getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new StartFragment(), "FragmentStart").commit();
                 setSelectedItem(0);
