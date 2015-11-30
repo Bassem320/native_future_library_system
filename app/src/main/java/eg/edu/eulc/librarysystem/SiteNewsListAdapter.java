@@ -60,11 +60,11 @@ public class SiteNewsListAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
         @Override
         public void onClick(View v) {
-            /*Intent intent = new Intent(context, SiteNewsDetailsActivity.class);
+            Intent intent = new Intent(context, SiteNewsDetailsActivity.class);
             Bundle bundle = new Bundle();
             bundle.putParcelable("SiteNewsItem", listSiteNewsItems.get(getLayoutPosition()));
             intent.putExtras(bundle);
-            context.startActivity(intent);*/
+            context.startActivity(intent);
         }
     }
 }

@@ -9,18 +9,21 @@ import android.os.Parcelable;
 public class SiteNewsItem implements Parcelable {
     private long id;
     private String title;
+    private String details;
 
     public SiteNewsItem() {
     }
 
-    public SiteNewsItem(long id, String title) {
+    public SiteNewsItem(long id, String title, String details) {
         this.id = id;
         this.title = title;
+        this.details = details;
     }
 
     public SiteNewsItem(Parcel parcel) {
         id = parcel.readLong();
         title = parcel.readString();
+        details = parcel.readString();
     }
 
     public long getId() {
@@ -31,12 +34,20 @@ public class SiteNewsItem implements Parcelable {
         return title;
     }
 
+    public String getDetails() {
+        return details;
+    }
+
     public void setId(long id) {
         this.id = id;
     }
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
     }
 
     @Override
@@ -48,6 +59,7 @@ public class SiteNewsItem implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeLong(id);
         dest.writeString(title);
+        dest.writeString(details);
     }
 
     public static final Parcelable.Creator<SiteNewsItem> CREATOR = new Creator<SiteNewsItem>() {

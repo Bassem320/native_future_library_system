@@ -733,4 +733,6 @@
     <string name="keywords">الكلمات الدالة</string>
     <string name="paper_abstract">الملخص</string>
     <string name="paper_title">عنوان المقال</string>
+    <string name="search_results">نتائج البحث</string>
+    <string name="error_fetching_results">حدث خطأ اثناء تحميل نتائج البحث!</string>
 </resources>

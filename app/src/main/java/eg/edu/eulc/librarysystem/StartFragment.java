@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +19,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 
 import com.android.volley.NoConnectionError;
@@ -41,14 +44,18 @@ public class StartFragment extends Fragment {
     private Spinner searchTypeSpinner;
     private int searchType = 0;
     private Button startSearch, startAdvancedSearch;
-    private LinearLayout searchLayout, resultsLayout, subject0, subject1, subject2, subject3, subject4, subject5, subject6, subject7, subject8, subject9;
-    private RecyclerView listItemsRecycler;
+    private LinearLayout resultsLayout, subject0, subject1, subject2, subject3, subject4, subject5, subject6, subject7, subject8, subject9;
+    private ScrollView searchLayout;
+    private SwipeRefreshLayout resultsStartSwipe;
+    private RecyclerView listItemsRecycler, resultsStartRecycler;
     private ProgressBar loadingItems;
     public static final String PREF_FILE_NAME = "LibrarySystemPref";
     private SharedPreferences sharedPreferences;
     private VolleySingleton volleySingleton;
     private ArrayList<SiteNewsItem> siteNewsList = new ArrayList<>();
+    private ArrayList<ResultsStartItem> resultsStartList = new ArrayList<>();
     private SiteNewsListAdapter itemsListAdapter;
+    private ResultsStartAdapter resultsStarAdapter;
     private RequestQueue requestQueue;
     private LinearLayoutManager linearLayoutManager;
 
@@ -64,7 +71,7 @@ public class StartFragment extends Fragment {
         searchTypeSpinner = (Spinner) rootView.findViewById(R.id.start_search_type);
         startSearch = (Button) rootView.findViewById(R.id.search_button);
         startAdvancedSearch = (Button) rootView.findViewById(R.id.advanced_search_button);
-        searchLayout = (LinearLayout) rootView.findViewById(R.id.searchLayout);
+        searchLayout = (ScrollView) rootView.findViewById(R.id.searchLayout);
         resultsLayout = (LinearLayout) rootView.findViewById(R.id.resultsLayout);
         subject0 = (LinearLayout) rootView.findViewById(R.id.Subject0);
         subject1 = (LinearLayout) rootView.findViewById(R.id.Subject1);
@@ -78,6 +85,8 @@ public class StartFragment extends Fragment {
         subject9 = (LinearLayout) rootView.findViewById(R.id.Subject9);
         listItemsRecycler = (RecyclerView) rootView.findViewById(R.id.RecyclerNews);
         loadingItems = (ProgressBar) rootView.findViewById(R.id.SiteNewsProgress);
+        resultsStartRecycler = (RecyclerView) rootView.findViewById(R.id.ResultsStart);
+        resultsStartSwipe = (SwipeRefreshLayout) rootView.findViewById(R.id.ResultsStartSwipeRefresh);
 
         sharedPreferences = getActivity().getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE);
 
@@ -114,12 +123,27 @@ public class StartFragment extends Fragment {
         startSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String searchText = startSearchText.getText().toString();
+                final String searchText = startSearchText.getText().toString();
                 if (searchText.equals("") || searchText == null) {
                     Snackbar.make(v, getResources().getText(R.string.enter_text), Snackbar.LENGTH_LONG).show();
                 } else {
                     searchLayout.setVisibility(View.GONE);
                     resultsLayout.setVisibility(View.VISIBLE);
+
+                    // Complete results
+                    linearLayoutManager = new LinearLayoutManager(getActivity());
+                    resultsStartRecycler.setLayoutManager(linearLayoutManager);
+                    resultsStarAdapter = new ResultsStartAdapter(getActivity());
+                    resultsStartSwipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+                        @Override
+                        public void onRefresh() {
+                            startSearch(searchText, searchType);
+                        }
+                    });
+                    resultsStartRecycler.setAdapter(resultsStarAdapter);
+                    resultsStartSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+                    resultsStartSwipe.setRefreshing(true);
+                    startSearch(searchText, searchType);
                 }
             }
         });
@@ -262,9 +286,14 @@ public class StartFragment extends Fragment {
                         if (currentItem.has("title") && !currentItem.isNull("title")) {
                             title = currentItem.getString("title");
                         }
+                        String details = "No Details Available!";
+                        if (currentItem.has("details") && !currentItem.isNull("details")) {
+                            details = currentItem.getString("details");
+                        }
                         SiteNewsItem item = new SiteNewsItem();
                         item.setId(id);
                         item.setTitle(title);
+                        item.setDetails(details);
                         if (id != -1 && !title.equals("No Data Available")) {
                             listItems.add(item);
                         }
@@ -290,6 +319,92 @@ public class StartFragment extends Fragment {
                     } catch (JSONException ex) {
                     }
                 }
+            }
+        }
+        return listItems;
+    }
+    private void startSearch(String searchText, int type) {
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://10.19.1.34:1234/librarySystem/startSearch.json?searchText=" + searchText + "&searchType=" + type, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                resultsStartList = parseResults(response);
+                resultsStarAdapter.setResultsStartItems(resultsStartList);
+                resultsStartSwipe.setRefreshing(false);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                resultsStartSwipe.setRefreshing(false);
+                if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+                    Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.no_internet), Snackbar.LENGTH_LONG).show();
+                } else {
+                    Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.error_fetching_results), Snackbar.LENGTH_LONG).show();
+                }
+                resultsLayout.setVisibility(View.GONE);
+                searchLayout.setVisibility(View.VISIBLE);
+            }
+        });
+        requestQueue.add(request);
+    }
+
+    private ArrayList<ResultsStartItem> parseResults(JSONObject response) {
+        ArrayList<ResultsStartItem> listItems = new ArrayList<>();
+        if (response != null && response.length() > 0) {
+            try {
+                if (response.has("results")) {
+                    JSONArray arrayItems = response.getJSONArray("results");
+                    for (int i = 0; i < arrayItems.length(); i++) {
+                        JSONObject currentItem = arrayItems.getJSONObject(i);
+                        long id = -1;
+                        if (currentItem.has("id") && !currentItem.isNull("id")) {
+                            id = currentItem.getLong("id");
+                        }
+                        String title = "No Data Available";
+                        if (currentItem.has("title") && !currentItem.isNull("title")) {
+                            title = currentItem.getString("title");
+                        }
+                        String image = "";
+                        if (currentItem.has("image") && !currentItem.isNull("image")) {
+                            image = currentItem.getString("image");
+                        }
+                        String type = "";
+                        if (currentItem.has("type") && !currentItem.isNull("type")) {
+                            type = currentItem.getString("type");
+                        }
+                        String classification = "";
+                        if (currentItem.has("classification") && !currentItem.isNull("classification")) {
+                            JSONArray arrayClassification = currentItem.getJSONArray("classification");
+                            for (int j = 0; j < arrayClassification.length(); j++) {
+                                classification += "\u2709 " + arrayClassification.getString(j);
+                                if (j < (arrayClassification.length() - 1)) {
+                                    classification += "\t\t";
+                                }
+                            }
+                        }
+                        String publisher = "";
+                        if (currentItem.has("publisher") && !currentItem.isNull("publisher")) {
+                            publisher = currentItem.getString("publisher");
+                        }
+                        ResultsStartItem item = new ResultsStartItem();
+                        item.setId(id);
+                        item.setTitle(title);
+                        item.setImage(image);
+                        item.setType(type);
+                        item.setClassification(classification);
+                        item.setPublisher(publisher);
+                        if (id != -1 && !title.equals("No Data Available")) {
+                            listItems.add(item);
+                        }
+                    }
+                } else {
+                    Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.error_fetching_results), Snackbar.LENGTH_LONG).show();
+                    resultsLayout.setVisibility(View.GONE);
+                    searchLayout.setVisibility(View.VISIBLE);
+                }
+            } catch (JSONException e) {
+                Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.error_fetching_results), Snackbar.LENGTH_LONG).show();
+                resultsLayout.setVisibility(View.GONE);
+                searchLayout.setVisibility(View.VISIBLE);
             }
         }
         return listItems;
