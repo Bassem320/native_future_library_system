@@ -444,10 +444,12 @@ public class StartFragment extends Fragment {
                         }
                     }
                 } else {
-                    Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.error_fetching_results), Snackbar.LENGTH_LONG).show();
                     if (firstLoad) {
+                        Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.error_fetching_results), Snackbar.LENGTH_LONG).show();
                         resultsLayout.setVisibility(View.GONE);
                         searchLayout.setVisibility(View.VISIBLE);
+                    } else {
+                        resultsStartSwipe.setRefreshing(false);
                     }
                 }
             } catch (JSONException e) {
