@@ -2,6 +2,7 @@ package eg.edu.eulc.librarysystem;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Movie;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -42,7 +43,7 @@ import java.util.ArrayList;
 public class StartFragment extends Fragment {
     private EditText startSearchText;
     private Spinner searchTypeSpinner;
-    private int searchType = 0;
+    private int searchType = 0, getPage = 1;
     private Button startSearch, startAdvancedSearch;
     private LinearLayout resultsLayout, subject0, subject1, subject2, subject3, subject4, subject5, subject6, subject7, subject8, subject9;
     private ScrollView searchLayout;
@@ -58,6 +59,8 @@ public class StartFragment extends Fragment {
     private ResultsStartAdapter resultsStarAdapter;
     private RequestQueue requestQueue;
     private LinearLayoutManager linearLayoutManager;
+    private boolean mLoadingItems = true;
+    private int mOnScreenItems, mTotalItemsInList, mFirstVisibleItem, mPreviousTotal = 0, mVisibleThreshold = 1;
 
     public StartFragment() {
     }
@@ -129,8 +132,6 @@ public class StartFragment extends Fragment {
                 } else {
                     searchLayout.setVisibility(View.GONE);
                     resultsLayout.setVisibility(View.VISIBLE);
-
-                    // Complete results
                     linearLayoutManager = new LinearLayoutManager(getActivity());
                     resultsStartRecycler.setLayoutManager(linearLayoutManager);
                     resultsStarAdapter = new ResultsStartAdapter(getActivity());
@@ -141,6 +142,50 @@ public class StartFragment extends Fragment {
                         }
                     });
                     resultsStartRecycler.setAdapter(resultsStarAdapter);
+                    resultsStartRecycler.addOnScrollListener(new RecyclerView.OnScrollListener() {
+                        @Override
+                        public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                            super.onScrollStateChanged(recyclerView, newState);
+                        }
+
+                        @Override
+                        public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                            super.onScrolled(recyclerView, dx, dy);
+                            mOnScreenItems = resultsStartRecycler.getChildCount();
+                            mTotalItemsInList = linearLayoutManager.getItemCount();
+                            mFirstVisibleItem = linearLayoutManager.findFirstVisibleItemPosition();
+                            if (mLoadingItems) {
+                                if (mTotalItemsInList > mPreviousTotal+1) {
+                                    mLoadingItems = false;
+                                    mPreviousTotal = mTotalItemsInList;
+                                }
+                            }
+                            if (!mLoadingItems && (mTotalItemsInList - mOnScreenItems) <= (mFirstVisibleItem + mVisibleThreshold)) {
+                                resultsStartSwipe.setRefreshing(true);
+                                getPage ++;
+                                JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://10.19.1.34:1234/librarySystem/startSearch.json?searchText=" + searchText + "&searchType=" + searchType + "&page=" + getPage, new Response.Listener<JSONObject>() {
+                                    @Override
+                                    public void onResponse(JSONObject response) {
+                                        ArrayList<ResultsStartItem> resultsStartListMore = parseResults(response, false);
+                                        resultsStartSwipe.setRefreshing(false);
+                                        for (int i = 0; i < resultsStartListMore.size(); i++) {
+                                            ResultsStartItem result = resultsStartListMore.get(i);
+                                            resultsStartList.add(result);
+                                            resultsStarAdapter.notifyItemInserted(resultsStartList.size());
+                                        }
+                                    }
+                                }, new Response.ErrorListener() {
+                                    @Override
+                                    public void onErrorResponse(VolleyError error) {
+                                        getPage --;
+                                        resultsStartSwipe.setRefreshing(false);
+                                    }
+                                });
+                                requestQueue.add(request);
+                                mLoadingItems = true;
+                            }
+                        }
+                    });
                     resultsStartSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                     resultsStartSwipe.setRefreshing(true);
                     startSearch(searchText, searchType);
@@ -324,10 +369,12 @@ public class StartFragment extends Fragment {
         return listItems;
     }
     private void startSearch(String searchText, int type) {
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://10.19.1.34:1234/librarySystem/startSearch.json?searchText=" + searchText + "&searchType=" + type, new Response.Listener<JSONObject>() {
+        getPage = 0;
+        mPreviousTotal = 0;
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://10.19.1.34:1234/librarySystem/startSearch.json?searchText=" + searchText + "&searchType=" + type + "&page=1", new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                resultsStartList = parseResults(response);
+                resultsStartList = parseResults(response, true);
                 resultsStarAdapter.setResultsStartItems(resultsStartList);
                 resultsStartSwipe.setRefreshing(false);
             }
@@ -347,7 +394,7 @@ public class StartFragment extends Fragment {
         requestQueue.add(request);
     }
 
-    private ArrayList<ResultsStartItem> parseResults(JSONObject response) {
+    private ArrayList<ResultsStartItem> parseResults(JSONObject response, boolean firstLoad) {
         ArrayList<ResultsStartItem> listItems = new ArrayList<>();
         if (response != null && response.length() > 0) {
             try {
@@ -398,8 +445,10 @@ public class StartFragment extends Fragment {
                     }
                 } else {
                     Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.error_fetching_results), Snackbar.LENGTH_LONG).show();
-                    resultsLayout.setVisibility(View.GONE);
-                    searchLayout.setVisibility(View.VISIBLE);
+                    if (firstLoad) {
+                        resultsLayout.setVisibility(View.GONE);
+                        searchLayout.setVisibility(View.VISIBLE);
+                    }
                 }
             } catch (JSONException e) {
                 Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.error_fetching_results), Snackbar.LENGTH_LONG).show();
