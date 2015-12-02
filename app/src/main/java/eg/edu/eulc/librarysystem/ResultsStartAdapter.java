@@ -2,7 +2,14 @@ package eg.edu.eulc.librarysystem;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -50,6 +57,7 @@ public class ResultsStartAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         ResultsStartItem currentItem = listResultsStartItems.get(position);
         final ViewHolderResultsStartList holderItem = (ViewHolderResultsStartList) holder;
+        holderItem.item = currentItem;
         holderItem.itemType.setText(currentItem.getType());
         holderItem.itemTitle.setText(currentItem.getTitle());
         holderItem.itemClassification.setText(currentItem.getClassification());
@@ -77,6 +85,7 @@ public class ResultsStartAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     static class ViewHolderResultsStartList extends RecyclerView.ViewHolder implements View.OnClickListener {
         private ImageView itemImage;
         private TextView itemType, itemTitle, itemClassification, itemPublisher;
+        private ResultsStartItem item;
 
         public ViewHolderResultsStartList(View itemView) {
             super(itemView);
@@ -90,11 +99,9 @@ public class ResultsStartAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
         @Override
         public void onClick(View v) {
-            /*Intent intent = new Intent(context, SiteNewsDetailsActivity.class);
-            Bundle bundle = new Bundle();
-            bundle.putParcelable("SiteNewsItem", listResultsStartItems.get(getLayoutPosition()));
-            intent.putExtras(bundle);
-            context.startActivity(intent);*/
+            FragmentManager fm = ((FragmentActivity) context).getSupportFragmentManager();
+            DialogFragment overlay = FragmentDialog.newInstance(item);
+            overlay.show(fm, "FragmentDialog");
         }
     }
 }

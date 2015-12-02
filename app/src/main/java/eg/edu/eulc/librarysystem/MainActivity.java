@@ -20,8 +20,7 @@ import android.view.MenuItem;
 
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     public static final String PREF_FILE_NAME = "LibrarySystemPref";
     private SharedPreferences sharedPreferences;
     private NavigationView navigationView;
