@@ -1,21 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingStart="@dimen/activity_horizontal_margin"
-    android:paddingEnd="@dimen/activity_horizontal_margin">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="@string/search_results_services"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingEnd="@dimen/activity_horizontal_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingStart="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/itemBuyNow"
+            style="@style/DetailsHeading"
+            android:text="@string/buyNow" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <ImageView
+                android:id="@+id/itemBuyBarnesAndNoble"
+                style="@style/BuyNowImage"
+                android:src="@drawable/barnesandnoble" />
+
+            <ImageView
+                android:id="@+id/itemBuyAmazon"
+                style="@style/BuyNowImage"
+                android:src="@drawable/amazon" />
+
+            <ImageView
+                android:id="@+id/itemBuyAbeBooks"
+                style="@style/BuyNowImage"
+                android:src="@drawable/abebooks" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

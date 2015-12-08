@@ -13,80 +13,102 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingStart="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin">
+
         <TextView
             android:id="@+id/itemDDCHead"
             style="@style/DetailsHeading"
-            android:text="@string/ddc"/>
+            android:text="@string/ddc" />
+
         <TextView
             android:id="@+id/itemDDC"
             style="@style/DetailsDetails" />
+
         <TextView
             android:id="@+id/itemStatOfResHead"
             style="@style/DetailsHeading"
-            android:text="@string/statOfRes"/>
+            android:text="@string/statOfRes" />
+
         <TextView
             android:id="@+id/itemStatOfRes"
             style="@style/DetailsDetails" />
+
         <TextView
             android:id="@+id/itemAltTitleHead"
             style="@style/DetailsHeading"
-            android:text="@string/altTitle"/>
+            android:text="@string/altTitle" />
+
         <TextView
             android:id="@+id/itemAltTitle"
             style="@style/DetailsDetails" />
+
         <TextView
             android:id="@+id/itemPlaceOfPubHead"
             style="@style/DetailsHeading"
-            android:text="@string/placeOfPub"/>
+            android:text="@string/placeOfPub" />
+
         <TextView
             android:id="@+id/itemPlaceOfPub"
             style="@style/DetailsDetails" />
+
         <TextView
             android:id="@+id/itemExtentHead"
             style="@style/DetailsHeading"
-            android:text="@string/extent"/>
+            android:text="@string/extent" />
+
         <TextView
             android:id="@+id/itemExtent"
             style="@style/DetailsDetails" />
+
         <TextView
             android:id="@+id/itemDimensionsHead"
             style="@style/DetailsHeading"
-            android:text="@string/dimensions"/>
+            android:text="@string/dimensions" />
+
         <TextView
             android:id="@+id/itemDimensions"
             style="@style/DetailsDetails" />
+
         <TextView
             android:id="@+id/itemGeneralNoteHead"
             style="@style/DetailsHeading"
-            android:text="@string/generalNote"/>
+            android:text="@string/generalNote" />
+
         <TextView
             android:id="@+id/itemGeneralNote"
             style="@style/DetailsDetails" />
+
         <TextView
             android:id="@+id/itemTopicalTermHead"
             style="@style/DetailsHeading"
-            android:text="@string/topicalTerm"/>
+            android:text="@string/topicalTerm" />
+
         <TextView
             android:id="@+id/itemTopicalTerm"
             style="@style/DetailsDetails" />
+
         <TextView
             android:id="@+id/itePersonalNameHead"
             style="@style/DetailsHeading"
-            android:text="@string/personalName"/>
+            android:text="@string/personalName" />
+
         <TextView
             android:id="@+id/itemPersonalName"
             style="@style/DetailsDetails" />
+
         <TextView
             android:id="@+id/itemCorpNameHead"
             style="@style/DetailsHeading"
-            android:text="@string/corpName"/>
+            android:text="@string/corpName" />
+
         <TextView
             android:id="@+id/itemCorpName"
             style="@style/DetailsDetails" />
+
         <TextView
             android:id="@+id/itemDesOfAttachHead"
             style="@style/DetailsHeading"
-            android:text="@string/desOfAttach"/>
+            android:text="@string/desOfAttach" />
+
         <TextView
             android:id="@+id/itemDesOfAttach"
             style="@style/DetailsDetails" />

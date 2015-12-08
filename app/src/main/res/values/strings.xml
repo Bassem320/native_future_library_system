@@ -88,6 +88,8 @@
     <string name="corpName">Corporate Name</string>
     <string name="desOfAttach">Description of Attached</string>
     <!-- Holdings -->
+    <!-- Services -->
+    <string name="buyNow">Buy Now</string>
 
     <!-- Holdings fragment -->
     <string-array name="holdings_item_types">
