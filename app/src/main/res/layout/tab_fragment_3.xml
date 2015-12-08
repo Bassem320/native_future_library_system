@@ -1,21 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingStart="@dimen/activity_horizontal_margin"
-    android:paddingEnd="@dimen/activity_horizontal_margin">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <TableLayout
+        android:id="@+id/itemHoldings"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="@string/search_results_holdings"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingEnd="@dimen/activity_horizontal_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingStart="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:shrinkColumns="*"
+        android:stretchColumns="*">
 
-</RelativeLayout>
+        <TableRow>
+
+            <TextView
+                style="@style/TableHeader"
+                android:text="@string/generalNo" />
+
+            <TextView
+                style="@style/TableHeader"
+                android:text="@string/callNo" />
+
+            <TextView
+                style="@style/TableHeader"
+                android:text="@string/shelf" />
+
+            <TextView
+                style="@style/TableHeader"
+                android:text="@string/availability" />
+
+            <TextView
+                style="@style/TableHeader"
+                android:text="@string/status" />
+
+            <TextView
+                style="@style/TableHeader"
+                android:text="@string/location" />
+        </TableRow>
+    </TableLayout>
+</ScrollView>

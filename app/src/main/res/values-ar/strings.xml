@@ -754,4 +754,10 @@
     <string name="statOfRes">بيان المسئولية</string>
     <string name="topicalTerm">الموضوع</string>
     <string name="buyNow">اشتري الآن</string>
+    <string name="availability">الإتاحة</string>
+    <string name="callNo">رقم الاستدعاء</string>
+    <string name="generalNo">الرقم العام</string>
+    <string name="location">الموقع</string>
+    <string name="shelf">الرف</string>
+    <string name="status">الحالة</string>
 </resources>

@@ -23,8 +23,8 @@ public class TabFragment3 extends Fragment {
         Bundle args = getArguments();
         item = args.getParcelable("item");
         View rootView = inflater.inflate(R.layout.tab_fragment_3, container, false);
-        TextView tv = (TextView) rootView.findViewById(R.id.textView);
-        tv.setText(item.getPublisher());
+        /*TextView tv = (TextView) rootView.findViewById(R.id.textView);
+        tv.setText(item.getPublisher());*/
         return rootView;
     }
 }

@@ -147,6 +147,13 @@
         <item name="android:visibility">gone</item>
     </style>
 
+    <style name="TableHeader">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+
     <style name="BuyNowImage">
         <item name="android:layout_width">@dimen/item_width</item>
         <item name="android:layout_height">@dimen/item_width</item>

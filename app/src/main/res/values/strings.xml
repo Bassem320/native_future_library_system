@@ -88,6 +88,12 @@
     <string name="corpName">Corporate Name</string>
     <string name="desOfAttach">Description of Attached</string>
     <!-- Holdings -->
+    <string name="generalNo">General No.</string>
+    <string name="callNo">Call No.</string>
+    <string name="shelf">Shelf</string>
+    <string name="availability">Availability</string>
+    <string name="status">Status</string>
+    <string name="location">Location</string>
     <!-- Services -->
     <string name="buyNow">Buy Now</string>
 
