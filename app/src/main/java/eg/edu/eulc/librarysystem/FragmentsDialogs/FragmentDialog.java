@@ -1,4 +1,4 @@
-package eg.edu.eulc.librarysystem;
+package eg.edu.eulc.librarysystem.FragmentsDialogs;
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -14,6 +14,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+
+import eg.edu.eulc.librarysystem.Fragments.TabFragment1;
+import eg.edu.eulc.librarysystem.Fragments.TabFragment2;
+import eg.edu.eulc.librarysystem.Fragments.TabFragment3;
+import eg.edu.eulc.librarysystem.Fragments.TabFragment4;
+import eg.edu.eulc.librarysystem.Objects.ResultsStartItem;
+import eg.edu.eulc.librarysystem.R;
 
 /**
  * Created by Eslam El-Meniawy on 01-Dec-15.
@@ -61,7 +68,6 @@ public class FragmentDialog extends DialogFragment {
         TabLayout tabLayout = (TabLayout) view.findViewById(R.id.detailsTabLayout);
         tabLayout.addTab(tabLayout.newTab().setText(R.string.search_results_title));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.search_results_details));
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.search_results_mark));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.search_results_holdings));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.search_results_services));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
@@ -112,10 +118,6 @@ public class FragmentDialog extends DialogFragment {
                     TabFragment4 tab4 = new TabFragment4();
                     tab4.setArguments(bundle);
                     return tab4;
-                case 4:
-                    TabFragment5 tab5 = new TabFragment5();
-                    tab5.setArguments(bundle);
-                    return tab5;
                 default:
                     return null;
             }
@@ -123,7 +125,7 @@ public class FragmentDialog extends DialogFragment {
 
         @Override
         public int getCount() {
-            return 5;
+            return 4;
         }
     }
 }

@@ -1,4 +1,4 @@
-package eg.edu.eulc.librarysystem;
+package eg.edu.eulc.librarysystem.Objects;
 
 import android.os.Parcel;
 import android.os.Parcelable;

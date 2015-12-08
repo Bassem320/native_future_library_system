@@ -1,4 +1,4 @@
-package eg.edu.eulc.librarysystem;
+package eg.edu.eulc.librarysystem.Fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,10 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import eg.edu.eulc.librarysystem.R;
+import eg.edu.eulc.librarysystem.Objects.ResultsStartItem;
+
 /**
  * Created by Eslam El-Meniawy on 01-Dec-15.
  */
-public class TabFragment2 extends Fragment {
+public class TabFragment3 extends Fragment {
     private ResultsStartItem item;
 
     @Nullable
@@ -19,9 +22,9 @@ public class TabFragment2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Bundle args = getArguments();
         item = args.getParcelable("item");
-        View rootView = inflater.inflate(R.layout.tab_fragment_2, container, false);
+        View rootView = inflater.inflate(R.layout.tab_fragment_3, container, false);
         TextView tv = (TextView) rootView.findViewById(R.id.textView);
-        tv.setText(item.getTitle());
+        tv.setText(item.getPublisher());
         return rootView;
     }
 }

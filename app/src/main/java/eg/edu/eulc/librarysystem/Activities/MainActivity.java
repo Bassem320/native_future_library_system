@@ -1,4 +1,4 @@
-package eg.edu.eulc.librarysystem;
+package eg.edu.eulc.librarysystem.Activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -19,6 +19,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import java.util.Locale;
+
+import eg.edu.eulc.librarysystem.Fragments.DatabasesFragment;
+import eg.edu.eulc.librarysystem.Fragments.DigitalContentsFragment;
+import eg.edu.eulc.librarysystem.Fragments.DraftThesesFragment;
+import eg.edu.eulc.librarysystem.Fragments.EPublishFragment;
+import eg.edu.eulc.librarysystem.Fragments.HoldingsFragment;
+import eg.edu.eulc.librarysystem.Fragments.InternetSearchFragment;
+import eg.edu.eulc.librarysystem.Fragments.LocalJournalsFragment;
+import eg.edu.eulc.librarysystem.Fragments.MyAccountFragment;
+import eg.edu.eulc.librarysystem.Fragments.PapersFragment;
+import eg.edu.eulc.librarysystem.Fragments.StartFragment;
+import eg.edu.eulc.librarysystem.Fragments.ThesesFragment;
+import eg.edu.eulc.librarysystem.R;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     public static final String PREF_FILE_NAME = "LibrarySystemPref";

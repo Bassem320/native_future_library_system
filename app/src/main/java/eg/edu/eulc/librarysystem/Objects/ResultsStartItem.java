@@ -1,4 +1,4 @@
-package eg.edu.eulc.librarysystem;
+package eg.edu.eulc.librarysystem.Objects;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -8,18 +8,22 @@ import android.os.Parcelable;
  */
 public class ResultsStartItem implements Parcelable {
     private long id;
-    private String title, image, type, classification, publisher;
+    private String title, image, type, classification, publisher, moreTitle, details, holdings, services;
 
     public ResultsStartItem() {
     }
 
-    public ResultsStartItem(long id, String title, String image, String type, String classification, String publisher) {
+    public ResultsStartItem(long id, String title, String image, String type, String classification, String publisher, String moreTitle, String details, String holdings, String services) {
         this.id = id;
         this.title = title;
         this.image = image;
         this.type = type;
         this.classification = classification;
         this.publisher = publisher;
+        this.moreTitle = moreTitle;
+        this.details = details;
+        this.holdings = holdings;
+        this.services = services;
     }
 
     public ResultsStartItem(Parcel parcel) {
@@ -29,6 +33,10 @@ public class ResultsStartItem implements Parcelable {
         type = parcel.readString();
         classification = parcel.readString();
         publisher = parcel.readString();
+        moreTitle = parcel.readString();
+        details = parcel.readString();
+        holdings = parcel.readString();
+        services = parcel.readString();
     }
 
     public long getId() {
@@ -55,6 +63,22 @@ public class ResultsStartItem implements Parcelable {
         return publisher;
     }
 
+    public String getMoreTitle() {
+        return moreTitle;
+    }
+
+    public String getDetails() {
+        return details;
+    }
+
+    public String getHoldings() {
+        return holdings;
+    }
+
+    public String getServices() {
+        return services;
+    }
+
     public void setId(long id) {
         this.id = id;
     }
@@ -79,6 +103,22 @@ public class ResultsStartItem implements Parcelable {
         this.publisher = publisher;
     }
 
+    public void setMoreTitle(String moreTitle) {
+        this.moreTitle = moreTitle;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
+    }
+
+    public void setHoldings(String holdings) {
+        this.holdings = holdings;
+    }
+
+    public void setServices(String services) {
+        this.services = services;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -92,6 +132,10 @@ public class ResultsStartItem implements Parcelable {
         dest.writeString(type);
         dest.writeString(classification);
         dest.writeString(publisher);
+        dest.writeString(moreTitle);
+        dest.writeString(details);
+        dest.writeString(holdings);
+        dest.writeString(services);
     }
 
     public static final Parcelable.Creator<ResultsStartItem> CREATOR = new Creator<ResultsStartItem>() {

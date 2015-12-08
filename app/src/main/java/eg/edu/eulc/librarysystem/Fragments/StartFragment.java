@@ -1,8 +1,7 @@
-package eg.edu.eulc.librarysystem;
+package eg.edu.eulc.librarysystem.Fragments;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Movie;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -36,6 +35,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+
+import eg.edu.eulc.librarysystem.Activities.MainActivity;
+import eg.edu.eulc.librarysystem.R;
+import eg.edu.eulc.librarysystem.FragmentsDialogs.ResultsStartAdapter;
+import eg.edu.eulc.librarysystem.Objects.ResultsStartItem;
+import eg.edu.eulc.librarysystem.Objects.SiteNewsItem;
+import eg.edu.eulc.librarysystem.Adapters.SiteNewsListAdapter;
+import eg.edu.eulc.librarysystem.VolleySingleton;
 
 /**
  * Created by Eslam El-Meniawy on 01-Nov-15.
@@ -422,7 +429,7 @@ public class StartFragment extends Fragment {
                         if (currentItem.has("classification") && !currentItem.isNull("classification")) {
                             JSONArray arrayClassification = currentItem.getJSONArray("classification");
                             for (int j = 0; j < arrayClassification.length(); j++) {
-                                classification += "\u2709 " + arrayClassification.getString(j);
+                                classification += "\u00BB " + arrayClassification.getString(j);
                                 if (j < (arrayClassification.length() - 1)) {
                                     classification += "\t\t";
                                 }
@@ -432,6 +439,22 @@ public class StartFragment extends Fragment {
                         if (currentItem.has("publisher") && !currentItem.isNull("publisher")) {
                             publisher = currentItem.getString("publisher");
                         }
+                        String moreTitle = "";
+                        if (currentItem.has("moreTitle") && !currentItem.isNull("moreTitle")) {
+                            moreTitle = currentItem.getJSONObject("moreTitle").toString();
+                        }
+                        String details = "";
+                        if (currentItem.has("details") && !currentItem.isNull("details")) {
+                            details = currentItem.getJSONObject("details").toString();
+                        }
+                        String holdings = "";
+                        if (currentItem.has("holdings") && !currentItem.isNull("holdings")) {
+                            holdings = currentItem.getJSONArray("holdings").toString();
+                        }
+                        String services = "";
+                        if (currentItem.has("services") && !currentItem.isNull("services")) {
+                            services = currentItem.getJSONObject("services").toString();
+                        }
                         ResultsStartItem item = new ResultsStartItem();
                         item.setId(id);
                         item.setTitle(title);
@@ -439,6 +462,10 @@ public class StartFragment extends Fragment {
                         item.setType(type);
                         item.setClassification(classification);
                         item.setPublisher(publisher);
+                        item.setMoreTitle(moreTitle);
+                        item.setDetails(details);
+                        item.setHoldings(holdings);
+                        item.setServices(services);
                         if (id != -1 && !title.equals("No Data Available")) {
                             listItems.add(item);
                         }

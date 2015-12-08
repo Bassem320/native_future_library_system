@@ -1,4 +1,4 @@
-package eg.edu.eulc.librarysystem;
+package eg.edu.eulc.librarysystem.Fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -14,23 +14,25 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
+import eg.edu.eulc.librarysystem.R;
+
 /**
  * Created by Eslam El-Meniawy on 01-Nov-15.
  */
-public class LocalJournalsFragment extends Fragment {
+public class ThesesFragment extends Fragment {
     private Spinner itemTypeSpinner, keywordsSpinner1, keywordsSpinner2, keywordsSpinner3, concSpinner1, concSpinner2, wordProcessingSpinner, orderBySpinner;
-    private int itemType = 19, keywords1 = 0, keywords2 = 0, keywords3 = 0, conc1 = 0, conc2 = 0, wordProcessing = 0, orderBy = 0;
+    private int itemType = 24, keywords1 = 0, keywords2 = 0, keywords3 = 0, conc1 = 0, conc2 = 0, wordProcessing = 0, orderBy = 0;
     private EditText searchTextET1, searchTextET2, searchTextET3, attachContainsET, bibIDET, publishYearET;
     private Button searchButton;
     private LinearLayout searchLayout, resultsLayout;
 
-    public LocalJournalsFragment() {
+    public ThesesFragment() {
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_local_journals, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_theses, container, false);
 
         itemTypeSpinner = (Spinner) rootView.findViewById(R.id.theses_search_type);
         keywordsSpinner1 = (Spinner) rootView.findViewById(R.id.keyword1);
@@ -63,7 +65,7 @@ public class LocalJournalsFragment extends Fragment {
         adapter5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         itemTypeSpinner.setAdapter(adapter1);
-        itemTypeSpinner.setSelection(19);
+        itemTypeSpinner.setSelection(24);
         itemTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

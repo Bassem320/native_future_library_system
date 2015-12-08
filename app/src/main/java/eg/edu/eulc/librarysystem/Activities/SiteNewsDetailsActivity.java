@@ -1,9 +1,12 @@
-package eg.edu.eulc.librarysystem;
+package eg.edu.eulc.librarysystem.Activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
+
+import eg.edu.eulc.librarysystem.R;
+import eg.edu.eulc.librarysystem.Objects.SiteNewsItem;
 
 public class SiteNewsDetailsActivity extends AppCompatActivity {
 

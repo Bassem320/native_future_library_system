@@ -1,4 +1,4 @@
-package eg.edu.eulc.librarysystem;
+package eg.edu.eulc.librarysystem.Activities;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+
+import eg.edu.eulc.librarysystem.R;
 
 public class SettingsActivity extends AppCompatActivity {
     public static final String PREF_FILE_NAME = "LibrarySystemPref";

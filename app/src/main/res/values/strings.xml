@@ -66,9 +66,11 @@
     <string name="search_results">Search Results</string>
     <string name="search_results_title">Title</string>
     <string name="search_results_details">Details</string>
-    <string name="search_results_mark">MARK</string>
     <string name="search_results_holdings">Holdings</string>
     <string name="search_results_services">Services</string>
+    <string name="book_info">Book Info</string>
+    <string name="preview">Preview</string>
+    <string name="download">Download</string>
 
     <!-- Holdings fragment -->
     <string-array name="holdings_item_types">

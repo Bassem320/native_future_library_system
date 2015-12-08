@@ -1,4 +1,4 @@
-package eg.edu.eulc.librarysystem;
+package eg.edu.eulc.librarysystem.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +10,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import eg.edu.eulc.librarysystem.Activities.SiteNewsDetailsActivity;
+import eg.edu.eulc.librarysystem.R;
+import eg.edu.eulc.librarysystem.Objects.SiteNewsItem;
 
 /**
  * Created by Eslam El-Meniawy on 05-Nov-15.

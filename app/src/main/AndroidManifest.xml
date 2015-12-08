@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name=".Activities.MainActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" >
@@ -23,22 +23,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SettingsActivity"
+            android:name=".Activities.SettingsActivity"
             android:label="@string/action_settings"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".Activities.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="eg.edu.eulc.librarysystem.MainActivity" />
+                android:value=".Activities.MainActivity" />
         </activity>
         <activity
-            android:name=".SiteNewsDetailsActivity"
+            android:name=".Activities.SiteNewsDetailsActivity"
             android:label="@string/site_news"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".Activities.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="eg.edu.eulc.librarysystem.MainActivity" />
+                android:value=".Activities.MainActivity" />
         </activity>
     </application>
 

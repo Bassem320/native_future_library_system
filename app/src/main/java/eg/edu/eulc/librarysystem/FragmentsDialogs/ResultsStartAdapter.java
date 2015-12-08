@@ -1,17 +1,10 @@
-package eg.edu.eulc.librarysystem;
+package eg.edu.eulc.librarysystem.FragmentsDialogs;
 
 import android.content.Context;
-import android.content.Intent;
-import android.content.res.Resources;
-import android.os.Bundle;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +15,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
 
 import java.util.ArrayList;
+
+import eg.edu.eulc.librarysystem.Objects.ResultsStartItem;
+import eg.edu.eulc.librarysystem.R;
+import eg.edu.eulc.librarysystem.VolleySingleton;
 
 /**
  * Created by eslam on 26-Nov-15.

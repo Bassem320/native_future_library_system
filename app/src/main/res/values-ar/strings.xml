@@ -736,8 +736,10 @@
     <string name="search_results">نتائج البحث</string>
     <string name="error_fetching_results">حدث خطأ اثناء تحميل نتائج البحث!</string>
     <string name="search_results_details">التفاصيل</string>
-    <string name="search_results_mark">مارك</string>
     <string name="search_results_services">الخدمات</string>
     <string name="search_results_title">العنوان</string>
     <string name="search_results_holdings">النسخ</string>
+    <string name="book_info">معلومات الكتاب</string>
+    <string name="download">تحميل</string>
+    <string name="preview">استعراض</string>
 </resources>
