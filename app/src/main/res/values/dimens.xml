@@ -9,4 +9,5 @@
     <dimen name="item_width">64dp</dimen>
     <dimen name="item_height">84dp</dimen>
     <dimen name="dialog_height">64dp</dimen>
+    <dimen name="separator">10dp</dimen>
 </resources>

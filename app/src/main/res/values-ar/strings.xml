@@ -742,4 +742,15 @@
     <string name="book_info">معلومات الكتاب</string>
     <string name="download">تحميل</string>
     <string name="preview">استعراض</string>
+    <string name="altTitle">عنوان موازي</string>
+    <string name="corpName">الهيئة المشرفة</string>
+    <string name="ddc">تصنيف ديوى</string>
+    <string name="desOfAttach">وصف الملحقات</string>
+    <string name="dimensions">ابعاد الوعاء</string>
+    <string name="extent">الحجم</string>
+    <string name="generalNote">تبصره عامة</string>
+    <string name="personalName">مؤلف فرعي</string>
+    <string name="placeOfPub">مكان النشر</string>
+    <string name="statOfRes">بيان المسئولية</string>
+    <string name="topicalTerm">الموضوع</string>
 </resources>
