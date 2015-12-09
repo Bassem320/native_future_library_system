@@ -151,7 +151,9 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/colorAccent</item>
-        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:paddingRight">@dimen/footer_padding</item>
+        <item name="android:paddingLeft">@dimen/footer_padding</item>
     </style>
 
     <style name="BuyNowImage">
