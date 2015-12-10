@@ -51,6 +51,8 @@
     <string name="browse_by_subject">Browse by Subject</string>
     <string name="about_site">About Site</string>
     <string name="contact_us">Contact Us</string>
+    <!-- Subjects -->
+    <!-- Level 1 -->
     <string name="subject0">Computer science, knowledge &amp; systems</string>
     <string name="subject1">Philosophy and Psychology</string>
     <string name="subject2">Religion</string>
@@ -61,6 +63,436 @@
     <string name="subject7">The arts; fine &amp; decorative arts</string>
     <string name="subject8">Literature &amp; rhetoric</string>
     <string name="subject9">History &amp; geography</string>
+    <!-- Level 1.1 -->
+    <!-- subject0 -->
+    <string name="subject01">Bibliography</string>
+    <string name="subject02">Library &amp; information sciences</string>
+    <string name="subject03">General encyclopedic works</string>
+    <string name="subject04">Unassigned</string>
+    <string name="subject05">General serial publications &amp; their indexes</string>
+    <string name="subject06">General organizations &amp; museum science</string>
+    <string name="subject07">News media, journalism &amp; publishing</string>
+    <string name="subject08">General collections</string>
+    <string name="subject09">Manuscripts &amp; rare books</string>
+    <!-- Level 1.2 -->
+    <!-- subject1 -->
+    <string name="subject11">Metaphysics</string>
+    <string name="subject12">Epistemology, causation, humankind</string>
+    <string name="subject13">Parapsychology &amp; occultism</string>
+    <string name="subject14">Specific philosophical schools</string>
+    <string name="subject15">Psychology</string>
+    <string name="subject16">Logic</string>
+    <string name="subject17">Ethics (moral philosophy)</string>
+    <string name="subject18">Ancient, medieval &amp; eastern philosophy</string>
+    <string name="subject19">Modern Western philosophy</string>
+    <!-- Level 1.3 -->
+    <!-- subject2 -->
+    <string name="subject21">Philosophy &amp; theory of religion</string>
+    <string name="subject22">Bible</string>
+    <string name="subject23">Christianity &amp; Christian theology</string>
+    <string name="subject24">Christian moral &amp; devotional theology</string>
+    <string name="subject25">Christian orders &amp; local church</string>
+    <string name="subject26">Social &amp; ecclesiastical theology</string>
+    <string name="subject27">History of Christianity &amp; Christian church</string>
+    <string name="subject28">Christian denominations &amp; sects</string>
+    <string name="subject29">Other &amp; comparative religions</string>
+    <!-- Level 1.4 -->
+    <!-- subject3 -->
+    <string name="subject31">Collections of general statistics</string>
+    <string name="subject32">Political science</string>
+    <string name="subject33">Economics</string>
+    <string name="subject34">Law</string>
+    <string name="subject35">Public administration &amp; military science</string>
+    <string name="subject36">Social problems &amp; services; associations</string>
+    <string name="subject37">Education</string>
+    <string name="subject38">Commerce, communications &amp; transportation</string>
+    <string name="subject39">Customs, etiquette, folklore</string>
+    <!-- Level 1.5 -->
+    <!-- subject4 -->
+    <string name="subject41">Linguistics</string>
+    <string name="subject42">English &amp; Old English</string>
+    <string name="subject43">Germanic languages German</string>
+    <string name="subject44">Romance languages; French</string>
+    <string name="subject45">Italian, Romanian languages</string>
+    <string name="subject46">Spanish &amp; Portuguese languages</string>
+    <string name="subject47">Italic languages, Latin</string>
+    <string name="subject48">Hellenic languages, Classical Greek</string>
+    <string name="subject49">Other languages</string>
+    <!-- Level 1.6 -->
+    <!-- subject5 -->
+    <string name="subject51">Mathematics</string>
+    <string name="subject52">Astronomy &amp; allied sciences</string>
+    <string name="subject53">Physics</string>
+    <string name="subject54">Chemistry &amp; allied sciences</string>
+    <string name="subject55">Earth sciences</string>
+    <string name="subject56">Paleontology, paleozoology</string>
+    <string name="subject57">Life sciences; biology</string>
+    <string name="subject58">Plants (Botany)</string>
+    <string name="subject59">Animals (Zoology)</string>
+    <!-- Level 1.7 -->
+    <!-- subject6 -->
+    <string name="subject61">Medicine &amp; health</string>
+    <string name="subject62">Engineering &amp; allied operations</string>
+    <string name="subject63">Agriculture &amp; related technologies</string>
+    <string name="subject64">Home &amp; family management</string>
+    <string name="subject65">Management &amp; auxiliary services</string>
+    <string name="subject66">Chemical engineering</string>
+    <string name="subject67">Manufacturing</string>
+    <string name="subject68">Manufacture for specific uses</string>
+    <string name="subject69">Buildings</string>
+    <!-- Level 1.8 -->
+    <!-- subject7 -->
+    <string name="subject71">Civic &amp; landscape art</string>
+    <string name="subject72">Architecture</string>
+    <string name="subject73">Plastic arts, sculpture</string>
+    <string name="subject74">Drawing &amp; decorative arts</string>
+    <string name="subject75">Painting &amp; paintings</string>
+    <string name="subject76">Graphic arts, printmaking &amp; prints, postage</string>
+    <string name="subject77">Photography, photographs &amp; computer art</string>
+    <string name="subject78">Music</string>
+    <string name="subject79">Recreational &amp; performing arts</string>
+    <!-- Level 1.9 -->
+    <!-- subject8 -->
+    <string name="subject81">American literature in English</string>
+    <string name="subject82">English &amp; Old English literatures </string>
+    <string name="subject83">Literatures of Germanic languages</string>
+    <string name="subject84">Literatures of Romance languages</string>
+    <string name="subject85">Italian, Romanian literatures</string>
+    <string name="subject86">Spanish &amp; Portuguese literatures</string>
+    <string name="subject87">Italic literatures; Latin literature</string>
+    <string name="subject88">Hellenic literatures; classical Greek</string>
+    <string name="subject89">Literatures of other languages</string>
+    <!-- Level 1.10 -->
+    <!-- subject9 -->
+    <string name="subject91">Geography and travel</string>
+    <string name="subject92">Biography, genealogy, insignia</string>
+    <string name="subject93">History of ancient world to ca. 499</string>
+    <string name="subject94">History of Europe</string>
+    <string name="subject95">History of Asia; Far East</string>
+    <string name="subject96">History of Africa</string>
+    <string name="subject97">History of North America</string>
+    <string name="subject98">History of South America</string>
+    <string name="subject99">History of other areas</string>
+    <!-- Level 1.1.1 -->
+    <!-- subject1 -->
+    <string name="subject001">Knowledge</string>
+    <string name="subject002">The book</string>
+    <string name="subject003">Systems</string>
+    <string name="subject004">Data processing Computer science</string>
+    <string name="subject005">Computer programming, programs, data</string>
+    <string name="subject006">Special computer methods</string>
+    <!-- subject04 -->
+    <!-- subject04 -->
+    <!-- subject04 -->
+    <!-- Level 1.1.2 -->
+    <!-- subject01 -->
+    <string name="subject011">Bibliographies</string>
+    <string name="subject012">Bibliographies of individuals</string>
+    <string name="subject013">Bibliographies of works by specific classes of authors</string>
+    <string name="subject014">Bibliographies of anonymous and pseudonymous works</string>
+    <string name="subject015">Bibliographies of works from specific places</string>
+    <string name="subject016">Bibliographies of works from specific subjects</string>
+    <string name="subject017">General subject catalogs</string>
+    <string name="subject018">Catalogs arranged by author &amp; date</string>
+    <string name="subject019">Dictionary catalogs</string>
+    <!-- Level 1.1.3 -->
+    <!-- subject02 -->
+    <string name="subject021">Library relationships</string>
+    <string name="subject022">Administration of the physical plant</string>
+    <string name="subject023">Personnel administration</string>
+    <!-- subject04 -->
+    <string name="subject025">Library operations</string>
+    <string name="subject026">Libraries for specific subjects</string>
+    <string name="subject027">General libraries</string>
+    <string name="subject028">Reading, use of other information media</string>
+    <!-- subject04 -->
+    <!-- Level 1.1.4 -->
+    <!-- subject03 -->
+    <string name="subject031">General encyclopedic works &#8212; American</string>
+    <string name="subject032">General encyclopedic works in English</string>
+    <string name="subject033">General encyclopedic works in other Germanic languages</string>
+    <string name="subject034">General encyclopedic works in French, Provencal, Catalan</string>
+    <string name="subject035">General encyclopedic works in Italian, Romanian, Rhaeto-Romanic</string>
+    <string name="subject036">General encyclopedic works in Spanish &amp; Portuguese</string>
+    <string name="subject037">General encyclopedic works in Slavic languages</string>
+    <string name="subject038">General encyclopedic works in Scandinavian languages</string>
+    <string name="subject039">General encyclopedic works in other languages</string>
+    <!-- Level 1.1.5 -->
+    <!-- subject04 -->
+    <!-- subject04 -->
+    <!-- subject04 -->
+    <!-- subject04 -->
+    <!-- subject04 -->
+    <!-- subject04 -->
+    <!-- subject04 -->
+    <!-- subject04 -->
+    <!-- subject04 -->
+    <!-- subject04 -->
+    <!-- Level 1.1.6 -->
+    <!-- subject05 -->
+    <string name="subject051">General serial publications &amp; their indexes American</string>
+    <string name="subject052">General serials &amp; their indexes In English</string>
+    <string name="subject053">General serials &amp; their indexes In other Germanic languages</string>
+    <string name="subject054">General serials &amp; their indexes In French, Provencal, Catalan</string>
+    <string name="subject055">General serials &amp; their indexes In Italian, Romanian, Rhaeto-Romanic</string>
+    <string name="subject056">General serials &amp; their indexes In Spanish &amp; Portuguese</string>
+    <string name="subject057">General serials &amp; their indexes In Slavic languages</string>
+    <string name="subject058">General serials &amp; their indexes In Scandinavian languages</string>
+    <string name="subject059">General serials &amp; their indexes In other languages</string>
+    <!-- Level 1.1.7 -->
+    <!-- subject06 -->
+    <string name="subject061">Organizations in North America</string>
+    <string name="subject062">Organizations in British Isles; in England</string>
+    <string name="subject063">Organizations in central Europe; in Germany</string>
+    <string name="subject064">Organizations in France &amp; Monaco</string>
+    <string name="subject065">Organizations in Italy &amp; adjacent islands</string>
+    <string name="subject066">In Iberian Peninsula &amp; adjacent islands</string>
+    <string name="subject067">Organizations in eastern Europe; in Russia</string>
+    <string name="subject068">Organizations in other geographic areas</string>
+    <string name="subject069">Museum science</string>
+    <!-- Level 1.1.8 -->
+    <!-- subject07 -->
+    <string name="subject071">News media, journalism, publishing In North America</string>
+    <string name="subject072">News media, journalism, publishing In British Isles; In England</string>
+    <string name="subject073">News media, journalism, publishing In central Europe; In Germany</string>
+    <string name="subject074">News media, journalism, publishing In France &amp; Monaco</string>
+    <string name="subject075">News media, journalism, publishing In Italy &amp; adjacent territories</string>
+    <string name="subject076">News media, journalism, publishing In Iberian Peninsula &amp; adjacent islands</string>
+    <string name="subject077">News media, journalism, publishing in eastern Europe; in Russia</string>
+    <string name="subject078">News media, journalism, publishing In Scandinavia</string>
+    <string name="subject079">News media, journalism, publishing In other languages</string>
+    <!-- Level 1.1.9 -->
+    <!-- subject08 -->
+    <string name="subject081">General collections American</string>
+    <string name="subject082">General collections In English</string>
+    <string name="subject083">General collections In other Germanic languages</string>
+    <string name="subject084">General collections In French, Provencal, Catalan</string>
+    <string name="subject085">General collections In Italian, Romanian, Rhaeto-Romanic</string>
+    <string name="subject086">General collections In Spanish &amp; Portuguese</string>
+    <string name="subject087">General collections In Slavic languages</string>
+    <string name="subject088">General collections In Scandinavian languages</string>
+    <string name="subject089">General collections In other languages</string>
+    <!-- Level 1.1.10 -->
+    <!-- subject09 -->
+    <string name="subject091">Manuscripts</string>
+    <string name="subject092">Block books</string>
+    <string name="subject093">Incunabula</string>
+    <string name="subject094">Printed books</string>
+    <string name="subject095">Books notable for bindings</string>
+    <string name="subject096">Books notable for illustrations</string>
+    <string name="subject097">Books notable for ownership or origin</string>
+    <string name="subject098">Prohibited works, forgeries, hoaxes</string>
+    <string name="subject099">Books notable for format</string>
+    <!-- Level 1.2.1 -->
+    <!-- subject1 -->
+    <string name="subject101">Theory of philosophy</string>
+    <string name="subject102">Miscellany of philosophy</string>
+    <string name="subject103">Dictionaries &amp; encyclopedias</string>
+    <!-- subject04 -->
+    <string name="subject105">Serial publications of philosophy</string>
+    <string name="subject106">Organizations &amp; management</string>
+    <string name="subject107">Education, research &amp; related topics</string>
+    <string name="subject108">Kinds of persons treatment</string>
+    <string name="subject109">Historical &amp; collected persons treatment</string>
+    <!-- Level 1.2.2 -->
+    <!-- subject11 -->
+    <string name="subject111">Ontology</string>
+    <!-- subject04 -->
+    <string name="subject113">Cosmology (Philosophy of nature)</string>
+    <string name="subject114">Space</string>
+    <string name="subject115">Time</string>
+    <string name="subject116">Change</string>
+    <string name="subject117">Structure</string>
+    <string name="subject118">Force &amp; Energy</string>
+    <string name="subject119">Number &amp; quantity</string>
+    <!-- Level 1.2.3 -->
+    <!-- subject12 -->
+    <string name="subject121">Epistemology (Theory of knowledge)</string>
+    <string name="subject122">Causation</string>
+    <string name="subject123">Determinism &amp; indeterminism</string>
+    <string name="subject124">Teleology</string>
+    <!-- subject04 -->
+    <string name="subject126">The self</string>
+    <string name="subject127">The unconscious &amp; the subconscious</string>
+    <string name="subject128">Humankind</string>
+    <string name="subject129">Origin &amp; destiny of individual souls</string>
+    <!-- Level 1.2.4 -->
+    <!-- subject13 -->
+    <string name="subject131">Parapsychological &amp; occult methods</string>
+    <!-- subject04 -->
+    <string name="subject133">Specific topics in parapsychology &amp; occultism</string>
+    <!-- subject04 -->
+    <string name="subject135">Dreams &amp; mysteries</string>
+    <!-- subject04 -->
+    <string name="subject137">Divinatory graphology</string>
+    <string name="subject138">Physiognomy</string>
+    <string name="subject139">Phrenology</string>
+    <!-- Level 1.2.5 -->
+    <!-- subject14 -->
+    <string name="subject141">Idealism &amp; related systems</string>
+    <string name="subject142">Critical philosophy</string>
+    <string name="subject143">Intuitionism &amp; Bergsonism</string>
+    <string name="subject144">Humanism &amp; related systems</string>
+    <string name="subject145">Sensationalism</string>
+    <string name="subject146">Naturalism &amp; related systems</string>
+    <string name="subject147">Pantheism &amp; related systems</string>
+    <string name="subject148">Liberalism, eclecticism, traditionalism</string>
+    <string name="subject149">Other philosophical systems</string>
+    <!-- Level 1.2.6 -->
+    <!-- subject15 -->
+    <!-- subject04 -->
+    <string name="subject152">Perception, movement, emotions, drives</string>
+    <string name="subject153">Mental processes &amp; intelligence</string>
+    <string name="subject154">Subconscious &amp; altered states</string>
+    <string name="subject155">Differential &amp; developmental psychology</string>
+    <string name="subject156">Comparative psychology</string>
+    <!-- subject04 -->
+    <string name="subject158">Applied psychology</string>
+    <!-- subject04 -->
+    <!-- Level 1.2.7 -->
+    <!-- subject16 -->
+    <string name="subject161">Induction</string>
+    <string name="subject162">Deduction</string>
+    <!-- subject04 -->
+    <!-- subject04 -->
+    <string name="subject165">Fallacies &amp; sources of error </string>
+    <string name="subject166">Syllogisms</string>
+    <string name="subject167">Hypotheses</string>
+    <string name="subject168">Argument &amp; persuasion</string>
+    <string name="subject169">Analogy</string>
+    <!-- Level 1.2.8 -->
+    <!-- subject17 -->
+    <string name="subject171">Ethical systems</string>
+    <string name="subject172">Political ethics</string>
+    <string name="subject173">Ethics of family relationships</string>
+    <string name="subject174">Occupational ethics</string>
+    <string name="subject175">Ethics of recreation &amp; leisure</string>
+    <string name="subject176">Ethics of sex &amp; reproduction</string>
+    <string name="subject177">Ethics of social relations</string>
+    <string name="subject178">Ethics of consumption</string>
+    <string name="subject179">Other ethical norms</string>
+    <!-- Level 1.2.9 -->
+    <!-- subject18 -->
+    <string name="subject181">Eastern philosophy</string>
+    <string name="subject182">Pre-Socratic Greek philosophies</string>
+    <string name="subject183">Socratic &amp; related philosophies</string>
+    <string name="subject184">Platonic philosophy</string>
+    <string name="subject185">Aristotelian philosophy</string>
+    <string name="subject186">Skeptic &amp; Neoplatonic philosophies</string>
+    <string name="subject187">Epicurean philosophy</string>
+    <string name="subject188">Stoic philosophy</string>
+    <string name="subject189">Medieval Western philosophy</string>
+    <!-- Level 1.2.10 -->
+    <!-- subject19 -->
+    <string name="subject191">Philosophy of United States &amp; Canada</string>
+    <string name="subject192">Philosophy of British Isles</string>
+    <string name="subject193">Philosophy of Germany &amp; Austria</string>
+    <string name="subject194">Philosophy of France</string>
+    <string name="subject195">Philosophy of Italy</string>
+    <string name="subject196">Philosophy of Spain &amp; Portugal</string>
+    <string name="subject197">Philosophy of former Soviet Union</string>
+    <string name="subject198">Philosophy of Scandinavia</string>
+    <string name="subject199">Philosophy in other geographic areas</string>
+    <!-- Level 1.3.1 -->
+    <!-- subject2 -->
+    <string name="subject201">Bibliography</string>
+    <string name="subject202">Bibliography</string>
+    <string name="subject203">Bibliography</string>
+    <string name="subject204">Bibliography</string>
+    <string name="subject205">Bibliography</string>
+    <string name="subject206">Bibliography</string>
+    <string name="subject207">Bibliography</string>
+    <string name="subject208">Bibliography</string>
+    <string name="subject209">Bibliography</string>
+    <!-- Level 1.3.2 -->
+    <!-- subject21 -->
+    <string name="subject211">Bibliography</string>
+    <string name="subject212">Bibliography</string>
+    <string name="subject213">Bibliography</string>
+    <string name="subject214">Bibliography</string>
+    <string name="subject215">Bibliography</string>
+    <string name="subject216">Bibliography</string>
+    <string name="subject217">Bibliography</string>
+    <string name="subject218">Bibliography</string>
+    <string name="subject219">Bibliography</string>
+    <!-- Level 1.3.3 -->
+    <!-- Level 1.3.4 -->
+    <!-- Level 1.3.5 -->
+    <!-- Level 1.3.6 -->
+    <!-- Level 1.3.7 -->
+    <!-- Level 1.3.8 -->
+    <!-- Level 1.3.9 -->
+    <!-- Level 1.3.10 -->
+    <!-- Level 1.4.1 -->
+    <!-- Level 1.4.2 -->
+    <!-- Level 1.4.3 -->
+    <!-- Level 1.4.4 -->
+    <!-- Level 1.4.5 -->
+    <!-- Level 1.4.6 -->
+    <!-- Level 1.4.7 -->
+    <!-- Level 1.4.8 -->
+    <!-- Level 1.4.9 -->
+    <!-- Level 1.4.10 -->
+    <!-- Level 1.5.1 -->
+    <!-- Level 1.5.2 -->
+    <!-- Level 1.5.3 -->
+    <!-- Level 1.5.4 -->
+    <!-- Level 1.5.5 -->
+    <!-- Level 1.5.6 -->
+    <!-- Level 1.5.7 -->
+    <!-- Level 1.5.8 -->
+    <!-- Level 1.5.9 -->
+    <!-- Level 1.5.10 -->
+    <!-- Level 1.6.1 -->
+    <!-- Level 1.6.2 -->
+    <!-- Level 1.6.3 -->
+    <!-- Level 1.6.4 -->
+    <!-- Level 1.6.5 -->
+    <!-- Level 1.6.6 -->
+    <!-- Level 1.6.7 -->
+    <!-- Level 1.6.8 -->
+    <!-- Level 1.6.9 -->
+    <!-- Level 1.6.10 -->
+    <!-- Level 1.7.1 -->
+    <!-- Level 1.7.2 -->
+    <!-- Level 1.7.3 -->
+    <!-- Level 1.7.4 -->
+    <!-- Level 1.7.5 -->
+    <!-- Level 1.7.6 -->
+    <!-- Level 1.7.7 -->
+    <!-- Level 1.7.8 -->
+    <!-- Level 1.7.9 -->
+    <!-- Level 1.7.10 -->
+    <!-- Level 1.8.1 -->
+    <!-- Level 1.8.2 -->
+    <!-- Level 1.8.3 -->
+    <!-- Level 1.8.4 -->
+    <!-- Level 1.8.5 -->
+    <!-- Level 1.8.6 -->
+    <!-- Level 1.8.7 -->
+    <!-- Level 1.8.8 -->
+    <!-- Level 1.8.9 -->
+    <!-- Level 1.8.10 -->
+    <!-- Level 1.9.1 -->
+    <!-- Level 1.9.2 -->
+    <!-- Level 1.9.3 -->
+    <!-- Level 1.9.4 -->
+    <!-- Level 1.9.5 -->
+    <!-- Level 1.9.6 -->
+    <!-- Level 1.9.7 -->
+    <!-- Level 1.9.8 -->
+    <!-- Level 1.9.9 -->
+    <!-- Level 1.9.10 -->
+    <!-- Level 1.10.1 -->
+    <!-- Level 1.10.2 -->
+    <!-- Level 1.10.3 -->
+    <!-- Level 1.10.4 -->
+    <!-- Level 1.10.5 -->
+    <!-- Level 1.10.6 -->
+    <!-- Level 1.10.7 -->
+    <!-- Level 1.10.8 -->
+    <!-- Level 1.10.9 -->
+    <!-- Level 1.10.10 -->
     <string name="about_site_details">One site provides all the sources of knowledge for the Egyptian Researcher :\n\t&#8226; Holdings of the Egyptian universities libraries\n\t&#8226; Masters and PhD of Egyptian researchers\n\t&#8226; Theses under study in Egyptian universities\n\t&#8226; Researches of Staff Members in Egyptian Universities\n\t&#8226; Scientific Journals Published by the Egyptian Universities\n\t&#8226; Electronic Holdings Owned by the Egyptian Universities\n\t&#8226; Transmission of Electronic Lectures\n\t&#8226; Communicating with major libraries throughout the world to see the latest books\n\t&#8226; Communicating with the largest International databases contracted by the Supreme Council of Universities to get to know the latest scientific researches in the world, in addition to access to more than 25 thousands periodicals and download the full text of it</string>
     <string name="contact_details">\t&#8226; Address: وحدة المكتبة الرقمية - مقر شبكة الجامعات المصرية (جامعة القاهرة) - الدور الثالث\n\t&#8226; Phone: 002020108896067 , 0020235704158, 0020235738583, 0020235697645\n\t&#8226; Fax: +20235704194/ 333\n\t&#8226; Zip Code: 12441 جيزه</string>
     <string name="search_results">Search Results</string>
