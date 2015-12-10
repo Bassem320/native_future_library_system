@@ -104,7 +104,7 @@
 
                         <ImageView
                             style="@style/SubjectImage"
-                            android:src="@drawable/s0" />
+                            android:src="@drawable/s000" />
 
                         <TextView
                             style="@style/SubjectTitle"
@@ -121,7 +121,7 @@
 
                         <ImageView
                             style="@style/SubjectImage"
-                            android:src="@drawable/s1" />
+                            android:src="@drawable/s100" />
 
                         <TextView
                             style="@style/SubjectTitle"
@@ -150,7 +150,7 @@
 
                         <ImageView
                             style="@style/SubjectImage"
-                            android:src="@drawable/s2" />
+                            android:src="@drawable/s200" />
 
                         <TextView
                             style="@style/SubjectTitle"
@@ -167,7 +167,7 @@
 
                         <ImageView
                             style="@style/SubjectImage"
-                            android:src="@drawable/s3" />
+                            android:src="@drawable/s300" />
 
                         <TextView
                             style="@style/SubjectTitle"
@@ -196,7 +196,7 @@
 
                         <ImageView
                             style="@style/SubjectImage"
-                            android:src="@drawable/s4" />
+                            android:src="@drawable/s400" />
 
                         <TextView
                             style="@style/SubjectTitle"
@@ -213,7 +213,7 @@
 
                         <ImageView
                             style="@style/SubjectImage"
-                            android:src="@drawable/s5" />
+                            android:src="@drawable/s500" />
 
                         <TextView
                             style="@style/SubjectTitle"
@@ -242,7 +242,7 @@
 
                         <ImageView
                             style="@style/SubjectImage"
-                            android:src="@drawable/s6" />
+                            android:src="@drawable/s600" />
 
                         <TextView
                             style="@style/SubjectTitle"
@@ -259,7 +259,7 @@
 
                         <ImageView
                             style="@style/SubjectImage"
-                            android:src="@drawable/s7" />
+                            android:src="@drawable/s700" />
 
                         <TextView
                             style="@style/SubjectTitle"
@@ -288,7 +288,7 @@
 
                         <ImageView
                             style="@style/SubjectImage"
-                            android:src="@drawable/s8" />
+                            android:src="@drawable/s800" />
 
                         <TextView
                             style="@style/SubjectTitle"
@@ -305,7 +305,7 @@
 
                         <ImageView
                             style="@style/SubjectImage"
-                            android:src="@drawable/s9" />
+                            android:src="@drawable/s900" />
 
                         <TextView
                             style="@style/SubjectTitle"
