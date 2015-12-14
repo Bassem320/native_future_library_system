@@ -395,104 +395,884 @@
     <string name="subject199">Philosophy in other geographic areas</string>
     <!-- Level 1.3.1 -->
     <!-- subject2 -->
-    <string name="subject201">Bibliography</string>
-    <string name="subject202">Bibliography</string>
-    <string name="subject203">Bibliography</string>
-    <string name="subject204">Bibliography</string>
-    <string name="subject205">Bibliography</string>
-    <string name="subject206">Bibliography</string>
-    <string name="subject207">Bibliography</string>
-    <string name="subject208">Bibliography</string>
-    <string name="subject209">Bibliography</string>
+    <string name="subject201">Religious mythology &amp; social theology</string>
+    <string name="subject202">Doctrines</string>
+    <string name="subject203">Public worship &amp; other practices</string>
+    <string name="subject204">Religious experience, life &amp; practice</string>
+    <string name="subject205">Religious ethics</string>
+    <string name="subject206">Leaders &amp; organization</string>
+    <string name="subject207">Missions &amp; religious education</string>
+    <string name="subject208">Sources</string>
+    <string name="subject209">Sects &amp; reform movements</string>
     <!-- Level 1.3.2 -->
     <!-- subject21 -->
-    <string name="subject211">Bibliography</string>
-    <string name="subject212">Bibliography</string>
-    <string name="subject213">Bibliography</string>
-    <string name="subject214">Bibliography</string>
-    <string name="subject215">Bibliography</string>
-    <string name="subject216">Bibliography</string>
-    <string name="subject217">Bibliography</string>
-    <string name="subject218">Bibliography</string>
-    <string name="subject219">Bibliography</string>
+    <string name="subject211">Concepts of God</string>
+    <string name="subject212">Existence, knowability &amp; attributes of God</string>
+    <string name="subject213">Creation</string>
+    <string name="subject214">Theodicy</string>
+    <string name="subject215">Science &amp; religion</string>
+    <string name="subject216">Unassigned</string>
+    <string name="subject217">Unassigned</string>
+    <string name="subject218">Humankind</string>
+    <string name="subject219">Unassigned</string>
     <!-- Level 1.3.3 -->
+    <!-- subject22 -->
+    <string name="subject221">Old Testament (Tanakh)</string>
+    <string name="subject222">Historical books of Old Testament</string>
+    <string name="subject223">Poetic books of Old Testament</string>
+    <string name="subject224">Prophetic books of Old Testament</string>
+    <string name="subject225">New Testament</string>
+    <string name="subject226">Gospels &amp; Acts</string>
+    <string name="subject227">Epistles</string>
+    <string name="subject228">Revelation (Apocalypse)</string>
+    <string name="subject229">Apocrypha &amp; pseudepigrapha</string>
     <!-- Level 1.3.4 -->
+    <!-- subject23 -->
+    <string name="subject231">God</string>
+    <string name="subject232">Jesus Christ &amp; his family</string>
+    <string name="subject233">Humankind</string>
+    <string name="subject234">Salvation &amp; grace</string>
+    <string name="subject235">Spiritual beings</string>
+    <string name="subject236">Eschatology</string>
+    <string name="subject237">Unassigned</string>
+    <string name="subject238">Creeds &amp; catechisms</string>
+    <string name="subject239">Apologetics &amp; polemics</string>
     <!-- Level 1.3.5 -->
+    <!-- subject24 -->
+    <string name="subject241">Christian ethics</string>
+    <string name="subject242">Devotional literature</string>
+    <string name="subject243">Evangelistic writings for individuals</string>
+    <string name="subject244">Unassigned</string>
+    <string name="subject245">Unassigned</string>
+    <string name="subject246">Use of art in Christianity</string>
+    <string name="subject247">Church furnishings &amp; articles</string>
+    <string name="subject248">Christian experience, practice &amp; life</string>
+    <string name="subject249">Christian observances in family life</string>
     <!-- Level 1.3.6 -->
+    <!-- subject25 -->
+    <string name="subject251">Preaching</string>
+    <string name="subject252">Texts of sermons</string>
+    <string name="subject253">Pastoral office &amp; work</string>
+    <string name="subject254">Parish administration</string>
+    <string name="subject255">Religious congregations &amp; orders</string>
+    <string name="subject256">Unassigned</string>
+    <string name="subject257">Unassigned</string>
+    <string name="subject258">Unassigned</string>
+    <string name="subject259">Pastoral care of families &amp; kinds of persons</string>
     <!-- Level 1.3.7 -->
+    <!-- subject26 -->
+    <string name="subject261">Social theology</string>
+    <string name="subject262">Ecclesiology</string>
+    <string name="subject263">Days, times &amp; places of observance</string>
+    <string name="subject264">Public worship</string>
+    <string name="subject265">Sacraments, other rites &amp; acts</string>
+    <string name="subject266">Missions</string>
+    <string name="subject267">Associations for religious work</string>
+    <string name="subject268">Religious education</string>
+    <string name="subject269">Spiritual renewal</string>
     <!-- Level 1.3.8 -->
+    <!-- subject27 -->
+    <string name="subject271">Religious orders in church history</string>
+    <string name="subject272">Persecutions in church history</string>
+    <string name="subject273">Doctrinal controversies &amp; heresies</string>
+    <string name="subject274">History of Christianity in Europe</string>
+    <string name="subject275">History of Christianity in Asia</string>
+    <string name="subject276">History of Christianity in Africa</string>
+    <string name="subject277">History of Christianity in North America</string>
+    <string name="subject278">History of Christianity in South America</string>
+    <string name="subject279">History of Christianity in other areas</string>
     <!-- Level 1.3.9 -->
+    <!-- subject28 -->
+    <string name="subject281">Early church &amp; Eastern churches</string>
+    <string name="subject282">Roman Catholic Church</string>
+    <string name="subject283">Anglican churches</string>
+    <string name="subject284">Protestants of Continental origin</string>
+    <string name="subject285">Presbyterian, Reformed &amp; Congregational</string>
+    <string name="subject286">Baptist, Disciples of Christ &amp; Adventist</string>
+    <string name="subject287">Methodist &amp; related churches</string>
+    <string name="subject288">Unassigned</string>
+    <string name="subject289">Other denominations &amp; sects</string>
     <!-- Level 1.3.10 -->
+    <!-- subject29 -->
+    <string name="subject291">Unassigned</string>
+    <string name="subject292">Greek &amp; Roman religion</string>
+    <string name="subject293">Germanic religion</string>
+    <string name="subject294">Religions of Indic origin</string>
+    <string name="subject295">Zoroastrianism (Mazdaism, Parseeism)</string>
+    <string name="subject296">Judaism</string>
+    <string name="subject297">Islam, Babism &amp; Bahai Faith</string>
+    <string name="subject298">Optional number</string>
+    <string name="subject299">Religions not provided for elsewhere</string>
     <!-- Level 1.4.1 -->
+    <!-- subject3 -->
+    <string name="subject301">Sociology &amp; anthropology</string>
+    <string name="subject302">Social interaction</string>
+    <string name="subject303">Social processes</string>
+    <string name="subject304">Factors affecting social behavior</string>
+    <string name="subject305">Social groups</string>
+    <string name="subject306">Culture &amp; institutions</string>
+    <string name="subject307">Communities</string>
+    <!-- subject04 -->
+    <!-- subject04 -->
     <!-- Level 1.4.2 -->
+    <!-- subject31 -->
+    <!-- subject04 -->
+    <!-- subject04 -->
+    <!-- subject04 -->
+    <string name="subject314">General statistics Of Europe</string>
+    <string name="subject315">General statistics Of Asia</string>
+    <string name="subject316">General statistics Of Africa</string>
+    <string name="subject317">General statistics Of North America</string>
+    <string name="subject318">General statistics Of South America</string>
+    <string name="subject319">General statistics of other areas</string>
     <!-- Level 1.4.3 -->
+    <!-- subject32 -->
+    <string name="subject321">Systems of governments &amp; states</string>
+    <string name="subject322">Relation of state to organized groups</string>
+    <string name="subject323">Civil &amp; political rights</string>
+    <string name="subject324">The political process</string>
+    <string name="subject325">International migration &amp; colonization</string>
+    <string name="subject326">Slavery &amp; emancipation</string>
+    <string name="subject327">International relations</string>
+    <string name="subject328">The legislative process</string>
+    <!-- subject04 -->
     <!-- Level 1.4.4 -->
+    <!-- subject33 -->
+    <string name="subject331">Labor economics</string>
+    <string name="subject332">Financial economics</string>
+    <string name="subject333">Economics of land &amp; energy</string>
+    <string name="subject334">Cooperatives</string>
+    <string name="subject335">Socialism &amp; related systems</string>
+    <string name="subject336">Public finance</string>
+    <string name="subject337">International economics</string>
+    <string name="subject338">Production</string>
+    <string name="subject339">Macroeconomics &amp; related topics</string>
     <!-- Level 1.4.5 -->
+    <!-- subject34 -->
+    <string name="subject341">Law of nations</string>
+    <string name="subject342">Constitutional &amp; administrative law</string>
+    <string name="subject343">Military, tax, trade, industrial law</string>
+    <string name="subject344">Labor, social, education &amp; cultural law</string>
+    <string name="subject345">Criminal law</string>
+    <string name="subject346">Private law</string>
+    <string name="subject347">Civil procedure &amp; courts</string>
+    <string name="subject348">Laws, regulations &amp; cases</string>
+    <string name="subject349">Law of specific jurisdictions &amp; areas</string>
     <!-- Level 1.4.6 -->
+    <!-- subject35 -->
+    <string name="subject351">Public administration</string>
+    <string name="subject352">General considerations of public administration</string>
+    <string name="subject353">Specific fields of public administration</string>
+    <string name="subject354">Administration of economy &amp; environment</string>
+    <string name="subject355">Military science</string>
+    <string name="subject356">Infantry forces &amp; warfare</string>
+    <string name="subject357">Mounted forces &amp; warfare</string>
+    <string name="subject358">Air &amp; other specialized forces</string>
+    <string name="subject359">Sea forces &amp; warfare</string>
     <!-- Level 1.4.7 -->
+    <!-- subject36 -->
+    <string name="subject361">Social problems &amp; social welfare in general</string>
+    <string name="subject362">Social welfare problems &amp; services</string>
+    <string name="subject363">Other social problems &amp; services</string>
+    <string name="subject364">Criminology</string>
+    <string name="subject365">Penal &amp; related institutions</string>
+    <string name="subject366">Association</string>
+    <string name="subject367">General clubs</string>
+    <string name="subject368">Insurance</string>
+    <string name="subject369">Miscellaneous kinds of associations</string>
     <!-- Level 1.4.8 -->
+    <!-- subject37 -->
+    <string name="subject371">Schools &amp; their activities; special education</string>
+    <string name="subject372">Elementary education</string>
+    <string name="subject373">Secondary education</string>
+    <string name="subject374">Adult education</string>
+    <string name="subject375">Curricula</string>
+    <!-- subject04 -->
+    <!-- subject04 -->
+    <string name="subject378">Higher education</string>
+    <string name="subject379">Public policy issues in education</string>
     <!-- Level 1.4.9 -->
+    <!-- subject38 -->
+    <string name="subject381">Commerce</string>
+    <string name="subject382">International commerce</string>
+    <string name="subject383">Postal communication</string>
+    <string name="subject384">Communications Telecommunication</string>
+    <string name="subject385">Railroad transportation</string>
+    <string name="subject386">Inland waterway &amp; ferry transportation</string>
+    <string name="subject387">Water, air, space transportation</string>
+    <string name="subject388">Transportation Ground transportation</string>
+    <string name="subject389">Metrology &amp; standardization</string>
     <!-- Level 1.4.10 -->
+    <!-- subject39 -->
+    <string name="subject391">Costume &amp; personal appearance</string>
+    <string name="subject392">Customs of life cycle &amp; domestic life</string>
+    <string name="subject393">Death customs</string>
+    <string name="subject394">General customs</string>
+    <string name="subject395">Etiquette (Manners)</string>
+    <!-- subject04 -->
+    <!-- subject04 -->
+    <string name="subject398">Folklore</string>
+    <string name="subject399">Customs of war &amp; diplomacy</string>
     <!-- Level 1.5.1 -->
+    <!-- subject4 -->
+    <string name="subject401">Philosophy &amp; theory</string>
+    <string name="subject402">Miscellany</string>
+    <string name="subject403">Dictionaries &amp; encyclopedias</string>
+    <string name="subject404">Special topics</string>
+    <string name="subject405">Serial publications</string>
+    <string name="subject406">Organizations &amp; management</string>
+    <string name="subject407">Education, research, related topics</string>
+    <string name="subject408">Kinds of persons treatment</string>
+    <string name="subject409">Geographic &amp; persons treatment</string>
     <!-- Level 1.5.2 -->
+    <!-- subject41 -->
+    <string name="subject411">Writing systems</string>
+    <string name="subject412">Etymology</string>
+    <string name="subject413">Dictionaries</string>
+    <string name="subject414">Phonology &amp; phonetics</string>
+    <string name="subject415">Grammar</string>
+    <string name="subject416">Unassigned</string>
+    <string name="subject417">Dialectology &amp; historical linguistics</string>
+    <string name="subject418">Standard usage &amp; applied linguistics</string>
+    <string name="subject419">Sign languages</string>
     <!-- Level 1.5.3 -->
+    <!-- subject42 -->
+    <string name="subject421">English writing system &amp; phonology</string>
+    <string name="subject422">English etymology</string>
+    <string name="subject423">English dictionaries</string>
+    <!-- subject04 -->
+    <string name="subject425">English grammar</string>
+    <!-- subject04 -->
+    <string name="subject427">English language variations</string>
+    <string name="subject428">Standard English usage</string>
+    <string name="subject429">Old English (Anglo-Saxon)</string>
     <!-- Level 1.5.4 -->
+    <!-- subject43 -->
+    <string name="subject431">German writing system &amp; phonology</string>
+    <string name="subject432">German etymology</string>
+    <string name="subject433">German dictionaries</string>
+    <!-- subject04 -->
+    <string name="subject435">German grammar</string>
+    <!-- subject04 -->
+    <string name="subject437">German language variations</string>
+    <string name="subject438">Standard German usage</string>
+    <string name="subject439">Other Germanic languages</string>
     <!-- Level 1.5.5 -->
+    <!-- subject44 -->
+    <string name="subject441">French writing system &amp; phonology</string>
+    <string name="subject442">French etymology</string>
+    <string name="subject443">French dictionaries</string>
+    <!-- subject04 -->
+    <string name="subject445">French grammar</string>
+    <!-- subject04 -->
+    <string name="subject447">French language variations</string>
+    <string name="subject448">Standard French usage</string>
+    <string name="subject449">Occitan &amp; Catalan</string>
     <!-- Level 1.5.6 -->
+    <!-- subject45 -->
+    <string name="subject451">Italian writing systems &amp; phonology</string>
+    <string name="subject452">Italian etymology</string>
+    <string name="subject453">Italian dictionaries</string>
+    <!-- subject04 -->
+    <string name="subject455">Italian grammar</string>
+    <!-- subject04 -->
+    <string name="subject457">Italian language variations</string>
+    <string name="subject458">Standard Italian usage</string>
+    <string name="subject459">Romanian &amp; Rhaeto-Romanic</string>
     <!-- Level 1.5.7 -->
+    <!-- subject46 -->
+    <string name="subject461">Spanish writing systems &amp; phonology</string>
+    <string name="subject462">Spanish etymology</string>
+    <string name="subject463">Spanish dictionaries</string>
+    <!-- subject04 -->
+    <string name="subject465">Spanish grammar</string>
+    <!-- subject04 -->
+    <string name="subject467">Spanish language variations</string>
+    <string name="subject468">Standard Spanish usage</string>
+    <string name="subject469">Portugese</string>
     <!-- Level 1.5.8 -->
+    <!-- subject47 -->
+    <string name="subject471">Classical Latin writing &amp; phonology</string>
+    <string name="subject472">Classical Latin etymology</string>
+    <string name="subject473">Classical Latin dictionaries</string>
+    <!-- subject04 -->
+    <string name="subject475">Classical Latin grammar</string>
+    <!-- subject04 -->
+    <string name="subject477">Old, postclassical &amp; Vulgar Latin</string>
+    <string name="subject478">Classical Latin usage</string>
+    <string name="subject479">Other Italic languages</string>
     <!-- Level 1.5.9 -->
+    <!-- subject48 -->
+    <string name="subject481">Classical Greek writing &amp; phonology</string>
+    <string name="subject482">Classical Greek etymology</string>
+    <string name="subject483">Classical Greek dictionaries</string>
+    <!-- subject04 -->
+    <string name="subject485">Classical Greek grammar</string>
+    <!-- subject04 -->
+    <string name="subject487">Preclassical &amp; postclassical Greek</string>
+    <string name="subject488">Classical Greek usage</string>
+    <string name="subject489">Other Hellenic languages</string>
     <!-- Level 1.5.10 -->
+    <!-- subject49 -->
+    <string name="subject491">East Indo-European &amp; Celtic languages</string>
+    <string name="subject492">Afro-Asiatic languages Semitic</string>
+    <string name="subject493">Non-Semitic Afro-Asiatic languages</string>
+    <string name="subject494">Altaic, Uralic, Hyperborean &amp; Dravidian</string>
+    <string name="subject495">Languages of East &amp; Southeast Asia</string>
+    <string name="subject496">African languages</string>
+    <string name="subject497">North American native languages</string>
+    <string name="subject498">South American native languages</string>
+    <string name="subject499">Austronesian &amp; other languages</string>
     <!-- Level 1.6.1 -->
+    <!-- subject5 -->
+    <string name="subject501">Philosophy &amp; theory</string>
+    <string name="subject502">Miscellany</string>
+    <string name="subject503">Dictionaries &amp; encyclopedias</string>
+    <!-- subject04 -->
+    <string name="subject505">Serial publications</string>
+    <string name="subject506">Organizations &amp; management</string>
+    <string name="subject507">Education, research, related topics</string>
+    <string name="subject508">Natural history</string>
+    <string name="subject509">Historical, geographic &amp; persons treatment</string>
     <!-- Level 1.6.2 -->
+    <!-- subject51 -->
+    <string name="subject511">General principles</string>
+    <string name="subject512">Algebra &amp; number theory</string>
+    <string name="subject513">Arithmetic</string>
+    <string name="subject514">Topology</string>
+    <string name="subject515">Analysis</string>
+    <string name="subject516">Geometry</string>
+    <!-- subject04 -->
+    <string name="subject518">Numerical analysis</string>
+    <string name="subject519">Probabilities &amp; applied mathematics</string>
     <!-- Level 1.6.3 -->
+    <!-- subject52 -->
+    <string name="subject521">Celestial mechanics</string>
+    <string name="subject522">Techniques, equipment, materials</string>
+    <string name="subject523">Specific celestial bodies &amp; phenomena</string>
+    <!-- subject04 -->
+    <string name="subject525">Earth (Astronomical geography)</string>
+    <string name="subject526">Mathematical geography</string>
+    <string name="subject527">Celestial navigation</string>
+    <string name="subject528">Ephemerides</string>
+    <string name="subject529">Chronology</string>
     <!-- Level 1.6.4 -->
+    <!-- subject53 -->
+    <string name="subject531">Classical mechanics; solid mechanics</string>
+    <string name="subject532">Fluid mechanics Liquid mechanics</string>
+    <string name="subject533">Gas mechanics</string>
+    <string name="subject534">Sound &amp; related vibrations</string>
+    <string name="subject535">Light &amp; infrared &amp; ultraviolet phenomena</string>
+    <string name="subject536">Heat</string>
+    <string name="subject537">Electricity &amp; electronics</string>
+    <string name="subject538">Magnetism</string>
+    <string name="subject539">Modern physics</string>
     <!-- Level 1.6.5 -->
+    <!-- subject54 -->
+    <string name="subject541">Physical chemistry</string>
+    <string name="subject542">Techniques, equipment, materials</string>
+    <string name="subject543">Analytical chemistry</string>
+    <string name="subject544">Unassigned</string>
+    <string name="subject545">Unassigned</string>
+    <string name="subject546">Inorganic chemistry</string>
+    <string name="subject547">Organic chemistry</string>
+    <string name="subject548">Crystallography</string>
+    <string name="subject549">Mineralogy</string>
     <!-- Level 1.6.6 -->
+    <!-- subject55 -->
+    <string name="subject551">Geology, hydrology, meteorology</string>
+    <string name="subject552">Petrology</string>
+    <string name="subject553">Economic geology</string>
+    <string name="subject554">Earth sciences of Europe</string>
+    <string name="subject555">Earth sciences of Asia</string>
+    <string name="subject556">Earth sciences of Africa</string>
+    <string name="subject557">Earth sciences of North America</string>
+    <string name="subject558">Earth sciences of South America</string>
+    <string name="subject559">Earth sciences of other areas</string>
     <!-- Level 1.6.7 -->
+    <!-- subject56 -->
+    <string name="subject561">Paleobotany; fossil microorganisms</string>
+    <string name="subject562">Fossil invertebrates</string>
+    <string name="subject563">Fossil primitive phyla</string>
+    <string name="subject564">Fossil mollusks &amp; molluscoids</string>
+    <string name="subject565">Fossil arthropods</string>
+    <string name="subject566">Fossil chordates</string>
+    <string name="subject567">Fossil cold-blooded vertebrates; fossil fishes</string>
+    <string name="subject568">Fossil birds</string>
+    <string name="subject569">Fossil mammals</string>
     <!-- Level 1.6.8 -->
+    <!-- subject57 -->
+    <string name="subject571">Physiology &amp; related subjects</string>
+    <string name="subject572">Biochemistry</string>
+    <string name="subject573">Specific physiological systems in animals</string>
+    <!-- subject04 -->
+    <string name="subject575">Specific parts of &amp; systems in plants</string>
+    <string name="subject576">Genetics &amp; evolution</string>
+    <string name="subject577">Ecology</string>
+    <string name="subject578">Natural history of organisms</string>
+    <string name="subject579">Microorganisms, fungi &amp; algae</string>
     <!-- Level 1.6.9 -->
+    <!-- subject58 -->
+    <string name="subject581">Specific topics in natural history</string>
+    <string name="subject582">Plants noted for characteristics &amp; flowers</string>
+    <string name="subject583">Dicotyledons</string>
+    <string name="subject584">Monocotyledons</string>
+    <string name="subject585">Gymnosperms; conifers</string>
+    <string name="subject586">Seedless plants</string>
+    <string name="subject587">Vascular seedless plants</string>
+    <string name="subject588">Bryophytes</string>
+    <!-- subject04 -->
     <!-- Level 1.6.10 -->
+    <!-- subject59 -->
+    <string name="subject591">Specific topics in natural history</string>
+    <string name="subject592">Invertebrates</string>
+    <string name="subject593">Marine &amp; seashore invertebrates</string>
+    <string name="subject594">Mollusks &amp; molluscoids</string>
+    <string name="subject595">Arthropods</string>
+    <string name="subject596">Chordates</string>
+    <string name="subject597">Cold-blooded vertebrates; fishes</string>
+    <string name="subject598">Birds</string>
+    <string name="subject599">Mammals</string>
     <!-- Level 1.7.1 -->
+    <!-- subject6 -->
+    <string name="subject601">Philosophy &amp; theory</string>
+    <string name="subject602">Miscellany</string>
+    <string name="subject603">Dictionaries &amp; encyclopedias</string>
+    <string name="subject604">Special topics</string>
+    <string name="subject605">Serial publications</string>
+    <string name="subject606">Organizations</string>
+    <string name="subject607">Education, research &amp; related topics</string>
+    <string name="subject608">Inventions &amp; patents</string>
+    <string name="subject609">Historical, geographic &amp; persons treatment</string>
     <!-- Level 1.7.2 -->
+    <!-- subject61 -->
+    <string name="subject611">Human anatomy, cytology &amp; histology</string>
+    <string name="subject612">Human physiology</string>
+    <string name="subject613">Personal health &amp; safety</string>
+    <string name="subject614">Incidence &amp; prevention of disease</string>
+    <string name="subject615">Pharmacology &amp; therapeutics</string>
+    <string name="subject616">Diseases</string>
+    <string name="subject617">Surgery &amp; related medical specialties</string>
+    <string name="subject618">Gynecology, obstetrics, pediatrics &amp; geriatrics</string>
+    <string name="subject619">Unassigned</string>
     <!-- Level 1.7.3 -->
+    <!-- subject62 -->
+    <string name="subject621">Applied physics</string>
+    <string name="subject622">Mining &amp; related operations</string>
+    <string name="subject623">Military &amp; nautical engineering</string>
+    <string name="subject624">Civil engineering</string>
+    <string name="subject625">Engineering of railroads &amp; roads</string>
+    <!-- subject04 -->
+    <string name="subject627">Hydraulic engineering</string>
+    <string name="subject628">Sanitary &amp; municipal engineering</string>
+    <string name="subject629">Other branches of engineering</string>
     <!-- Level 1.7.4 -->
+    <!-- subject63 -->
+    <string name="subject631">Techniques, equipment &amp; materials</string>
+    <string name="subject632">Plant injuries, diseases &amp; pests</string>
+    <string name="subject633">Field &amp; plantation crops</string>
+    <string name="subject634">Orchards, fruits &amp; forestry</string>
+    <string name="subject635">Garden crops (Horticulture)</string>
+    <string name="subject636">Animal husbandry</string>
+    <string name="subject637">Processing dairy &amp; related products</string>
+    <string name="subject638">Insect culture</string>
+    <string name="subject639">Hunting, fishing &amp; conservation</string>
     <!-- Level 1.7.5 -->
+    <!-- subject64 -->
+    <string name="subject641">Food &amp; drink</string>
+    <string name="subject642">Meals &amp; table service</string>
+    <string name="subject643">Housing &amp; household equipment</string>
+    <string name="subject644">Household utilities</string>
+    <string name="subject645">Household furnishings</string>
+    <string name="subject646">Sewing, clothing &amp; personal living</string>
+    <string name="subject647">Management of public households</string>
+    <string name="subject648">Housekeeping</string>
+    <string name="subject649">Child rearing &amp; home care of persons</string>
     <!-- Level 1.7.6 -->
+    <!-- subject65 -->
+    <string name="subject651">Office services</string>
+    <string name="subject652">Processes of written communication</string>
+    <string name="subject653">Shorthand</string>
+    <!-- subject04 -->
+    <!-- subject04 -->
+    <!-- subject04 -->
+    <string name="subject657">Accounting</string>
+    <string name="subject658">General management</string>
+    <string name="subject659">Advertising &amp; public relations</string>
     <!-- Level 1.7.7 -->
+    <!-- subject66 -->
+    <string name="subject661">Industrial chemicals</string>
+    <string name="subject662">Explosives, fuels &amp; related products</string>
+    <string name="subject663">Beverage technology</string>
+    <string name="subject664">Food technology</string>
+    <string name="subject665">Industrial oils, fats, waxes &amp; gases</string>
+    <string name="subject666">Ceramic &amp; allied technologies</string>
+    <string name="subject667">Cleaning, color &amp; coating technologies</string>
+    <string name="subject668">Technology of other organic products</string>
+    <string name="subject669">Metallurgy</string>
     <!-- Level 1.7.8 -->
+    <!-- subject67 -->
+    <string name="subject671">Metalworking &amp; primary metal products</string>
+    <string name="subject672">Iron, steel &amp; other iron alloys</string>
+    <string name="subject673">Nonferrous metals</string>
+    <string name="subject674">Lumber processing, wood products &amp; cork</string>
+    <string name="subject675">Leather &amp; fur processing</string>
+    <string name="subject676">Pulp &amp; paper technology</string>
+    <string name="subject677">Textiles</string>
+    <string name="subject678">Elastomers &amp; elastomer products</string>
+    <string name="subject679">Other products of specific materials</string>
     <!-- Level 1.7.9 -->
+    <!-- subject68 -->
+    <string name="subject681">Precision instruments &amp; other devices</string>
+    <string name="subject682">Small forge work (Blacksmithing)</string>
+    <string name="subject683">Hardware &amp; household appliances</string>
+    <string name="subject684">Furnishings &amp; home workshops</string>
+    <string name="subject685">Leather, fur goods &amp; related products</string>
+    <string name="subject686">Printing &amp; related activities</string>
+    <string name="subject687">Clothing &amp; accessories</string>
+    <string name="subject688">Other final products &amp; packaging</string>
+    <!-- subject04 -->
     <!-- Level 1.7.10 -->
+    <!-- subject69 -->
+    <string name="subject691">Building materials</string>
+    <string name="subject692">Auxiliary construction practices</string>
+    <string name="subject693">Specific materials &amp; purposes</string>
+    <string name="subject694">Wood construction &amp; carpentry</string>
+    <string name="subject695">Roof covering</string>
+    <string name="subject696">Utilities</string>
+    <string name="subject697">Heating, ventilating &amp; air-conditioning</string>
+    <string name="subject698">Detail finishing</string>
+    <!-- subject04 -->
     <!-- Level 1.8.1 -->
+    <!-- subject7 -->
+    <string name="subject701">Philosophy of fine &amp; decorative arts</string>
+    <string name="subject702">Miscellany of fine &amp; decorative arts</string>
+    <string name="subject703">Dictionaries of fine &amp; decorative arts</string>
+    <string name="subject704">Special topics in fine &amp; decorative arts</string>
+    <string name="subject705">Serial publications of fine &amp; decorative arts</string>
+    <string name="subject706">Organizations &amp; management</string>
+    <string name="subject707">Education, research &amp; related topics</string>
+    <string name="subject708">Galleries, museums &amp; private collections</string>
+    <string name="subject709">Historical, geographic &amp; persons </string>
     <!-- Level 1.8.2 -->
+    <!-- subject71 -->
+    <string name="subject711">Area planning</string>
+    <string name="subject712">Landscape architecture</string>
+    <string name="subject713">Landscape architecture of trafficways</string>
+    <string name="subject714">Water features</string>
+    <string name="subject715">Woody plants</string>
+    <string name="subject716">Herbaceous plants</string>
+    <string name="subject717">Structures in landscape architecture</string>
+    <string name="subject718">Landscape design of cemeteries</string>
+    <string name="subject719">Natural landscapes</string>
     <!-- Level 1.8.3 -->
+    <!-- subject72 -->
+    <string name="subject721">Architectural structure</string>
+    <string name="subject722">Architecture to ca. 300</string>
+    <string name="subject723">Architecture from ca. 300 to 1399</string>
+    <string name="subject724">Architecture from 1400</string>
+    <string name="subject725">Public structures</string>
+    <string name="subject726">Buildings for religious purposes</string>
+    <string name="subject727">Buildings for education &amp; research</string>
+    <string name="subject728">Residential &amp; related buildings</string>
+    <string name="subject729">Design &amp; decoration</string>
     <!-- Level 1.8.4 -->
+    <!-- subject73 -->
+    <string name="subject731">Processes, forms &amp; subjects of sculpture</string>
+    <string name="subject732">Sculpture to ca. 500</string>
+    <string name="subject733">Greek, Etruscan &amp; Roman sculpture</string>
+    <string name="subject734">Sculpture from ca. 500 to 1399</string>
+    <string name="subject735">Sculpture from 1400</string>
+    <string name="subject736">Carving &amp; carvings</string>
+    <string name="subject737">Numismatics &amp; sigillography</string>
+    <string name="subject738">Ceramic arts</string>
+    <string name="subject739">Art metalwork</string>
     <!-- Level 1.8.5 -->
+    <!-- subject74 -->
+    <string name="subject741">Drawing &amp; drawings</string>
+    <string name="subject742">Perspective</string>
+    <string name="subject743">Drawing &amp; drawings by subject</string>
+    <!-- subject04 -->
+    <string name="subject745">Decorative arts</string>
+    <string name="subject746">Textile arts</string>
+    <string name="subject747">Interior decoration</string>
+    <string name="subject748">Glass</string>
+    <string name="subject749">Furniture &amp; accessories</string>
     <!-- Level 1.8.6 -->
+    <!-- subject75 -->
+    <string name="subject751">Techniques, equipment, materials &amp; forms</string>
+    <string name="subject752">Color</string>
+    <string name="subject753">Symbolism, allegory, mythology &amp; legend</string>
+    <string name="subject754">Genre paintings</string>
+    <string name="subject755">Religion</string>
+    <!-- subject04 -->
+    <string name="subject757">Human figures</string>
+    <string name="subject758">Other subjects</string>
+    <string name="subject759">Historical, geographic &amp; persons treatment</string>
     <!-- Level 1.8.7 -->
+    <!-- subject76 -->
+    <string name="subject761">Relief processes (Block printing)</string>
+    <!-- subject04 -->
+    <string name="subject763">Lithographic processes</string>
+    <string name="subject764">Chromolithography &amp; serigraphy</string>
+    <string name="subject765">Metal engraving</string>
+    <string name="subject766">Mezzotinting, aquatinting &amp; related processes</string>
+    <string name="subject767">Etching &amp; drypoint</string>
+    <!-- subject04 -->
+    <string name="subject769">Prints</string>
     <!-- Level 1.8.8 -->
+    <!-- subject77 -->
+    <string name="subject771">Techniques, equipment &amp; materials</string>
+    <string name="subject772">Metallic salt processes</string>
+    <string name="subject773">Pigment processes of printing</string>
+    <string name="subject774">Holography</string>
+    <string name="subject775">Digital photography</string>
+    <string name="subject776">Computer art (Digital art)</string>
+    <!-- subject04 -->
+    <string name="subject778">Fields &amp; kinds of photography</string>
+    <string name="subject779">Photographs</string>
     <!-- Level 1.8.9 -->
+    <!-- subject78 -->
+    <string name="subject781">General principles &amp; musical forms</string>
+    <string name="subject782">Vocal music</string>
+    <string name="subject783">Music for single voices; the voice</string>
+    <string name="subject784">Instruments &amp; instrumental ensembles</string>
+    <string name="subject785">Ensembles with one instrument per part</string>
+    <string name="subject786">Keyboard &amp; other instruments</string>
+    <string name="subject787">Stringed instruments</string>
+    <string name="subject788">Wind instruments</string>
+    <string name="subject789">(Optional number)</string>
     <!-- Level 1.8.10 -->
+    <!-- subject79 -->
+    <string name="subject791">Public performances</string>
+    <string name="subject792">Stage presentations</string>
+    <string name="subject793">Indoor games &amp; amusements</string>
+    <string name="subject794">Indoor games of skill</string>
+    <string name="subject795">Games of chance</string>
+    <string name="subject796">Athletic &amp; outdoor sports &amp; games</string>
+    <string name="subject797">Aquatic &amp; air sports</string>
+    <string name="subject798">Equestrian sports &amp; animal racing</string>
+    <string name="subject799">Fishing, hunting &amp; shooting</string>
     <!-- Level 1.9.1 -->
+    <!-- subject8 -->
+    <string name="subject801">Philosophy &amp; theory</string>
+    <string name="subject802">Miscellany</string>
+    <string name="subject803">Dictionaries &amp; encyclopedias</string>
+    <!-- subject04 -->
+    <string name="subject805">Serial publications</string>
+    <string name="subject806">Organizations &amp; management</string>
+    <string name="subject807">Education, research &amp; related topics</string>
+    <string name="subject808">Rhetoric &amp; collections of literature</string>
+    <string name="subject809">History, description &amp; criticism</string>
     <!-- Level 1.9.2 -->
+    <!-- subject81 -->
+    <string name="subject811">American poetry in English</string>
+    <string name="subject812">American drama in English</string>
+    <string name="subject813">American fiction in English</string>
+    <string name="subject814">American essays in English</string>
+    <string name="subject815">American speeches in English</string>
+    <string name="subject816">American letters in English</string>
+    <string name="subject817">American humor &amp; satire in English</string>
+    <string name="subject818">American miscellaneous writings</string>
+    <string name="subject819">(Optional number)</string>
     <!-- Level 1.9.3 -->
+    <!-- subject82 -->
+    <string name="subject821">English poetry</string>
+    <string name="subject822">English drama</string>
+    <string name="subject823">English fiction</string>
+    <string name="subject824">English essays</string>
+    <string name="subject825">English speeches</string>
+    <string name="subject826">English letters</string>
+    <string name="subject827">English satire &amp; humor</string>
+    <string name="subject828">English miscellaneous writings</string>
+    <string name="subject829">Old English (Anglo-Saxon)</string>
     <!-- Level 1.9.4 -->
+    <!-- subject83 -->
+    <string name="subject831">German poetry</string>
+    <string name="subject832">German drama</string>
+    <string name="subject833">German fiction</string>
+    <string name="subject834">German essays</string>
+    <string name="subject835">German speeches</string>
+    <string name="subject836">German letters</string>
+    <string name="subject837">German satire &amp; humor</string>
+    <string name="subject838">German miscellaneous writings</string>
+    <string name="subject839">Other Germanic literatures</string>
     <!-- Level 1.9.5 -->
+    <!-- subject84 -->
+    <string name="subject841">French poetry</string>
+    <string name="subject842">French drama</string>
+    <string name="subject843">French fiction</string>
+    <string name="subject844">French essays</string>
+    <string name="subject845">French speeches</string>
+    <string name="subject846">French letters</string>
+    <string name="subject847">French humor &amp; satire</string>
+    <string name="subject848">French miscellaneous writings</string>
+    <string name="subject849">Occitan &amp; Catalan literatures</string>
     <!-- Level 1.9.6 -->
+    <!-- subject85 -->
+    <string name="subject851">Italian poetry</string>
+    <string name="subject852">Italian drama</string>
+    <string name="subject853">Italian fiction</string>
+    <string name="subject854">Italian essays</string>
+    <string name="subject855">Italian speeches</string>
+    <string name="subject856">Italian letters</string>
+    <string name="subject857">Italian humor &amp; satire</string>
+    <string name="subject858">Italian miscellaneous writings</string>
+    <string name="subject859">Romanian &amp; related literatures</string>
     <!-- Level 1.9.7 -->
+    <!-- subject86 -->
+    <string name="subject861">Spanish poetry</string>
+    <string name="subject862">Spanish drama</string>
+    <string name="subject863">Spanish fiction</string>
+    <string name="subject864">Spanish essays</string>
+    <string name="subject865">Spanish speeches</string>
+    <string name="subject866">Spanish letters</string>
+    <string name="subject867">Spanish humor &amp; satire</string>
+    <string name="subject868">Spanish miscellaneous writings</string>
+    <string name="subject869">Portuguese literature</string>
     <!-- Level 1.9.8 -->
+    <!-- subject87 -->
+    <string name="subject871">Latin poetry</string>
+    <string name="subject872">Latin dramatic poetry &amp; drama</string>
+    <string name="subject873">Latin epic poetry &amp; fiction</string>
+    <string name="subject874">Latin lyric poetry</string>
+    <string name="subject875">Latin speeches</string>
+    <string name="subject876">Latin letters</string>
+    <string name="subject877">Latin humor &amp; satire</string>
+    <string name="subject878">Latin miscellaneous writings</string>
+    <string name="subject879">Literatures of other Italic languages</string>
     <!-- Level 1.9.9 -->
+    <!-- subject88 -->
+    <string name="subject881">Classical Greek poetry</string>
+    <string name="subject882">Classical Greek dramatic poetry &amp; drama</string>
+    <string name="subject883">Classical Greek epic poetry &amp; fiction</string>
+    <string name="subject884">Classical Greek lyric poetry</string>
+    <string name="subject885">Classical Greek speeches</string>
+    <string name="subject886">Classical Greek letters</string>
+    <string name="subject887">Classical Greek humor &amp; satire</string>
+    <string name="subject888">Classical Greek miscellaneous writings</string>
+    <string name="subject889">Modern Greek literature</string>
     <!-- Level 1.9.10 -->
+    <!-- subject89 -->
+    <string name="subject891">East Indo-European &amp; Celtic literatures</string>
+    <string name="subject892">Afro-Asiatic literatures; Semitic literatures</string>
+    <string name="subject893">Non-Semitic Afro-Asiatic literatures</string>
+    <string name="subject894">Altaic, Uralic, Hyperborean &amp; Dravidian</string>
+    <string name="subject895">Literatures of East &amp; Southeast Asia</string>
+    <string name="subject896">African literatures</string>
+    <string name="subject897">North American native literatures</string>
+    <string name="subject898">South American native literatures</string>
+    <string name="subject899">Austronesian &amp; other literatures</string>
     <!-- Level 1.10.1 -->
+    <!-- subject9 -->
+    <string name="subject901">Philosophy &amp; theory</string>
+    <string name="subject902">Miscellany</string>
+    <string name="subject903">Dictionaries &amp; encyclopedias</string>
+    <string name="subject904">Collected accounts of events</string>
+    <string name="subject905">Serial publications</string>
+    <string name="subject906">Organizations &amp; management</string>
+    <string name="subject907">Education, research &amp; related topics</string>
+    <string name="subject908">Kinds of persons treatment</string>
+    <string name="subject909">World history</string>
     <!-- Level 1.10.2 -->
+    <!-- subject91 -->
+    <string name="subject911">Historical geography</string>
+    <string name="subject912">Atlases, maps, charts &amp; plans</string>
+    <string name="subject913">Geography of &amp; travel in ancient world</string>
+    <string name="subject914">Geography of &amp; travel in Europe</string>
+    <string name="subject915">Geography of &amp; travel in Asia</string>
+    <string name="subject916">Geography of &amp; travel in Africa</string>
+    <string name="subject917">Geography of &amp; travel in North America</string>
+    <string name="subject918">Geography of &amp; travel in South America</string>
+    <string name="subject919">Geography of &amp; travel in other areas</string>
     <!-- Level 1.10.3 -->
+    <!-- subject92 -->
+    <string name="subject921">Optional number</string>
+    <string name="subject922">Optional number</string>
+    <string name="subject923">Optional number</string>
+    <string name="subject924">Optional number</string>
+    <string name="subject925">Optional number</string>
+    <string name="subject926">Optional number</string>
+    <string name="subject927">Optional number</string>
+    <string name="subject928">Optional number</string>
+    <string name="subject929">Genealogy, names, insignia</string>
     <!-- Level 1.10.4 -->
+    <!-- subject93 -->
+    <string name="subject931">China to 420</string>
+    <string name="subject932">Egypt to 640</string>
+    <string name="subject933">Palestine to 70</string>
+    <string name="subject934">India to 647</string>
+    <string name="subject935">Mesopotamia &amp; Iranian Plateau to 637</string>
+    <string name="subject936">Europe north &amp; west of Italy to ca. 499</string>
+    <string name="subject937">Italy &amp; adjacent territories to 476</string>
+    <string name="subject938">Greece to 323</string>
+    <string name="subject939">Other parts of ancient world to ca. 640</string>
     <!-- Level 1.10.5 -->
+    <!-- subject94 -->
+    <string name="subject941">British Isles</string>
+    <string name="subject942">England &amp; Wales</string>
+    <string name="subject943">Central Europe; Germany</string>
+    <string name="subject944">France &amp; Monaco</string>
+    <string name="subject945">Italian Peninsula &amp; adjacent islands</string>
+    <string name="subject946">Iberian Peninsula &amp; adjacent islands</string>
+    <string name="subject947">Eastern Europe; Russia</string>
+    <string name="subject948">Scandinavia</string>
+    <string name="subject949">Other parts of Europe</string>
     <!-- Level 1.10.6 -->
+    <!-- subject95 -->
+    <string name="subject951">China &amp; adjacent areas</string>
+    <string name="subject952">Japan</string>
+    <string name="subject953">Arabian Peninsula &amp; adjacent areas</string>
+    <string name="subject954">South Asia; India</string>
+    <string name="subject955">Iran</string>
+    <string name="subject956">Middle East (Near East)</string>
+    <string name="subject957">Siberia (Asiatic Russia)</string>
+    <string name="subject958">Central Asia</string>
+    <string name="subject959">Southeast Asia</string>
     <!-- Level 1.10.7 -->
+    <!-- subject96 -->
+    <string name="subject961">Tunisia &amp; Libya</string>
+    <string name="subject962">Egypt &amp; Sudan</string>
+    <string name="subject963">Ethiopia &amp; Eritrea</string>
+    <string name="subject964">Northwest African coast &amp; offshore islands</string>
+    <string name="subject965">Algeria</string>
+    <string name="subject966">West Africa &amp; offshore islands</string>
+    <string name="subject967">Central Africa &amp; offshore islands</string>
+    <string name="subject968">Southern Africa; Republic of South Africa</string>
+    <string name="subject969">South Indian Ocean islands</string>
     <!-- Level 1.10.8 -->
+    <!-- subject97 -->
+    <string name="subject971">Canada</string>
+    <string name="subject972">Middle America; Mexico</string>
+    <string name="subject973">United States</string>
+    <string name="subject974">Northeastern United States</string>
+    <string name="subject975">Southeastern United States</string>
+    <string name="subject976">South central United States</string>
+    <string name="subject977">North central United States</string>
+    <string name="subject978">Western United States</string>
+    <string name="subject979">Great Basin &amp; Pacific Slope region</string>
     <!-- Level 1.10.9 -->
+    <!-- subject98 -->
+    <string name="subject981">Brazil</string>
+    <string name="subject982">Argentina</string>
+    <string name="subject983">Chile</string>
+    <string name="subject984">Bolivia</string>
+    <string name="subject985">Peru</string>
+    <string name="subject986">Colombia &amp; Ecuador</string>
+    <string name="subject987">Venezuela</string>
+    <string name="subject988">Guiana</string>
+    <string name="subject989">Paraguay &amp; Uruguay</string>
     <!-- Level 1.10.10 -->
+    <!-- subject99 -->
+    <!-- subject04 -->
+    <!-- subject04 -->
+    <string name="subject993">New Zealand</string>
+    <string name="subject994">Australia</string>
+    <string name="subject995">Melanesia; New Guinea</string>
+    <string name="subject996">Other parts of Pacific; Polynesia</string>
+    <string name="subject997">Atlantic Ocean islands</string>
+    <string name="subject998">Arctic islands &amp; Antarctica</string>
+    <string name="subject999">Extraterrestrial worlds</string>
     <string name="about_site_details">One site provides all the sources of knowledge for the Egyptian Researcher :\n\t&#8226; Holdings of the Egyptian universities libraries\n\t&#8226; Masters and PhD of Egyptian researchers\n\t&#8226; Theses under study in Egyptian universities\n\t&#8226; Researches of Staff Members in Egyptian Universities\n\t&#8226; Scientific Journals Published by the Egyptian Universities\n\t&#8226; Electronic Holdings Owned by the Egyptian Universities\n\t&#8226; Transmission of Electronic Lectures\n\t&#8226; Communicating with major libraries throughout the world to see the latest books\n\t&#8226; Communicating with the largest International databases contracted by the Supreme Council of Universities to get to know the latest scientific researches in the world, in addition to access to more than 25 thousands periodicals and download the full text of it</string>
     <string name="contact_details">\t&#8226; Address: وحدة المكتبة الرقمية - مقر شبكة الجامعات المصرية (جامعة القاهرة) - الدور الثالث\n\t&#8226; Phone: 002020108896067 , 0020235704158, 0020235738583, 0020235697645\n\t&#8226; Fax: +20235704194/ 333\n\t&#8226; Zip Code: 12441 جيزه</string>
     <string name="search_results">Search Results</string>
