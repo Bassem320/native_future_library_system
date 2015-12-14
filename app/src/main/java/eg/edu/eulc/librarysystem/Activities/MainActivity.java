@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -17,6 +18,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import java.util.Locale;
 
@@ -50,8 +52,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Configuration conf = res.getConfiguration();
         if (sharedPreferences.getInt("lang", 0) == 0) {
             conf.locale = new Locale("ar");
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                conf.setLayoutDirection(conf.locale);
+            }
         } else {
             conf.locale = new Locale("en");
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                conf.setLayoutDirection(conf.locale);
+            }
         }
         res.updateConfiguration(conf, dm);
         setContentView(R.layout.activity_main);
@@ -193,8 +201,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Configuration conf = res.getConfiguration();
             if (sharedPreferences.getInt("lang", 0) == 0) {
                 conf.locale = new Locale("ar");
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                    conf.setLayoutDirection(conf.locale);
+                }
             } else {
                 conf.locale = new Locale("en");
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                    conf.setLayoutDirection(conf.locale);
+                }
             }
             res.updateConfiguration(conf, dm);
             finish();

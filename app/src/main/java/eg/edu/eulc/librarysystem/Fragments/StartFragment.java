@@ -170,7 +170,7 @@ public class StartFragment extends Fragment {
                             if (!mLoadingItems && (mTotalItemsInList - mOnScreenItems) <= (mFirstVisibleItem + mVisibleThreshold)) {
                                 resultsStartSwipe.setRefreshing(true);
                                 getPage ++;
-                                JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://10.19.1.34:1234/librarySystem/startSearch.json?searchText=" + searchText + "&searchType=" + searchType + "&page=" + getPage, new Response.Listener<JSONObject>() {
+                                JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.200.217:1234/librarySystem/startSearch.json?searchText=" + searchText + "&searchType=" + searchType + "&page=" + getPage, new Response.Listener<JSONObject>() {
                                     @Override
                                     public void onResponse(JSONObject response) {
                                         ArrayList<ResultsStartItem> resultsStartListMore = parseResults(response, false);
@@ -288,7 +288,7 @@ public class StartFragment extends Fragment {
     }
 
     private void requestSiteNews() {
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://10.19.1.34:1234/librarySystem/siteNews.json", new Response.Listener<JSONObject>() {
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.200.217:1234/librarySystem/siteNews.json", new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -378,7 +378,7 @@ public class StartFragment extends Fragment {
     private void startSearch(String searchText, int type) {
         getPage = 0;
         mPreviousTotal = 0;
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://10.19.1.34:1234/librarySystem/startSearch.json?searchText=" + searchText + "&searchType=" + type + "&page=1", new Response.Listener<JSONObject>() {
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.200.217:1234/librarySystem/startSearch.json?searchText=" + searchText + "&searchType=" + type + "&page=1", new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 resultsStartList = parseResults(response, true);
