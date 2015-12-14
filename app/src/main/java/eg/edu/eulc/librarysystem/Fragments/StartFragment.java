@@ -1,6 +1,7 @@
 package eg.edu.eulc.librarysystem.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -36,6 +37,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import eg.edu.eulc.librarysystem.Activities.BrowseActivity;
 import eg.edu.eulc.librarysystem.Activities.MainActivity;
 import eg.edu.eulc.librarysystem.R;
 import eg.edu.eulc.librarysystem.FragmentsDialogs.ResultsStartAdapter;
@@ -203,70 +205,110 @@ public class StartFragment extends Fragment {
         subject0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(v, "Subject 0", Snackbar.LENGTH_LONG).show();
+                Intent subjects = new Intent(getActivity(), BrowseActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("SubjectsIndex", 0);
+                subjects.putExtras(bundle);
+                startActivity(subjects);
             }
         });
 
         subject1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(v, "Subject 1", Snackbar.LENGTH_LONG).show();
+                Intent subjects = new Intent(getActivity(), BrowseActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("SubjectsIndex", 1);
+                subjects.putExtras(bundle);
+                startActivity(subjects);
             }
         });
 
         subject2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(v, "Subject 2", Snackbar.LENGTH_LONG).show();
+                Intent subjects = new Intent(getActivity(), BrowseActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("SubjectsIndex", 2);
+                subjects.putExtras(bundle);
+                startActivity(subjects);
             }
         });
 
         subject3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(v, "Subject 3", Snackbar.LENGTH_LONG).show();
+                Intent subjects = new Intent(getActivity(), BrowseActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("SubjectsIndex", 3);
+                subjects.putExtras(bundle);
+                startActivity(subjects);
             }
         });
 
         subject4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(v, "Subject 4", Snackbar.LENGTH_LONG).show();
+                Intent subjects = new Intent(getActivity(), BrowseActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("SubjectsIndex", 4);
+                subjects.putExtras(bundle);
+                startActivity(subjects);
             }
         });
 
         subject5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(v, "Subject 5", Snackbar.LENGTH_LONG).show();
+                Intent subjects = new Intent(getActivity(), BrowseActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("SubjectsIndex", 5);
+                subjects.putExtras(bundle);
+                startActivity(subjects);
             }
         });
 
         subject6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(v, "Subject 6", Snackbar.LENGTH_LONG).show();
+                Intent subjects = new Intent(getActivity(), BrowseActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("SubjectsIndex", 6);
+                subjects.putExtras(bundle);
+                startActivity(subjects);
             }
         });
 
         subject7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(v, "Subject 7", Snackbar.LENGTH_LONG).show();
+                Intent subjects = new Intent(getActivity(), BrowseActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("SubjectsIndex", 7);
+                subjects.putExtras(bundle);
+                startActivity(subjects);
             }
         });
 
         subject8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(v, "Subject 8", Snackbar.LENGTH_LONG).show();
+                Intent subjects = new Intent(getActivity(), BrowseActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("SubjectsIndex", 8);
+                subjects.putExtras(bundle);
+                startActivity(subjects);
             }
         });
 
         subject9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(v, "Subject 9", Snackbar.LENGTH_LONG).show();
+                Intent subjects = new Intent(getActivity(), BrowseActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("SubjectsIndex", 9);
+                subjects.putExtras(bundle);
+                startActivity(subjects);
             }
         });
 

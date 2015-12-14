@@ -68,6 +68,21 @@
         <item name="android:layout_marginBottom">3dp</item>
     </style>
 
+    <style name="SubjectParentLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:weightSum">2</item>
+    </style>
+
+    <style name="SubjectLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/fab_margin</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
     <style name="SubjectImage">
         <item name="android:layout_width">100dp</item>
         <item name="android:layout_height">100dp</item>
@@ -78,6 +93,12 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="SubjectScroll">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:visibility">gone</item>
     </style>
 
     <style name="HoldingsEditText">

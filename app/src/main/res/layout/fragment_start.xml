@@ -89,18 +89,11 @@
                 android:layout_height="wrap_content">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
+                    style="@style/SubjectParentLayout">
 
                     <LinearLayout
                         android:id="@+id/Subject0"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/fab_margin"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
+                        style="@style/SubjectLayout">
 
                         <ImageView
                             style="@style/SubjectImage"
@@ -113,11 +106,7 @@
 
                     <LinearLayout
                         android:id="@+id/Subject1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/fab_margin"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
+                        style="@style/SubjectLayout">
 
                         <ImageView
                             style="@style/SubjectImage"
@@ -135,18 +124,11 @@
                 android:layout_height="wrap_content">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
+                    style="@style/SubjectParentLayout">
 
                     <LinearLayout
                         android:id="@+id/Subject2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/fab_margin"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
+                        style="@style/SubjectLayout">
 
                         <ImageView
                             style="@style/SubjectImage"
@@ -159,11 +141,7 @@
 
                     <LinearLayout
                         android:id="@+id/Subject3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/fab_margin"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
+                        style="@style/SubjectLayout">
 
                         <ImageView
                             style="@style/SubjectImage"
@@ -181,18 +159,11 @@
                 android:layout_height="wrap_content">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
+                    style="@style/SubjectParentLayout">
 
                     <LinearLayout
                         android:id="@+id/Subject4"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/fab_margin"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
+                        style="@style/SubjectLayout">
 
                         <ImageView
                             style="@style/SubjectImage"
@@ -205,11 +176,7 @@
 
                     <LinearLayout
                         android:id="@+id/Subject5"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/fab_margin"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
+                        style="@style/SubjectLayout">
 
                         <ImageView
                             style="@style/SubjectImage"
@@ -227,18 +194,11 @@
                 android:layout_height="wrap_content">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
+                    style="@style/SubjectParentLayout">
 
                     <LinearLayout
                         android:id="@+id/Subject6"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/fab_margin"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
+                        style="@style/SubjectLayout">
 
                         <ImageView
                             style="@style/SubjectImage"
@@ -251,11 +211,7 @@
 
                     <LinearLayout
                         android:id="@+id/Subject7"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/fab_margin"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
+                        style="@style/SubjectLayout">
 
                         <ImageView
                             style="@style/SubjectImage"
@@ -273,18 +229,11 @@
                 android:layout_height="wrap_content">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
+                    style="@style/SubjectParentLayout">
 
                     <LinearLayout
                         android:id="@+id/Subject8"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/fab_margin"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
+                        style="@style/SubjectLayout">
 
                         <ImageView
                             style="@style/SubjectImage"
@@ -297,11 +246,7 @@
 
                     <LinearLayout
                         android:id="@+id/Subject9"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/fab_margin"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
+                        style="@style/SubjectLayout">
 
                         <ImageView
                             style="@style/SubjectImage"
