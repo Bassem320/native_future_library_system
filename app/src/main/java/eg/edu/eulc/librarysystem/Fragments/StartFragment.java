@@ -303,7 +303,7 @@ public class StartFragment extends Fragment {
             @Override
             public void onErrorResponse(VolleyError error) {
                 loadingItems.setVisibility(View.GONE);
-                if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+                if (error instanceof NoConnectionError) {
                     Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.no_internet), Snackbar.LENGTH_LONG).show();
                 } else {
                     Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.error_fetching_site_news), Snackbar.LENGTH_LONG).show();
@@ -389,7 +389,7 @@ public class StartFragment extends Fragment {
             @Override
             public void onErrorResponse(VolleyError error) {
                 resultsStartSwipe.setRefreshing(false);
-                if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+                if (error instanceof NoConnectionError) {
                     Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.no_internet), Snackbar.LENGTH_LONG).show();
                 } else {
                     Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.error_fetching_results), Snackbar.LENGTH_LONG).show();
