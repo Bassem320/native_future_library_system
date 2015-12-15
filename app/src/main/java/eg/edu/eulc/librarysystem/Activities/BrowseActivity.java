@@ -177,7 +177,7 @@ public class BrowseActivity extends AppCompatActivity {
         level018 = (ScrollView) findViewById(R.id.level018);
         level019 = (ScrollView) findViewById(R.id.level019);
 
-        /*level020 = (ScrollView) findViewById(R.id.level020);
+        level020 = (ScrollView) findViewById(R.id.level020);
         level021 = (ScrollView) findViewById(R.id.level021);
         level022 = (ScrollView) findViewById(R.id.level022);
         level023 = (ScrollView) findViewById(R.id.level023);
@@ -199,7 +199,7 @@ public class BrowseActivity extends AppCompatActivity {
         level038 = (ScrollView) findViewById(R.id.level038);
         level039 = (ScrollView) findViewById(R.id.level039);
 
-        level040 = (ScrollView) findViewById(R.id.level040);
+        /*level040 = (ScrollView) findViewById(R.id.level040);
         level041 = (ScrollView) findViewById(R.id.level041);
         level042 = (ScrollView) findViewById(R.id.level042);
         level043 = (ScrollView) findViewById(R.id.level043);
