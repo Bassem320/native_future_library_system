@@ -15,10 +15,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 
-import eg.edu.eulc.librarysystem.Fragments.TabFragment1;
-import eg.edu.eulc.librarysystem.Fragments.TabFragment2;
-import eg.edu.eulc.librarysystem.Fragments.TabFragment3;
-import eg.edu.eulc.librarysystem.Fragments.TabFragment4;
 import eg.edu.eulc.librarysystem.Objects.ResultsStartItem;
 import eg.edu.eulc.librarysystem.R;
 

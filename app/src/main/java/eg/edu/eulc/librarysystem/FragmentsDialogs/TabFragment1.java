@@ -1,4 +1,4 @@
-package eg.edu.eulc.librarysystem.Fragments;
+package eg.edu.eulc.librarysystem.FragmentsDialogs;
 
 import android.content.Intent;
 import android.net.Uri;

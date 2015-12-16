@@ -1,0 +1,1740 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="eg.edu.eulc.librarysystem.Activities.Level12Activity"
+    tools:showIn="@layout/activity_level12">
+
+    <ScrollView
+        android:id="@+id/level01"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject10"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s100_" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject11"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s110" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject11" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject12"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s120" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject12" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject13"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s130" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject13" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject14"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s140" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject14" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject15"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s150" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject15" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject16"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s160" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject16" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject17"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s170" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject17" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject18"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s180" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject18" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject19"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s190" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject19" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Level 1.2.1 -->
+    <ScrollView
+        android:id="@+id/level010"
+        style="@style/SubjectScroll">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject100"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s100__" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject101"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s101" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject101" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject102"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s102" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject102" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject103"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s103" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject103" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject104"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s104" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject04" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject105"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s105" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject105" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject106"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s106" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject106" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject107"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s107" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject107" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject108"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s108" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject108" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject109"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s109" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject109" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Level 1.2.2 -->
+    <ScrollView
+        android:id="@+id/level011"
+        style="@style/SubjectScroll">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject110"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s110_" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject11" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject111"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s111" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject111" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject112"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s112" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject04" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject113"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s113" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject113" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject114"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s114" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject114" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject115"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s115" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject115" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject116"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s116" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject116" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject117"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s117" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject117" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject118"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s118" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject118" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject119"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s119" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject119" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Level 1.2.3 -->
+    <ScrollView
+        android:id="@+id/level012"
+        style="@style/SubjectScroll">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject120"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s120_" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject12" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject121"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s121" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject121" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject122"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s122" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject122" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject123"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s123" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject123" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject124"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s124" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject124" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject125"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s125" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject04" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject126"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s126" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject126" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject127"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s127" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject127" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject128"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s128" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject128" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject129"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s129" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject129" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Level 1.2.4 -->
+    <ScrollView
+        android:id="@+id/level013"
+        style="@style/SubjectScroll">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject130"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s130_" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject13" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject131"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s131" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject131" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject132"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s132" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject04" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject133"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s133" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject133" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject134"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s134" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject04" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject135"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s135" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject135" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject136"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s136" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject04" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject137"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s137" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject137" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject138"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s138" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject138" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject139"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s139" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject139" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Level 1.2.5 -->
+    <ScrollView
+        android:id="@+id/level014"
+        style="@style/SubjectScroll">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject140"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s140_" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject14" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject141"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s141" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject141" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject142"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s142" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject142" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject143"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s143" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject143" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject144"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s144" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject144" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject145"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s145" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject145" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject146"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s146" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject146" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject147"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s147" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject147" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject148"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s148" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject148" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject149"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s149" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject149" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Level 1.2.6 -->
+    <ScrollView
+        android:id="@+id/level015"
+        style="@style/SubjectScroll">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject150"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s150_" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject15" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject151"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s151" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject04" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject152"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s152" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject152" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject153"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s153" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject153" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject154"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s154" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject154" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject155"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s155" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject155" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject156"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s156" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject156" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject157"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s157" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject04" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject158"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s158" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject158" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject159"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s159" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject04" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <!-- Level 1.2.7 -->
+    <ScrollView
+        android:id="@+id/level016"
+        style="@style/SubjectScroll">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject160"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s160_" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject16" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject161"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s161" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject161" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject162"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s162" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject162" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject163"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s163" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject04" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject164"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s164" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject04" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject165"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s165" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject165" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject166"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s166" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject166" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject167"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s167" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject167" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject168"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s168" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject168" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject169"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s169" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject169" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Level 1.2.8 -->
+    <ScrollView
+        android:id="@+id/level017"
+        style="@style/SubjectScroll">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject170"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s170_" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject17" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject171"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s171" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject171" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject172"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s172" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject172" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject173"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s173" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject173" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject174"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s174" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject174" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject175"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s175" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject175" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject176"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s176" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject176" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject177"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s177" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject177" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject178"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s178" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject178" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject179"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s179" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject179" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Level 1.2.9 -->
+    <ScrollView
+        android:id="@+id/level018"
+        style="@style/SubjectScroll">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject180"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s180_" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject18" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject181"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s181" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject181" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject182"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s182" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject182" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject183"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s183" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject183" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject184"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s184" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject184" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject185"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s185" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject185" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject186"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s186" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject186" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject187"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s187" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject187" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject188"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s188" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject188" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject189"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s189" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject189" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Level 1.2.10 -->
+    <ScrollView
+        android:id="@+id/level019"
+        style="@style/SubjectScroll">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject190"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s190_" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject19" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject191"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s191" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject191" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject192"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s192" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject192" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject193"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s193" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject193" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject194"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s194" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject194" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject195"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s195" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject195" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject196"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s196" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject196" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject197"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s197" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject197" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SubjectParentLayout">
+
+                <LinearLayout
+                    android:id="@+id/Subject198"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s198" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject198" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Subject199"
+                    style="@style/SubjectLayout">
+
+                    <ImageView
+                        style="@style/SubjectImage"
+                        android:src="@drawable/s199" />
+
+                    <TextView
+                        style="@style/SubjectTitle"
+                        android:text="@string/subject199" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

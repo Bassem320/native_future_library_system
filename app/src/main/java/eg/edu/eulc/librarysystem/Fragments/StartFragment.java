@@ -37,7 +37,16 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import eg.edu.eulc.librarysystem.Activities.BrowseActivity;
+import eg.edu.eulc.librarysystem.Activities.Level110Activity;
+import eg.edu.eulc.librarysystem.Activities.Level11Activity;
+import eg.edu.eulc.librarysystem.Activities.Level12Activity;
+import eg.edu.eulc.librarysystem.Activities.Level13Activity;
+import eg.edu.eulc.librarysystem.Activities.Level14Activity;
+import eg.edu.eulc.librarysystem.Activities.Level15Activity;
+import eg.edu.eulc.librarysystem.Activities.Level16Activity;
+import eg.edu.eulc.librarysystem.Activities.Level17Activity;
+import eg.edu.eulc.librarysystem.Activities.Level18Activity;
+import eg.edu.eulc.librarysystem.Activities.Level19Activity;
 import eg.edu.eulc.librarysystem.Activities.MainActivity;
 import eg.edu.eulc.librarysystem.R;
 import eg.edu.eulc.librarysystem.FragmentsDialogs.ResultsStartAdapter;
@@ -205,110 +214,70 @@ public class StartFragment extends Fragment {
         subject0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent subjects = new Intent(getActivity(), BrowseActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putInt("SubjectsIndex", 0);
-                subjects.putExtras(bundle);
-                startActivity(subjects);
+                startActivity(new Intent(getActivity(), Level11Activity.class));
             }
         });
 
         subject1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent subjects = new Intent(getActivity(), BrowseActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putInt("SubjectsIndex", 1);
-                subjects.putExtras(bundle);
-                startActivity(subjects);
+                startActivity(new Intent(getActivity(), Level12Activity.class));
             }
         });
 
         subject2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent subjects = new Intent(getActivity(), BrowseActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putInt("SubjectsIndex", 2);
-                subjects.putExtras(bundle);
-                startActivity(subjects);
+                startActivity(new Intent(getActivity(), Level13Activity.class));
             }
         });
 
         subject3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent subjects = new Intent(getActivity(), BrowseActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putInt("SubjectsIndex", 3);
-                subjects.putExtras(bundle);
-                startActivity(subjects);
+                startActivity(new Intent(getActivity(), Level14Activity.class));
             }
         });
 
         subject4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent subjects = new Intent(getActivity(), BrowseActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putInt("SubjectsIndex", 4);
-                subjects.putExtras(bundle);
-                startActivity(subjects);
+                startActivity(new Intent(getActivity(), Level15Activity.class));
             }
         });
 
         subject5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent subjects = new Intent(getActivity(), BrowseActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putInt("SubjectsIndex", 5);
-                subjects.putExtras(bundle);
-                startActivity(subjects);
+                startActivity(new Intent(getActivity(), Level16Activity.class));
             }
         });
 
         subject6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent subjects = new Intent(getActivity(), BrowseActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putInt("SubjectsIndex", 6);
-                subjects.putExtras(bundle);
-                startActivity(subjects);
+                startActivity(new Intent(getActivity(), Level17Activity.class));
             }
         });
 
         subject7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent subjects = new Intent(getActivity(), BrowseActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putInt("SubjectsIndex", 7);
-                subjects.putExtras(bundle);
-                startActivity(subjects);
+                startActivity(new Intent(getActivity(), Level18Activity.class));
             }
         });
 
         subject8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent subjects = new Intent(getActivity(), BrowseActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putInt("SubjectsIndex", 8);
-                subjects.putExtras(bundle);
-                startActivity(subjects);
+                startActivity(new Intent(getActivity(), Level19Activity.class));
             }
         });
 
         subject9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent subjects = new Intent(getActivity(), BrowseActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putInt("SubjectsIndex", 9);
-                subjects.putExtras(bundle);
-                startActivity(subjects);
+                startActivity(new Intent(getActivity(), Level110Activity.class));
             }
         });
 
