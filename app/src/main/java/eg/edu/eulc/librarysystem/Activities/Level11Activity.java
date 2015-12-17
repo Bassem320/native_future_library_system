@@ -322,7 +322,7 @@ public class Level11Activity extends AppCompatActivity {
                 if (!mLoadingItems && (mTotalItemsInList - mOnScreenItems) <= (mFirstVisibleItem + mVisibleThreshold)) {
                     resultsSwipe.setRefreshing(true);
                     PageNo++;
-                    JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.200.217:1234/librarySystem/startSearch.json?Id=" + layout + "&ClassNo=" + classNo + "&PageNo=" + PageNo, new Response.Listener<JSONObject>() {
+                    JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.0.101:1234/librarySystem/startSearch.json?Id=" + layout + "&ClassNo=" + classNo + "&PageNo=" + PageNo, new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
                             ArrayList<ResultsStartItem> resultsListMore = parseResults(response, false);
@@ -1980,7 +1980,7 @@ public class Level11Activity extends AppCompatActivity {
     private void startBrowse() {
         PageNo = 1;
         mPreviousTotal = 0;
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.200.217:1234/librarySystem/startSearch.json?Id=" + layout + "&ClassNo=" + classNo + "&PageNo=1", new Response.Listener<JSONObject>() {
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.0.101:1234/librarySystem/startSearch.json?Id=" + layout + "&ClassNo=" + classNo + "&PageNo=1", new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
