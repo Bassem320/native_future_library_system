@@ -1682,4 +1682,5 @@
     <string name="subject997">جزر المحيط الهادي</string>
     <string name="subject998">الجزر القطبية والقارة القطبية الجنوبية</string>
     <string name="subject999">العوالم اللاأرضية</string>
+    <string name="error_fetching_subject">حدث خطأ اثناء تحميل المقتنيات!</string>
 </resources>

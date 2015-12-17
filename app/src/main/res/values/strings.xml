@@ -23,6 +23,7 @@
     <string name="no_internet">No Internet Connection!</string>
     <string name="error_fetching_site_news">Error Fetching Site News!</string>
     <string name="error_fetching_results">Error Fetching Search Results!</string>
+    <string name="error_fetching_subject">Error Fetching Subject Holdings!</string>
 
     <!-- Settings -->
     <string name="lang">Language</string>

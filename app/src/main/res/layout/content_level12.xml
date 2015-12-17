@@ -1737,4 +1737,15 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
+
+    <!-- Results -->
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/ResultsSwipeRefresh"
+        style="@style/SubjectScroll">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/ResultsRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </android.support.v4.widget.SwipeRefreshLayout>
 </RelativeLayout>
