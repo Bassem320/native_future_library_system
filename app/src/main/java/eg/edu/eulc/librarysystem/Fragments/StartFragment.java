@@ -3,6 +3,7 @@ package eg.edu.eulc.librarysystem.Fragments;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -27,7 +28,6 @@ import com.android.volley.NoConnectionError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
-import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 
@@ -60,17 +60,15 @@ import eg.edu.eulc.librarysystem.VolleySingleton;
  */
 public class StartFragment extends Fragment {
     private EditText startSearchText;
-    private Spinner searchTypeSpinner;
     private int searchType = 0, getPage = 1;
-    private Button startSearch, startAdvancedSearch;
-    private LinearLayout resultsLayout, subject0, subject1, subject2, subject3, subject4, subject5, subject6, subject7, subject8, subject9;
+    private String searchText;
+    private LinearLayout resultsLayout;
     private ScrollView searchLayout;
     private SwipeRefreshLayout resultsStartSwipe;
     private RecyclerView listItemsRecycler, resultsStartRecycler;
     private ProgressBar loadingItems;
     public static final String PREF_FILE_NAME = "LibrarySystemPref";
     private SharedPreferences sharedPreferences;
-    private VolleySingleton volleySingleton;
     private ArrayList<SiteNewsItem> siteNewsList = new ArrayList<>();
     private ArrayList<ResultsStartItem> resultsStartList = new ArrayList<>();
     private SiteNewsListAdapter itemsListAdapter;
@@ -89,21 +87,21 @@ public class StartFragment extends Fragment {
         final View rootView = inflater.inflate(R.layout.fragment_start, container, false);
 
         startSearchText = (EditText) rootView.findViewById(R.id.start_search_EditText);
-        searchTypeSpinner = (Spinner) rootView.findViewById(R.id.start_search_type);
-        startSearch = (Button) rootView.findViewById(R.id.search_button);
-        startAdvancedSearch = (Button) rootView.findViewById(R.id.advanced_search_button);
+        Spinner searchTypeSpinner = (Spinner) rootView.findViewById(R.id.start_search_type);
+        Button startSearch = (Button) rootView.findViewById(R.id.search_button);
+        Button startAdvancedSearch = (Button) rootView.findViewById(R.id.advanced_search_button);
         searchLayout = (ScrollView) rootView.findViewById(R.id.searchLayout);
         resultsLayout = (LinearLayout) rootView.findViewById(R.id.resultsLayout);
-        subject0 = (LinearLayout) rootView.findViewById(R.id.Subject0);
-        subject1 = (LinearLayout) rootView.findViewById(R.id.Subject1);
-        subject2 = (LinearLayout) rootView.findViewById(R.id.Subject2);
-        subject3 = (LinearLayout) rootView.findViewById(R.id.Subject3);
-        subject4 = (LinearLayout) rootView.findViewById(R.id.Subject4);
-        subject5 = (LinearLayout) rootView.findViewById(R.id.Subject5);
-        subject6 = (LinearLayout) rootView.findViewById(R.id.Subject6);
-        subject7 = (LinearLayout) rootView.findViewById(R.id.Subject7);
-        subject8 = (LinearLayout) rootView.findViewById(R.id.Subject8);
-        subject9 = (LinearLayout) rootView.findViewById(R.id.Subject9);
+        LinearLayout subject0 = (LinearLayout) rootView.findViewById(R.id.Subject0);
+        LinearLayout subject1 = (LinearLayout) rootView.findViewById(R.id.Subject1);
+        LinearLayout subject2 = (LinearLayout) rootView.findViewById(R.id.Subject2);
+        LinearLayout subject3 = (LinearLayout) rootView.findViewById(R.id.Subject3);
+        LinearLayout subject4 = (LinearLayout) rootView.findViewById(R.id.Subject4);
+        LinearLayout subject5 = (LinearLayout) rootView.findViewById(R.id.Subject5);
+        LinearLayout subject6 = (LinearLayout) rootView.findViewById(R.id.Subject6);
+        LinearLayout subject7 = (LinearLayout) rootView.findViewById(R.id.Subject7);
+        LinearLayout subject8 = (LinearLayout) rootView.findViewById(R.id.Subject8);
+        LinearLayout subject9 = (LinearLayout) rootView.findViewById(R.id.Subject9);
         listItemsRecycler = (RecyclerView) rootView.findViewById(R.id.RecyclerNews);
         loadingItems = (ProgressBar) rootView.findViewById(R.id.SiteNewsProgress);
         resultsStartRecycler = (RecyclerView) rootView.findViewById(R.id.ResultsStart);
@@ -115,7 +113,7 @@ public class StartFragment extends Fragment {
         listItemsRecycler.setLayoutManager(linearLayoutManager);
         itemsListAdapter = new SiteNewsListAdapter(getActivity());
         listItemsRecycler.setAdapter(itemsListAdapter);
-        volleySingleton = VolleySingleton.getInstance();
+        VolleySingleton volleySingleton = VolleySingleton.getInstance();
         requestQueue = volleySingleton.getRequestQueue();
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.start_search_type, android.R.layout.simple_spinner_item);
@@ -144,9 +142,9 @@ public class StartFragment extends Fragment {
         startSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String searchText = startSearchText.getText().toString();
+                searchText = startSearchText.getText().toString();
                 if (searchText.equals("") || searchText == null) {
-                    Snackbar.make(v, getResources().getText(R.string.enter_text), Snackbar.LENGTH_LONG).show();
+                    startSearchText.setError(getText(R.string.enter_text));
                 } else {
                     searchLayout.setVisibility(View.GONE);
                     resultsLayout.setVisibility(View.VISIBLE);
@@ -156,7 +154,7 @@ public class StartFragment extends Fragment {
                     resultsStartSwipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
                         @Override
                         public void onRefresh() {
-                            startSearch(searchText, searchType);
+                            startSearch();
                         }
                     });
                     resultsStartRecycler.setAdapter(resultsStarAdapter);
@@ -181,7 +179,7 @@ public class StartFragment extends Fragment {
                             if (!mLoadingItems && (mTotalItemsInList - mOnScreenItems) <= (mFirstVisibleItem + mVisibleThreshold)) {
                                 resultsStartSwipe.setRefreshing(true);
                                 getPage ++;
-                                JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.0.101:1234/librarySystem/startSearch.json?searchText=" + searchText + "&searchType=" + searchType + "&page=" + getPage, new Response.Listener<JSONObject>() {
+                                JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.0.101:1234/librarySystem/startSearch.json?searchText=" + Uri.encode(searchText) + "&searchType=" + searchType + "&page=" + getPage, new Response.Listener<JSONObject>() {
                                     @Override
                                     public void onResponse(JSONObject response) {
                                         ArrayList<ResultsStartItem> resultsStartListMore = parseResults(response, false);
@@ -206,7 +204,7 @@ public class StartFragment extends Fragment {
                     });
                     resultsStartSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                     resultsStartSwipe.setRefreshing(true);
-                    startSearch(searchText, searchType);
+                    startSearch();
                 }
             }
         });
@@ -386,10 +384,10 @@ public class StartFragment extends Fragment {
         }
         return listItems;
     }
-    private void startSearch(String searchText, int type) {
-        getPage = 0;
+    private void startSearch() {
+        getPage = 1;
         mPreviousTotal = 0;
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.0.101:1234/librarySystem/startSearch.json?searchText=" + searchText + "&searchType=" + type + "&page=1", new Response.Listener<JSONObject>() {
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.0.101:1234/librarySystem/startSearch.json?searchText=" + Uri.encode(searchText) + "&searchType=" + searchType + "&page=1", new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 resultsStartList = parseResults(response, true);

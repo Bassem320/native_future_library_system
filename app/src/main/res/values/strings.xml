@@ -24,6 +24,8 @@
     <string name="error_fetching_site_news">Error Fetching Site News!</string>
     <string name="error_fetching_results">Error Fetching Search Results!</string>
     <string name="error_fetching_subject">Error Fetching Subject Holdings!</string>
+    <string name="bib_id_error">Wrong format!\nEx: 100 or 350&#8211;480</string>
+    <string name="pub_year_error">Wrong format!\nEx: 1987 or 1970&#8211;1980</string>
 
     <!-- Settings -->
     <string name="lang">Language</string>

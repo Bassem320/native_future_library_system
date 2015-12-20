@@ -1683,4 +1683,6 @@
     <string name="subject998">الجزر القطبية والقارة القطبية الجنوبية</string>
     <string name="subject999">العوالم اللاأرضية</string>
     <string name="error_fetching_subject">حدث خطأ اثناء تحميل المقتنيات!</string>
+    <string name="bib_id_error">خطأ في الصيغة!\nمثال: 100 أو 350–480</string>
+    <string name="pub_year_error">خطأ في الصيغة!\nمثال: 1987 أو 1970–1980</string>
 </resources>

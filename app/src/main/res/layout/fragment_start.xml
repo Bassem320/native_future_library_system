@@ -287,10 +287,7 @@
 
     <LinearLayout
         android:id="@+id/resultsLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:visibility="gone">
+        style="@style/ResultsLayout">
 
         <ImageView style="@style/Logo" />
 
