@@ -11,7 +11,8 @@
         android:id="@+id/itemImage"
         android:layout_width="@dimen/item_width"
         android:layout_height="@dimen/item_height"
-        android:padding="@dimen/footer_padding" />
+        android:padding="@dimen/footer_padding"
+        android:src="@drawable/placeholder_cover"/>
 
     <TextView
         android:id="@+id/itemType"
