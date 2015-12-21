@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
+    <ScrollView
+        android:id="@+id/searchLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/searchLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -168,16 +168,27 @@
             <TextView style="@style/Footer" />
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/resultsLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone">
+    </ScrollView>
 
-            <TextView
+    <LinearLayout
+        android:id="@+id/resultsLayout"
+        style="@style/ResultsLayout">
+
+        <ImageView style="@style/Logo" />
+
+        <TextView
+            style="@style/MainTitle"
+            android:text="@string/search_results" />
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/ResultsThesesSwipeRefresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/ResultsTheses"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Search Results" />
-        </LinearLayout>
-    </RelativeLayout>
-</ScrollView>
+                android:layout_height="match_parent" />
+        </android.support.v4.widget.SwipeRefreshLayout>
+    </LinearLayout>
+</RelativeLayout>
