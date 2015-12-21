@@ -24,6 +24,7 @@ import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.NoConnectionError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -36,6 +37,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import eg.edu.eulc.librarysystem.Activities.Level110Activity;
 import eg.edu.eulc.librarysystem.Activities.Level11Activity;
@@ -60,8 +63,8 @@ import eg.edu.eulc.librarysystem.VolleySingleton;
  */
 public class StartFragment extends Fragment {
     private EditText startSearchText;
-    private int searchType = 0, getPage = 1;
-    private String searchText;
+    private int searchType = 0;
+    private String searchText, nextPage="";
     private LinearLayout resultsLayout;
     private ScrollView searchLayout;
     private SwipeRefreshLayout resultsStartSwipe;
@@ -178,8 +181,8 @@ public class StartFragment extends Fragment {
                             }
                             if (!mLoadingItems && (mTotalItemsInList - mOnScreenItems) <= (mFirstVisibleItem + mVisibleThreshold)) {
                                 resultsStartSwipe.setRefreshing(true);
-                                getPage ++;
-                                JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.0.101:1234/librarySystem/startSearch.json?searchText=" + Uri.encode(searchText) + "&searchType=" + searchType + "&page=" + getPage, new Response.Listener<JSONObject>() {
+                                //getPage ++;
+                                JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.0.101:1234/librarySystem/startSearch.json?searchText=" + Uri.encode(searchText) + "&searchType=" + searchType + "&page=" /*+ getPage*/, new Response.Listener<JSONObject>() {
                                     @Override
                                     public void onResponse(JSONObject response) {
                                         ArrayList<ResultsStartItem> resultsStartListMore = parseResults(response, false);
@@ -193,7 +196,7 @@ public class StartFragment extends Fragment {
                                 }, new Response.ErrorListener() {
                                     @Override
                                     public void onErrorResponse(VolleyError error) {
-                                        getPage --;
+                                        //getPage --;
                                         resultsStartSwipe.setRefreshing(false);
                                     }
                                 });
@@ -393,9 +396,9 @@ public class StartFragment extends Fragment {
         return listItems;
     }
     private void startSearch() {
-        getPage = 1;
+        //getPage = 1;
         mPreviousTotal = 0;
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.0.101:1234/librarySystem/startSearch.json?searchText=" + Uri.encode(searchText) + "&searchType=" + searchType + "&page=1", new Response.Listener<JSONObject>() {
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, "http://192.168.0.101:1234/librarySystem/startSearch.json?searchText=" + Uri.encode(searchText) + "&searchType=" + searchType + "&page=1", new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 resultsStartList = parseResults(response, true);
@@ -414,7 +417,21 @@ public class StartFragment extends Fragment {
                 resultsLayout.setVisibility(View.GONE);
                 searchLayout.setVisibility(View.VISIBLE);
             }
-        });
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> params = new HashMap<String, String>();
+                params.put("SearchText1", searchText);
+                return params;
+            }
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String,String> params = new HashMap<String, String>();
+                params.put("Content-Type","application/x-www-form-urlencoded");
+                return params;
+            }
+        };
         requestQueue.add(request);
     }
 

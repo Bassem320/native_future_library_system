@@ -68,12 +68,6 @@ public class TabFragment3 extends Fragment {
                         textView3.setPadding(5, 5, 5, 5);
                         textView3.setGravity(Gravity.CENTER_HORIZONTAL);
                         textView3.setBackgroundResource(R.drawable.table_cell_background);
-                        TextView textView4 = new TextView(getActivity());
-                        textView4.setLayoutParams(new TableRow.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-                        textView4.setText(currentDetail.getString("availability"));
-                        textView4.setPadding(5, 5, 5, 5);
-                        textView4.setGravity(Gravity.CENTER_HORIZONTAL);
-                        textView4.setBackgroundResource(R.drawable.table_cell_background);
                         TextView textView5 = new TextView(getActivity());
                         textView5.setLayoutParams(new TableRow.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
                         textView5.setText(currentDetail.getString("status"));
@@ -88,7 +82,6 @@ public class TabFragment3 extends Fragment {
                         row.addView(textView1);
                         row.addView(textView2);
                         row.addView(textView3);
-                        row.addView(textView4);
                         row.addView(textView5);
                         row.addView(textView6);
                         tableLayout.addView(row);

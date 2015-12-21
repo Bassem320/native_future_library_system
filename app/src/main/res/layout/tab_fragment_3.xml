@@ -32,10 +32,6 @@
 
             <TextView
                 style="@style/TableHeader"
-                android:text="@string/availability" />
-
-            <TextView
-                style="@style/TableHeader"
                 android:text="@string/status" />
 
             <TextView

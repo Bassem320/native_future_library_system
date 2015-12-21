@@ -1307,7 +1307,6 @@
     <string name="generalNo">General No.</string>
     <string name="callNo">Call No.</string>
     <string name="shelf">Shelf</string>
-    <string name="availability">Availability</string>
     <string name="status">Status</string>
     <string name="location">Location</string>
     <!-- Services -->
