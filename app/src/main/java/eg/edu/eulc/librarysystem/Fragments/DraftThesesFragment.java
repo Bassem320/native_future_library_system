@@ -316,7 +316,7 @@ public class DraftThesesFragment extends Fragment {
                 if (searchText1.equals("") || searchText1 == null) {
                     searchTextET1.setError(getText(R.string.enter_text));
                 } else if ((!(dateFrom.equals("") || dateFrom == null)) || (!(dateTo.equals("") || dateTo == null))) {
-                    String DATE_PATTERN = "^(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\\d{2}$";
+                    String DATE_PATTERN = "^(0?[1-9]|[12][0-9]|3[01])[- /.](0?[1-9]|1[012])[- /.](19|20)\\d{2}$";
                     Pattern patternDate = Pattern.compile(DATE_PATTERN);
                     Matcher matcherDateFrom = patternDate.matcher(dateFrom);
                     Matcher matcherDateTo = patternDate.matcher(dateTo);

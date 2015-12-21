@@ -222,7 +222,7 @@ public class LocalJournalsFragment extends Fragment {
                     searchTextET1.setError(getText(R.string.enter_text));
                 } else if ((!(bibID.equals("") || bibID == null)) || (!(publishYear.equals("") || publishYear == null))) {
                     String BIB_PATTERN = "\\b\\d{1,6}-\\d{1,6}|\\d{1,6}\\b";
-                    String YEAR_PATTERN = "\\b(19|20)\\d{2}[-](19|20)\\d{2}|(19|20)\\d{2}\\b";
+                    String YEAR_PATTERN = "\\b((19|20)\\d{2}[-](19|20)\\d{2})|(19|20)\\d{2}\\b";
                     Pattern patternBib = Pattern.compile(BIB_PATTERN);
                     Pattern patternYear = Pattern.compile(YEAR_PATTERN);
                     Matcher matcherBib = patternBib.matcher(bibID);
