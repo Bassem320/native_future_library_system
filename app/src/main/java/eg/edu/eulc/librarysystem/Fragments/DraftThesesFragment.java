@@ -324,13 +324,13 @@ public class DraftThesesFragment extends Fragment {
                         boolean fromOK, toOK;
                         if (!matcherDateFrom.matches()) {
                             fromOK = false;
-                            dateFromET.setError(getText(R.string.bib_id_error));
+                            dateFromET.setError(getText(R.string.date_error));
                         } else {
                             fromOK = true;
                         }
                         if (!matcherDateTo.matches()) {
                             toOK = false;
-                            dateToET.setError(getText(R.string.pub_year_error));
+                            dateToET.setError(getText(R.string.date_error));
                         } else {
                             toOK = true;
                         }
@@ -339,13 +339,13 @@ public class DraftThesesFragment extends Fragment {
                         }
                     } else if (!(dateFrom.equals("") || dateFrom == null)) {
                         if (!matcherDateFrom.matches()) {
-                            dateFromET.setError(getText(R.string.bib_id_error));
+                            dateFromET.setError(getText(R.string.date_error));
                         } else {
                             completeSearch();
                         }
                     } else if (!(dateTo.equals("") || dateTo == null)) {
                         if (!matcherDateTo.matches()) {
-                            dateToET.setError(getText(R.string.pub_year_error));
+                            dateToET.setError(getText(R.string.date_error));
                         } else {
                             completeSearch();
                         }
