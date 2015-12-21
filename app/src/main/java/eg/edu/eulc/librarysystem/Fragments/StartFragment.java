@@ -75,7 +75,7 @@ public class StartFragment extends Fragment {
     private ResultsStartAdapter resultsStarAdapter;
     private RequestQueue requestQueue;
     private LinearLayoutManager linearLayoutManager;
-    private boolean mLoadingItems = true;
+    private boolean mLoadingItems = true, stop = false;
     private int mOnScreenItems, mTotalItemsInList, mFirstVisibleItem, mPreviousTotal = 0, mVisibleThreshold = 1;
 
     public StartFragment() {
@@ -296,34 +296,42 @@ public class StartFragment extends Fragment {
         searchLayout.setVisibility(View.VISIBLE);
     }
 
+    public void stopRequest(boolean stop) {
+        this.stop = stop;
+    }
+
     private void requestSiteNews() {
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.0.101:1234/librarySystem/siteNews.json", new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString("siteNewsList", response.toString());
-                editor.apply();
-                siteNewsList = parseSiteNews(response);
-                itemsListAdapter.setListSiteNewsItems(siteNewsList);
-                listItemsRecycler.setMinimumHeight(listItemsRecycler.getHeight());
-                loadingItems.setVisibility(View.GONE);
+                if (!stop) {
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("siteNewsList", response.toString());
+                    editor.apply();
+                    siteNewsList = parseSiteNews(response);
+                    itemsListAdapter.setListSiteNewsItems(siteNewsList);
+                    listItemsRecycler.setMinimumHeight(listItemsRecycler.getHeight());
+                    loadingItems.setVisibility(View.GONE);
+                }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                loadingItems.setVisibility(View.GONE);
-                if (error instanceof NoConnectionError) {
-                    Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.no_internet), Snackbar.LENGTH_LONG).show();
-                } else {
-                    Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.error_fetching_site_news), Snackbar.LENGTH_LONG).show();
-                }
-                String strJson = sharedPreferences.getString("siteNewsList", "");
-                if (!strJson.equals("")) {
-                    try {
-                        JSONObject jsonData = new JSONObject(strJson);
-                        siteNewsList = parseSiteNews(jsonData);
-                        itemsListAdapter.setListSiteNewsItems(siteNewsList);
-                    } catch (JSONException e) {
+                if (!stop) {
+                    loadingItems.setVisibility(View.GONE);
+                    if (error instanceof NoConnectionError) {
+                        Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.no_internet), Snackbar.LENGTH_LONG).show();
+                    } else {
+                        Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.error_fetching_site_news), Snackbar.LENGTH_LONG).show();
+                    }
+                    String strJson = sharedPreferences.getString("siteNewsList", "");
+                    if (!strJson.equals("")) {
+                        try {
+                            JSONObject jsonData = new JSONObject(strJson);
+                            siteNewsList = parseSiteNews(jsonData);
+                            itemsListAdapter.setListSiteNewsItems(siteNewsList);
+                        } catch (JSONException e) {
+                        }
                     }
                 }
             }

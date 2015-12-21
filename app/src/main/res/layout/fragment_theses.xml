@@ -105,7 +105,8 @@
                 <EditText
                     android:id="@+id/BibID"
                     style="@style/TypeSpinner"
-                    android:hint="@string/bib_id_hint" />
+                    android:hint="@string/bib_id_hint"
+                    android:inputType="date"/>
             </LinearLayout>
 
             <LinearLayout
@@ -119,7 +120,8 @@
                 <EditText
                     android:id="@+id/Publishyear"
                     style="@style/TypeSpinner"
-                    android:hint="@string/pub_year_hint" />
+                    android:hint="@string/pub_year_hint"
+                    android:inputType="date"/>
             </LinearLayout>
 
             <LinearLayout

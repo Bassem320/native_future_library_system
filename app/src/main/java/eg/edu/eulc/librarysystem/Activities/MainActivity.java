@@ -98,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 if (startFragment.getLayoutVisibility()) {
                     startFragment.showSearch();
                 } else {
+                    startFragment.stopRequest(true);
                     super.onBackPressed();
                 }
             } else if (navigationView.getMenu().getItem(1).isChecked() && holdingsFragment.getLayoutVisibility()) {
