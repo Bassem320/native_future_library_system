@@ -20,6 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.NoConnectionError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -32,6 +33,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -45,7 +48,7 @@ import eg.edu.eulc.librarysystem.VolleySingleton;
  */
 public class DraftThesesFragment extends Fragment {
     private Spinner subSpecialitySpinner;
-    private int searchin1 = 0, searchin2 = 0, searchin3 = 0, conc1 = 0, conc2 = 0, speciality = 0, subSpeciality = 0, degree = 0, getPage = 1;
+    private int searchin1 = 0, searchin2 = 0, searchin3 = 0, conc1 = 0, conc2 = 0, speciality = 0, subSpeciality = 0, degree = 0;
     private String[] searchIn = {"*", "f2", "f8", "f5"}, concs = {"and", "or", "and not"}, degrees = {"", "24.15.1.", "24.15.2."},
            specialities = {"", "100.1.", "100.10.", "100.11.", "100.12.", "100.13.", "100.14.", "100.15.", "100.16.", "100.17.", "100.18.", "100.19.", "100.2.", "100.20.", "100.21.", "100.22.", "100.23.", "100.24.", "100.25.", "100.26.", "100.27.", "100.28.", "100.3.", "100.4.", "100.5.", "100.6.", "100.7.", "100.8.", "100.9.", "100.96."};
     private String[][] subSpecialities = {
@@ -72,7 +75,7 @@ public class DraftThesesFragment extends Fragment {
             {"", "100.96.11.1.1.", "100.96.11.1.2.", "100.96.11.1.3.", "100.96.11.1.4.", "100.96.11.1.5.", "100.96.11.1.6.", "100.96.11.1.7.", "100.96.11.1.8.", "100.96.11.1.9.", "100.96.11.1.10.", "100.96.11.1.11.", "100.96.11.1.12.", "100.96.11.1.13.", "100.96.11.1.14.", "100.96.11.1.15.", "100.96.11.1.16.", "100.96.11.1.17.", "100.96.11.1.18.", "100.96.11.1.19.", "100.96.11.1.20.", "100.96.11.1.21.", "100.96.11.1.22.", "100.96.11.1.23.", "100.96.11.1.24.", "100.96.11.1.25.", "100.96.11.1.26.", "100.96.11.1.27.", "100.96.11.1.28.", "100.96.11.2.9.", "100.96.11.2.8.1.", "100.96.11.2.4.1.", "100.96.11.2.5.1.", "100.96.11.2.6.1.", "100.96.11.2.7.1.", "100.96.11.2.1.1.", "100.96.11.2.10.1.", "100.96.11.2.11.1.", "100.96.11.2.13.1.", "100.96.11.2.2.1.", "100.96.11.2.3.1.", "100.96.24.", "100.96.14.", "100.96.16.", "100.96.12.", "100.96.11.", "100.96.19.", "100.96.18.", "100.96.25.", "100.96.28.", "100.96.26.", "100.96.23.", "100.96.15.", "100.96.27.", "100.96.17.", "100.96.21.", "100.96.13.", "100.96.20.", "100.96.22.", "100.96.11.2.1.", "100.96.11.2.2.", "100.96.11.2.3.", "100.96.11.2.3.7.", "100.96.11.2.4.7.", "100.96.11.2.6.7.", "100.96.11.2.5.7.", "100.96.11.2.7.7.", "100.96.11.2.8.7.", "100.96.11.2.13.45.", "100.96.11.2.2.7.", "100.96.11.2.11.7.", "100.96.11.2.1.7.", "100.96.11.2.10.7.", "100.96.11.2.10.3.", "100.96.11.2.11.3.", "100.96.11.2.2.3.", "100.96.11.2.13.3.", "100.96.11.2.1.3.", "100.96.11.2.8.3.", "100.96.11.2.6.3.", "100.96.11.2.7.3.", "100.96.11.2.4.3.", "100.96.11.2.5.3.", "100.96.11.2.3.3.", "100.96.11.2.4.2.", "100.96.11.2.5.2.", "100.96.11.2.7.2.", "100.96.11.2.6.2.", "100.96.11.2.8.2.", "100.96.11.2.1.2.", "100.96.11.2.13.2.", "100.96.11.2.2.2.", "100.96.11.2.3.2.", "100.96.11.2.11.2.", "100.96.11.2.10.2.", "100.96.11.2.10.6.", "100.96.11.2.11.6.", "100.96.11.2.2.6.", "100.96.11.2.13.6.", "100.96.11.2.1.6.", "100.96.11.2.8.6.", "100.96.11.2.4.6.", "100.96.11.2.5.6.", "100.96.11.2.6.6.", "100.96.11.2.7.6.", "100.96.11.2.3.6.", "100.96.11.2.3.4.", "100.96.11.2.5.4.", "100.96.11.2.4.4.", "100.96.11.2.7.4.", "100.96.11.2.6.4.", "100.96.11.2.8.4.", "100.96.11.2.1.4.", "100.96.11.2.13.4.", "100.96.11.2.2.4.", "100.96.11.2.11.4.", "100.96.11.2.10.4.", "100.96.11.9.", "100.96.11.5.", "100.96.11.10.", "100.96.11.8.", "100.96.11.6.", "100.96.11.3.", "100.96.11.1.", "100.96.11.4.", "100.96.11.2.", "100.96.11.7.", "100.96.11.2.8.5.", "100.96.11.2.6.5.", "100.96.11.2.7.5.", "100.96.11.2.4.5.", "100.96.11.2.5.5.", "100.96.11.2.3.5.", "100.96.11.2.1.5.", "100.96.11.2.10.5.", "100.96.11.2.11.5.", "100.96.11.2.2.5.", "100.96.11.2.13.5.", "100.96.11.2.4.", "100.96.11.2.5.", "100.96.11.2.6.", "100.96.11.2.7.", "100.96.11.2.8.", "100.96.11.2.13.", "100.96.11.2.10.", "100.96.11.2.11."}
     };
     private EditText searchTextET1, searchTextET2, searchTextET3, dateFromET, dateToET, draftThesesIDET;
-    private String searchText1, searchText2, searchText3, dateFrom, dateTo, draftThesesID;
+    private String searchText1, searchText2, searchText3, dateFrom, dateTo, draftThesesID, nextPage = "";
     private LinearLayout resultsLayout;
     private ScrollView searchLayout;
     private SwipeRefreshLayout resultsSwipe;
@@ -322,8 +325,16 @@ public class DraftThesesFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 searchText1 = searchTextET1.getText().toString();
+
                 dateFrom = dateFromET.getText().toString();
+                if (dateFrom == null) {
+                    dateFrom = "";
+                }
+
                 dateTo = dateToET.getText().toString();
+                if (dateTo == null) {
+                    dateTo = "";
+                }
 
                 searchText2 = searchTextET2.getText().toString();
                 if (searchText2 == null) {
@@ -429,8 +440,8 @@ public class DraftThesesFragment extends Fragment {
                 }
                 if (!mLoadingItems && (mTotalItemsInList - mOnScreenItems) <= (mFirstVisibleItem + mVisibleThreshold)) {
                     resultsSwipe.setRefreshing(true);
-                    getPage ++;
-                    JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.0.101:1234/librarySystem/startSearch.json?SearchText1=" + Uri.encode(searchText1) + "&page=" + getPage, new Response.Listener<JSONObject>() {
+                    //getPage ++;
+                    JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.0.101:1234/librarySystem/startSearch.json?SearchText1=" + Uri.encode(searchText1) + "&page=" /*+ getPage*/, new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
                             ArrayList<ResultsStartItem> resultsListMore = parseResults(response, false);
@@ -444,7 +455,7 @@ public class DraftThesesFragment extends Fragment {
                     }, new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            getPage --;
+                            //getPage --;
                             resultsSwipe.setRefreshing(false);
                         }
                     });
@@ -459,9 +470,9 @@ public class DraftThesesFragment extends Fragment {
     }
 
     private void startSearch() {
-        getPage = 1;
+        //getPage = 1;
         mPreviousTotal = 0;
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.0.101:1234/librarySystem/startSearch.json?SearchText1=" + Uri.encode(searchText1) + "&page=1", new Response.Listener<JSONObject>() {
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, "http://192.168.0.101:1234/librarySystem/startSearch.json?SearchText1=" + Uri.encode(searchText1) + "&page=1", new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 resultsList = parseResults(response, true);
@@ -480,7 +491,28 @@ public class DraftThesesFragment extends Fragment {
                 resultsLayout.setVisibility(View.GONE);
                 searchLayout.setVisibility(View.VISIBLE);
             }
-        });
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> params = new HashMap<String, String>();
+                params.put("ScopeIDSelect", "1.");
+                params.put("Search1", searchText1);
+                params.put("critria1", searchIn[searchin1]);
+                params.put("opr1", concs[conc1]);
+                params.put("Search2", searchText2);
+                params.put("critria2", searchIn[searchin2]);
+                params.put("opr2", concs[conc2]);
+                params.put("Search3", searchText3);
+                params.put("critria3", searchIn[searchin3]);
+                params.put("FromDate", dateFrom);
+                params.put("ToDate", dateTo);
+                params.put("Subject", specialities[speciality]);
+                params.put("sub_Subject", subSpecialities[speciality][subSpeciality]);
+                params.put("ThesisID", draftThesesID);
+                params.put("Degree", degrees[degree]);
+                return params;
+            }
+        };
         requestQueue.add(request);
     }
 
