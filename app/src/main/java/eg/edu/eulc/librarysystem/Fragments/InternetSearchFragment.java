@@ -20,6 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.NoConnectionError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -32,6 +33,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import eg.edu.eulc.librarysystem.FragmentsDialogs.ResultsStartAdapter;
 import eg.edu.eulc.librarysystem.Objects.ResultsStartItem;
@@ -42,10 +45,10 @@ import eg.edu.eulc.librarysystem.VolleySingleton;
  * Created by Eslam El-Meniawy on 01-Nov-15.
  */
 public class InternetSearchFragment extends Fragment {
-    private int searchin1 = 0, searchin2 = 0, searchin3 = 0, conc1 = 0, conc2 = 0, getPage = 1;
+    private int searchin1 = 0, searchin2 = 0, searchin3 = 0, conc1 = 0, conc2 = 0;
     private String[] searchIn = {"bath.isbn", "bath.title", "dc.creator", "dc.subject", "bath.keyTitle", "bath.issn"}, concs = {"and", "or", "not"};
     private EditText searchTextET1, searchTextET2, searchTextET3;
-    private String searchText1, searchText2, searchText3;
+    private String searchText1, searchText2, searchText3, nextPage = "";
     private LinearLayout resultsLayout;
     private ScrollView searchLayout;
     private SwipeRefreshLayout resultsSwipe;
@@ -155,6 +158,15 @@ public class InternetSearchFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 searchText1 = searchTextET1.getText().toString();
+
+                searchText2 = searchTextET2.getText().toString();
+                if (searchText2 == null) {
+                    searchText2 = "";
+                }
+                searchText3 = searchTextET3.getText().toString();
+                if (searchText3 == null) {
+                    searchText3 = "";
+                }
                 if (searchText1.equals("") || searchText1 == null) {
                     searchTextET1.setError(getText(R.string.enter_text));
                 } else {
@@ -190,8 +202,8 @@ public class InternetSearchFragment extends Fragment {
                             }
                             if (!mLoadingItems && (mTotalItemsInList - mOnScreenItems) <= (mFirstVisibleItem + mVisibleThreshold)) {
                                 resultsSwipe.setRefreshing(true);
-                                getPage ++;
-                                JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.0.101:1234/librarySystem/startSearch.json?SearchText1=" + Uri.encode(searchText1) + "&page=" + getPage, new Response.Listener<JSONObject>() {
+                                //getPage ++;
+                                JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.0.101:1234/librarySystem/startSearch.json?SearchText1=" + Uri.encode(searchText1) + "&page=" /*+ getPage*/, new Response.Listener<JSONObject>() {
                                     @Override
                                     public void onResponse(JSONObject response) {
                                         ArrayList<ResultsStartItem> resultsListMore = parseResults(response, false);
@@ -205,7 +217,7 @@ public class InternetSearchFragment extends Fragment {
                                 }, new Response.ErrorListener() {
                                     @Override
                                     public void onErrorResponse(VolleyError error) {
-                                        getPage --;
+                                        //getPage --;
                                         resultsSwipe.setRefreshing(false);
                                     }
                                 });
@@ -237,7 +249,7 @@ public class InternetSearchFragment extends Fragment {
     }
 
     private void startSearch() {
-        getPage = 1;
+        //getPage = 1;
         mPreviousTotal = 0;
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.0.101:1234/librarySystem/startSearch.json?SearchText1=" + Uri.encode(searchText1) + "&page=1", new Response.Listener<JSONObject>() {
             @Override
@@ -258,7 +270,21 @@ public class InternetSearchFragment extends Fragment {
                 resultsLayout.setVisibility(View.GONE);
                 searchLayout.setVisibility(View.VISIBLE);
             }
-        });
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> params = new HashMap<String, String>();
+                params.put("SearchText1", searchText1);
+                params.put("criteria1", searchIn[searchin1]);
+                params.put("opr1", concs[conc1]);
+                params.put("SearchText2", searchText2);
+                params.put("criteria2", searchIn[searchin2]);
+                params.put("opr2", concs[conc2]);
+                params.put("SearchText3", searchText3);
+                params.put("criteria3", searchIn[searchin3]);
+                return params;
+            }
+        };
         requestQueue.add(request);
     }
 

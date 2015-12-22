@@ -53,7 +53,7 @@ public class HoldingsFragment extends Fragment {
             keywords = {"1.", "0.", "2.", "3.", "9.", "6.", "7.", "8.", "5."}, concs = {"and", "or", "and not"},
             wordProcess = {"", "INFLECTIONAL", "THESAURUS"}, orders = {"", "Title", "Author", "publishYear asc", "publishYear desc"};
     private EditText searchTextET1, searchTextET2, searchTextET3, attachContainsET, bibIDET, publishYearET;
-    private String searchText1, searchText2, searchText3, attachContains, bibID, publishYear;
+    private String searchText1, searchText2, searchText3, attachContains, bibID, publishYear, nextPage = "";
     private LinearLayout resultsLayout;
     private ScrollView searchLayout;
     private SwipeRefreshLayout resultsSwipe;
@@ -208,8 +208,16 @@ public class HoldingsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 searchText1 = searchTextET1.getText().toString();
+
                 bibID = bibIDET.getText().toString();
+                if (bibID == null) {
+                    bibID = "";
+                }
+
                 publishYear = publishYearET.getText().toString();
+                if (publishYear == null) {
+                    publishYear = "";
+                }
 
                 searchText2 = searchTextET2.getText().toString();
                 if (searchText2 == null) {
