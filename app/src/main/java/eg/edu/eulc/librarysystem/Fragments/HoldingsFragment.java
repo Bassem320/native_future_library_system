@@ -21,6 +21,7 @@ import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.NoConnectionError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -33,6 +34,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -45,7 +48,7 @@ import eg.edu.eulc.librarysystem.VolleySingleton;
  * Created by Eslam El-Meniawy on 01-Nov-15.
  */
 public class HoldingsFragment extends Fragment {
-    private int itemType = 0, keywords1 = 0, keywords2 = 0, keywords3 = 0, conc1 = 0, conc2 = 0, wordProcessing = 0, orderBy = 0, getPage = 1;
+    private int itemType = 0, keywords1 = 0, keywords2 = 0, keywords3 = 0, conc1 = 0, conc2 = 0, wordProcessing = 0, orderBy = 0;
     private String[] itemTypes = {"", "24.2.1.", "24.2.10.", "24.2.11.", "24.2.12.", "24.2.13.", "24.2.14.", "24.2.15.", "24.2.16.", "24.2.17.", "24.2.18.", "24.2.19.", "24.2.2.", "24.2.20.", "24.2.21.", "24.2.22.", "24.2.23.", "24.2.24.", "24.2.25.", "24.2.26.", "24.2.27.", "24.2.28.", "24.2.29.", "24.2.3.", "24.2.5.", "24.2.6.", "24.2.7.", "24.2.8.", "24.2.9."},
             keywords = {"1.", "0.", "2.", "3.", "9.", "6.", "7.", "8.", "5."}, concs = {"and", "or", "and not"},
             wordProcess = {"", "INFLECTIONAL", "THESAURUS"}, orders = {"", "Title", "Author", "publishYear asc", "publishYear desc"};
@@ -314,8 +317,8 @@ public class HoldingsFragment extends Fragment {
                 }
                 if (!mLoadingItems && (mTotalItemsInList - mOnScreenItems) <= (mFirstVisibleItem + mVisibleThreshold)) {
                     resultsSwipe.setRefreshing(true);
-                    getPage ++;
-                    JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.0.101:1234/librarySystem/startSearch.json?SearchText1=" + Uri.encode(searchText1) + "&page=" + getPage, new Response.Listener<JSONObject>() {
+                    //getPage ++;
+                    JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.0.101:1234/librarySystem/startSearch.json?SearchText1=" + Uri.encode(searchText1) + "&page=" /*+ getPage*/, new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
                             ArrayList<ResultsStartItem> resultsListMore = parseResults(response, false);
@@ -329,7 +332,7 @@ public class HoldingsFragment extends Fragment {
                     }, new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            getPage --;
+                            //getPage --;
                             resultsSwipe.setRefreshing(false);
                         }
                     });
@@ -344,9 +347,9 @@ public class HoldingsFragment extends Fragment {
     }
 
     private void startSearch() {
-        getPage = 1;
+        //getPage = 1;
         mPreviousTotal = 0;
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.0.101:1234/librarySystem/startSearch.json?SearchText1=" + Uri.encode(searchText1) + "&page=1", new Response.Listener<JSONObject>() {
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, "http://192.168.0.101:1234/librarySystem/startSearch.json?SearchText1=" + Uri.encode(searchText1) + "&page=1", new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 resultsList = parseResults(response, true);
@@ -365,7 +368,30 @@ public class HoldingsFragment extends Fragment {
                 resultsLayout.setVisibility(View.GONE);
                 searchLayout.setVisibility(View.VISIBLE);
             }
-        });
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> params = new HashMap<String, String>();
+                params.put("ScopeID", "1.");
+                params.put("fn", "ApplySearch");
+                params.put("SearchIdForm", "");
+                params.put("ItemType", itemTypes[itemType]);
+                params.put("SearchText1", searchText1);
+                params.put("criteria1", keywords[keywords1]);
+                params.put("opr1", concs[conc1]);
+                params.put("SearchText2", searchText2);
+                params.put("criteria2", keywords[keywords2]);
+                params.put("opr2", concs[conc2]);
+                params.put("SearchText3", searchText3);
+                params.put("criteria3", keywords[keywords3]);
+                params.put("SearchTextFT", attachContains);
+                params.put("Generation_Term", wordProcess[wordProcessing]);
+                params.put("BibID", bibID);
+                params.put("PublishYear", publishYear);
+                params.put("OrderKey", orders[orderBy]);
+                return params;
+            }
+        };
         requestQueue.add(request);
     }
 
