@@ -251,7 +251,7 @@ public class InternetSearchFragment extends Fragment {
     private void startSearch() {
         //getPage = 1;
         mPreviousTotal = 0;
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.0.101:1234/librarySystem/startSearch.json?SearchText1=" + Uri.encode(searchText1) + "&page=1", new Response.Listener<JSONObject>() {
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, "http://192.168.0.101:1234/librarySystem/startSearch.json?SearchText1=" + Uri.encode(searchText1) + "&page=1", new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 resultsList = parseResults(response, true);
