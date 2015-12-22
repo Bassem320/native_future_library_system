@@ -64,6 +64,7 @@ import eg.edu.eulc.librarysystem.VolleySingleton;
 public class StartFragment extends Fragment {
     private EditText startSearchText;
     private int searchType = 0;
+    private String[] searchTypes = {"", "24.2.1.", "24.2.5.", "24.2.2."};
     private String searchText, nextPage="";
     private LinearLayout resultsLayout;
     private ScrollView searchLayout;
@@ -421,14 +422,12 @@ public class StartFragment extends Fragment {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String,String> params = new HashMap<String, String>();
+                params.put("ScopeID", "1.");
+                params.put("fn", "ApplySearch");
+                params.put("criteria1", "1.");
+                params.put("OrderKey", "publishYear desc");
                 params.put("SearchText1", searchText);
-                return params;
-            }
-
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String,String> params = new HashMap<String, String>();
-                params.put("Content-Type","application/x-www-form-urlencoded");
+                params.put("ItemType", searchTypes[searchType]);
                 return params;
             }
         };

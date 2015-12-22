@@ -43,6 +43,7 @@ import eg.edu.eulc.librarysystem.VolleySingleton;
  */
 public class InternetSearchFragment extends Fragment {
     private int searchin1 = 0, searchin2 = 0, searchin3 = 0, conc1 = 0, conc2 = 0, getPage = 1;
+    private String[] searchIn = {"bath.isbn", "bath.title", "dc.creator", "dc.subject", "bath.keyTitle", "bath.issn"}, concs = {"and", "or", "not"};
     private EditText searchTextET1, searchTextET2, searchTextET3;
     private String searchText1, searchText2, searchText3;
     private LinearLayout resultsLayout;

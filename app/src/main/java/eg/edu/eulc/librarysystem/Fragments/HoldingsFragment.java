@@ -46,6 +46,9 @@ import eg.edu.eulc.librarysystem.VolleySingleton;
  */
 public class HoldingsFragment extends Fragment {
     private int itemType = 0, keywords1 = 0, keywords2 = 0, keywords3 = 0, conc1 = 0, conc2 = 0, wordProcessing = 0, orderBy = 0, getPage = 1;
+    private String[] itemTypes = {"", "24.2.1.", "24.2.10.", "24.2.11.", "24.2.12.", "24.2.13.", "24.2.14.", "24.2.15.", "24.2.16.", "24.2.17.", "24.2.18.", "24.2.19.", "24.2.2.", "24.2.20.", "24.2.21.", "24.2.22.", "24.2.23.", "24.2.24.", "24.2.25.", "24.2.26.", "24.2.27.", "24.2.28.", "24.2.29.", "24.2.3.", "24.2.5.", "24.2.6.", "24.2.7.", "24.2.8.", "24.2.9."},
+            keywords = {"1.", "0.", "2.", "3.", "9.", "6.", "7.", "8.", "5."}, concs = {"and", "or", "and not"},
+            wordProcess = {"", "INFLECTIONAL", "THESAURUS"}, orders = {"", "Title", "Author", "publishYear asc", "publishYear desc"};
     private EditText searchTextET1, searchTextET2, searchTextET3, attachContainsET, bibIDET, publishYearET;
     private String searchText1, searchText2, searchText3, attachContains, bibID, publishYear;
     private LinearLayout resultsLayout;
