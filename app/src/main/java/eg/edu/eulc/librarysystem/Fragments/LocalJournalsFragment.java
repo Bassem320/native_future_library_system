@@ -417,6 +417,9 @@ public class LocalJournalsFragment extends Fragment {
                 } else {
                     resultsNumber.setVisibility(View.GONE);
                 }
+                if (response.has("next") && !response.isNull("next")) {
+                    nextPage = response.getString("next");
+                }
                 if (response.has("results")) {
                     JSONArray arrayItems = response.getJSONArray("results");
                     for (int i = 0; i < arrayItems.length(); i++) {
