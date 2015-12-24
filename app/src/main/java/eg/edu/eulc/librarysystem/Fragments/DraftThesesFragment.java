@@ -413,6 +413,7 @@ public class DraftThesesFragment extends Fragment {
         linearLayoutManager = new LinearLayoutManager(getActivity());
         resultsRecycler.setLayoutManager(linearLayoutManager);
         resultsAdapter = new ResultsStartAdapter(getActivity());
+        resultsSwipe.setColorSchemeResources(R.color.colorPrimary, R.color.colorAccent);
         resultsSwipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

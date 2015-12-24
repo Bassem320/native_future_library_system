@@ -76,8 +76,8 @@ public class PapersFragment extends Fragment {
         Button searchButton = (Button) rootView.findViewById(R.id.searchButton);
         searchLayout = (ScrollView) rootView.findViewById(R.id.searchLayout);
         resultsLayout = (LinearLayout) rootView.findViewById(R.id.resultsLayout);
-        resultsRecycler = (RecyclerView) rootView.findViewById(R.id.ResultsInternetSearch);
-        resultsSwipe = (SwipeRefreshLayout) rootView.findViewById(R.id.ResultsInternetSearchSwipeRefresh);
+        resultsRecycler = (RecyclerView) rootView.findViewById(R.id.ResultsPapers);
+        resultsSwipe = (SwipeRefreshLayout) rootView.findViewById(R.id.ResultsPapersSwipeRefresh);
 
         VolleySingleton volleySingleton = VolleySingleton.getInstance();
         requestQueue = volleySingleton.getRequestQueue();
@@ -130,6 +130,7 @@ public class PapersFragment extends Fragment {
                     linearLayoutManager = new LinearLayoutManager(getActivity());
                     resultsRecycler.setLayoutManager(linearLayoutManager);
                     resultsAdapter = new ResultsStartAdapter(getActivity());
+                    resultsSwipe.setColorSchemeResources(R.color.colorPrimary, R.color.colorAccent);
                     resultsSwipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
                         @Override
                         public void onRefresh() {

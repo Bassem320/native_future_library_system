@@ -155,6 +155,7 @@ public class StartFragment extends Fragment {
                     linearLayoutManager = new LinearLayoutManager(getActivity());
                     resultsStartRecycler.setLayoutManager(linearLayoutManager);
                     resultsStarAdapter = new ResultsStartAdapter(getActivity());
+                    resultsStartSwipe.setColorSchemeResources(R.color.colorPrimary, R.color.colorAccent);
                     resultsStartSwipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
                         @Override
                         public void onRefresh() {
