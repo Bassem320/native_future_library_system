@@ -52,17 +52,18 @@ import eg.edu.eulc.librarysystem.Activities.Level17Activity;
 import eg.edu.eulc.librarysystem.Activities.Level18Activity;
 import eg.edu.eulc.librarysystem.Activities.Level19Activity;
 import eg.edu.eulc.librarysystem.Activities.MainActivity;
-import eg.edu.eulc.librarysystem.R;
+import eg.edu.eulc.librarysystem.Adapters.SiteNewsListAdapter;
 import eg.edu.eulc.librarysystem.FragmentsDialogs.ResultsStartAdapter;
 import eg.edu.eulc.librarysystem.Objects.ResultsStartItem;
 import eg.edu.eulc.librarysystem.Objects.SiteNewsItem;
-import eg.edu.eulc.librarysystem.Adapters.SiteNewsListAdapter;
+import eg.edu.eulc.librarysystem.R;
 import eg.edu.eulc.librarysystem.VolleySingleton;
 
 /**
  * Created by Eslam El-Meniawy on 01-Nov-15.
  */
 public class StartFragment extends Fragment {
+    public static final String PREF_FILE_NAME = "LibrarySystemPref";
     private EditText startSearchText;
     private int searchType = 0;
     private String[] searchTypes = {"", "24.2.1.", "24.2.5.", "24.2.2."};
@@ -72,7 +73,6 @@ public class StartFragment extends Fragment {
     private SwipeRefreshLayout resultsStartSwipe;
     private RecyclerView listItemsRecycler, resultsStartRecycler;
     private ProgressBar loadingItems;
-    public static final String PREF_FILE_NAME = "LibrarySystemPref";
     private SharedPreferences sharedPreferences;
     private ArrayList<SiteNewsItem> siteNewsList = new ArrayList<>();
     private ArrayList<ResultsStartItem> resultsStartList = new ArrayList<>();
@@ -186,8 +186,7 @@ public class StartFragment extends Fragment {
                             }
                             if (!mLoadingItems && (mTotalItemsInList - mOnScreenItems) <= (mFirstVisibleItem + mVisibleThreshold)) {
                                 resultsStartSwipe.setRefreshing(true);
-                                //getPage ++;
-                                JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.0.101:1234/librarySystem/startSearch.json?searchText=" + Uri.encode(searchText) + "&searchType=" + searchType + "&page=" /*+ getPage*/, new Response.Listener<JSONObject>() {
+                                JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, nextPage, new Response.Listener<JSONObject>() {
                                     @Override
                                     public void onResponse(JSONObject response) {
                                         ArrayList<ResultsStartItem> resultsStartListMore = parseResults(response, false);
@@ -201,7 +200,6 @@ public class StartFragment extends Fragment {
                                 }, new Response.ErrorListener() {
                                     @Override
                                     public void onErrorResponse(VolleyError error) {
-                                        //getPage --;
                                         resultsStartSwipe.setRefreshing(false);
                                     }
                                 });
@@ -293,10 +291,7 @@ public class StartFragment extends Fragment {
     }
 
     public boolean getLayoutVisibility() {
-        if (resultsLayout.getVisibility() == View.VISIBLE) {
-            return true;
-        }
-        return false;
+        return resultsLayout.getVisibility() == View.VISIBLE;
     }
 
     public void showSearch() {
@@ -401,7 +396,7 @@ public class StartFragment extends Fragment {
         return listItems;
     }
     private void startSearch() {
-        //getPage = 1;
+        nextPage = "";
         mPreviousTotal = 0;
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, "http://192.168.0.101:1234/librarySystem/startSearch.json?searchText=" + Uri.encode(searchText) + "&searchType=" + searchType + "&page=1", new Response.Listener<JSONObject>() {
             @Override

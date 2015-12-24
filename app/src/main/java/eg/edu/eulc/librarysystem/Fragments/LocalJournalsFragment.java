@@ -284,10 +284,7 @@ public class LocalJournalsFragment extends Fragment {
     }
 
     public boolean getLayoutVisibility() {
-        if (resultsLayout.getVisibility() == View.VISIBLE) {
-            return true;
-        }
-        return false;
+        return resultsLayout.getVisibility() == View.VISIBLE;
     }
 
     public void showSearch() {
@@ -329,8 +326,7 @@ public class LocalJournalsFragment extends Fragment {
                 }
                 if (!mLoadingItems && (mTotalItemsInList - mOnScreenItems) <= (mFirstVisibleItem + mVisibleThreshold)) {
                     resultsSwipe.setRefreshing(true);
-                    //getPage ++;
-                    JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.0.101:1234/librarySystem/startSearch.json?SearchText1=" + Uri.encode(searchText1) + "&page=" /*+ getPage*/, new Response.Listener<JSONObject>() {
+                    JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, nextPage, new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
                             ArrayList<ResultsStartItem> resultsListMore = parseResults(response, false);
@@ -344,7 +340,6 @@ public class LocalJournalsFragment extends Fragment {
                     }, new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            //getPage --;
                             resultsSwipe.setRefreshing(false);
                         }
                     });
@@ -359,7 +354,7 @@ public class LocalJournalsFragment extends Fragment {
     }
 
     private void startSearch() {
-        //getPage = 1;
+        nextPage = "";
         mPreviousTotal = 0;
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, "http://192.168.0.101:1234/librarySystem/startSearch.json?SearchText1=" + Uri.encode(searchText1) + "&page=1", new Response.Listener<JSONObject>() {
             @Override
