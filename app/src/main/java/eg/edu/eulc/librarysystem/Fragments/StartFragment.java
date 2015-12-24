@@ -23,6 +23,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NoConnectionError;
@@ -81,6 +82,7 @@ public class StartFragment extends Fragment {
     private LinearLayoutManager linearLayoutManager;
     private boolean mLoadingItems = true, stop = false;
     private int mOnScreenItems, mTotalItemsInList, mFirstVisibleItem, mPreviousTotal = 0, mVisibleThreshold = 1;
+    private TextView resultsNumber;
 
     public StartFragment() {
     }
@@ -110,6 +112,7 @@ public class StartFragment extends Fragment {
         loadingItems = (ProgressBar) rootView.findViewById(R.id.SiteNewsProgress);
         resultsStartRecycler = (RecyclerView) rootView.findViewById(R.id.ResultsStart);
         resultsStartSwipe = (SwipeRefreshLayout) rootView.findViewById(R.id.ResultsStartSwipeRefresh);
+        resultsNumber = (TextView) rootView.findViewById(R.id.ResultsNumber);
 
         sharedPreferences = getActivity().getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE);
 
@@ -439,6 +442,11 @@ public class StartFragment extends Fragment {
         ArrayList<ResultsStartItem> listItems = new ArrayList<>();
         if (response != null && response.length() > 0) {
             try {
+                if (response.has("number") && !response.isNull("number")) {
+                    resultsNumber.setText(getText(R.string.total_result) + " " + response.getString("number"));
+                } else {
+                    resultsNumber.setVisibility(View.GONE);
+                }
                 if (response.has("results")) {
                     JSONArray arrayItems = response.getJSONArray("results");
                     for (int i = 0; i < arrayItems.length(); i++) {

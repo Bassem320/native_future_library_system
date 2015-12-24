@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NoConnectionError;
@@ -63,6 +64,7 @@ public class LocalJournalsFragment extends Fragment {
     private LinearLayoutManager linearLayoutManager;
     private boolean mLoadingItems = true;
     private int mOnScreenItems, mTotalItemsInList, mFirstVisibleItem, mPreviousTotal = 0, mVisibleThreshold = 1;
+    private TextView resultsNumber;
 
     public LocalJournalsFragment() {
     }
@@ -91,6 +93,7 @@ public class LocalJournalsFragment extends Fragment {
         resultsLayout = (LinearLayout) rootView.findViewById(R.id.resultsLayout);
         resultsRecycler = (RecyclerView) rootView.findViewById(R.id.ResultsLocalJournals);
         resultsSwipe = (SwipeRefreshLayout) rootView.findViewById(R.id.ResultsLocalJournalsSwipeRefresh);
+        resultsNumber = (TextView) rootView.findViewById(R.id.ResultsNumber);
 
         VolleySingleton volleySingleton = VolleySingleton.getInstance();
         requestQueue = volleySingleton.getRequestQueue();
@@ -409,6 +412,11 @@ public class LocalJournalsFragment extends Fragment {
         ArrayList<ResultsStartItem> listItems = new ArrayList<>();
         if (response != null && response.length() > 0) {
             try {
+                if (response.has("number") && !response.isNull("number")) {
+                    resultsNumber.setText(getText(R.string.total_result) + " " + response.getString("number"));
+                } else {
+                    resultsNumber.setVisibility(View.GONE);
+                }
                 if (response.has("results")) {
                     JSONArray arrayItems = response.getJSONArray("results");
                     for (int i = 0; i < arrayItems.length(); i++) {
