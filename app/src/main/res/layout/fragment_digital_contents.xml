@@ -182,6 +182,10 @@
             style="@style/MainTitle"
             android:text="@string/search_results" />
 
+        <TextView
+            android:id="@+id/ResultsNumber"
+            style="@style/ResultsNumber" />
+
         <android.support.v4.widget.SwipeRefreshLayout
             android:id="@+id/ResultsDigitalContentSwipeRefresh"
             android:layout_width="match_parent"
