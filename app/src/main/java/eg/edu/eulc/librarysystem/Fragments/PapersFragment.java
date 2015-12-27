@@ -154,32 +154,34 @@ public class PapersFragment extends Fragment {
                             mTotalItemsInList = linearLayoutManager.getItemCount();
                             mFirstVisibleItem = linearLayoutManager.findFirstVisibleItemPosition();
                             if (mLoadingItems) {
-                                if (mTotalItemsInList > mPreviousTotal+1) {
+                                if (mTotalItemsInList > mPreviousTotal + 1) {
                                     mLoadingItems = false;
                                     mPreviousTotal = mTotalItemsInList;
                                 }
                             }
                             if (!mLoadingItems && (mTotalItemsInList - mOnScreenItems) <= (mFirstVisibleItem + mVisibleThreshold)) {
-                                resultsSwipe.setRefreshing(true);
-                                JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, nextPage, new Response.Listener<JSONObject>() {
-                                    @Override
-                                    public void onResponse(JSONObject response) {
-                                        ArrayList<ResultsStartItem> resultsListMore = parseResults(response, false);
-                                        resultsSwipe.setRefreshing(false);
-                                        for (int i = 0; i < resultsListMore.size(); i++) {
-                                            ResultsStartItem result = resultsListMore.get(i);
-                                            resultsList.add(result);
-                                            resultsAdapter.notifyItemInserted(resultsList.size());
+                                if (!nextPage.equals("")) {
+                                    resultsSwipe.setRefreshing(true);
+                                    JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, nextPage, new Response.Listener<JSONObject>() {
+                                        @Override
+                                        public void onResponse(JSONObject response) {
+                                            ArrayList<ResultsStartItem> resultsListMore = parseResults(response, false);
+                                            resultsSwipe.setRefreshing(false);
+                                            for (int i = 0; i < resultsListMore.size(); i++) {
+                                                ResultsStartItem result = resultsListMore.get(i);
+                                                resultsList.add(result);
+                                                resultsAdapter.notifyItemInserted(resultsList.size());
+                                            }
                                         }
-                                    }
-                                }, new Response.ErrorListener() {
-                                    @Override
-                                    public void onErrorResponse(VolleyError error) {
-                                        resultsSwipe.setRefreshing(false);
-                                    }
-                                });
-                                requestQueue.add(request);
-                                mLoadingItems = true;
+                                    }, new Response.ErrorListener() {
+                                        @Override
+                                        public void onErrorResponse(VolleyError error) {
+                                            resultsSwipe.setRefreshing(false);
+                                        }
+                                    });
+                                    requestQueue.add(request);
+                                    mLoadingItems = true;
+                                }
                             }
                         }
                     });

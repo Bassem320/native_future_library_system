@@ -185,26 +185,28 @@ public class StartFragment extends Fragment {
                                 }
                             }
                             if (!mLoadingItems && (mTotalItemsInList - mOnScreenItems) <= (mFirstVisibleItem + mVisibleThreshold)) {
-                                resultsStartSwipe.setRefreshing(true);
-                                JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, nextPage, new Response.Listener<JSONObject>() {
-                                    @Override
-                                    public void onResponse(JSONObject response) {
-                                        ArrayList<ResultsStartItem> resultsStartListMore = parseResults(response, false);
-                                        resultsStartSwipe.setRefreshing(false);
-                                        for (int i = 0; i < resultsStartListMore.size(); i++) {
-                                            ResultsStartItem result = resultsStartListMore.get(i);
-                                            resultsStartList.add(result);
-                                            resultsStarAdapter.notifyItemInserted(resultsStartList.size());
+                                if (!nextPage.equals("")) {
+                                    resultsStartSwipe.setRefreshing(true);
+                                    JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, nextPage, new Response.Listener<JSONObject>() {
+                                        @Override
+                                        public void onResponse(JSONObject response) {
+                                            ArrayList<ResultsStartItem> resultsStartListMore = parseResults(response, false);
+                                            resultsStartSwipe.setRefreshing(false);
+                                            for (int i = 0; i < resultsStartListMore.size(); i++) {
+                                                ResultsStartItem result = resultsStartListMore.get(i);
+                                                resultsStartList.add(result);
+                                                resultsStarAdapter.notifyItemInserted(resultsStartList.size());
+                                            }
                                         }
-                                    }
-                                }, new Response.ErrorListener() {
-                                    @Override
-                                    public void onErrorResponse(VolleyError error) {
-                                        resultsStartSwipe.setRefreshing(false);
-                                    }
-                                });
-                                requestQueue.add(request);
-                                mLoadingItems = true;
+                                    }, new Response.ErrorListener() {
+                                        @Override
+                                        public void onErrorResponse(VolleyError error) {
+                                            resultsStartSwipe.setRefreshing(false);
+                                        }
+                                    });
+                                    requestQueue.add(request);
+                                    mLoadingItems = true;
+                                }
                             }
                         }
                     });
