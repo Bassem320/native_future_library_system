@@ -3,7 +3,6 @@ package eg.edu.eulc.librarysystem.Fragments;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -25,7 +24,6 @@ import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.NoConnectionError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -53,6 +51,7 @@ import eg.edu.eulc.librarysystem.Activities.Level18Activity;
 import eg.edu.eulc.librarysystem.Activities.Level19Activity;
 import eg.edu.eulc.librarysystem.Activities.MainActivity;
 import eg.edu.eulc.librarysystem.Adapters.SiteNewsListAdapter;
+import eg.edu.eulc.librarysystem.CustomRequest;
 import eg.edu.eulc.librarysystem.FragmentsDialogs.ResultsStartAdapter;
 import eg.edu.eulc.librarysystem.Objects.ResultsStartItem;
 import eg.edu.eulc.librarysystem.Objects.SiteNewsItem;
@@ -306,7 +305,7 @@ public class StartFragment extends Fragment {
     }
 
     private void requestSiteNews() {
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.0.101:1234/librarySystem/siteNews.json", new Response.Listener<JSONObject>() {
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.200.217:1234/librarySystem/siteNews.json", new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 if (!stop) {
@@ -400,7 +399,14 @@ public class StartFragment extends Fragment {
     private void startSearch() {
         nextPage = "";
         mPreviousTotal = 0;
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, "http://192.168.0.101:1234/librarySystem/startSearch.json?searchText=" + Uri.encode(searchText) + "&searchType=" + searchType + "&page=1", new Response.Listener<JSONObject>() {
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("ScopeID", "1.");
+        params.put("fn", "ApplySearch");
+        params.put("criteria1", "1.");
+        params.put("OrderKey", "publishYear desc");
+        params.put("SearchText1", searchText);
+        params.put("ItemType", searchTypes[searchType]);
+        CustomRequest request = new CustomRequest(Request.Method.POST, "http://192.168.200.217:3000/librarySystem/startSearch", params, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 resultsStartList = parseResults(response, true);
@@ -419,19 +425,7 @@ public class StartFragment extends Fragment {
                 resultsLayout.setVisibility(View.GONE);
                 searchLayout.setVisibility(View.VISIBLE);
             }
-        }){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String,String> params = new HashMap<String, String>();
-                params.put("ScopeID", "1.");
-                params.put("fn", "ApplySearch");
-                params.put("criteria1", "1.");
-                params.put("OrderKey", "publishYear desc");
-                params.put("SearchText1", searchText);
-                params.put("ItemType", searchTypes[searchType]);
-                return params;
-            }
-        };
+        });
         requestQueue.add(request);
     }
 

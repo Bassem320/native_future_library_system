@@ -33,9 +33,9 @@ import eg.edu.eulc.librarysystem.R;
 import eg.edu.eulc.librarysystem.VolleySingleton;
 
 public class Level15Activity extends AppCompatActivity {
+    public static final String PREF_FILE_NAME = "LibrarySystemPref";
     ScrollView parent, child = null,
             level040, level041, level042, level043, level044, level045, level046, level047, level048, level049;
-
     LinearLayout subject40, subject41, subject42, subject43, subject44, subject45, subject46, subject47, subject48, subject49,
             subject400, subject401, subject402, subject403, subject404, subject405, subject406, subject407, subject408, subject409,
             subject410, subject411, subject412, subject413, subject414, subject415, subject416, subject417, subject418, subject419,
@@ -47,7 +47,6 @@ public class Level15Activity extends AppCompatActivity {
             subject470, subject471, subject472, subject473, subject474, subject475, subject476, subject477, subject478, subject479,
             subject480, subject481, subject482, subject483, subject484, subject485, subject486, subject487, subject488, subject489,
             subject490, subject491, subject492, subject493, subject494, subject495, subject496, subject497, subject498, subject499;
-
     private SwipeRefreshLayout resultsSwipe;
     private RecyclerView resultsRecycler;
     private ArrayList<ResultsStartItem> resultsList = new ArrayList<>();
@@ -55,8 +54,6 @@ public class Level15Activity extends AppCompatActivity {
     private LinearLayoutManager linearLayoutManager;
     private boolean mLoadingItems = true;
     private int mOnScreenItems, mTotalItemsInList, mFirstVisibleItem, mPreviousTotal = 0, mVisibleThreshold = 1;
-
-    public static final String PREF_FILE_NAME = "LibrarySystemPref";
     private SharedPreferences sharedPreferences;
 
     private RequestQueue requestQueue;
@@ -294,6 +291,7 @@ public class Level15Activity extends AppCompatActivity {
             }
         });
 
+        resultsSwipe.setColorSchemeResources(R.color.colorPrimary, R.color.colorAccent);
         resultsSwipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -322,7 +320,7 @@ public class Level15Activity extends AppCompatActivity {
                 if (!mLoadingItems && (mTotalItemsInList - mOnScreenItems) <= (mFirstVisibleItem + mVisibleThreshold)) {
                     resultsSwipe.setRefreshing(true);
                     PageNo++;
-                    JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.0.101:1234/librarySystem/startSearch.json?Id=" + layout + "&ClassNo=" + classNo + "&PageNo=" + PageNo, new Response.Listener<JSONObject>() {
+                    JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.200.217:1234/librarySystem/startSearch.json?Id=" + layout + "&ClassNo=" + classNo + "&PageNo=" + PageNo, new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
                             ArrayList<ResultsStartItem> resultsListMore = parseResults(response, false);
@@ -1980,7 +1978,7 @@ public class Level15Activity extends AppCompatActivity {
     private void startBrowse() {
         PageNo = 1;
         mPreviousTotal = 0;
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.0.101:1234/librarySystem/startSearch.json?Id=" + layout + "&ClassNo=" + classNo + "&PageNo=1", new Response.Listener<JSONObject>() {
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.200.217:1234/librarySystem/startSearch.json?Id=" + layout + "&ClassNo=" + classNo + "&PageNo=1", new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 SharedPreferences.Editor editor = sharedPreferences.edit();

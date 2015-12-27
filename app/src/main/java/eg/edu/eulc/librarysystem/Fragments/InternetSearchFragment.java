@@ -1,6 +1,5 @@
 package eg.edu.eulc.librarysystem.Fragments;
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -21,7 +20,6 @@ import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.NoConnectionError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -37,6 +35,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import eg.edu.eulc.librarysystem.CustomRequest;
 import eg.edu.eulc.librarysystem.FragmentsDialogs.ResultsStartAdapter;
 import eg.edu.eulc.librarysystem.Objects.ResultsStartItem;
 import eg.edu.eulc.librarysystem.R;
@@ -252,7 +251,16 @@ public class InternetSearchFragment extends Fragment {
     private void startSearch() {
         nextPage = "";
         mPreviousTotal = 0;
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, "http://192.168.0.101:1234/librarySystem/startSearch.json?SearchText1=" + Uri.encode(searchText1) + "&page=1", new Response.Listener<JSONObject>() {
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("SearchText1", searchText1);
+        params.put("criteria1", searchIn[searchin1]);
+        params.put("opr1", concs[conc1]);
+        params.put("SearchText2", searchText2);
+        params.put("criteria2", searchIn[searchin2]);
+        params.put("opr2", concs[conc2]);
+        params.put("SearchText3", searchText3);
+        params.put("criteria3", searchIn[searchin3]);
+        CustomRequest request = new CustomRequest(Request.Method.POST, "http://192.168.200.217:3000/librarySystem/startSearch", params, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 resultsList = parseResults(response, true);
@@ -271,21 +279,7 @@ public class InternetSearchFragment extends Fragment {
                 resultsLayout.setVisibility(View.GONE);
                 searchLayout.setVisibility(View.VISIBLE);
             }
-        }){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String,String> params = new HashMap<String, String>();
-                params.put("SearchText1", searchText1);
-                params.put("criteria1", searchIn[searchin1]);
-                params.put("opr1", concs[conc1]);
-                params.put("SearchText2", searchText2);
-                params.put("criteria2", searchIn[searchin2]);
-                params.put("opr2", concs[conc2]);
-                params.put("SearchText3", searchText3);
-                params.put("criteria3", searchIn[searchin3]);
-                return params;
-            }
-        };
+        });
         requestQueue.add(request);
     }
 

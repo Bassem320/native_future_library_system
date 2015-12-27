@@ -1,6 +1,5 @@
 package eg.edu.eulc.librarysystem.Fragments;
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -20,7 +19,6 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.NoConnectionError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -36,6 +34,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import eg.edu.eulc.librarysystem.CustomRequest;
 import eg.edu.eulc.librarysystem.FragmentsDialogs.ResultsStartAdapter;
 import eg.edu.eulc.librarysystem.Objects.ResultsStartItem;
 import eg.edu.eulc.librarysystem.R;
@@ -207,7 +206,16 @@ public class PapersFragment extends Fragment {
     private void startSearch() {
         nextPage = "";
         mPreviousTotal = 0;
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, "http://192.168.0.101:1234/librarySystem/startSearch.json?SearchText1=" + Uri.encode(paperTitle) + "&page=1", new Response.Listener<JSONObject>() {
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("ScopeIDSelect", "1.");
+        params.put("PaperTitle", paperTitle);
+        params.put("PaperAuthor", authors);
+        params.put("PaperKeyword", keywords);
+        params.put("IS_Abstract", paperAbstract);
+        params.put("ResearchID", authorNationalID);
+        params.put("BorrowerID", authorID);
+        params.put("attach", hasAttach ? "1" : "0");
+        CustomRequest request = new CustomRequest(Request.Method.POST, "http://192.168.200.217:3000/librarySystem/startSearch", params, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 resultsList = parseResults(response, true);
@@ -226,21 +234,7 @@ public class PapersFragment extends Fragment {
                 resultsLayout.setVisibility(View.GONE);
                 searchLayout.setVisibility(View.VISIBLE);
             }
-        }){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String,String> params = new HashMap<String, String>();
-                params.put("ScopeIDSelect", "1.");
-                params.put("PaperTitle", paperTitle);
-                params.put("PaperAuthor", authors);
-                params.put("PaperKeyword", keywords);
-                params.put("IS_Abstract", paperAbstract);
-                params.put("ResearchID", authorNationalID);
-                params.put("BorrowerID", authorID);
-                params.put("attach", hasAttach ? "1" : "0");
-                return params;
-            }
-        };
+        });
         requestQueue.add(request);
     }
 
