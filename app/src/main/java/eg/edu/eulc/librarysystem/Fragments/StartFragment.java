@@ -10,7 +10,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -186,7 +185,6 @@ public class StartFragment extends Fragment {
                             }
                             if (!mLoadingItems && (mTotalItemsInList - mOnScreenItems) <= (mFirstVisibleItem + mVisibleThreshold)) {
                                 if (!nextPage.equals("")) {
-                                    Log.i("Next Page", nextPage);
                                     resultsStartSwipe.setRefreshing(true);
                                     JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, nextPage, new Response.Listener<JSONObject>() {
                                         @Override
@@ -411,7 +409,6 @@ public class StartFragment extends Fragment {
         CustomRequest request = new CustomRequest(Request.Method.POST, "http://www.eulc.edu.eg/demo/libraries/fuapi.aspx?fn=ApplyMobileSearch", params, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Log.i("response", response.toString());
                 resultsStartList = parseResults(response, true);
                 resultsStarAdapter.setResultsStartItems(resultsStartList);
                 resultsStartSwipe.setRefreshing(false);
@@ -420,7 +417,6 @@ public class StartFragment extends Fragment {
             @Override
             public void onErrorResponse(VolleyError error) {
                 resultsStartSwipe.setRefreshing(false);
-                Log.i("response", error.toString());
                 if (error instanceof NoConnectionError) {
                     Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.no_internet), Snackbar.LENGTH_LONG).show();
                 } else {
