@@ -28,14 +28,6 @@
 
             <TextView
                 style="@style/TableHeader"
-                android:text="@string/shelf" />
-
-            <TextView
-                style="@style/TableHeader"
-                android:text="@string/status" />
-
-            <TextView
-                style="@style/TableHeader"
                 android:text="@string/location" />
         </TableRow>
     </TableLayout>

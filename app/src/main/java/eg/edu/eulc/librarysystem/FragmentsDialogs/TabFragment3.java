@@ -4,7 +4,6 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,20 +16,19 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import eg.edu.eulc.librarysystem.R;
 import eg.edu.eulc.librarysystem.Objects.ResultsStartItem;
+import eg.edu.eulc.librarysystem.R;
 
 /**
  * Created by Eslam El-Meniawy on 01-Dec-15.
  */
 public class TabFragment3 extends Fragment {
-    private ResultsStartItem item;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Bundle args = getArguments();
-        item = args.getParcelable("item");
+        ResultsStartItem item = args.getParcelable("item");
         View rootView = inflater.inflate(R.layout.tab_fragment_3, container, false);
         try {
             JSONArray holdings = new JSONArray(item.getHoldings());
@@ -64,26 +62,12 @@ public class TabFragment3 extends Fragment {
                         textView2.setBackgroundResource(R.drawable.table_cell_background);
                         TextView textView3 = new TextView(getActivity());
                         textView3.setLayoutParams(new TableRow.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-                        textView3.setText(currentDetail.getString("shelf"));
+                        textView3.setText(currentDetail.getString("location"));
                         textView3.setPadding(5, 5, 5, 5);
                         textView3.setGravity(Gravity.CENTER_HORIZONTAL);
-                        textView3.setBackgroundResource(R.drawable.table_cell_background);
-                        TextView textView5 = new TextView(getActivity());
-                        textView5.setLayoutParams(new TableRow.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-                        textView5.setText(currentDetail.getString("status"));
-                        textView5.setPadding(5, 5, 5, 5);
-                        textView5.setGravity(Gravity.CENTER_HORIZONTAL);
-                        textView5.setBackgroundResource(R.drawable.table_cell_background);
-                        TextView textView6 = new TextView(getActivity());
-                        textView6.setLayoutParams(new TableRow.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-                        textView6.setText(currentDetail.getString("location"));
-                        textView6.setPadding(5, 5, 5, 5);
-                        textView6.setGravity(Gravity.CENTER_HORIZONTAL);
                         row.addView(textView1);
                         row.addView(textView2);
                         row.addView(textView3);
-                        row.addView(textView5);
-                        row.addView(textView6);
                         tableLayout.addView(row);
                     }
                 }

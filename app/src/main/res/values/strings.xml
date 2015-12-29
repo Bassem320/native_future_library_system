@@ -51,7 +51,6 @@
     <string name="search">Search</string>
     <string name="advanced_search">Advanced Search</string>
     <string name="enter_text">Enter search text first</string>
-    <string name="site_news">Site News</string>
     <string name="browse_by_subject">Browse by Subject</string>
     <string name="about_site">About Site</string>
     <string name="contact_us">Contact Us</string>
@@ -1307,8 +1306,6 @@
     <!-- Holdings -->
     <string name="generalNo">General No.</string>
     <string name="callNo">Call No.</string>
-    <string name="shelf">Shelf</string>
-    <string name="status">Status</string>
     <string name="location">Location</string>
     <!-- Services -->
     <string name="buyNow">Buy Now</string>
@@ -2003,5 +2000,6 @@
     <string name="author_national_id">Author National ID</string>
     <string name="author_id">Author ID</string>
     <string name="has_attachments">Has Attachments</string>
+    <string name="site_news">Site News</string>
 
 </resources>
