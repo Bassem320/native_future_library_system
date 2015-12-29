@@ -5,7 +5,7 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="footer_padding">5dp</dimen>
-    <dimen name="recycler_height">500dp</dimen>
+    <dimen name="recycler_height">400dp</dimen>
     <dimen name="item_width">64dp</dimen>
     <dimen name="item_height">84dp</dimen>
     <dimen name="dialog_height">64dp</dimen>

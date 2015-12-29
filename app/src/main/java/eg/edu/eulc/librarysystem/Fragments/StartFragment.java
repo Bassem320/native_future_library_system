@@ -305,7 +305,7 @@ public class StartFragment extends Fragment {
     }
 
     private void requestSiteNews() {
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.200.217:1234/librarySystem/siteNews.json", new Response.Listener<JSONObject>() {
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://www.eulc.edu.eg/demo/libraries/fuapi.aspx?ScopeID=1.&fn=MobileNews", new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 if (!stop) {
