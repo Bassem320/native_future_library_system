@@ -401,13 +401,13 @@ public class HoldingsFragment extends Fragment {
         ArrayList<ResultsStartItem> listItems = new ArrayList<>();
         if (response != null && response.length() > 0) {
             try {
-                if (response.has("number") && !response.isNull("number")) {
-                    resultsNumber.setText(getText(R.string.total_result) + " " + response.getString("number"));
+                if (response.has("TotalNoOfResults") && !response.isNull("TotalNoOfResults")) {
+                    resultsNumber.setText(getText(R.string.total_result) + " " + response.getString("TotalNoOfResults"));
                 } else {
                     resultsNumber.setVisibility(View.GONE);
                 }
-                if (response.has("next") && !response.isNull("next")) {
-                    nextPage = response.getString("next");
+                if (response.has("Link4NextPage") && !response.isNull("Link4NextPage")) {
+                    nextPage = response.getString("Link4NextPage");
                 }
                 if (response.has("results")) {
                     JSONArray arrayItems = response.getJSONArray("results");
