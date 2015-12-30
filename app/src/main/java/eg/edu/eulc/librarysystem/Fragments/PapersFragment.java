@@ -215,7 +215,7 @@ public class PapersFragment extends Fragment {
         params.put("ResearchID", authorNationalID);
         params.put("BorrowerID", authorID);
         params.put("attach", hasAttach ? "1" : "0");
-        CustomRequest request = new CustomRequest(Request.Method.POST, "http://192.168.200.217:3000/librarySystem/papers", params, new Response.Listener<JSONObject>() {
+        CustomRequest request = new CustomRequest(Request.Method.POST, "http://www.eulc.edu.eg/demo/libraries/fuapi.aspx?fn=ApplaySearch4Serial", params, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 resultsList = parseResults(response, true);
