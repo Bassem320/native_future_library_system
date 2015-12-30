@@ -1,5 +1,7 @@
 package eg.edu.eulc.librarysystem.FragmentsDialogs;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -18,11 +20,13 @@ import eg.edu.eulc.librarysystem.R;
  * Created by Eslam El-Meniawy on 30-Dec-15.
  */
 public class TabFragmentDraftTheses2 extends Fragment {
+    public static final String PREF_FILE_NAME = "LibrarySystemPref";
     private DraftThesesItem item;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE);
         Bundle args = getArguments();
         item = args.getParcelable("item");
         View rootView = inflater.inflate(R.layout.tab_fragment_draft_theses2, container, false);
@@ -46,7 +50,13 @@ public class TabFragmentDraftTheses2 extends Fragment {
             }
             if (details.has("siteRegistration") && !details.isNull("siteRegistration")) {
                 TextView siteRegistration = (TextView) rootView.findViewById(R.id.siteRegistration);
-                siteRegistration.setText(details.getString("siteRegistration"));
+                String siteRegistrationText = details.getString("siteRegistration");
+                String[] parts = siteRegistrationText.split("\\u007c");
+                if (sharedPreferences.getInt("lang", 0) == 0) {
+                    siteRegistration.setText(parts[0]);
+                } else {
+                    siteRegistration.setText(parts[1]);
+                }
             }
         } catch (JSONException e) {
         }
