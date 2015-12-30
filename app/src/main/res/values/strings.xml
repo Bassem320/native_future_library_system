@@ -1287,6 +1287,7 @@
     <string name="search_results_details">Details</string>
     <string name="search_results_holdings">Holdings</string>
     <string name="search_results_services">Services</string>
+    <string name="search_results_abstract">Abstract</string>
     <!-- Title -->
     <string name="book_info">Book Info</string>
     <string name="preview">Preview</string>
@@ -1303,12 +1304,18 @@
     <string name="personalName">Personal Name</string>
     <string name="corpName">Corporate Name</string>
     <string name="desOfAttach">Description of Attached</string>
+    <string name="supervisors">Supervisors</string>
+    <string name="subjects">Subjects</string>
+    <string name="specialty">Specialty</string>
+    <string name="siteRegistration">Site Registration</string>
     <!-- Holdings -->
     <string name="generalNo">General No.</string>
     <string name="callNo">Call No.</string>
     <string name="location">Location</string>
     <!-- Services -->
     <string name="buyNow">Buy Now</string>
+    <!-- Abstract -->
+    <string name="no_abstract">No Abstract Available</string>
 
     <!-- Holdings fragment -->
     <string-array name="holdings_item_types">

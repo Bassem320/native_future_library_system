@@ -135,7 +135,7 @@
     <string name="from">من تاريخ</string>
     <string name="submit_date">التسجيل</string>
     <string name="to">إلى تاريخ</string>
-    <string name="degree">الدرجة</string>
+    <string name="degree">الدرجة العلمية</string>
     <string-array name="degrees">
         <item>-----</item>
         <item>ماجستير</item>
@@ -1684,4 +1684,10 @@
     <string name="pub_year_error">خطأ في الصيغة!\nمثال: 1987 أو 1970–1980</string>
     <string name="date_error">خطأ في الصيفة\nمثال: 31/12/2015</string>
     <string name="total_result">تم العثور على:</string>
+    <string name="search_results_abstract">ملخص</string>
+    <string name="no_abstract">لا يوجد ملخص لهذه الرسالة</string>
+    <string name="siteRegistration"> موقع التسجيل</string>
+    <string name="specialty">تخصص الرسالة</string>
+    <string name="subjects">الموضوعات</string>
+    <string name="supervisors">المشرفون</string>
 </resources>

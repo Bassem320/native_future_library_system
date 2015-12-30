@@ -38,8 +38,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import eg.edu.eulc.librarysystem.CustomRequest;
-import eg.edu.eulc.librarysystem.FragmentsDialogs.ResultsStartAdapter;
-import eg.edu.eulc.librarysystem.Objects.ResultsStartItem;
+import eg.edu.eulc.librarysystem.FragmentsDialogs.ResultsDraftThesesAdapter;
+import eg.edu.eulc.librarysystem.Objects.DraftThesesItem;
 import eg.edu.eulc.librarysystem.R;
 import eg.edu.eulc.librarysystem.VolleySingleton;
 
@@ -80,8 +80,8 @@ public class DraftThesesFragment extends Fragment {
     private ScrollView searchLayout;
     private SwipeRefreshLayout resultsSwipe;
     private RecyclerView resultsRecycler;
-    private ArrayList<ResultsStartItem> resultsList = new ArrayList<>();
-    private ResultsStartAdapter resultsAdapter;
+    private ArrayList<DraftThesesItem> resultsList = new ArrayList<>();
+    private ResultsDraftThesesAdapter resultsAdapter;
     private RequestQueue requestQueue;
     private LinearLayoutManager linearLayoutManager;
     private boolean mLoadingItems = true;
@@ -411,7 +411,7 @@ public class DraftThesesFragment extends Fragment {
         resultsLayout.setVisibility(View.VISIBLE);
         linearLayoutManager = new LinearLayoutManager(getActivity());
         resultsRecycler.setLayoutManager(linearLayoutManager);
-        resultsAdapter = new ResultsStartAdapter(getActivity());
+        resultsAdapter = new ResultsDraftThesesAdapter(getActivity());
         resultsSwipe.setColorSchemeResources(R.color.colorPrimary, R.color.colorAccent);
         resultsSwipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -444,10 +444,10 @@ public class DraftThesesFragment extends Fragment {
                         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, nextPage, new Response.Listener<JSONObject>() {
                             @Override
                             public void onResponse(JSONObject response) {
-                                ArrayList<ResultsStartItem> resultsListMore = parseResults(response, false);
+                                ArrayList<DraftThesesItem> resultsListMore = parseResults(response, false);
                                 resultsSwipe.setRefreshing(false);
                                 for (int i = 0; i < resultsListMore.size(); i++) {
-                                    ResultsStartItem result = resultsListMore.get(i);
+                                    DraftThesesItem result = resultsListMore.get(i);
                                     resultsList.add(result);
                                     resultsAdapter.notifyItemInserted(resultsList.size());
                                 }
@@ -488,11 +488,11 @@ public class DraftThesesFragment extends Fragment {
         params.put("sub_Subject", subSpecialities[speciality][subSpeciality]);
         params.put("ThesisID", draftThesesID);
         params.put("Degree", degrees[degree]);
-        CustomRequest request = new CustomRequest(Request.Method.POST, "http://192.168.200.217:3000/librarySystem/startSearch", params, new Response.Listener<JSONObject>() {
+        CustomRequest request = new CustomRequest(Request.Method.POST, "http://192.168.200.217:3000/librarySystem/draftTheses", params, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 resultsList = parseResults(response, true);
-                resultsAdapter.setResultsStartItems(resultsList);
+                resultsAdapter.setDraftThesesItems(resultsList);
                 resultsSwipe.setRefreshing(false);
             }
         }, new Response.ErrorListener() {
@@ -511,8 +511,8 @@ public class DraftThesesFragment extends Fragment {
         requestQueue.add(request);
     }
 
-    private ArrayList<ResultsStartItem> parseResults(JSONObject response, boolean firstLoad) {
-        ArrayList<ResultsStartItem> listItems = new ArrayList<>();
+    private ArrayList<DraftThesesItem> parseResults(JSONObject response, boolean firstLoad) {
+        ArrayList<DraftThesesItem> listItems = new ArrayList<>();
         if (response != null && response.length() > 0) {
             try {
                 if (response.has("TotalNoOfResults") && !response.isNull("TotalNoOfResults")) {
@@ -527,64 +527,43 @@ public class DraftThesesFragment extends Fragment {
                     JSONArray arrayItems = response.getJSONArray("results");
                     for (int i = 0; i < arrayItems.length(); i++) {
                         JSONObject currentItem = arrayItems.getJSONObject(i);
-                        long id = -1;
+                        String id = "-1";
                         if (currentItem.has("id") && !currentItem.isNull("id")) {
-                            id = currentItem.getLong("id");
+                            id = currentItem.getString("id");
                         }
                         String title = "No Data Available";
                         if (currentItem.has("title") && !currentItem.isNull("title")) {
                             title = currentItem.getString("title");
                         }
-                        String image = "";
-                        if (currentItem.has("image") && !currentItem.isNull("image")) {
-                            image = currentItem.getString("image");
+                        String year = "";
+                        if (currentItem.has("year") && !currentItem.isNull("year")) {
+                            year = currentItem.getString("year");
                         }
-                        String type = "";
-                        if (currentItem.has("type") && !currentItem.isNull("type")) {
-                            type = currentItem.getString("type");
+                        String description = "";
+                        if (currentItem.has("description") && !currentItem.isNull("description")) {
+                            description = currentItem.getString("description");
                         }
-                        String classification = "";
-                        if (currentItem.has("classification") && !currentItem.isNull("classification")) {
-                            JSONArray arrayClassification = currentItem.getJSONArray("classification");
-                            for (int j = 0; j < arrayClassification.length(); j++) {
-                                classification += "\u00BB " + arrayClassification.getString(j);
-                                if (j < (arrayClassification.length() - 1)) {
-                                    classification += "\t\t";
-                                }
-                            }
-                        }
-                        String publisher = "";
-                        if (currentItem.has("publisher") && !currentItem.isNull("publisher")) {
-                            publisher = currentItem.getString("publisher");
-                        }
-                        String moreTitle = "";
-                        if (currentItem.has("moreTitle") && !currentItem.isNull("moreTitle")) {
-                            moreTitle = currentItem.getJSONObject("moreTitle").toString();
+                        String author = "";
+                        if (currentItem.has("author") && !currentItem.isNull("author")) {
+                            author = currentItem.getString("author");
                         }
                         String details = "";
                         if (currentItem.has("details") && !currentItem.isNull("details")) {
                             details = currentItem.getJSONObject("details").toString();
                         }
-                        String holdings = "";
-                        if (currentItem.has("holdings") && !currentItem.isNull("holdings")) {
-                            holdings = currentItem.getJSONArray("holdings").toString();
+                        String abstractText = "";
+                        if (currentItem.has("abstract") && !currentItem.isNull("abstract")) {
+                            abstractText = currentItem.getString("abstract");
                         }
-                        String services = "";
-                        if (currentItem.has("services") && !currentItem.isNull("services")) {
-                            services = currentItem.getJSONObject("services").toString();
-                        }
-                        ResultsStartItem item = new ResultsStartItem();
+                        DraftThesesItem item = new DraftThesesItem();
                         item.setId(id);
                         item.setTitle(title);
-                        item.setImage(image);
-                        item.setType(type);
-                        item.setClassification(classification);
-                        item.setPublisher(publisher);
-                        item.setMoreTitle(moreTitle);
+                        item.setYear(year);
+                        item.setDescription(description);
+                        item.setAuthor(author);
                         item.setDetails(details);
-                        item.setHoldings(holdings);
-                        item.setServices(services);
-                        if (id != -1 && !title.equals("No Data Available")) {
+                        item.setAbstractText(abstractText);
+                        if (!id.equals("-1") && !title.equals("No Data Available")) {
                             listItems.add(item);
                         }
                     }
