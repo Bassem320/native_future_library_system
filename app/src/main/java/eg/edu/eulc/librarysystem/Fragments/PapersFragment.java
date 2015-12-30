@@ -35,8 +35,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import eg.edu.eulc.librarysystem.CustomRequest;
-import eg.edu.eulc.librarysystem.FragmentsDialogs.ResultsStartAdapter;
-import eg.edu.eulc.librarysystem.Objects.ResultsStartItem;
+import eg.edu.eulc.librarysystem.FragmentsDialogs.ResultsPapersAdapter;
+import eg.edu.eulc.librarysystem.Objects.PapersItem;
 import eg.edu.eulc.librarysystem.R;
 import eg.edu.eulc.librarysystem.VolleySingleton;
 
@@ -51,8 +51,8 @@ public class PapersFragment extends Fragment {
     private ScrollView searchLayout;
     private SwipeRefreshLayout resultsSwipe;
     private RecyclerView resultsRecycler;
-    private ArrayList<ResultsStartItem> resultsList = new ArrayList<>();
-    private ResultsStartAdapter resultsAdapter;
+    private ArrayList<PapersItem> resultsList = new ArrayList<>();
+    private ResultsPapersAdapter resultsAdapter;
     private RequestQueue requestQueue;
     private LinearLayoutManager linearLayoutManager;
     private boolean mLoadingItems = true;
@@ -131,7 +131,7 @@ public class PapersFragment extends Fragment {
                     resultsLayout.setVisibility(View.VISIBLE);
                     linearLayoutManager = new LinearLayoutManager(getActivity());
                     resultsRecycler.setLayoutManager(linearLayoutManager);
-                    resultsAdapter = new ResultsStartAdapter(getActivity());
+                    resultsAdapter = new ResultsPapersAdapter(getActivity());
                     resultsSwipe.setColorSchemeResources(R.color.colorPrimary, R.color.colorAccent);
                     resultsSwipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
                         @Override
@@ -164,10 +164,10 @@ public class PapersFragment extends Fragment {
                                     JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, nextPage, new Response.Listener<JSONObject>() {
                                         @Override
                                         public void onResponse(JSONObject response) {
-                                            ArrayList<ResultsStartItem> resultsListMore = parseResults(response, false);
+                                            ArrayList<PapersItem> resultsListMore = parseResults(response, false);
                                             resultsSwipe.setRefreshing(false);
                                             for (int i = 0; i < resultsListMore.size(); i++) {
-                                                ResultsStartItem result = resultsListMore.get(i);
+                                                PapersItem result = resultsListMore.get(i);
                                                 resultsList.add(result);
                                                 resultsAdapter.notifyItemInserted(resultsList.size());
                                             }
@@ -215,11 +215,11 @@ public class PapersFragment extends Fragment {
         params.put("ResearchID", authorNationalID);
         params.put("BorrowerID", authorID);
         params.put("attach", hasAttach ? "1" : "0");
-        CustomRequest request = new CustomRequest(Request.Method.POST, "http://192.168.200.217:3000/librarySystem/startSearch", params, new Response.Listener<JSONObject>() {
+        CustomRequest request = new CustomRequest(Request.Method.POST, "http://192.168.200.217:3000/librarySystem/papers", params, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 resultsList = parseResults(response, true);
-                resultsAdapter.setResultsStartItems(resultsList);
+                resultsAdapter.setPapersItems(resultsList);
                 resultsSwipe.setRefreshing(false);
             }
         }, new Response.ErrorListener() {
@@ -238,8 +238,8 @@ public class PapersFragment extends Fragment {
         requestQueue.add(request);
     }
 
-    private ArrayList<ResultsStartItem> parseResults(JSONObject response, boolean firstLoad) {
-        ArrayList<ResultsStartItem> listItems = new ArrayList<>();
+    private ArrayList<PapersItem> parseResults(JSONObject response, boolean firstLoad) {
+        ArrayList<PapersItem> listItems = new ArrayList<>();
         if (response != null && response.length() > 0) {
             try {
                 if (response.has("TotalNoOfResults") && !response.isNull("TotalNoOfResults")) {
@@ -254,64 +254,59 @@ public class PapersFragment extends Fragment {
                     JSONArray arrayItems = response.getJSONArray("results");
                     for (int i = 0; i < arrayItems.length(); i++) {
                         JSONObject currentItem = arrayItems.getJSONObject(i);
-                        long id = -1;
+                        String id = "-1";
                         if (currentItem.has("id") && !currentItem.isNull("id")) {
-                            id = currentItem.getLong("id");
+                            id = currentItem.getString("id");
                         }
                         String title = "No Data Available";
                         if (currentItem.has("title") && !currentItem.isNull("title")) {
                             title = currentItem.getString("title");
                         }
-                        String image = "";
-                        if (currentItem.has("image") && !currentItem.isNull("image")) {
-                            image = currentItem.getString("image");
-                        }
-                        String type = "";
-                        if (currentItem.has("type") && !currentItem.isNull("type")) {
-                            type = currentItem.getString("type");
-                        }
-                        String classification = "";
-                        if (currentItem.has("classification") && !currentItem.isNull("classification")) {
-                            JSONArray arrayClassification = currentItem.getJSONArray("classification");
-                            for (int j = 0; j < arrayClassification.length(); j++) {
-                                classification += "\u00BB " + arrayClassification.getString(j);
-                                if (j < (arrayClassification.length() - 1)) {
-                                    classification += "\t\t";
+                        String authors = "";
+                        if (currentItem.has("authors") && !currentItem.isNull("authors")) {
+                            JSONArray arrayAuthors = currentItem.getJSONArray("authors");
+                            for (int j = 0; j < arrayAuthors.length(); j++) {
+                                authors += arrayAuthors.getString(j);
+                                if (j < (arrayAuthors.length() - 1)) {
+                                    authors += "\n";
                                 }
                             }
                         }
-                        String publisher = "";
-                        if (currentItem.has("publisher") && !currentItem.isNull("publisher")) {
-                            publisher = currentItem.getString("publisher");
+                        String volume = "";
+                        if (currentItem.has("volume") && !currentItem.isNull("volume")) {
+                            volume = currentItem.getString("volume");
                         }
-                        String moreTitle = "";
-                        if (currentItem.has("moreTitle") && !currentItem.isNull("moreTitle")) {
-                            moreTitle = currentItem.getJSONObject("moreTitle").toString();
+                        String pages = "";
+                        if (currentItem.has("pages") && !currentItem.isNull("pages")) {
+                            pages = currentItem.getString("pages");
                         }
-                        String details = "";
-                        if (currentItem.has("details") && !currentItem.isNull("details")) {
-                            details = currentItem.getJSONObject("details").toString();
+                        String publishedIn = "";
+                        if (currentItem.has("publishedIn") && !currentItem.isNull("publishedIn")) {
+                            publishedIn = currentItem.getString("publishedIn");
                         }
-                        String holdings = "";
-                        if (currentItem.has("holdings") && !currentItem.isNull("holdings")) {
-                            holdings = currentItem.getJSONArray("holdings").toString();
+                        String publishedAt = "";
+                        if (currentItem.has("publishedAt") && !currentItem.isNull("publishedAt")) {
+                            publishedAt = currentItem.getString("publishedAt");
                         }
-                        String services = "";
-                        if (currentItem.has("services") && !currentItem.isNull("services")) {
-                            services = currentItem.getJSONObject("services").toString();
+                        String serialName = "";
+                        if (currentItem.has("serialName") && !currentItem.isNull("serialName")) {
+                            serialName = currentItem.getString("serialName");
                         }
-                        ResultsStartItem item = new ResultsStartItem();
+                        String abstractText = "";
+                        if (currentItem.has("abstract") && !currentItem.isNull("abstract")) {
+                            abstractText = currentItem.getString("abstract");
+                        }
+                        PapersItem item = new PapersItem();
                         item.setId(id);
                         item.setTitle(title);
-                        item.setImage(image);
-                        item.setType(type);
-                        item.setClassification(classification);
-                        item.setPublisher(publisher);
-                        item.setMoreTitle(moreTitle);
-                        item.setDetails(details);
-                        item.setHoldings(holdings);
-                        item.setServices(services);
-                        if (id != -1 && !title.equals("No Data Available")) {
+                        item.setAuthors(authors);
+                        item.setVolume(volume);
+                        item.setPages(pages);
+                        item.setPublishedIn(publishedIn);
+                        item.setPublishedAt(publishedAt);
+                        item.setSerialName(serialName);
+                        item.setAbstractText(abstractText);
+                        if (!id.equals("-1") && !title.equals("No Data Available")) {
                             listItems.add(item);
                         }
                     }

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/footer_padding"
+    android:layout_marginTop="@dimen/footer_padding"
+    android:paddingBottom="@dimen/footer_padding"
+    android:paddingTop="@dimen/footer_padding">
+
+    <ImageView
+        android:id="@+id/itemImage"
+        android:layout_width="@dimen/item_width"
+        android:layout_height="@dimen/item_height"
+        android:padding="@dimen/footer_padding"
+        android:src="@drawable/paper" />
+
+    <TextView
+        android:id="@+id/itemTitle"
+        style="@style/StartResultText"
+        android:layout_toEndOf="@+id/itemImage"
+        android:layout_toRightOf="@+id/itemImage"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/itemAuthors"
+        style="@style/StartResultText"
+        android:layout_below="@+id/itemTitle"
+        android:layout_toEndOf="@+id/itemImage"
+        android:layout_toRightOf="@+id/itemImage"
+        android:textColor="@color/colorPrimary" />
+
+    <TextView
+        android:id="@+id/itemVolume"
+        style="@style/StartResultText"
+        android:layout_below="@+id/itemAuthors"
+        android:layout_toEndOf="@+id/itemImage"
+        android:layout_toRightOf="@+id/itemImage" />
+
+    <TextView
+        android:id="@+id/itemPages"
+        style="@style/StartResultText"
+        android:layout_below="@+id/itemVolume"
+        android:layout_toEndOf="@+id/itemImage"
+        android:layout_toRightOf="@+id/itemImage" />
+
+    <TextView
+        android:id="@+id/itemPublishedIn"
+        style="@style/StartResultText"
+        android:layout_below="@+id/itemPages"
+        android:layout_toEndOf="@+id/itemImage"
+        android:layout_toRightOf="@+id/itemImage" />
+
+    <TextView
+        android:id="@+id/itemPublishedAt"
+        style="@style/StartResultText"
+        android:layout_below="@+id/itemPublishedIn"
+        android:layout_toEndOf="@+id/itemImage"
+        android:layout_toRightOf="@+id/itemImage" />
+
+    <TextView
+        android:id="@+id/itemSerialName"
+        style="@style/StartResultText"
+        android:layout_below="@+id/itemPublishedAt"
+        android:layout_toEndOf="@+id/itemImage"
+        android:layout_toRightOf="@+id/itemImage" />
+</RelativeLayout>
