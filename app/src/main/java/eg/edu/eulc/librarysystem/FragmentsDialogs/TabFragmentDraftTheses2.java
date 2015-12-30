@@ -42,7 +42,13 @@ public class TabFragmentDraftTheses2 extends Fragment {
             }
             if (details.has("degree") && !details.isNull("degree")) {
                 TextView degree = (TextView) rootView.findViewById(R.id.degree);
-                degree.setText(details.getString("degree"));
+                String degreeText = details.getString("degree");
+                String[] parts = degreeText.split("\\u007c");
+                if (sharedPreferences.getInt("lang", 0) == 0) {
+                    degree.setText(parts[0]);
+                } else {
+                    degree.setText(parts[1]);
+                }
             }
             if (details.has("specialty") && !details.isNull("specialty")) {
                 TextView specialty = (TextView) rootView.findViewById(R.id.specialty);
