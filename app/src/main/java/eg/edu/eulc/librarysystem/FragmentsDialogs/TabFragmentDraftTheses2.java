@@ -21,14 +21,13 @@ import eg.edu.eulc.librarysystem.R;
  */
 public class TabFragmentDraftTheses2 extends Fragment {
     public static final String PREF_FILE_NAME = "LibrarySystemPref";
-    private DraftThesesItem item;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         SharedPreferences sharedPreferences = getContext().getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE);
         Bundle args = getArguments();
-        item = args.getParcelable("item");
+        DraftThesesItem item = args.getParcelable("item");
         View rootView = inflater.inflate(R.layout.tab_fragment_draft_theses2, container, false);
         try {
             JSONObject details = new JSONObject(item.getDetails());
