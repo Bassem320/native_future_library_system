@@ -43,11 +43,15 @@ public class TabFragmentDraftTheses2 extends Fragment {
             if (details.has("degree") && !details.isNull("degree")) {
                 TextView degree = (TextView) rootView.findViewById(R.id.degree);
                 String degreeText = details.getString("degree");
-                String[] parts = degreeText.split("\\u007c");
-                if (sharedPreferences.getInt("lang", 0) == 0) {
-                    degree.setText(parts[0]);
+                if (degreeText.contains("\u007c")) {
+                    String[] parts = degreeText.split("\\u007c");
+                    if (sharedPreferences.getInt("lang", 0) == 0) {
+                        degree.setText(parts[0]);
+                    } else {
+                        degree.setText(parts[1]);
+                    }
                 } else {
-                    degree.setText(parts[1]);
+                    degree.setText(degreeText);
                 }
             }
             if (details.has("specialty") && !details.isNull("specialty")) {
@@ -57,11 +61,15 @@ public class TabFragmentDraftTheses2 extends Fragment {
             if (details.has("siteRegistration") && !details.isNull("siteRegistration")) {
                 TextView siteRegistration = (TextView) rootView.findViewById(R.id.siteRegistration);
                 String siteRegistrationText = details.getString("siteRegistration");
-                String[] parts = siteRegistrationText.split("\\u007c");
-                if (sharedPreferences.getInt("lang", 0) == 0) {
-                    siteRegistration.setText(parts[0]);
+                if (siteRegistrationText.contains("\u007c")) {
+                    String[] parts = siteRegistrationText.split("\\u007c");
+                    if (sharedPreferences.getInt("lang", 0) == 0) {
+                        siteRegistration.setText(parts[0]);
+                    } else {
+                        siteRegistration.setText(parts[1]);
+                    }
                 } else {
-                    siteRegistration.setText(parts[1]);
+                    siteRegistration.setText(siteRegistrationText);
                 }
             }
         } catch (JSONException e) {
