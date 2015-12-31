@@ -5,6 +5,7 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,27 +56,27 @@ public class ResultsPapersAdapter extends RecyclerView.Adapter<RecyclerView.View
         if (currentItem.getVolume().equals("")) {
             holderItem.itemVolume.setVisibility(View.GONE);
         } else {
-            holderItem.itemVolume.setText(currentItem.getVolume());
+            holderItem.itemVolume.setText(Html.fromHtml("<b>" + context.getText(R.string.volume) + ": </b>" + currentItem.getVolume()));
         }
         if (currentItem.getPages().equals("")) {
             holderItem.itemPages.setVisibility(View.GONE);
         } else {
-            holderItem.itemPages.setText(currentItem.getPages());
+            holderItem.itemPages.setText(Html.fromHtml("<b>" + context.getText(R.string.pages) + ": </b>" + currentItem.getPages()));
         }
         if (currentItem.getPublishedIn().equals("")) {
             holderItem.itemPublishedIn.setVisibility(View.GONE);
         } else {
-            holderItem.itemPublishedIn.setText(currentItem.getPublishedIn());
+            holderItem.itemPublishedIn.setText(Html.fromHtml("<b>" + context.getText(R.string.published_in) + ": </b>" + currentItem.getPublishedIn()));
         }
         if (currentItem.getPublishedAt().equals("")) {
             holderItem.itemPublishedAt.setVisibility(View.GONE);
         } else {
-            holderItem.itemPublishedAt.setText(currentItem.getPublishedAt());
+            holderItem.itemPublishedAt.setText(Html.fromHtml("<b>" + context.getText(R.string.published_at) + ": </b>" + currentItem.getPublishedAt()));
         }
         if (currentItem.getSerialName().equals("")) {
             holderItem.itemSerialName.setVisibility(View.GONE);
         } else {
-            holderItem.itemSerialName.setText(currentItem.getSerialName());
+            holderItem.itemSerialName.setText(Html.fromHtml("<b>" + context.getText(R.string.serial_name) + ": </b>" + currentItem.getSerialName()));
         }
     }
 

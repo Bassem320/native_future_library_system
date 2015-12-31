@@ -1690,4 +1690,9 @@
     <string name="specialty">تخصص الرسالة</string>
     <string name="subjects">الموضوعات</string>
     <string name="supervisors">المشرفون</string>
+    <string name="published_at">تم النشر بتاريخ</string>
+    <string name="serial_name">اسم الدورية</string>
+    <string name="volume">مجلد</string>
+    <string name="published_in">تم النشر في</string>
+    <string name="pages">الصفحات</string>
 </resources>

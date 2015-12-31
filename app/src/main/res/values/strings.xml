@@ -1292,6 +1292,11 @@
     <string name="book_info">Book Info</string>
     <string name="preview">Preview</string>
     <string name="download">Download</string>
+    <string name="volume">Volume</string>
+    <string name="pages">Pages</string>
+    <string name="published_in">Published In</string>
+    <string name="published_at">Published At</string>
+    <string name="serial_name">Serial Name</string>
     <!-- Details -->
     <string name="ddc">DDC No.</string>
     <string name="statOfRes">Statement of Responsibility</string>
