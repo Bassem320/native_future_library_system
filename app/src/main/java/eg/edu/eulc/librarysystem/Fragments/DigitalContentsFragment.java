@@ -375,7 +375,7 @@ public class DigitalContentsFragment extends Fragment {
         params.put("BibID", bibID);
         params.put("PublishYear", publishYear);
         params.put("OrderKey", orders[orderBy]);
-        CustomRequest request = new CustomRequest(Request.Method.POST, "http://192.168.200.217:3000/librarySystem/startSearch", params, new Response.Listener<JSONObject>() {
+        CustomRequest request = new CustomRequest(Request.Method.POST, "http://www.eulc.edu.eg/demo/libraries/fuapi.aspx?fn=ApplyMobileSearch&Dlib=True", params, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 resultsList = parseResults(response, true);
