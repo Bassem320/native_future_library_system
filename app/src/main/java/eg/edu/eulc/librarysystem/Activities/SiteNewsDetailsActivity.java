@@ -44,7 +44,6 @@ public class SiteNewsDetailsActivity extends AppCompatActivity {
         int flags = strBuilder.getSpanFlags(span);
         ClickableSpan clickable = new ClickableSpan() {
             public void onClick(View view) {
-                // Do something with span.getURL() to handle the link click...
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(span.getURL()));
                 startActivity(browserIntent);
             }

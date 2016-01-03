@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">نظام المكتبات</string>
+    <string name="app_name">نظام المستقبل لإدارة المكتبات</string>
     <string name="action_settings">الإعدادات</string>
     <string name="nav_databases">قواعد البيانات العالمية</string>
     <string name="nav_digital_contents">المقتنيات الإلكترونية</string>
