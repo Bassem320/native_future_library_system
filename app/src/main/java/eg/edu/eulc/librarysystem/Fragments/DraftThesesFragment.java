@@ -488,7 +488,7 @@ public class DraftThesesFragment extends Fragment {
         params.put("sub_Subject", subSpecialities[speciality][subSpeciality]);
         params.put("ThesisID", draftThesesID);
         params.put("Degree", degrees[degree]);
-        CustomRequest request = new CustomRequest(Request.Method.POST, "http://www.eulc.edu.eg/demo/libraries/fuapi.aspx?fn=ApplaySearchDraftThesis", params, new Response.Listener<JSONObject>() {
+        CustomRequest request = new CustomRequest(Request.Method.POST, "http://www.eulc.edu.eg/eulc_v5/libraries/fuapi.aspx?fn=ApplaySearchDraftThesis", params, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 resultsList = parseResults(response, true);

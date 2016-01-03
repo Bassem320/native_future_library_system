@@ -305,7 +305,7 @@ public class StartFragment extends Fragment {
     }
 
     private void requestSiteNews() {
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://www.eulc.edu.eg/demo/libraries/fuapi.aspx?ScopeID=1.&fn=MobileNews", new Response.Listener<JSONObject>() {
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://www.eulc.edu.eg/eulc_v5/libraries/fuapi.aspx?ScopeID=1.&fn=MobileNews", new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 if (!stop) {
@@ -406,7 +406,7 @@ public class StartFragment extends Fragment {
         params.put("OrderKey", "publishYear desc");
         params.put("SearchText1", searchText);
         params.put("ItemType", searchTypes[searchType]);
-        CustomRequest request = new CustomRequest(Request.Method.POST, "http://www.eulc.edu.eg/demo/libraries/fuapi.aspx?fn=ApplyMobileSearch", params, new Response.Listener<JSONObject>() {
+        CustomRequest request = new CustomRequest(Request.Method.POST, "http://www.eulc.edu.eg/eulc_v5/libraries/fuapi.aspx?fn=ApplyMobileSearch", params, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 resultsStartList = parseResults(response, true);
