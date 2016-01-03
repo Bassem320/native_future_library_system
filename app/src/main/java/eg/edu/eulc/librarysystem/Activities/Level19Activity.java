@@ -58,8 +58,7 @@ public class Level19Activity extends AppCompatActivity {
 
     private RequestQueue requestQueue;
 
-    private String layout, classNo;
-    private int PageNo = 1;
+    private String layout, classNo, nextPage = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -318,28 +317,28 @@ public class Level19Activity extends AppCompatActivity {
                     }
                 }
                 if (!mLoadingItems && (mTotalItemsInList - mOnScreenItems) <= (mFirstVisibleItem + mVisibleThreshold)) {
-                    resultsSwipe.setRefreshing(true);
-                    PageNo++;
-                    JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.200.217:1234/librarySystem/startSearch.json?Id=" + layout + "&ClassNo=" + classNo + "&PageNo=" + PageNo, new Response.Listener<JSONObject>() {
-                        @Override
-                        public void onResponse(JSONObject response) {
-                            ArrayList<ResultsStartItem> resultsListMore = parseResults(response, false);
-                            resultsSwipe.setRefreshing(false);
-                            for (int i = 0; i < resultsListMore.size(); i++) {
-                                ResultsStartItem result = resultsListMore.get(i);
-                                resultsList.add(result);
-                                resultsAdapter.notifyItemInserted(resultsList.size());
+                    if (!nextPage.equals("")) {
+                        resultsSwipe.setRefreshing(true);
+                        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, nextPage, new Response.Listener<JSONObject>() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                ArrayList<ResultsStartItem> resultsListMore = parseResults(response, false);
+                                resultsSwipe.setRefreshing(false);
+                                for (int i = 0; i < resultsListMore.size(); i++) {
+                                    ResultsStartItem result = resultsListMore.get(i);
+                                    resultsList.add(result);
+                                    resultsAdapter.notifyItemInserted(resultsList.size());
+                                }
                             }
-                        }
-                    }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            PageNo--;
-                            resultsSwipe.setRefreshing(false);
-                        }
-                    });
-                    requestQueue.add(request);
-                    mLoadingItems = true;
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                resultsSwipe.setRefreshing(false);
+                            }
+                        });
+                        requestQueue.add(request);
+                        mLoadingItems = true;
+                    }
                 }
             }
         });
@@ -1976,9 +1975,9 @@ public class Level19Activity extends AppCompatActivity {
     }
 
     private void startBrowse() {
-        PageNo = 1;
+        nextPage = "";
         mPreviousTotal = 0;
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.200.217:1234/librarySystem/startSearch.json?Id=" + layout + "&ClassNo=" + classNo + "&PageNo=1", new Response.Listener<JSONObject>() {
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://eulc.edu.eg/eulc_v5/libraries/FuAPI.aspx?fn=BrowseCategories&ScopeID=1.&Id=" + layout + "&ClassNo=" + classNo, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -2020,6 +2019,9 @@ public class Level19Activity extends AppCompatActivity {
         ArrayList<ResultsStartItem> listResults = new ArrayList<>();
         if (response != null && response.length() > 0) {
             try {
+                if (response.has("Link4NextPage") && !response.isNull("Link4NextPage")) {
+                    nextPage = response.getString("Link4NextPage");
+                }
                 if (response.has("results")) {
                     JSONArray arrayItems = response.getJSONArray("results");
                     for (int i = 0; i < arrayItems.length(); i++) {
