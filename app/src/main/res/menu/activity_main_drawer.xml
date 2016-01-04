@@ -8,12 +8,12 @@
         <item
             android:id="@+id/nav_holdings"
             android:title="@string/nav_holdings" />
-        <item
+        <!--<item
             android:id="@+id/nav_internet_search"
             android:title="@string/nav_internet_search" />
         <item
             android:id="@+id/nav_databases"
-            android:title="@string/nav_databases" />
+            android:title="@string/nav_databases" />-->
         <item
             android:id="@+id/nav_thesis"
             android:title="@string/nav_theses" />
@@ -26,14 +26,14 @@
         <item
             android:id="@+id/nav_local_journals"
             android:title="@string/nav_local_journals" />
-        <item
+        <!--<item
             android:id="@+id/nav_e_publish"
-            android:title="@string/nav_e_publish" />
+            android:title="@string/nav_e_publish" />-->
         <item
             android:id="@+id/nav_digital_contents"
             android:title="@string/nav_digital_contents" />
-        <item
+        <!--<item
             android:id="@+id/nav_my_account"
-            android:title="@string/nav_my_account" />
+            android:title="@string/nav_my_account" />-->
     </group>
 </menu>

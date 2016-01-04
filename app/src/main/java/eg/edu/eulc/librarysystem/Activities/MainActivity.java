@@ -21,14 +21,10 @@ import android.view.MenuItem;
 
 import java.util.Locale;
 
-import eg.edu.eulc.librarysystem.Fragments.DatabasesFragment;
 import eg.edu.eulc.librarysystem.Fragments.DigitalContentsFragment;
 import eg.edu.eulc.librarysystem.Fragments.DraftThesesFragment;
-import eg.edu.eulc.librarysystem.Fragments.EPublishFragment;
 import eg.edu.eulc.librarysystem.Fragments.HoldingsFragment;
-import eg.edu.eulc.librarysystem.Fragments.InternetSearchFragment;
 import eg.edu.eulc.librarysystem.Fragments.LocalJournalsFragment;
-import eg.edu.eulc.librarysystem.Fragments.MyAccountFragment;
 import eg.edu.eulc.librarysystem.Fragments.PapersFragment;
 import eg.edu.eulc.librarysystem.Fragments.StartFragment;
 import eg.edu.eulc.librarysystem.Fragments.ThesesFragment;
@@ -85,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else {
             StartFragment startFragment = (StartFragment) getSupportFragmentManager().findFragmentByTag("FragmentStart");
             HoldingsFragment holdingsFragment = (HoldingsFragment) getSupportFragmentManager().findFragmentByTag("FragmentHoldings");
-            InternetSearchFragment internetSearchFragment = (InternetSearchFragment) getSupportFragmentManager().findFragmentByTag("FragmentInternetSearch");
+            //InternetSearchFragment internetSearchFragment = (InternetSearchFragment) getSupportFragmentManager().findFragmentByTag("FragmentInternetSearch");
 
             ThesesFragment thesesFragment = (ThesesFragment) getSupportFragmentManager().findFragmentByTag("FragmentTheses");
             DraftThesesFragment draftThesesFragment = (DraftThesesFragment) getSupportFragmentManager().findFragmentByTag("FragmentDraftTheses");
@@ -102,17 +98,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
             } else if (navigationView.getMenu().getItem(1).isChecked() && holdingsFragment.getLayoutVisibility()) {
                 holdingsFragment.showSearch();
-            } else if (navigationView.getMenu().getItem(2).isChecked() && internetSearchFragment.getLayoutVisibility()) {
+            } /*else if (navigationView.getMenu().getItem(2).isChecked() && internetSearchFragment.getLayoutVisibility()) {
                 internetSearchFragment.showSearch();
-            } else if (navigationView.getMenu().getItem(4).isChecked() && thesesFragment.getLayoutVisibility()) {
+            }*/ else if (navigationView.getMenu().getItem(2).isChecked() && thesesFragment.getLayoutVisibility()) {
                 thesesFragment.showSearch();
-            } else if (navigationView.getMenu().getItem(5).isChecked() && draftThesesFragment.getLayoutVisibility()) {
+            } else if (navigationView.getMenu().getItem(3).isChecked() && draftThesesFragment.getLayoutVisibility()) {
                 draftThesesFragment.showSearch();
-            } else if (navigationView.getMenu().getItem(6).isChecked() && papersFragment.getLayoutVisibility()) {
+            } else if (navigationView.getMenu().getItem(4).isChecked() && papersFragment.getLayoutVisibility()) {
                 papersFragment.showSearch();
-            } else if (navigationView.getMenu().getItem(7).isChecked() && localJournalsFragment.getLayoutVisibility()) {
+            } else if (navigationView.getMenu().getItem(5).isChecked() && localJournalsFragment.getLayoutVisibility()) {
                 localJournalsFragment.showSearch();
-            } else if (navigationView.getMenu().getItem(9).isChecked() && digitalContentsFragment.getLayoutVisibility()) {
+            } else if (navigationView.getMenu().getItem(6).isChecked() && digitalContentsFragment.getLayoutVisibility()) {
                 digitalContentsFragment.showSearch();
             } else {
                 getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new StartFragment(), "FragmentStart").commit();
@@ -154,13 +150,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_holdings) {
             fragment = new HoldingsFragment();
             tag = "FragmentHoldings";
-        } else if (id == R.id.nav_internet_search) {
+        } /*else if (id == R.id.nav_internet_search) {
             fragment = new InternetSearchFragment();
             tag = "FragmentInternetSearch";
         } else if (id == R.id.nav_databases) {
             fragment = new DatabasesFragment();
             tag = "FragmentDatabases";
-        } else if (id == R.id.nav_thesis) {
+        }*/ else if (id == R.id.nav_thesis) {
             fragment = new ThesesFragment();
             tag = "FragmentTheses";
         } else if (id == R.id.nav_draft_thesis) {
@@ -172,16 +168,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_local_journals) {
             fragment = new LocalJournalsFragment();
             tag = "FragmentLocalJournals";
-        } else if (id == R.id.nav_e_publish) {
+        } /*else if (id == R.id.nav_e_publish) {
             fragment = new EPublishFragment();
             tag = "FragmentEPublish";
-        } else if (id == R.id.nav_digital_contents) {
+        }*/ else if (id == R.id.nav_digital_contents) {
             fragment = new DigitalContentsFragment();
             tag = "FragmentDigitalContents";
-        } else if (id == R.id.nav_my_account) {
+        } /*else if (id == R.id.nav_my_account) {
             fragment = new MyAccountFragment();
             tag = "FragmentMyAccount";
-        }
+        }*/
 
         if (fragment != null) {
             FragmentManager fragmentManager = getSupportFragmentManager();
