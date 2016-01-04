@@ -24,10 +24,12 @@ import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.NoConnectionError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 
@@ -53,6 +55,7 @@ import eg.edu.eulc.librarysystem.Activities.MainActivity;
 import eg.edu.eulc.librarysystem.Adapters.SiteNewsListAdapter;
 import eg.edu.eulc.librarysystem.CustomRequest;
 import eg.edu.eulc.librarysystem.FragmentsDialogs.ResultsStartAdapter;
+import eg.edu.eulc.librarysystem.MyApplication;
 import eg.edu.eulc.librarysystem.Objects.ResultsStartItem;
 import eg.edu.eulc.librarysystem.Objects.SiteNewsItem;
 import eg.edu.eulc.librarysystem.R;
@@ -203,6 +206,9 @@ public class StartFragment extends Fragment {
                                             resultsStartSwipe.setRefreshing(false);
                                         }
                                     });
+                                    int socketTimeout = 60000;
+                                    RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+                                    request.setRetryPolicy(policy);
                                     requestQueue.add(request);
                                     mLoadingItems = true;
                                 }
@@ -305,7 +311,7 @@ public class StartFragment extends Fragment {
     }
 
     private void requestSiteNews() {
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://www.eulc.edu.eg/eulc_v5/libraries/fuapi.aspx?ScopeID=1.&fn=MobileNews", new Response.Listener<JSONObject>() {
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, ((MyApplication) getActivity().getApplication()).getServerName() + "libraries/fuapi.aspx?ScopeID=1.&fn=MobileNews", new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 if (!stop) {
@@ -340,6 +346,9 @@ public class StartFragment extends Fragment {
                 }
             }
         });
+        int socketTimeout = 60000;
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        request.setRetryPolicy(policy);
         requestQueue.add(request);
     }
 
@@ -406,7 +415,7 @@ public class StartFragment extends Fragment {
         params.put("OrderKey", "publishYear desc");
         params.put("SearchText1", searchText);
         params.put("ItemType", searchTypes[searchType]);
-        CustomRequest request = new CustomRequest(Request.Method.POST, "http://www.eulc.edu.eg/eulc_v5/libraries/fuapi.aspx?fn=ApplyMobileSearch", params, new Response.Listener<JSONObject>() {
+        CustomRequest request = new CustomRequest(Request.Method.POST, ((MyApplication) getActivity().getApplication()).getServerName() + "libraries/fuapi.aspx?fn=ApplyMobileSearch", params, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 resultsStartList = parseResults(response, true);
@@ -426,6 +435,9 @@ public class StartFragment extends Fragment {
                 searchLayout.setVisibility(View.VISIBLE);
             }
         });
+        int socketTimeout = 60000;
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        request.setRetryPolicy(policy);
         requestQueue.add(request);
     }
 

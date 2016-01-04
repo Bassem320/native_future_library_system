@@ -14,10 +14,12 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.NoConnectionError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 
@@ -28,6 +30,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import eg.edu.eulc.librarysystem.FragmentsDialogs.ResultsStartAdapter;
+import eg.edu.eulc.librarysystem.MyApplication;
 import eg.edu.eulc.librarysystem.Objects.ResultsStartItem;
 import eg.edu.eulc.librarysystem.R;
 import eg.edu.eulc.librarysystem.VolleySingleton;
@@ -336,6 +339,9 @@ public class Level17Activity extends AppCompatActivity {
                                 resultsSwipe.setRefreshing(false);
                             }
                         });
+                        int socketTimeout = 60000;
+                        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+                        request.setRetryPolicy(policy);
                         requestQueue.add(request);
                         mLoadingItems = true;
                     }
@@ -1977,7 +1983,7 @@ public class Level17Activity extends AppCompatActivity {
     private void startBrowse() {
         nextPage = "";
         mPreviousTotal = 0;
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://eulc.edu.eg/eulc_v5/libraries/FuAPI.aspx?fn=BrowseCategories&ScopeID=1.&Id=" + layout + "&ClassNo=" + classNo, new Response.Listener<JSONObject>() {
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, ((MyApplication) this.getApplication()).getServerName() + "libraries/FuAPI.aspx?fn=BrowseCategories&ScopeID=1.&Id=" + layout + "&ClassNo=" + classNo, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -2012,6 +2018,9 @@ public class Level17Activity extends AppCompatActivity {
                 }
             }
         });
+        int socketTimeout = 60000;
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        request.setRetryPolicy(policy);
         requestQueue.add(request);
     }
 

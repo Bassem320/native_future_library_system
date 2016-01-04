@@ -8,12 +8,7 @@ import android.content.Context;
  */
 public class MyApplication extends Application {
     private static MyApplication sInstance;
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        sInstance = this;
-    }
+    private String serverName = "http://www.eulc.edu.eg/demo/";
 
     public static MyApplication getInstance() {
         return sInstance;
@@ -21,5 +16,15 @@ public class MyApplication extends Application {
 
     public static Context getAppContext() {
         return sInstance.getApplicationContext();
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        sInstance = this;
+    }
+
+    public String getServerName() {
+        return serverName;
     }
 }

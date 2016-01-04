@@ -19,10 +19,12 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.NoConnectionError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 
@@ -36,6 +38,7 @@ import java.util.Map;
 
 import eg.edu.eulc.librarysystem.CustomRequest;
 import eg.edu.eulc.librarysystem.FragmentsDialogs.ResultsPapersAdapter;
+import eg.edu.eulc.librarysystem.MyApplication;
 import eg.edu.eulc.librarysystem.Objects.PapersItem;
 import eg.edu.eulc.librarysystem.R;
 import eg.edu.eulc.librarysystem.VolleySingleton;
@@ -178,6 +181,9 @@ public class PapersFragment extends Fragment {
                                             resultsSwipe.setRefreshing(false);
                                         }
                                     });
+                                    int socketTimeout = 60000;
+                                    RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+                                    request.setRetryPolicy(policy);
                                     requestQueue.add(request);
                                     mLoadingItems = true;
                                 }
@@ -215,7 +221,7 @@ public class PapersFragment extends Fragment {
         params.put("ResearchID", authorNationalID);
         params.put("BorrowerID", authorID);
         params.put("attach", hasAttach ? "1" : "0");
-        CustomRequest request = new CustomRequest(Request.Method.POST, "http://www.eulc.edu.eg/eulc_v5/libraries/fuapi.aspx?fn=ApplaySearch4Serial", params, new Response.Listener<JSONObject>() {
+        CustomRequest request = new CustomRequest(Request.Method.POST, ((MyApplication) getActivity().getApplication()).getServerName() + "libraries/fuapi.aspx?fn=ApplaySearch4Serial", params, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 resultsList = parseResults(response, true);
@@ -235,6 +241,9 @@ public class PapersFragment extends Fragment {
                 searchLayout.setVisibility(View.VISIBLE);
             }
         });
+        int socketTimeout = 60000;
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        request.setRetryPolicy(policy);
         requestQueue.add(request);
     }
 
