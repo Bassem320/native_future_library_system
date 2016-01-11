@@ -1286,7 +1286,7 @@
     <!-- Heading -->
     <string name="search_results_title">Title</string>
     <string name="search_results_details">Details</string>
-    <string name="search_results_holdings">Holdings</string>
+    <string name="search_results_holdings">Holds</string>
     <string name="search_results_services">Services</string>
     <string name="search_results_abstract">Abstract</string>
     <!-- Title -->
