@@ -1,6 +1,7 @@
 package eg.edu.eulc.librarysystem.FragmentsDialogs;
 
 import android.content.Context;
+import android.os.Build;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -11,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -22,6 +24,7 @@ import eg.edu.eulc.librarysystem.R;
  * Created by Eslam El-Meniawy on 30-Dec-15.
  */
 public class ResultsPapersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    public static final String PREF_FILE_NAME = "LibrarySystemPref";
     private static ArrayList<PapersItem> listPapersItems = new ArrayList<>();
     private static Context context;
     private LayoutInflater layoutInflater;
@@ -100,10 +103,46 @@ public class ResultsPapersAdapter extends RecyclerView.Adapter<RecyclerView.View
             itemPublishedIn = (TextView) itemView.findViewById(R.id.itemPublishedIn);
             itemPublishedAt = (TextView) itemView.findViewById(R.id.itemPublishedAt);
             itemSerialName = (TextView) itemView.findViewById(R.id.itemSerialName);
+            ImageView itemImage = (ImageView) itemView.findViewById(R.id.itemImage);
             DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
             if (displayMetrics.widthPixels < 480) {
-                ImageView itemImage = (ImageView) itemView.findViewById(R.id.itemImage);
                 itemImage.setVisibility(View.GONE);
+            }
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP && context.getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE).getInt("lang", 0) == 0) {
+                RelativeLayout.LayoutParams titleParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                titleParams.addRule(RelativeLayout.LEFT_OF, itemImage.getId());
+
+                RelativeLayout.LayoutParams authorsParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                authorsParams.addRule(RelativeLayout.LEFT_OF, itemImage.getId());
+                authorsParams.addRule(RelativeLayout.BELOW, itemTitle.getId());
+
+                RelativeLayout.LayoutParams volumeParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                volumeParams.addRule(RelativeLayout.LEFT_OF, itemImage.getId());
+                volumeParams.addRule(RelativeLayout.BELOW, itemAuthors.getId());
+
+                RelativeLayout.LayoutParams pagesParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                pagesParams.addRule(RelativeLayout.LEFT_OF, itemImage.getId());
+                pagesParams.addRule(RelativeLayout.BELOW, itemVolume.getId());
+
+                RelativeLayout.LayoutParams publishedInParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                publishedInParams.addRule(RelativeLayout.LEFT_OF, itemImage.getId());
+                publishedInParams.addRule(RelativeLayout.BELOW, itemPages.getId());
+
+                RelativeLayout.LayoutParams publishedAtParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                publishedAtParams.addRule(RelativeLayout.LEFT_OF, itemImage.getId());
+                publishedAtParams.addRule(RelativeLayout.BELOW, itemPublishedIn.getId());
+
+                RelativeLayout.LayoutParams serialNameParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                serialNameParams.addRule(RelativeLayout.LEFT_OF, itemImage.getId());
+                serialNameParams.addRule(RelativeLayout.BELOW, itemPublishedAt.getId());
+
+                itemTitle.setLayoutParams(titleParams);
+                itemAuthors.setLayoutParams(authorsParams);
+                itemVolume.setLayoutParams(volumeParams);
+                itemPages.setLayoutParams(pagesParams);
+                itemPublishedIn.setLayoutParams(publishedInParams);
+                itemPublishedAt.setLayoutParams(publishedAtParams);
+                itemSerialName.setLayoutParams(serialNameParams);
             }
             itemView.setOnClickListener(this);
         }

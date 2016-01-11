@@ -1,6 +1,7 @@
 package eg.edu.eulc.librarysystem.FragmentsDialogs;
 
 import android.content.Context;
+import android.os.Build;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.volley.VolleyError;
@@ -25,6 +27,7 @@ import eg.edu.eulc.librarysystem.VolleySingleton;
  * Created by eslam on 26-Nov-15.
  */
 public class ResultsStartAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    public static final String PREF_FILE_NAME = "LibrarySystemPref";
     private static ArrayList<ResultsStartItem> listResultsStartItems = new ArrayList<>();
     private static Context context;
     private static boolean loadImage = true;
@@ -97,6 +100,23 @@ public class ResultsStartAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             if (displayMetrics.widthPixels < 480) {
                 loadImage = false;
                 itemImage.setVisibility(View.GONE);
+            }
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP && context.getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE).getInt("lang", 0) == 0) {
+                RelativeLayout.LayoutParams titleParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                titleParams.addRule(RelativeLayout.LEFT_OF, itemImage.getId());
+                titleParams.addRule(RelativeLayout.BELOW, itemType.getId());
+
+                RelativeLayout.LayoutParams classificationParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                classificationParams.addRule(RelativeLayout.LEFT_OF, itemImage.getId());
+                classificationParams.addRule(RelativeLayout.BELOW, itemTitle.getId());
+
+                RelativeLayout.LayoutParams publisherParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                publisherParams.addRule(RelativeLayout.LEFT_OF, itemImage.getId());
+                publisherParams.addRule(RelativeLayout.BELOW, itemClassification.getId());
+
+                itemTitle.setLayoutParams(titleParams);
+                itemClassification.setLayoutParams(classificationParams);
+                itemPublisher.setLayoutParams(publisherParams);
             }
             itemView.setOnClickListener(this);
         }
