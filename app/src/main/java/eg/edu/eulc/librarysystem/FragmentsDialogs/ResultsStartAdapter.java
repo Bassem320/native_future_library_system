@@ -27,10 +27,10 @@ import eg.edu.eulc.librarysystem.VolleySingleton;
 public class ResultsStartAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private static ArrayList<ResultsStartItem> listResultsStartItems = new ArrayList<>();
     private static Context context;
+    private static boolean loadImage = true;
     private LayoutInflater layoutInflater;
     private VolleySingleton volleySingleton;
     private ImageLoader imageLoader;
-    private boolean loadImage = true;
 
     public ResultsStartAdapter(Context context) {
         layoutInflater = LayoutInflater.from(context);
@@ -95,6 +95,7 @@ public class ResultsStartAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             itemPublisher = (TextView) itemView.findViewById(R.id.itemPublisher);
             DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
             if (displayMetrics.widthPixels < 480) {
+                loadImage = false;
                 itemImage.setVisibility(View.GONE);
             }
             itemView.setOnClickListener(this);
