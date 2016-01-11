@@ -96,7 +96,9 @@
         android:id="@+id/resultsLayout"
         style="@style/ResultsLayout">
 
-        <ImageView style="@style/Logo" />
+        <ImageView
+            android:id="@+id/logo"
+            style="@style/Logo" />
 
         <TextView
             style="@style/MainTitle"
