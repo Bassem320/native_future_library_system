@@ -20,10 +20,13 @@
                 android:layout_marginBottom="@dimen/activity_vertical_margin"
                 android:text="@string/nav_internet_search" />
 
-            <EditText
-                android:id="@+id/SearchText1"
-                style="@style/HoldingsEditText"
-                android:hint="@string/search_hint" />
+            <android.support.design.widget.TextInputLayout style="@style/HoldingsEditTextLayout">
+
+                <EditText
+                    android:id="@+id/SearchText1"
+                    style="@style/HoldingsEditText"
+                    android:hint="@string/search_hint" />
+            </android.support.design.widget.TextInputLayout>
 
             <LinearLayout style="@style/KeywordLayout">
 
@@ -38,10 +41,13 @@
                     android:layout_weight="3" />
             </LinearLayout>
 
-            <EditText
-                android:id="@+id/SearchText2"
-                style="@style/HoldingsEditText"
-                android:hint="@string/search_hint" />
+            <android.support.design.widget.TextInputLayout style="@style/HoldingsEditTextLayout">
+
+                <EditText
+                    android:id="@+id/SearchText2"
+                    style="@style/HoldingsEditText"
+                    android:hint="@string/search_hint" />
+            </android.support.design.widget.TextInputLayout>
 
             <LinearLayout style="@style/KeywordLayout">
 
@@ -56,10 +62,13 @@
                     android:layout_weight="3" />
             </LinearLayout>
 
-            <EditText
-                android:id="@+id/SearchText3"
-                style="@style/HoldingsEditText"
-                android:hint="@string/search_hint" />
+            <android.support.design.widget.TextInputLayout style="@style/HoldingsEditTextLayout">
+
+                <EditText
+                    android:id="@+id/SearchText3"
+                    style="@style/HoldingsEditText"
+                    android:hint="@string/search_hint" />
+            </android.support.design.widget.TextInputLayout>
 
             <Spinner
                 android:id="@+id/searchin3"

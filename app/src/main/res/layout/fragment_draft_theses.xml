@@ -20,10 +20,13 @@
                 android:layout_marginBottom="@dimen/activity_vertical_margin"
                 android:text="@string/nav_draft_theses" />
 
-            <EditText
-                android:id="@+id/SearchText1"
-                style="@style/HoldingsEditText"
-                android:hint="@string/search_hint" />
+            <android.support.design.widget.TextInputLayout style="@style/HoldingsEditTextLayout">
+
+                <EditText
+                    android:id="@+id/SearchText1"
+                    style="@style/HoldingsEditText"
+                    android:hint="@string/search_hint" />
+            </android.support.design.widget.TextInputLayout>
 
             <LinearLayout style="@style/KeywordLayout">
 
@@ -38,10 +41,13 @@
                     android:layout_weight="3" />
             </LinearLayout>
 
-            <EditText
-                android:id="@+id/SearchText2"
-                style="@style/HoldingsEditText"
-                android:hint="@string/search_hint" />
+            <android.support.design.widget.TextInputLayout style="@style/HoldingsEditTextLayout">
+
+                <EditText
+                    android:id="@+id/SearchText2"
+                    style="@style/HoldingsEditText"
+                    android:hint="@string/search_hint" />
+            </android.support.design.widget.TextInputLayout>
 
             <LinearLayout style="@style/KeywordLayout">
 
@@ -56,10 +62,13 @@
                     android:layout_weight="3" />
             </LinearLayout>
 
-            <EditText
-                android:id="@+id/SearchText3"
-                style="@style/HoldingsEditText"
-                android:hint="@string/search_hint" />
+            <android.support.design.widget.TextInputLayout style="@style/HoldingsEditTextLayout">
+
+                <EditText
+                    android:id="@+id/SearchText3"
+                    style="@style/HoldingsEditText"
+                    android:hint="@string/search_hint" />
+            </android.support.design.widget.TextInputLayout>
 
             <Spinner
                 android:id="@+id/searchin3"
@@ -77,21 +86,31 @@
                     style="@style/TypeSpinner"
                     android:orientation="vertical">
 
-                    <EditText
-                        android:id="@+id/date_from"
+                    <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:hint="@string/from"
-                        android:inputType="date" />
+                        android:layout_height="wrap_content">
 
-                    <EditText
-                        android:id="@+id/date_to"
+                        <EditText
+                            android:id="@+id/date_from"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:hint="@string/from"
+                            android:inputType="date" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:hint="@string/to"
-                        android:inputType="date" />
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/date_to"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:hint="@string/to"
+                            android:inputType="date" />
+                    </android.support.design.widget.TextInputLayout>
                 </LinearLayout>
             </LinearLayout>
 
@@ -121,13 +140,18 @@
                     style="@style/TypeSpinner" />
             </LinearLayout>
 
-            <EditText
-                android:id="@+id/DraftTheses_ID"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/draft_theses_id"
-                android:inputType="numberDecimal" />
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/DraftTheses_ID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/draft_theses_id"
+                    android:inputType="numberDecimal" />
+            </android.support.design.widget.TextInputLayout>
 
             <LinearLayout
                 style="@style/TypeLayout"

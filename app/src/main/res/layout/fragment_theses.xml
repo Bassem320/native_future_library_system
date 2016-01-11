@@ -31,10 +31,13 @@
                     style="@style/TypeSpinner" />
             </LinearLayout>
 
-            <EditText
-                android:id="@+id/SearchText1"
-                style="@style/HoldingsEditText"
-                android:hint="@string/search_hint" />
+            <android.support.design.widget.TextInputLayout style="@style/HoldingsEditTextLayout">
+
+                <EditText
+                    android:id="@+id/SearchText1"
+                    style="@style/HoldingsEditText"
+                    android:hint="@string/search_hint" />
+            </android.support.design.widget.TextInputLayout>
 
             <LinearLayout style="@style/KeywordLayout">
 
@@ -49,10 +52,13 @@
                     android:layout_weight="3" />
             </LinearLayout>
 
-            <EditText
-                android:id="@+id/SearchText2"
-                style="@style/HoldingsEditText"
-                android:hint="@string/search_hint" />
+            <android.support.design.widget.TextInputLayout style="@style/HoldingsEditTextLayout">
+
+                <EditText
+                    android:id="@+id/SearchText2"
+                    style="@style/HoldingsEditText"
+                    android:hint="@string/search_hint" />
+            </android.support.design.widget.TextInputLayout>
 
             <LinearLayout style="@style/KeywordLayout">
 
@@ -67,19 +73,25 @@
                     android:layout_weight="3" />
             </LinearLayout>
 
-            <EditText
-                android:id="@+id/SearchText3"
-                style="@style/HoldingsEditText"
-                android:hint="@string/search_hint" />
+            <android.support.design.widget.TextInputLayout style="@style/HoldingsEditTextLayout">
+
+                <EditText
+                    android:id="@+id/SearchText3"
+                    style="@style/HoldingsEditText"
+                    android:hint="@string/search_hint" />
+            </android.support.design.widget.TextInputLayout>
 
             <Spinner
                 android:id="@+id/keyword3"
                 style="@style/KeywordSpinner" />
 
-            <EditText
-                android:id="@+id/attach_contains"
-                style="@style/HoldingsEditText"
-                android:hint="@string/attach_contains" />
+            <android.support.design.widget.TextInputLayout style="@style/HoldingsEditTextLayout">
+
+                <EditText
+                    android:id="@+id/attach_contains"
+                    style="@style/HoldingsEditText"
+                    android:hint="@string/attach_contains" />
+            </android.support.design.widget.TextInputLayout>
 
             <LinearLayout
                 style="@style/TypeLayout"
@@ -102,11 +114,14 @@
                     style="@style/SelectType"
                     android:text="@string/bib_id" />
 
-                <EditText
-                    android:id="@+id/BibID"
-                    style="@style/TypeSpinner"
-                    android:hint="@string/bib_id_hint"
-                    android:inputType="date"/>
+                <android.support.design.widget.TextInputLayout style="@style/TypeSpinner">
+
+                    <EditText
+                        android:id="@+id/BibID"
+                        style="@style/TypeSpinnerET"
+                        android:hint="@string/bib_id_hint"
+                        android:inputType="date" />
+                </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -117,11 +132,14 @@
                     style="@style/SelectType"
                     android:text="@string/pub_year" />
 
-                <EditText
-                    android:id="@+id/Publishyear"
-                    style="@style/TypeSpinner"
-                    android:hint="@string/pub_year_hint"
-                    android:inputType="date"/>
+                <android.support.design.widget.TextInputLayout style="@style/TypeSpinner">
+
+                    <EditText
+                        android:id="@+id/Publishyear"
+                        style="@style/TypeSpinnerET"
+                        android:hint="@string/pub_year_hint"
+                        android:inputType="date" />
+                </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
             <LinearLayout
