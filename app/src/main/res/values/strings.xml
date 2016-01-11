@@ -27,6 +27,7 @@
     <string name="bib_id_error">Wrong format!\nEx: 100 or 350&#8211;480</string>
     <string name="pub_year_error">Wrong format!\nEx: 1987 or 1970&#8211;1980</string>
     <string name="date_error">Wrong format!\nEx: 31/12/2015</string>
+    <string name="national_id_error">Wrong National ID!</string>
 
     <!-- Settings -->
     <string name="lang">Language</string>

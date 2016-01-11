@@ -35,6 +35,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import eg.edu.eulc.librarysystem.CustomRequest;
 import eg.edu.eulc.librarysystem.FragmentsDialogs.ResultsPapersAdapter;
@@ -127,8 +129,14 @@ public class PapersFragment extends Fragment {
                     authorID = "";
                 }
 
+                String NAT_ID_PATTERN = "(2|3)[0-9][1-9][0-1][1-9][0-3][1-9](01|02|03|04|11|12|13|14|15|16|17|18|19|21|22|23|24|25|26|27|28|29|31|32|33|34|35|88)\\d\\d\\d\\d\\d";
+                Pattern patternNatId = Pattern.compile(NAT_ID_PATTERN);
+                Matcher matcherNatId = patternNatId.matcher(authorNationalID);
+
                 if ((paperTitle.equals("") || paperTitle == null) && (authors.equals("") || authors == null) && (keywords.equals("") || keywords == null) && (paperAbstract.equals("") || paperAbstract == null) && (authorNationalID.equals("") || authorNationalID == null) && (authorID.equals("") || authorID == null)) {
                     Snackbar.make(v, getResources().getText(R.string.enter_text), Snackbar.LENGTH_LONG).show();
+                } else if (!authorNationalID.equals("") && authorNationalID != null && !matcherNatId.matches()) {
+                    authorNationalIDET.setError(getText(R.string.national_id_error));
                 } else {
                     searchLayout.setVisibility(View.GONE);
                     resultsLayout.setVisibility(View.VISIBLE);
@@ -225,6 +233,7 @@ public class PapersFragment extends Fragment {
             @Override
             public void onResponse(JSONObject response) {
                 resultsList = parseResults(response, true);
+                resultsAdapter.notifyDataSetChanged();
                 resultsAdapter.setPapersItems(resultsList);
                 resultsSwipe.setRefreshing(false);
             }
