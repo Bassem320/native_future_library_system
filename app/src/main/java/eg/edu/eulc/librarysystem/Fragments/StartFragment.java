@@ -319,6 +319,7 @@ public class StartFragment extends Fragment {
                     editor.putString("siteNewsList", response.toString());
                     editor.apply();
                     siteNewsList = parseSiteNews(response);
+                    itemsListAdapter.notifyDataSetChanged();
                     itemsListAdapter.setListSiteNewsItems(siteNewsList);
                     listItemsRecycler.setMinimumHeight(listItemsRecycler.getHeight());
                     loadingItems.setVisibility(View.GONE);
@@ -419,6 +420,7 @@ public class StartFragment extends Fragment {
             @Override
             public void onResponse(JSONObject response) {
                 resultsStartList = parseResults(response, true);
+                resultsStarAdapter.notifyDataSetChanged();
                 resultsStarAdapter.setResultsStartItems(resultsStartList);
                 resultsStartSwipe.setRefreshing(false);
             }

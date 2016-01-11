@@ -498,6 +498,7 @@ public class DraftThesesFragment extends Fragment {
             @Override
             public void onResponse(JSONObject response) {
                 resultsList = parseResults(response, true);
+                resultsAdapter.notifyDataSetChanged();
                 resultsAdapter.setDraftThesesItems(resultsList);
                 resultsSwipe.setRefreshing(false);
             }

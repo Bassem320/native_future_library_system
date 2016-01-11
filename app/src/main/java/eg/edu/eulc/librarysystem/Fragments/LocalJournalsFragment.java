@@ -386,6 +386,7 @@ public class LocalJournalsFragment extends Fragment {
             @Override
             public void onResponse(JSONObject response) {
                 resultsList = parseResults(response, true);
+                resultsAdapter.notifyDataSetChanged();
                 resultsAdapter.setResultsStartItems(resultsList);
                 resultsSwipe.setRefreshing(false);
             }
