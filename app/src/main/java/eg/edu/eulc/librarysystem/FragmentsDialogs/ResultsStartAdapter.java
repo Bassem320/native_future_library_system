@@ -5,6 +5,7 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,20 +26,21 @@ import eg.edu.eulc.librarysystem.VolleySingleton;
  */
 public class ResultsStartAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private static ArrayList<ResultsStartItem> listResultsStartItems = new ArrayList<>();
+    private static Context context;
     private LayoutInflater layoutInflater;
     private VolleySingleton volleySingleton;
     private ImageLoader imageLoader;
-    private static Context context;
+    private boolean loadImage = true;
 
     public ResultsStartAdapter(Context context) {
         layoutInflater = LayoutInflater.from(context);
         volleySingleton = VolleySingleton.getInstance();
         imageLoader = volleySingleton.getImageLoader();
-        this.context = context;
+        ResultsStartAdapter.context = context;
     }
 
     public void setResultsStartItems(ArrayList<ResultsStartItem> listResultsStartItems) {
-        this.listResultsStartItems = listResultsStartItems;
+        ResultsStartAdapter.listResultsStartItems = listResultsStartItems;
         notifyItemRangeChanged(0, listResultsStartItems.size());
     }
 
@@ -60,7 +62,7 @@ public class ResultsStartAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         holderItem.itemClassification.setText(currentItem.getClassification());
         holderItem.itemPublisher.setText(currentItem.getPublisher());
         String imageName = currentItem.getImage();
-        if (imageName != null && !imageName.equals("")) {
+        if (imageName != null && !imageName.equals("") && loadImage) {
             imageLoader.get(imageName, new ImageLoader.ImageListener() {
                 @Override
                 public void onResponse(ImageLoader.ImageContainer response, boolean isImmediate) {
@@ -91,6 +93,10 @@ public class ResultsStartAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             itemTitle = (TextView) itemView.findViewById(R.id.itemTitle);
             itemClassification = (TextView) itemView.findViewById(R.id.itemClassification);
             itemPublisher = (TextView) itemView.findViewById(R.id.itemPublisher);
+            DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+            if (displayMetrics.widthPixels < 480) {
+                itemImage.setVisibility(View.GONE);
+            }
             itemView.setOnClickListener(this);
         }
 

@@ -6,9 +6,11 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -98,6 +100,11 @@ public class ResultsPapersAdapter extends RecyclerView.Adapter<RecyclerView.View
             itemPublishedIn = (TextView) itemView.findViewById(R.id.itemPublishedIn);
             itemPublishedAt = (TextView) itemView.findViewById(R.id.itemPublishedAt);
             itemSerialName = (TextView) itemView.findViewById(R.id.itemSerialName);
+            DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+            if (displayMetrics.widthPixels < 480) {
+                ImageView itemImage = (ImageView) itemView.findViewById(R.id.itemImage);
+                itemImage.setVisibility(View.GONE);
+            }
             itemView.setOnClickListener(this);
         }
 
