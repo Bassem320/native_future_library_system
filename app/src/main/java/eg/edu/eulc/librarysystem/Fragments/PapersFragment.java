@@ -1,5 +1,7 @@
 package eg.edu.eulc.librarysystem.Fragments;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -13,6 +15,7 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -69,6 +72,11 @@ public class PapersFragment extends Fragment {
     public PapersFragment() {
     }
 
+    public static void hide_keyboard_from(Context context, View view) {
+        InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -87,6 +95,60 @@ public class PapersFragment extends Fragment {
         resultsRecycler = (RecyclerView) rootView.findViewById(R.id.ResultsPapers);
         resultsSwipe = (SwipeRefreshLayout) rootView.findViewById(R.id.ResultsPapersSwipeRefresh);
         resultsNumber = (TextView) rootView.findViewById(R.id.ResultsNumber);
+
+        paperTitleET.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hide_keyboard_from(getActivity(), paperTitleET);
+                }
+            }
+        });
+
+        authorsET.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hide_keyboard_from(getActivity(), authorsET);
+                }
+            }
+        });
+
+        keywordsET.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hide_keyboard_from(getActivity(), keywordsET);
+                }
+            }
+        });
+
+        paperAbstractET.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hide_keyboard_from(getActivity(), paperAbstractET);
+                }
+            }
+        });
+
+        authorNationalIDET.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hide_keyboard_from(getActivity(), authorNationalIDET);
+                }
+            }
+        });
+
+        authorIDET.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hide_keyboard_from(getActivity(), authorIDET);
+                }
+            }
+        });
 
         DisplayMetrics displayMetrics = getActivity().getResources().getDisplayMetrics();
         if (displayMetrics.heightPixels < 800) {

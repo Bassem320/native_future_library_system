@@ -1,5 +1,6 @@
 package eg.edu.eulc.librarysystem.Fragments;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,6 +16,7 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -71,7 +73,7 @@ public class StartFragment extends Fragment {
     private EditText startSearchText;
     private int searchType = 0;
     private String[] searchTypes = {"", "24.2.1.", "24.2.5.", "24.2.2."};
-    private String searchText, nextPage="";
+    private String searchText, nextPage = "";
     private LinearLayout resultsLayout;
     private ScrollView searchLayout;
     private SwipeRefreshLayout resultsStartSwipe;
@@ -89,6 +91,11 @@ public class StartFragment extends Fragment {
     private TextView resultsNumber;
 
     public StartFragment() {
+    }
+
+    public static void hide_keyboard_from(Context context, View view) {
+        InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
     @Nullable
@@ -117,6 +124,15 @@ public class StartFragment extends Fragment {
         resultsStartRecycler = (RecyclerView) rootView.findViewById(R.id.ResultsStart);
         resultsStartSwipe = (SwipeRefreshLayout) rootView.findViewById(R.id.ResultsStartSwipeRefresh);
         resultsNumber = (TextView) rootView.findViewById(R.id.ResultsNumber);
+
+        startSearchText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hide_keyboard_from(getActivity(), startSearchText);
+                }
+            }
+        });
 
         DisplayMetrics displayMetrics = getActivity().getResources().getDisplayMetrics();
         if (displayMetrics.heightPixels < 800) {
@@ -189,7 +205,7 @@ public class StartFragment extends Fragment {
                             mTotalItemsInList = linearLayoutManager.getItemCount();
                             mFirstVisibleItem = linearLayoutManager.findFirstVisibleItemPosition();
                             if (mLoadingItems) {
-                                if (mTotalItemsInList > mPreviousTotal+1) {
+                                if (mTotalItemsInList > mPreviousTotal + 1) {
                                     mLoadingItems = false;
                                     mPreviousTotal = mTotalItemsInList;
                                 }
@@ -414,6 +430,7 @@ public class StartFragment extends Fragment {
         }
         return listItems;
     }
+
     private void startSearch() {
         nextPage = "";
         mPreviousTotal = 0;

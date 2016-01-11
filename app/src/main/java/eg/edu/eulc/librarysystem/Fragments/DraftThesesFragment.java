@@ -1,5 +1,7 @@
 package eg.edu.eulc.librarysystem.Fragments;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -12,6 +14,7 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -96,6 +99,11 @@ public class DraftThesesFragment extends Fragment {
     public DraftThesesFragment() {
     }
 
+    public static void hide_keyboard_from(Context context, View view) {
+        InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -121,6 +129,59 @@ public class DraftThesesFragment extends Fragment {
         resultsRecycler = (RecyclerView) rootView.findViewById(R.id.ResultsDraftTheses);
         resultsSwipe = (SwipeRefreshLayout) rootView.findViewById(R.id.ResultsDraftThesesSwipeRefresh);
         resultsNumber = (TextView) rootView.findViewById(R.id.ResultsNumber);
+
+        searchTextET1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hide_keyboard_from(getActivity(), searchTextET1);
+                }
+            }
+        });
+
+        searchTextET2.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hide_keyboard_from(getActivity(), searchTextET2);
+                }
+            }
+        });
+
+        searchTextET3.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hide_keyboard_from(getActivity(), searchTextET3);
+                }
+            }
+        });
+
+        dateFromET.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hide_keyboard_from(getActivity(), dateFromET);
+                }
+            }
+        });
+
+        dateToET.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hide_keyboard_from(getActivity(), dateToET);
+                }
+            }
+        });
+        draftThesesIDET.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hide_keyboard_from(getActivity(), draftThesesIDET);
+                }
+            }
+        });
 
         DisplayMetrics displayMetrics = getActivity().getResources().getDisplayMetrics();
         if (displayMetrics.heightPixels < 800) {
