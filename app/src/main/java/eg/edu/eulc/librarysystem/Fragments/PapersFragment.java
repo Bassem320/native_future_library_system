@@ -291,7 +291,7 @@ public class PapersFragment extends Fragment {
         nextPage = "";
         mPreviousTotal = 0;
         Map<String, String> params = new HashMap<String, String>();
-        params.put("ScopeIDSelect", "1.");
+        params.put("ScopeIDSelect", ((MyApplication) getActivity().getApplication()).getScopeID());
         params.put("PaperTitle", paperTitle);
         params.put("PaperAuthor", authors);
         params.put("PaperKeyword", keywords);

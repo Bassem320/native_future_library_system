@@ -335,7 +335,7 @@ public class StartFragment extends Fragment {
     }
 
     private void requestSiteNews() {
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, ((MyApplication) getActivity().getApplication()).getServerName() + "libraries/fuapi.aspx?ScopeID=1.&fn=MobileNews", new Response.Listener<JSONObject>() {
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, ((MyApplication) getActivity().getApplication()).getServerName() + "libraries/fuapi.aspx?ScopeID=" + ((MyApplication) getActivity().getApplication()).getScopeID() + "&fn=MobileNews", new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 if (!stop) {
@@ -435,7 +435,7 @@ public class StartFragment extends Fragment {
         nextPage = "";
         mPreviousTotal = 0;
         Map<String, String> params = new HashMap<String, String>();
-        params.put("ScopeID", "1.");
+        params.put("ScopeID", ((MyApplication) getActivity().getApplication()).getScopeID());
         params.put("fn", "ApplyMobileSearch");
         params.put("criteria1", "1.");
         params.put("OrderKey", "publishYear desc");

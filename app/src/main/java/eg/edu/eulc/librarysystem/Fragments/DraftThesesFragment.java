@@ -548,7 +548,7 @@ public class DraftThesesFragment extends Fragment {
         nextPage = "";
         mPreviousTotal = 0;
         Map<String, String> params = new HashMap<String, String>();
-        params.put("ScopeIDSelect", "1.");
+        params.put("ScopeIDSelect", ((MyApplication) getActivity().getApplication()).getScopeID());
         params.put("Search1", searchText1);
         params.put("critria1", searchIn[searchin1]);
         params.put("opr1", concs[conc1]);

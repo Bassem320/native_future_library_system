@@ -434,10 +434,10 @@ public class LocalJournalsFragment extends Fragment {
         nextPage = "";
         mPreviousTotal = 0;
         Map<String, String> params = new HashMap<String, String>();
-        params.put("ScopeID", "1.");
+        params.put("ScopeID", ((MyApplication) getActivity().getApplication()).getScopeID());
         params.put("fn", "DLibApplySearch");
         params.put("SearchIdForm", "");
-        params.put("ScopeIDSelect", "1.");
+        params.put("ScopeIDSelect", ((MyApplication) getActivity().getApplication()).getScopeID());
         params.put("ItemType", itemTypes[itemType]);
         params.put("SearchText1", searchText1);
         params.put("criteria1", keywords[keywords1]);

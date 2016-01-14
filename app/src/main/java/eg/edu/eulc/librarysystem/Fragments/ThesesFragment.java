@@ -434,7 +434,7 @@ public class ThesesFragment extends Fragment {
         nextPage = "";
         mPreviousTotal = 0;
         Map<String, String> params = new HashMap<String, String>();
-        params.put("ScopeID", "1.");
+        params.put("ScopeID", ((MyApplication) getActivity().getApplication()).getScopeID());
         params.put("fn", "ApplyMobileSearch");
         params.put("SearchIdForm", "");
         params.put("ItemType", itemTypes[itemType]);
