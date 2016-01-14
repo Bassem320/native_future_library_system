@@ -2,45 +2,37 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorPrimary"
+    android:background="@color/grayBackground"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:orientation="horizontal"
-        android:weightSum="2">
+        android:background="@color/colorPrimaryDark"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_weight="1"
             android:padding="@dimen/separator"
-            android:text="Hello"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/white" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:padding="@dimen/separator"
-            android:text="مرحباً"
+            android:text="@string/app_name"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/white" />
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/colorAccent" />
-
-    <ScrollView
+    <android.support.design.widget.TabLayout
+        android:id="@+id/firstRunTabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/grayBackground">
+        android:background="?attr/colorPrimary"
+        android:elevation="6dp"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -48,40 +40,55 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/select_lang_ar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/separator"
-                android:text="Please select language and site\n\nبرجاء اختيار اللغة والموقع" />
+                android:text="برجاء اختيار اللغة والموقع" />
 
             <TextView
+                android:id="@+id/select_lang_en"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/separator"
-                android:text="*These can be changed later from the application settings\n\n*يمكن تغيير الاختيار لاحقاً من اعدادات البرنامج" />
+                android:text="Please select language and site"
+                android:visibility="gone" />
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/can_change_ar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/separator"
+                android:text="*يمكن تغيير الاختيار لاحقاً من اعدادات البرنامج"
+                android:textColor="@color/colorAccent" />
+
+            <TextView
+                android:id="@+id/can_change_en"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/separator"
+                android:text="*These can be changed later from the application settings"
+                android:textColor="@color/colorAccent"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/lang_ar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/separator"
-                android:orientation="horizontal"
-                android:weightSum="2">
+                android:paddingLeft="@dimen/separator"
+                android:paddingRight="@dimen/separator"
+                android:text="اللغة" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:paddingLeft="@dimen/separator"
-                    android:paddingRight="@dimen/separator"
-                    android:text="Language" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:paddingLeft="@dimen/separator"
-                    android:paddingRight="@dimen/separator"
-                    android:text="اللغة" />
-            </LinearLayout>
+            <TextView
+                android:id="@+id/lang_en"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/separator"
+                android:paddingLeft="@dimen/separator"
+                android:paddingRight="@dimen/separator"
+                android:text="Language"
+                android:visibility="gone" />
 
             <Spinner
                 android:id="@+id/dialog_langs"
@@ -89,29 +96,24 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/separator" />
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/site_ar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/separator"
-                android:orientation="horizontal"
-                android:weightSum="2">
+                android:paddingLeft="@dimen/separator"
+                android:paddingRight="@dimen/separator"
+                android:text="الموقع" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:paddingLeft="@dimen/separator"
-                    android:paddingRight="@dimen/separator"
-                    android:text="Site" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:paddingLeft="@dimen/separator"
-                    android:paddingRight="@dimen/separator"
-                    android:text="الموقع" />
-            </LinearLayout>
+            <TextView
+                android:id="@+id/site_en"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/separator"
+                android:paddingLeft="@dimen/separator"
+                android:paddingRight="@dimen/separator"
+                android:text="Site"
+                android:visibility="gone" />
 
             <Spinner
                 android:id="@+id/dialog_sites"

@@ -9,6 +9,7 @@ import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
@@ -24,6 +25,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.util.Locale;
 
@@ -50,7 +52,55 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (sharedPreferences.getBoolean("FirstRun", true)) {
             AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-            View firstRunLayout = MainActivity.this.getLayoutInflater().inflate(R.layout.dialog_first_run, null);
+            final View firstRunLayout = MainActivity.this.getLayoutInflater().inflate(R.layout.dialog_first_run, null);
+
+            TabLayout tabLayout = (TabLayout) firstRunLayout.findViewById(R.id.firstRunTabLayout);
+            tabLayout.addTab(tabLayout.newTab().setText("عربي"));
+            tabLayout.addTab(tabLayout.newTab().setText("English"));
+            tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+            tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+
+                @Override
+                public void onTabSelected(TabLayout.Tab tab) {
+                    TextView selectLangAr = (TextView) firstRunLayout.findViewById(R.id.select_lang_ar);
+                    TextView selectLangEn = (TextView) firstRunLayout.findViewById(R.id.select_lang_en);
+                    TextView canChangeAr = (TextView) firstRunLayout.findViewById(R.id.can_change_ar);
+                    TextView canChangeEn = (TextView) firstRunLayout.findViewById(R.id.can_change_en);
+                    TextView langAr = (TextView) firstRunLayout.findViewById(R.id.lang_ar);
+                    TextView langEn = (TextView) firstRunLayout.findViewById(R.id.lang_en);
+                    TextView siteAr = (TextView) firstRunLayout.findViewById(R.id.site_ar);
+                    TextView siteEn = (TextView) firstRunLayout.findViewById(R.id.site_en);
+                    if (tab.getPosition() == 0) {
+                        selectLangEn.setVisibility(View.GONE);
+                        canChangeEn.setVisibility(View.GONE);
+                        langEn.setVisibility(View.GONE);
+                        siteEn.setVisibility(View.GONE);
+
+                        selectLangAr.setVisibility(View.VISIBLE);
+                        canChangeAr.setVisibility(View.VISIBLE);
+                        langAr.setVisibility(View.VISIBLE);
+                        siteAr.setVisibility(View.VISIBLE);
+                    } else {
+                        selectLangAr.setVisibility(View.GONE);
+                        canChangeAr.setVisibility(View.GONE);
+                        langAr.setVisibility(View.GONE);
+                        siteAr.setVisibility(View.GONE);
+
+                        selectLangEn.setVisibility(View.VISIBLE);
+                        canChangeEn.setVisibility(View.VISIBLE);
+                        langEn.setVisibility(View.VISIBLE);
+                        siteEn.setVisibility(View.VISIBLE);
+                    }
+                }
+
+                @Override
+                public void onTabUnselected(TabLayout.Tab tab) {
+                }
+
+                @Override
+                public void onTabReselected(TabLayout.Tab tab) {
+                }
+            });
 
             Spinner langSpinner = (Spinner) firstRunLayout.findViewById(R.id.dialog_langs);
             Spinner sitesSpinner = (Spinner) firstRunLayout.findViewById(R.id.dialog_sites);
