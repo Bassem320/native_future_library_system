@@ -23,4 +23,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/settings_lang" />
+
+    <TextView
+        android:id="@+id/settings_lib"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lang_spinner"
+        android:layout_marginTop="@dimen/separator"
+        android:text="@string/site" />
+
+    <Spinner
+        android:id="@+id/site_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/settings_lib" />
 </RelativeLayout>

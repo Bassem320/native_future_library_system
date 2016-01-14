@@ -16,7 +16,6 @@ public class SettingsActivity extends AppCompatActivity {
     public static final String PREF_FILE_NAME = "LibrarySystemPref";
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
-    private Spinner langSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,13 +24,25 @@ public class SettingsActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         sharedPreferences = SettingsActivity.this.getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
-        langSpinner = (Spinner) findViewById(R.id.lang_spinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.langs, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        langSpinner.setAdapter(adapter);
+
+        Spinner langSpinner = (Spinner) findViewById(R.id.lang_spinner);
+        Spinner siteSpinner = (Spinner) findViewById(R.id.site_spinner);
+
+        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.langs, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.sites, android.R.layout.simple_spinner_item);
+
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        langSpinner.setAdapter(adapter1);
+        siteSpinner.setAdapter(adapter2);
+
         langSpinner.setSelection(sharedPreferences.getInt("lang", 0));
+        siteSpinner.setSelection(sharedPreferences.getInt("site", 16));
+
         langSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -41,6 +52,20 @@ public class SettingsActivity extends AppCompatActivity {
                     editor.putBoolean("langChanged", true);
                     editor.apply();
                     SettingsActivity.this.finish();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+        siteSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position != sharedPreferences.getInt("site", 16)) {
+                    editor.putInt("site", position);
+                    editor.apply();
                 }
             }
 

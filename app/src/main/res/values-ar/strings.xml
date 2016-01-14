@@ -1696,4 +1696,5 @@
     <string name="published_in">تم النشر في</string>
     <string name="pages">الصفحات</string>
     <string name="national_id_error">رقم قومي خطأ!</string>
+    <string name="site">الموقع</string>
 </resources>

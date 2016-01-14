@@ -1,6 +1,7 @@
 package eg.edu.eulc.librarysystem.Activities;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -13,11 +14,16 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import java.util.Locale;
 
@@ -33,44 +39,108 @@ import eg.edu.eulc.librarysystem.R;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     public static final String PREF_FILE_NAME = "LibrarySystemPref";
     private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
     private NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         sharedPreferences = MainActivity.this.getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("langChanged", false);
-        editor.apply();
-        Resources res = getResources();
-        DisplayMetrics dm = res.getDisplayMetrics();
-        Configuration conf = res.getConfiguration();
-        if (sharedPreferences.getInt("lang", 0) == 0) {
-            conf.locale = new Locale("ar");
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                conf.setLayoutDirection(conf.locale);
-            }
+        editor = sharedPreferences.edit();
+
+        if (sharedPreferences.getBoolean("FirstRun", true)) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            View firstRunLayout = MainActivity.this.getLayoutInflater().inflate(R.layout.dialog_first_run, null);
+
+            Spinner langSpinner = (Spinner) firstRunLayout.findViewById(R.id.dialog_langs);
+            Spinner sitesSpinner = (Spinner) firstRunLayout.findViewById(R.id.dialog_sites);
+
+            ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.languages, android.R.layout.simple_spinner_item);
+            ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.sites, android.R.layout.simple_spinner_item);
+
+            adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+            langSpinner.setAdapter(adapter1);
+            sitesSpinner.setAdapter(adapter2);
+
+            langSpinner.setSelection(sharedPreferences.getInt("lang", 0));
+            sitesSpinner.setSelection(sharedPreferences.getInt("site", 16));
+
+            langSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    if (position != sharedPreferences.getInt("lang", 0)) {
+                        editor.putInt("lang", position);
+                        editor.apply();
+                    }
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+                }
+            });
+
+            sitesSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    if (position != sharedPreferences.getInt("site", 16)) {
+                        editor.putInt("site", position);
+                        editor.apply();
+                    }
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+                }
+            });
+
+            builder.setView(firstRunLayout);
+            builder.setCancelable(false);
+            builder.setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    editor.putBoolean("FirstRun", false);
+                    editor.apply();
+                    finish();
+                    startActivity(getIntent());
+                }
+            });
+            AlertDialog dialog = builder.create();
+            dialog.show();
         } else {
-            conf.locale = new Locale("en");
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                conf.setLayoutDirection(conf.locale);
+            editor.putBoolean("langChanged", false);
+            editor.apply();
+            Resources res = getResources();
+            DisplayMetrics dm = res.getDisplayMetrics();
+            Configuration conf = res.getConfiguration();
+            if (sharedPreferences.getInt("lang", 0) == 0) {
+                conf.locale = new Locale("ar");
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                    conf.setLayoutDirection(conf.locale);
+                }
+            } else {
+                conf.locale = new Locale("en");
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                    conf.setLayoutDirection(conf.locale);
+                }
             }
+            res.updateConfiguration(conf, dm);
+            setContentView(R.layout.activity_main);
+            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+            setSupportActionBar(toolbar);
+
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                    this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+            drawer.setDrawerListener(toggle);
+            toggle.syncState();
+
+            navigationView = (NavigationView) findViewById(R.id.nav_view);
+            navigationView.setNavigationItemSelectedListener(this);
+
+            getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new StartFragment(), "FragmentStart").commit();
         }
-        res.updateConfiguration(conf, dm);
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
-
-        navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-        getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new StartFragment(), "FragmentStart").commit();
     }
 
     @Override
@@ -209,6 +279,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             res.updateConfiguration(conf, dm);
             finish();
             startActivity(getIntent());
+            startActivity(new Intent(MainActivity.this, SettingsActivity.class));
         }
     }
 
