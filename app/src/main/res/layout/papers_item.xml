@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/footer_padding"
     android:layout_marginTop="@dimen/footer_padding"
+    android:background="@drawable/item_border"
     android:paddingBottom="@dimen/footer_padding"
     android:paddingTop="@dimen/footer_padding">
 
@@ -19,6 +20,7 @@
         style="@style/StartResultText"
         android:layout_toEndOf="@+id/itemImage"
         android:layout_toRightOf="@+id/itemImage"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:textStyle="bold" />
 
     <TextView

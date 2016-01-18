@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -60,7 +61,7 @@ public class ResultsStartAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         ResultsStartItem currentItem = listResultsStartItems.get(position);
         final ViewHolderResultsStartList holderItem = (ViewHolderResultsStartList) holder;
         holderItem.item = currentItem;
-        holderItem.itemType.setText(currentItem.getType());
+        holderItem.itemType.setText("(" + currentItem.getType() + ")");
         holderItem.itemTitle.setText(currentItem.getTitle());
         holderItem.itemClassification.setText(currentItem.getClassification());
         holderItem.itemPublisher.setText(currentItem.getPublisher());
@@ -96,6 +97,7 @@ public class ResultsStartAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             itemTitle = (TextView) itemView.findViewById(R.id.itemTitle);
             itemClassification = (TextView) itemView.findViewById(R.id.itemClassification);
             itemPublisher = (TextView) itemView.findViewById(R.id.itemPublisher);
+            LinearLayout titleLayout = (LinearLayout) itemView.findViewById(R.id.title_layout);
             DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
             if (displayMetrics.widthPixels < 480) {
                 loadImage = false;
@@ -104,17 +106,16 @@ public class ResultsStartAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP && Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && context.getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE).getInt("lang", 0) == 0) {
                 RelativeLayout.LayoutParams titleParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 titleParams.addRule(RelativeLayout.LEFT_OF, itemImage.getId());
-                titleParams.addRule(RelativeLayout.BELOW, itemType.getId());
 
                 RelativeLayout.LayoutParams classificationParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 classificationParams.addRule(RelativeLayout.LEFT_OF, itemImage.getId());
-                classificationParams.addRule(RelativeLayout.BELOW, itemTitle.getId());
+                classificationParams.addRule(RelativeLayout.BELOW, titleLayout.getId());
 
                 RelativeLayout.LayoutParams publisherParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 publisherParams.addRule(RelativeLayout.LEFT_OF, itemImage.getId());
                 publisherParams.addRule(RelativeLayout.BELOW, itemClassification.getId());
 
-                itemTitle.setLayoutParams(titleParams);
+                titleLayout.setLayoutParams(titleParams);
                 itemClassification.setLayoutParams(classificationParams);
                 itemPublisher.setLayoutParams(publisherParams);
             }
