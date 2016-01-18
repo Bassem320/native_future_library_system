@@ -21,7 +21,7 @@
     <string name="navigation_drawer_close">إغلاق قائمة الأقسام</string>
     <string name="navigation_drawer_open">فتح قائمة الأقسام</string>
     <string name="holdings_search">بحث المقتنيات</string>
-    <string name="advanced_search">بحث متقدم</string>
+    <string name="advanced_search"><u>بحث متقدم</u></string>
     <string name="search">بحث</string>
     <string-array name="start_search_type">
         <item>كل المقتنيات</item>

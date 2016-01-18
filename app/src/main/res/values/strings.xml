@@ -76,7 +76,7 @@
         <item>Periodicals</item>
     </string-array>
     <string name="search">Search</string>
-    <string name="advanced_search">Advanced Search</string>
+    <string name="advanced_search"><u>Advanced Search</u></string>
     <string name="enter_text">Enter search text first</string>
     <string name="browse_by_subject">Browse by Subject</string>
     <string name="about_site">About Site</string>

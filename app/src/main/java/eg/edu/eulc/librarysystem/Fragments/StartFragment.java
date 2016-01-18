@@ -106,7 +106,7 @@ public class StartFragment extends Fragment {
         startSearchText = (EditText) rootView.findViewById(R.id.start_search_EditText);
         Spinner searchTypeSpinner = (Spinner) rootView.findViewById(R.id.start_search_type);
         Button startSearch = (Button) rootView.findViewById(R.id.search_button);
-        Button startAdvancedSearch = (Button) rootView.findViewById(R.id.advanced_search_button);
+        TextView startAdvancedSearch = (TextView) rootView.findViewById(R.id.advanced_search_button);
         searchLayout = (ScrollView) rootView.findViewById(R.id.searchLayout);
         resultsLayout = (LinearLayout) rootView.findViewById(R.id.resultsLayout);
         LinearLayout subject0 = (LinearLayout) rootView.findViewById(R.id.Subject0);
