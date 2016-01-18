@@ -55,8 +55,6 @@ public class Level110Activity extends AppCompatActivity {
     private ArrayList<ResultsStartItem> resultsList = new ArrayList<>();
     private ResultsStartAdapter resultsAdapter;
     private LinearLayoutManager linearLayoutManager;
-    private boolean mLoadingItems = true;
-    private int mOnScreenItems, mTotalItemsInList, mFirstVisibleItem, mPreviousTotal = 0, mVisibleThreshold = 1;
     private SharedPreferences sharedPreferences;
 
     private RequestQueue requestQueue;
@@ -299,54 +297,6 @@ public class Level110Activity extends AppCompatActivity {
             @Override
             public void onRefresh() {
                 startBrowse();
-            }
-        });
-
-        resultsRecycler.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-            }
-
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                mOnScreenItems = resultsRecycler.getChildCount();
-                mTotalItemsInList = linearLayoutManager.getItemCount();
-                mFirstVisibleItem = linearLayoutManager.findFirstVisibleItemPosition();
-                if (mLoadingItems) {
-                    if (mTotalItemsInList > mPreviousTotal + 1) {
-                        mLoadingItems = false;
-                        mPreviousTotal = mTotalItemsInList;
-                    }
-                }
-                if (!mLoadingItems && (mTotalItemsInList - mOnScreenItems) <= (mFirstVisibleItem + mVisibleThreshold)) {
-                    if (!nextPage.equals("")) {
-                        resultsSwipe.setRefreshing(true);
-                        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, nextPage, new Response.Listener<JSONObject>() {
-                            @Override
-                            public void onResponse(JSONObject response) {
-                                ArrayList<ResultsStartItem> resultsListMore = parseResults(response, false);
-                                resultsSwipe.setRefreshing(false);
-                                for (int i = 0; i < resultsListMore.size(); i++) {
-                                    ResultsStartItem result = resultsListMore.get(i);
-                                    resultsList.add(result);
-                                    resultsAdapter.notifyItemInserted(resultsList.size());
-                                }
-                            }
-                        }, new Response.ErrorListener() {
-                            @Override
-                            public void onErrorResponse(VolleyError error) {
-                                resultsSwipe.setRefreshing(false);
-                            }
-                        });
-                        int socketTimeout = 60000;
-                        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
-                        request.setRetryPolicy(policy);
-                        requestQueue.add(request);
-                        mLoadingItems = true;
-                    }
-                }
             }
         });
 
@@ -1983,7 +1933,6 @@ public class Level110Activity extends AppCompatActivity {
 
     private void startBrowse() {
         nextPage = "";
-        mPreviousTotal = 0;
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, ((MyApplication) this.getApplication()).getServerName() + "libraries/FuAPI.aspx?fn=BrowseCategories&ScopeID=1.&Id=" + layout + "&ClassNo=" + classNo, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -1991,6 +1940,10 @@ public class Level110Activity extends AppCompatActivity {
                 editor.putString(classNo, response.toString());
                 editor.apply();
                 resultsList = parseResults(response, true);
+                if (!nextPage.equals("")) {
+                    resultsList.add(null);
+                }
+                resultsAdapter.notifyDataSetChanged();
                 resultsAdapter.setResultsStartItems(resultsList);
                 resultsSwipe.setRefreshing(false);
             }
@@ -2113,6 +2066,43 @@ public class Level110Activity extends AppCompatActivity {
             }
         }
         return listResults;
+    }
+
+    public void loadMore() {
+        if (!nextPage.equals("")) {
+            resultsSwipe.setRefreshing(true);
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, nextPage, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    ArrayList<ResultsStartItem> resultsListMore = parseResults(response, false);
+                    resultsSwipe.setRefreshing(false);
+                    resultsList.remove(resultsList.size() - 1);
+                    resultsAdapter.notifyItemRemoved(resultsList.size());
+                    for (int i = 0; i < resultsListMore.size(); i++) {
+                        ResultsStartItem result = resultsListMore.get(i);
+                        resultsList.add(result);
+                        resultsAdapter.notifyItemInserted(resultsList.size());
+                    }
+                    if (!nextPage.equals("")) {
+                        resultsList.add(null);
+                        resultsAdapter.notifyItemInserted(resultsList.size());
+                    }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    resultsSwipe.setRefreshing(false);
+                    resultsList.remove(resultsList.size() - 1);
+                    resultsAdapter.notifyItemRemoved(resultsList.size());
+                    resultsList.add(null);
+                    resultsAdapter.notifyItemInserted(resultsList.size());
+                }
+            });
+            int socketTimeout = 60000;
+            RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+            request.setRetryPolicy(policy);
+            requestQueue.add(request);
+        }
     }
 
 }

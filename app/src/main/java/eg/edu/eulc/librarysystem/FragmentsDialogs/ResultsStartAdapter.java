@@ -22,6 +22,16 @@ import com.android.volley.toolbox.ImageLoader;
 
 import java.util.ArrayList;
 
+import eg.edu.eulc.librarysystem.Activities.Level110Activity;
+import eg.edu.eulc.librarysystem.Activities.Level11Activity;
+import eg.edu.eulc.librarysystem.Activities.Level12Activity;
+import eg.edu.eulc.librarysystem.Activities.Level13Activity;
+import eg.edu.eulc.librarysystem.Activities.Level14Activity;
+import eg.edu.eulc.librarysystem.Activities.Level15Activity;
+import eg.edu.eulc.librarysystem.Activities.Level16Activity;
+import eg.edu.eulc.librarysystem.Activities.Level17Activity;
+import eg.edu.eulc.librarysystem.Activities.Level18Activity;
+import eg.edu.eulc.librarysystem.Activities.Level19Activity;
 import eg.edu.eulc.librarysystem.Fragments.DigitalContentsFragment;
 import eg.edu.eulc.librarysystem.Fragments.HoldingsFragment;
 import eg.edu.eulc.librarysystem.Fragments.InternetSearchFragment;
@@ -167,24 +177,48 @@ public class ResultsStartAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         @Override
         public void onClick(View v) {
             loadMore.setEnabled(false);
-            if (fragment == ((FragmentActivity) context).getSupportFragmentManager().findFragmentByTag("FragmentStart")) {
-                StartFragment f = (StartFragment) fragment;
-                f.loadMore();
-            } else if (fragment == ((FragmentActivity) context).getSupportFragmentManager().findFragmentByTag("FragmentHoldings")) {
-                HoldingsFragment f = (HoldingsFragment) fragment;
-                f.loadMore();
-            } else if (fragment == ((FragmentActivity) context).getSupportFragmentManager().findFragmentByTag("FragmentInternetSearch")) {
-                InternetSearchFragment f = (InternetSearchFragment) fragment;
-                f.loadMore();
-            } else if (fragment == ((FragmentActivity) context).getSupportFragmentManager().findFragmentByTag("FragmentTheses")) {
-                ThesesFragment f = (ThesesFragment) fragment;
-                f.loadMore();
-            } else if (fragment == ((FragmentActivity) context).getSupportFragmentManager().findFragmentByTag("FragmentLocalJournals")) {
-                LocalJournalsFragment f = (LocalJournalsFragment) fragment;
-                f.loadMore();
-            } else if (fragment == ((FragmentActivity) context).getSupportFragmentManager().findFragmentByTag("FragmentDigitalContents")) {
-                DigitalContentsFragment f = (DigitalContentsFragment) fragment;
-                f.loadMore();
+            if (fragment != null) {
+                if (fragment == ((FragmentActivity) context).getSupportFragmentManager().findFragmentByTag("FragmentStart")) {
+                    StartFragment f = (StartFragment) fragment;
+                    f.loadMore();
+                } else if (fragment == ((FragmentActivity) context).getSupportFragmentManager().findFragmentByTag("FragmentHoldings")) {
+                    HoldingsFragment f = (HoldingsFragment) fragment;
+                    f.loadMore();
+                } else if (fragment == ((FragmentActivity) context).getSupportFragmentManager().findFragmentByTag("FragmentInternetSearch")) {
+                    InternetSearchFragment f = (InternetSearchFragment) fragment;
+                    f.loadMore();
+                } else if (fragment == ((FragmentActivity) context).getSupportFragmentManager().findFragmentByTag("FragmentTheses")) {
+                    ThesesFragment f = (ThesesFragment) fragment;
+                    f.loadMore();
+                } else if (fragment == ((FragmentActivity) context).getSupportFragmentManager().findFragmentByTag("FragmentLocalJournals")) {
+                    LocalJournalsFragment f = (LocalJournalsFragment) fragment;
+                    f.loadMore();
+                } else if (fragment == ((FragmentActivity) context).getSupportFragmentManager().findFragmentByTag("FragmentDigitalContents")) {
+                    DigitalContentsFragment f = (DigitalContentsFragment) fragment;
+                    f.loadMore();
+                }
+            } else {
+                if (context instanceof Level11Activity) {
+                    ((Level11Activity) context).loadMore();
+                } else if (context instanceof Level12Activity) {
+                    ((Level12Activity) context).loadMore();
+                } else if (context instanceof Level13Activity) {
+                    ((Level13Activity) context).loadMore();
+                } else if (context instanceof Level14Activity) {
+                    ((Level14Activity) context).loadMore();
+                } else if (context instanceof Level15Activity) {
+                    ((Level15Activity) context).loadMore();
+                } else if (context instanceof Level16Activity) {
+                    ((Level16Activity) context).loadMore();
+                } else if (context instanceof Level17Activity) {
+                    ((Level17Activity) context).loadMore();
+                } else if (context instanceof Level18Activity) {
+                    ((Level18Activity) context).loadMore();
+                } else if (context instanceof Level19Activity) {
+                    ((Level19Activity) context).loadMore();
+                } else if (context instanceof Level110Activity) {
+                    ((Level110Activity) context).loadMore();
+                }
             }
         }
     }
