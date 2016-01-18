@@ -69,6 +69,7 @@ public class Level11Activity extends AppCompatActivity {
         setContentView(R.layout.activity_level11);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         parent = (ScrollView) findViewById(R.id.level00);
 

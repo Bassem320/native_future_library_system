@@ -44,43 +44,93 @@
         <activity
             android:name=".Activities.Level11Activity"
             android:label="@string/subject0"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName=".Activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.MainActivity" />
+        </activity>
         <activity
             android:name=".Activities.Level12Activity"
             android:label="@string/subject1"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName=".Activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.MainActivity" />
+        </activity>
         <activity
             android:name=".Activities.Level13Activity"
             android:label="@string/subject2"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName=".Activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.MainActivity" />
+        </activity>
         <activity
             android:name=".Activities.Level14Activity"
             android:label="@string/subject3"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName=".Activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.MainActivity" />
+        </activity>
         <activity
             android:name=".Activities.Level15Activity"
             android:label="@string/subject4"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName=".Activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.MainActivity" />
+        </activity>
         <activity
             android:name=".Activities.Level16Activity"
             android:label="@string/subject5"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName=".Activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.MainActivity" />
+        </activity>
         <activity
             android:name=".Activities.Level17Activity"
             android:label="@string/subject6"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName=".Activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.MainActivity" />
+        </activity>
         <activity
             android:name=".Activities.Level18Activity"
             android:label="@string/subject7"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName=".Activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.MainActivity" />
+        </activity>
         <activity
             android:name=".Activities.Level19Activity"
             android:label="@string/subject8"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName=".Activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.MainActivity" />
+        </activity>
         <activity
             android:name=".Activities.Level110Activity"
             android:label="@string/subject9"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:parentActivityName=".Activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
