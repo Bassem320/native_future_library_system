@@ -12,6 +12,7 @@
         android:id="@+id/itemImage"
         android:layout_width="@dimen/item_width"
         android:layout_height="@dimen/item_height"
+        android:background="@drawable/item_image_bg"
         android:padding="@dimen/footer_padding"
         android:src="@drawable/paper" />
 
