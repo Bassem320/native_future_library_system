@@ -3,6 +3,7 @@ package eg.edu.eulc.librarysystem.FragmentsDialogs;
 import android.content.Context;
 import android.os.Build;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +11,7 @@ import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -20,6 +22,12 @@ import com.android.volley.toolbox.ImageLoader;
 
 import java.util.ArrayList;
 
+import eg.edu.eulc.librarysystem.Fragments.DigitalContentsFragment;
+import eg.edu.eulc.librarysystem.Fragments.HoldingsFragment;
+import eg.edu.eulc.librarysystem.Fragments.InternetSearchFragment;
+import eg.edu.eulc.librarysystem.Fragments.LocalJournalsFragment;
+import eg.edu.eulc.librarysystem.Fragments.StartFragment;
+import eg.edu.eulc.librarysystem.Fragments.ThesesFragment;
 import eg.edu.eulc.librarysystem.Objects.ResultsStartItem;
 import eg.edu.eulc.librarysystem.R;
 import eg.edu.eulc.librarysystem.VolleySingleton;
@@ -32,15 +40,17 @@ public class ResultsStartAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     private static ArrayList<ResultsStartItem> listResultsStartItems = new ArrayList<>();
     private static Context context;
     private static boolean loadImage = true;
+    private static Fragment fragment;
+    private final int VIEW_ITEM = 1;
     private LayoutInflater layoutInflater;
-    private VolleySingleton volleySingleton;
     private ImageLoader imageLoader;
 
-    public ResultsStartAdapter(Context context) {
+    public ResultsStartAdapter(Context context, Fragment fragment) {
         layoutInflater = LayoutInflater.from(context);
-        volleySingleton = VolleySingleton.getInstance();
+        VolleySingleton volleySingleton = VolleySingleton.getInstance();
         imageLoader = volleySingleton.getImageLoader();
         ResultsStartAdapter.context = context;
+        ResultsStartAdapter.fragment = fragment;
     }
 
     public void setResultsStartItems(ArrayList<ResultsStartItem> listResultsStartItems) {
@@ -49,34 +59,49 @@ public class ResultsStartAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     @Override
+    public int getItemViewType(int position) {
+        return listResultsStartItems.get(position) != null ? VIEW_ITEM : 0;
+    }
+
+    @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         RecyclerView.ViewHolder viewHolder;
-        View view = layoutInflater.inflate(R.layout.start_result_item, parent, false);
-        viewHolder = new ViewHolderResultsStartList(view);
+        if (viewType == VIEW_ITEM) {
+            View view = layoutInflater.inflate(R.layout.start_result_item, parent, false);
+            viewHolder = new ViewHolderResultsStartList(view);
+        } else {
+            View view = layoutInflater.inflate(R.layout.load_more_item, parent, false);
+            viewHolder = new LoadViewHolder(view);
+        }
         return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        ResultsStartItem currentItem = listResultsStartItems.get(position);
-        final ViewHolderResultsStartList holderItem = (ViewHolderResultsStartList) holder;
-        holderItem.item = currentItem;
-        holderItem.itemType.setText("(" + currentItem.getType() + ")");
-        holderItem.itemTitle.setText(currentItem.getTitle());
-        holderItem.itemClassification.setText(currentItem.getClassification());
-        holderItem.itemPublisher.setText(currentItem.getPublisher());
-        String imageName = currentItem.getImage();
-        if (imageName != null && !imageName.equals("") && loadImage) {
-            imageLoader.get(imageName, new ImageLoader.ImageListener() {
-                @Override
-                public void onResponse(ImageLoader.ImageContainer response, boolean isImmediate) {
-                    holderItem.itemImage.setImageBitmap(response.getBitmap());
-                }
+        if (holder instanceof ViewHolderResultsStartList) {
+            ResultsStartItem currentItem = listResultsStartItems.get(position);
+            final ViewHolderResultsStartList holderItem = (ViewHolderResultsStartList) holder;
+            holderItem.item = currentItem;
+            holderItem.itemType.setText("(" + currentItem.getType() + ")");
+            holderItem.itemTitle.setText(currentItem.getTitle());
+            holderItem.itemClassification.setText(currentItem.getClassification());
+            holderItem.itemPublisher.setText(currentItem.getPublisher());
+            String imageName = currentItem.getImage();
+            if (imageName != null && !imageName.equals("") && loadImage) {
+                imageLoader.get(imageName, new ImageLoader.ImageListener() {
+                    @Override
+                    public void onResponse(ImageLoader.ImageContainer response, boolean isImmediate) {
+                        holderItem.itemImage.setImageBitmap(response.getBitmap());
+                    }
 
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                }
-            });
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                    }
+                });
+            }
+        } else {
+            LoadViewHolder holderItem = (LoadViewHolder) holder;
+            holderItem.loadMore.setEnabled(true);
         }
     }
 
@@ -127,6 +152,40 @@ public class ResultsStartAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             FragmentManager fm = ((FragmentActivity) context).getSupportFragmentManager();
             DialogFragment overlay = FragmentDialog.newInstance(item);
             overlay.show(fm, "FragmentDialog");
+        }
+    }
+
+    static class LoadViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        public Button loadMore;
+
+        public LoadViewHolder(View itemView) {
+            super(itemView);
+            loadMore = (Button) itemView.findViewById(R.id.load_more);
+            loadMore.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            loadMore.setEnabled(false);
+            if (fragment == ((FragmentActivity) context).getSupportFragmentManager().findFragmentByTag("FragmentStart")) {
+                StartFragment f = (StartFragment) fragment;
+                f.loadMore();
+            } else if (fragment == ((FragmentActivity) context).getSupportFragmentManager().findFragmentByTag("FragmentHoldings")) {
+                HoldingsFragment f = (HoldingsFragment) fragment;
+                f.loadMore();
+            } else if (fragment == ((FragmentActivity) context).getSupportFragmentManager().findFragmentByTag("FragmentInternetSearch")) {
+                InternetSearchFragment f = (InternetSearchFragment) fragment;
+                f.loadMore();
+            } else if (fragment == ((FragmentActivity) context).getSupportFragmentManager().findFragmentByTag("FragmentTheses")) {
+                ThesesFragment f = (ThesesFragment) fragment;
+                f.loadMore();
+            } else if (fragment == ((FragmentActivity) context).getSupportFragmentManager().findFragmentByTag("FragmentLocalJournals")) {
+                LocalJournalsFragment f = (LocalJournalsFragment) fragment;
+                f.loadMore();
+            } else if (fragment == ((FragmentActivity) context).getSupportFragmentManager().findFragmentByTag("FragmentDigitalContents")) {
+                DigitalContentsFragment f = (DigitalContentsFragment) fragment;
+                f.loadMore();
+            }
         }
     }
 }

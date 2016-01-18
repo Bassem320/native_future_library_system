@@ -359,7 +359,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -375,7 +375,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -391,7 +391,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -407,7 +407,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -423,7 +423,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -439,7 +439,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -455,7 +455,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -471,7 +471,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -487,7 +487,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -503,7 +503,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -520,7 +520,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -536,7 +536,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -552,7 +552,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -568,7 +568,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -584,7 +584,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -600,7 +600,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -616,7 +616,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -632,7 +632,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -648,7 +648,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -664,7 +664,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -681,7 +681,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -697,7 +697,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -713,7 +713,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -729,7 +729,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -745,7 +745,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -761,7 +761,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -777,7 +777,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -793,7 +793,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -809,7 +809,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -825,7 +825,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -842,7 +842,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -858,7 +858,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -874,7 +874,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -890,7 +890,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -906,7 +906,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -922,7 +922,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -938,7 +938,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -954,7 +954,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -970,7 +970,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -986,7 +986,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1003,7 +1003,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1019,7 +1019,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1035,7 +1035,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1051,7 +1051,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1067,7 +1067,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1083,7 +1083,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1099,7 +1099,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1115,7 +1115,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1131,7 +1131,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1147,7 +1147,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1164,7 +1164,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1180,7 +1180,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1196,7 +1196,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1212,7 +1212,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1228,7 +1228,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1244,7 +1244,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1260,7 +1260,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1276,7 +1276,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1292,7 +1292,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1308,7 +1308,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1325,7 +1325,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1341,7 +1341,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1357,7 +1357,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1373,7 +1373,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1389,7 +1389,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1405,7 +1405,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1421,7 +1421,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1437,7 +1437,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1453,7 +1453,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1469,7 +1469,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1486,7 +1486,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1502,7 +1502,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1518,7 +1518,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1534,7 +1534,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1550,7 +1550,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1566,7 +1566,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1582,7 +1582,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1598,7 +1598,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1614,7 +1614,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1630,7 +1630,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1647,7 +1647,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1663,7 +1663,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1679,7 +1679,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1695,7 +1695,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1711,7 +1711,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1727,7 +1727,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1743,7 +1743,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1759,7 +1759,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1775,7 +1775,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1791,7 +1791,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1808,7 +1808,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1824,7 +1824,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1840,7 +1840,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1856,7 +1856,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1872,7 +1872,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1888,7 +1888,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1904,7 +1904,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1920,7 +1920,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1936,7 +1936,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);
@@ -1952,7 +1952,7 @@ public class Level18Activity extends AppCompatActivity {
                 resultsSwipe.setVisibility(View.VISIBLE);
                 linearLayoutManager = new LinearLayoutManager(Level18Activity.this);
                 resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level18Activity.this);
+                resultsAdapter = new ResultsStartAdapter(Level18Activity.this, null);
                 resultsRecycler.setAdapter(resultsAdapter);
                 resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                 resultsSwipe.setRefreshing(true);

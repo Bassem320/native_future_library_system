@@ -83,11 +83,10 @@ public class StartFragment extends Fragment {
     private ArrayList<SiteNewsItem> siteNewsList = new ArrayList<>();
     private ArrayList<ResultsStartItem> resultsStartList = new ArrayList<>();
     private SiteNewsListAdapter itemsListAdapter;
-    private ResultsStartAdapter resultsStarAdapter;
+    private ResultsStartAdapter resultsStartAdapter;
     private RequestQueue requestQueue;
     private LinearLayoutManager linearLayoutManager;
-    private boolean mLoadingItems = true, stop = false;
-    private int mOnScreenItems, mTotalItemsInList, mFirstVisibleItem, mPreviousTotal = 0, mVisibleThreshold = 1;
+    private boolean stop = false;
     private TextView resultsNumber;
 
     public StartFragment() {
@@ -183,7 +182,7 @@ public class StartFragment extends Fragment {
                     resultsLayout.setVisibility(View.VISIBLE);
                     linearLayoutManager = new LinearLayoutManager(getActivity());
                     resultsStartRecycler.setLayoutManager(linearLayoutManager);
-                    resultsStarAdapter = new ResultsStartAdapter(getActivity());
+                    resultsStartAdapter = new ResultsStartAdapter(getActivity(), StartFragment.this);
                     resultsStartSwipe.setColorSchemeResources(R.color.colorPrimary, R.color.colorAccent);
                     resultsStartSwipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
                         @Override
@@ -191,54 +190,7 @@ public class StartFragment extends Fragment {
                             startSearch();
                         }
                     });
-                    resultsStartRecycler.setAdapter(resultsStarAdapter);
-                    resultsStartRecycler.addOnScrollListener(new RecyclerView.OnScrollListener() {
-                        @Override
-                        public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                            super.onScrollStateChanged(recyclerView, newState);
-                        }
-
-                        @Override
-                        public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                            super.onScrolled(recyclerView, dx, dy);
-                            mOnScreenItems = resultsStartRecycler.getChildCount();
-                            mTotalItemsInList = linearLayoutManager.getItemCount();
-                            mFirstVisibleItem = linearLayoutManager.findFirstVisibleItemPosition();
-                            if (mLoadingItems) {
-                                if (mTotalItemsInList > mPreviousTotal + 1) {
-                                    mLoadingItems = false;
-                                    mPreviousTotal = mTotalItemsInList;
-                                }
-                            }
-                            if (!mLoadingItems && (mTotalItemsInList - mOnScreenItems) <= (mFirstVisibleItem + mVisibleThreshold)) {
-                                if (!nextPage.equals("")) {
-                                    resultsStartSwipe.setRefreshing(true);
-                                    JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, nextPage, new Response.Listener<JSONObject>() {
-                                        @Override
-                                        public void onResponse(JSONObject response) {
-                                            ArrayList<ResultsStartItem> resultsStartListMore = parseResults(response, false);
-                                            resultsStartSwipe.setRefreshing(false);
-                                            for (int i = 0; i < resultsStartListMore.size(); i++) {
-                                                ResultsStartItem result = resultsStartListMore.get(i);
-                                                resultsStartList.add(result);
-                                                resultsStarAdapter.notifyItemInserted(resultsStartList.size());
-                                            }
-                                        }
-                                    }, new Response.ErrorListener() {
-                                        @Override
-                                        public void onErrorResponse(VolleyError error) {
-                                            resultsStartSwipe.setRefreshing(false);
-                                        }
-                                    });
-                                    int socketTimeout = 60000;
-                                    RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
-                                    request.setRetryPolicy(policy);
-                                    requestQueue.add(request);
-                                    mLoadingItems = true;
-                                }
-                            }
-                        }
-                    });
+                    resultsStartRecycler.setAdapter(resultsStartAdapter);
                     resultsStartSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
                     resultsStartSwipe.setRefreshing(true);
                     startSearch();
@@ -433,7 +385,6 @@ public class StartFragment extends Fragment {
 
     private void startSearch() {
         nextPage = "";
-        mPreviousTotal = 0;
         Map<String, String> params = new HashMap<String, String>();
         params.put("ScopeID", ((MyApplication) getActivity().getApplication()).getScopeID());
         params.put("fn", "ApplyMobileSearch");
@@ -445,8 +396,11 @@ public class StartFragment extends Fragment {
             @Override
             public void onResponse(JSONObject response) {
                 resultsStartList = parseResults(response, true);
-                resultsStarAdapter.notifyDataSetChanged();
-                resultsStarAdapter.setResultsStartItems(resultsStartList);
+                if (!nextPage.equals("")) {
+                    resultsStartList.add(null);
+                }
+                resultsStartAdapter.notifyDataSetChanged();
+                resultsStartAdapter.setResultsStartItems(resultsStartList);
                 resultsStartSwipe.setRefreshing(false);
             }
         }, new Response.ErrorListener() {
@@ -561,5 +515,42 @@ public class StartFragment extends Fragment {
             }
         }
         return listItems;
+    }
+
+    public void loadMore() {
+        if (!nextPage.equals("")) {
+            resultsStartSwipe.setRefreshing(true);
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, nextPage, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    ArrayList<ResultsStartItem> resultsStartListMore = parseResults(response, false);
+                    resultsStartSwipe.setRefreshing(false);
+                    resultsStartList.remove(resultsStartList.size() - 1);
+                    resultsStartAdapter.notifyItemRemoved(resultsStartList.size());
+                    for (int i = 0; i < resultsStartListMore.size(); i++) {
+                        ResultsStartItem result = resultsStartListMore.get(i);
+                        resultsStartList.add(result);
+                        resultsStartAdapter.notifyItemInserted(resultsStartList.size());
+                    }
+                    if (!nextPage.equals("")) {
+                        resultsStartList.add(null);
+                        resultsStartAdapter.notifyItemInserted(resultsStartList.size());
+                    }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    resultsStartSwipe.setRefreshing(false);
+                    resultsStartList.remove(resultsStartList.size() - 1);
+                    resultsStartAdapter.notifyItemRemoved(resultsStartList.size());
+                    resultsStartList.add(null);
+                    resultsStartAdapter.notifyItemInserted(resultsStartList.size());
+                }
+            });
+            int socketTimeout = 60000;
+            RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+            request.setRetryPolicy(policy);
+            requestQueue.add(request);
+        }
     }
 }

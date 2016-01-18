@@ -81,6 +81,7 @@
     <string name="browse_by_subject">Browse by Subject</string>
     <string name="about_site">About Site</string>
     <string name="contact_us">Contact Us</string>
+    <string name="load_more">Load more</string>
     <!-- Subjects -->
     <!-- Level 1 -->
     <string name="subject0">Computer science, knowledge &amp; systems</string>
