@@ -4,9 +4,11 @@
         <item
             android:id="@+id/nav_start"
             android:checked="true"
+            android:icon="@drawable/ic_home_black_36dp"
             android:title="@string/nav_start" />
         <item
             android:id="@+id/nav_holdings"
+            android:icon="@drawable/ic_library_books_black_36dp"
             android:title="@string/nav_holdings" />
         <!--<item
             android:id="@+id/nav_internet_search"
@@ -16,21 +18,26 @@
             android:title="@string/nav_databases" />-->
         <item
             android:id="@+id/nav_thesis"
+            android:icon="@drawable/ic_school_black_36dp"
             android:title="@string/nav_theses" />
         <item
             android:id="@+id/nav_draft_thesis"
+            android:icon="@drawable/ic_drafts_black_36dp"
             android:title="@string/nav_draft_theses" />
         <item
             android:id="@+id/nav_papers"
+            android:icon="@drawable/ic_description_black_36dp"
             android:title="@string/nav_papers" />
         <item
             android:id="@+id/nav_local_journals"
+            android:icon="@drawable/ic_chrome_reader_mode_black_36dp"
             android:title="@string/nav_local_journals" />
         <!--<item
             android:id="@+id/nav_e_publish"
             android:title="@string/nav_e_publish" />-->
         <item
             android:id="@+id/nav_digital_contents"
+            android:icon="@drawable/ic_inbox_black_36dp"
             android:title="@string/nav_digital_contents" />
         <!--<item
             android:id="@+id/nav_my_account"
