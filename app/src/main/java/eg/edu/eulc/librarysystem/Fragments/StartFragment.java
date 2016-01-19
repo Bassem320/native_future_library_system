@@ -55,7 +55,6 @@ import eg.edu.eulc.librarysystem.Activities.Level16Activity;
 import eg.edu.eulc.librarysystem.Activities.Level17Activity;
 import eg.edu.eulc.librarysystem.Activities.Level18Activity;
 import eg.edu.eulc.librarysystem.Activities.Level19Activity;
-import eg.edu.eulc.librarysystem.Activities.MainActivity;
 import eg.edu.eulc.librarysystem.Adapters.SiteNewsListAdapter;
 import eg.edu.eulc.librarysystem.CustomRequest;
 import eg.edu.eulc.librarysystem.FragmentsDialogs.ResultsStartAdapter;
@@ -105,7 +104,6 @@ public class StartFragment extends Fragment {
         startSearchText = (EditText) rootView.findViewById(R.id.start_search_EditText);
         Spinner searchTypeSpinner = (Spinner) rootView.findViewById(R.id.start_search_type);
         Button startSearch = (Button) rootView.findViewById(R.id.search_button);
-        TextView startAdvancedSearch = (TextView) rootView.findViewById(R.id.advanced_search_button);
         searchLayout = (ScrollView) rootView.findViewById(R.id.searchLayout);
         resultsLayout = (LinearLayout) rootView.findViewById(R.id.resultsLayout);
         LinearLayout subject0 = (LinearLayout) rootView.findViewById(R.id.Subject0);
@@ -160,14 +158,6 @@ public class StartFragment extends Fragment {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
-
-        startAdvancedSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getFragmentManager().beginTransaction().replace(R.id.frame_container, new HoldingsFragment(), "FragmentHoldings").commit();
-                ((MainActivity) getActivity()).setSelectedItem(1);
             }
         });
 

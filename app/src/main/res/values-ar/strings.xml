@@ -6,7 +6,7 @@
     <string name="nav_digital_contents">المقتنيات الإلكترونية</string>
     <string name="nav_draft_theses">رسائل قيد الدراسة</string>
     <string name="nav_e_publish">النشر الإلكتروني</string>
-    <string name="nav_holdings">مقتنيات المكتبات</string>
+    <string name="nav_holdings">بحث متقدم</string>
     <string name="nav_my_account">حسابي</string>
     <string name="lang">اللغة</string>
     <string-array name="langs">
@@ -21,7 +21,6 @@
     <string name="navigation_drawer_close">إغلاق قائمة الأقسام</string>
     <string name="navigation_drawer_open">فتح قائمة الأقسام</string>
     <string name="holdings_search">بحث المقتنيات</string>
-    <string name="advanced_search"><u>بحث متقدم</u></string>
     <string name="search">بحث</string>
     <string-array name="start_search_type">
         <item>كل المقتنيات</item>

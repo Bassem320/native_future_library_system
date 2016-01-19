@@ -14,7 +14,7 @@
 
     <!-- Navigator items -->
     <string name="nav_start">Start</string>
-    <string name="nav_holdings">Holdings</string>
+    <string name="nav_holdings">Advanced Search</string>
     <string name="nav_internet_search">Internet Search</string>
     <string name="nav_databases">Databases</string>
     <string name="nav_theses">Theses</string>
@@ -76,7 +76,6 @@
         <item>Periodicals</item>
     </string-array>
     <string name="search">Search</string>
-    <string name="advanced_search"><u>Advanced Search</u></string>
     <string name="enter_text">Enter search text first</string>
     <string name="browse_by_subject">Browse by Subject</string>
     <string name="about_site">About Site</string>
