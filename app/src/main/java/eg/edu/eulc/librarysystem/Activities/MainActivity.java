@@ -297,7 +297,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } /*else if (id == R.id.nav_my_account) {
             fragment = new MyAccountFragment();
             tag = "FragmentMyAccount";
-        }*/
+        }*/ else if (id == R.id.nav_settings) {
+            item.setChecked(false);
+            startActivity(new Intent(MainActivity.this, SettingsActivity.class));
+        }
 
         if (fragment != null) {
             FragmentManager fragmentManager = getSupportFragmentManager();
