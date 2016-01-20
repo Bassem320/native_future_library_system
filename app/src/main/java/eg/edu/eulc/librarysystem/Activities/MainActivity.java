@@ -339,4 +339,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void setSelectedItem(int position) {
         navigationView.getMenu().getItem(position).setChecked(true);
     }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+        if (sharedPreferences.getInt("lang", 0) == 0) {
+            conf.locale = new Locale("ar");
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                conf.setLayoutDirection(conf.locale);
+            }
+        } else {
+            conf.locale = new Locale("en");
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                conf.setLayoutDirection(conf.locale);
+            }
+        }
+        res.updateConfiguration(conf, dm);
+    }
 }
