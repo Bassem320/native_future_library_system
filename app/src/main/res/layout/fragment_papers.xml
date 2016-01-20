@@ -116,10 +116,6 @@
         android:id="@+id/resultsLayout"
         style="@style/ResultsLayout">
 
-        <ImageView
-            android:id="@+id/logo"
-            style="@style/Logo" />
-
         <TextView
             style="@style/MainTitle"
             android:text="@string/search_results" />

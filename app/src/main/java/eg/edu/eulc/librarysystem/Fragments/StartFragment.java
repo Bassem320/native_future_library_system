@@ -11,7 +11,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,7 +20,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
@@ -130,12 +128,6 @@ public class StartFragment extends Fragment {
                 }
             }
         });
-
-        DisplayMetrics displayMetrics = getActivity().getResources().getDisplayMetrics();
-        if (displayMetrics.heightPixels < 800) {
-            ImageView logo = (ImageView) rootView.findViewById(R.id.logo);
-            logo.setVisibility(View.GONE);
-        }
 
         sharedPreferences = getActivity().getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE);
 
