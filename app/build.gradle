@@ -8,8 +8,8 @@ android {
         applicationId "eg.edu.eulc.futurelibrary"
         minSdkVersion 10
         targetSdkVersion 23
-        versionCode 1014106
-        versionName "1.0.6"
+        versionCode 1014107
+        versionName "1.0.7"
     }
     buildTypes {
         release {
