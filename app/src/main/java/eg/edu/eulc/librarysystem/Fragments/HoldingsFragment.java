@@ -295,10 +295,10 @@ public class HoldingsFragment extends Fragment {
                     attachContains = "";
                 }
 
-                if (searchText1.equals("") || searchText1 == null) {
-                    searchTextET1.setError(getText(R.string.enter_text));
+                if ((searchText1.equals("") || searchText1 == null) && (bibID.equals("") || bibID == null)) {
+                    Snackbar.make(v, getResources().getText(R.string.enter_text), Snackbar.LENGTH_LONG).show();
                 } else if ((!(bibID.equals("") || bibID == null)) || (!(publishYear.equals("") || publishYear == null))) {
-                    String BIB_PATTERN = "\\b\\d{1,6}-\\d{1,6}|\\d{1,6}\\b";
+                    String BIB_PATTERN = "\\b\\d{1,9}-\\d{1,9}|\\d{1,9}\\b";
                     String YEAR_PATTERN = "\\b((19|20)\\d{2}[-](19|20)\\d{2})|(19|20)\\d{2}\\b";
                     Pattern patternBib = Pattern.compile(BIB_PATTERN);
                     Pattern patternYear = Pattern.compile(YEAR_PATTERN);
