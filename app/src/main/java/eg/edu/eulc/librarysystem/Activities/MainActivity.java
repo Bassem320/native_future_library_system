@@ -166,12 +166,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Configuration conf = res.getConfiguration();
             if (sharedPreferences.getInt("lang", 0) == 0) {
                 conf.locale = new Locale("ar");
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                     conf.setLayoutDirection(conf.locale);
                 }
             } else {
                 conf.locale = new Locale("en");
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                     conf.setLayoutDirection(conf.locale);
                 }
             }
@@ -320,12 +320,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Configuration conf = res.getConfiguration();
             if (sharedPreferences.getInt("lang", 0) == 0) {
                 conf.locale = new Locale("ar");
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                     conf.setLayoutDirection(conf.locale);
                 }
             } else {
                 conf.locale = new Locale("en");
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                     conf.setLayoutDirection(conf.locale);
                 }
             }
@@ -348,12 +348,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Configuration conf = res.getConfiguration();
         if (sharedPreferences.getInt("lang", 0) == 0) {
             conf.locale = new Locale("ar");
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                 conf.setLayoutDirection(conf.locale);
             }
         } else {
             conf.locale = new Locale("en");
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                 conf.setLayoutDirection(conf.locale);
             }
         }
