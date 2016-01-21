@@ -68,9 +68,9 @@
     <!-- Start fragment -->
     <string name="holdings_search">Holdings Search</string>
     <string name="search_hint">Search Text</string>
-    <string name="select_type">Item Type</string>
+    <string name="select_type">Item type</string>
     <string-array name="start_search_type">
-        <item>All Items</item>
+        <item>All items</item>
         <item>Books</item>
         <item>Theses</item>
         <item>Periodicals</item>
