@@ -363,7 +363,7 @@ public class DigitalContentsFragment extends Fragment {
         resultsSwipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                startSearch();
+                resultsSwipe.setRefreshing(false);
             }
         });
         resultsRecycler.setAdapter(resultsAdapter);

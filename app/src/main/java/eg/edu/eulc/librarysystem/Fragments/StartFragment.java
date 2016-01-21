@@ -169,7 +169,7 @@ public class StartFragment extends Fragment {
                     resultsStartSwipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
                         @Override
                         public void onRefresh() {
-                            startSearch();
+                            resultsStartSwipe.setRefreshing(false);
                         }
                     });
                     resultsStartRecycler.setAdapter(resultsStartAdapter);
