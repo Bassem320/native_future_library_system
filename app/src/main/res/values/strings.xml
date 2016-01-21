@@ -1398,7 +1398,7 @@
         <item>But</item>
     </string-array>
     <string name="attach_contains">FT attach contains</string>
-    <string name="word_processing">Word Processing</string>
+    <string name="word_processing">Word processing</string>
     <string-array name="word_processing_list">
         <item>No Processing</item>
         <item>Words and declension</item>
@@ -1406,9 +1406,9 @@
     </string-array>
     <string name="bib_id">BibID</string>
     <string name="bib_id_hint">Ex: 100 or 350&#8211;480</string>
-    <string name="pub_year">Publish Year</string>
+    <string name="pub_year">Publish year</string>
     <string name="pub_year_hint">Ex: 1987 or 1970&#8211;1980</string>
-    <string name="order_by">Order By</string>
+    <string name="order_by">Order by</string>
     <string-array name="order_by_list">
         <item>-----</item>
         <item>Title</item>
@@ -1436,7 +1436,7 @@
         <item>Abstract</item>
         <item>Subject</item>
     </string-array>
-    <string name="submit_date">Submit Date</string>
+    <string name="submit_date">Submit date</string>
     <string name="from">From</string>
     <string name="to">To</string>
     <string name="speciality">Speciality</string>
@@ -1472,7 +1472,7 @@
         <item>Dentistry</item>
         <item>University exams</item>
     </string-array>
-    <string name="sub_speciality">Sub Speciality</string>
+    <string name="sub_speciality">Sub speciality</string>
     <string-array name="draft_theses_sub_specialities_0">
         <item>-----</item>
     </string-array>
