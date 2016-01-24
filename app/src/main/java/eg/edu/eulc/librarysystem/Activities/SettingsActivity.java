@@ -49,7 +49,7 @@ public class SettingsActivity extends AppCompatActivity {
                 if (position != sharedPreferences.getInt("lang", 0)) {
                     editor.putInt("lang", position);
                     editor.apply();
-                    editor.putBoolean("langChanged", true);
+                    editor.putBoolean("settingsChanged", true);
                     editor.apply();
                     SettingsActivity.this.finish();
                 }
@@ -66,6 +66,9 @@ public class SettingsActivity extends AppCompatActivity {
                 if (position != sharedPreferences.getInt("site", 13)) {
                     editor.putInt("site", position);
                     editor.apply();
+                    editor.putBoolean("settingsChanged", true);
+                    editor.apply();
+                    SettingsActivity.this.finish();
                 }
             }
 

@@ -159,7 +159,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             AlertDialog dialog = builder.create();
             dialog.show();
         } else {
-            editor.putBoolean("langChanged", false);
+            editor.putBoolean("settingsChanged", false);
             editor.apply();
             Resources res = getResources();
             DisplayMetrics dm = res.getDisplayMetrics();
@@ -314,7 +314,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onResume() {
         super.onResume();
-        if (sharedPreferences.getBoolean("langChanged", false)) {
+        if (sharedPreferences.getBoolean("settingsChanged", false)) {
             Resources res = getResources();
             DisplayMetrics dm = res.getDisplayMetrics();
             Configuration conf = res.getConfiguration();
