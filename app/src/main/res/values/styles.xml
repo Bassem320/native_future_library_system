@@ -21,7 +21,6 @@
     <style name="Logo">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:src">@drawable/logo</item>
     </style>
 
     <style name="MainTitle" parent="Base.TextAppearance.AppCompat.Large">

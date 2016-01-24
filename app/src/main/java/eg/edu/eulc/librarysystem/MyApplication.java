@@ -35,4 +35,10 @@ public class MyApplication extends Application {
         String[] scopes = {"1.", "1.115.", "1.", "1.", "1.", "1.23.4.", "1.109.", "1.105.", "1.106.", "1.110.", "1.", "1.", "1.", "1."};
         return scopes[sInstance.getApplicationContext().getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE).getInt("site", 13)];
     }
+
+    public int getLogo() {
+        //String[] logos = {R.drawable.logo0, R.drawable.logo1, R.drawable.logo2, R.drawable.logo3, R.drawable.logo4, R.drawable.logo5, R.drawable.logo6, R.drawable.logo6, R.drawable.logo8, R.drawable.logo9, R.drawable.logo10, R.drawable.logo11, R.drawable.logo12, R.drawable.logo13, R.drawable.logo14, R.drawable.logo15, R.drawable.logo16};
+        int[] logos = {R.drawable.logo0, R.drawable.logo2, R.drawable.logo3, R.drawable.logo4, R.drawable.logo5, R.drawable.logo8, R.drawable.logo9, R.drawable.logo10, R.drawable.logo11, R.drawable.logo12, R.drawable.logo13, R.drawable.logo14, R.drawable.logo15, R.drawable.logo16};
+        return logos[sInstance.getApplicationContext().getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE).getInt("site", 13)];
+    }
 }

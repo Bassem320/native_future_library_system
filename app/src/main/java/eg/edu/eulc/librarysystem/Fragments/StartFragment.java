@@ -20,6 +20,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
@@ -119,6 +120,9 @@ public class StartFragment extends Fragment {
         resultsStartRecycler = (RecyclerView) rootView.findViewById(R.id.ResultsStart);
         resultsStartSwipe = (SwipeRefreshLayout) rootView.findViewById(R.id.ResultsStartSwipeRefresh);
         resultsNumber = (TextView) rootView.findViewById(R.id.ResultsNumber);
+
+        ImageView logo = (ImageView) rootView.findViewById(R.id.logo);
+        logo.setImageResource(((MyApplication) getActivity().getApplication()).getLogo());
 
         startSearchText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override

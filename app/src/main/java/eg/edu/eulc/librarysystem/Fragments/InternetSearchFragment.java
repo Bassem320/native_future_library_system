@@ -18,6 +18,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.Spinner;
@@ -40,6 +41,7 @@ import java.util.Map;
 
 import eg.edu.eulc.librarysystem.CustomRequest;
 import eg.edu.eulc.librarysystem.FragmentsDialogs.ResultsStartAdapter;
+import eg.edu.eulc.librarysystem.MyApplication;
 import eg.edu.eulc.librarysystem.Objects.ResultsStartItem;
 import eg.edu.eulc.librarysystem.R;
 import eg.edu.eulc.librarysystem.VolleySingleton;
@@ -89,6 +91,9 @@ public class InternetSearchFragment extends Fragment {
         resultsRecycler = (RecyclerView) rootView.findViewById(R.id.ResultsInternetSearch);
         resultsSwipe = (SwipeRefreshLayout) rootView.findViewById(R.id.ResultsInternetSearchSwipeRefresh);
         resultsNumber = (TextView) rootView.findViewById(R.id.ResultsNumber);
+
+        ImageView logo = (ImageView) rootView.findViewById(R.id.logo);
+        logo.setImageResource(((MyApplication) getActivity().getApplication()).getLogo());
 
         searchTextET1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override

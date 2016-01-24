@@ -15,7 +15,10 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ImageView style="@style/Logo" />
+            <ImageView
+                android:id="@+id/logo"
+                style="@style/Logo"
+                android:layout_marginTop="@dimen/footer_padding" />
 
             <TextView
                 style="@style/MainTitle"
@@ -187,7 +190,9 @@
                     android:text="@string/search_tips_details" />
             </LinearLayout>
 
-            <TextView style="@style/Footer" />
+            <TextView
+                style="@style/Footer"
+                android:layout_marginBottom="@dimen/footer_padding" />
         </LinearLayout>
 
     </ScrollView>

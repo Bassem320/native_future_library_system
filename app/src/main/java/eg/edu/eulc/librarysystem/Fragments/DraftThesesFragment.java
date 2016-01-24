@@ -18,6 +18,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.Spinner;
@@ -125,6 +126,9 @@ public class DraftThesesFragment extends Fragment {
         resultsRecycler = (RecyclerView) rootView.findViewById(R.id.ResultsDraftTheses);
         resultsSwipe = (SwipeRefreshLayout) rootView.findViewById(R.id.ResultsDraftThesesSwipeRefresh);
         resultsNumber = (TextView) rootView.findViewById(R.id.ResultsNumber);
+
+        ImageView logo = (ImageView) rootView.findViewById(R.id.logo);
+        logo.setImageResource(((MyApplication) getActivity().getApplication()).getLogo());
 
         searchTextET1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override

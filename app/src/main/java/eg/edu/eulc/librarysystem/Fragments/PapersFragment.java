@@ -18,6 +18,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -91,6 +92,9 @@ public class PapersFragment extends Fragment {
         resultsRecycler = (RecyclerView) rootView.findViewById(R.id.ResultsPapers);
         resultsSwipe = (SwipeRefreshLayout) rootView.findViewById(R.id.ResultsPapersSwipeRefresh);
         resultsNumber = (TextView) rootView.findViewById(R.id.ResultsNumber);
+
+        ImageView logo = (ImageView) rootView.findViewById(R.id.logo);
+        logo.setImageResource(((MyApplication) getActivity().getApplication()).getLogo());
 
         paperTitleET.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override

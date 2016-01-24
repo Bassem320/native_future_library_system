@@ -24,6 +24,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -36,6 +37,7 @@ import eg.edu.eulc.librarysystem.Fragments.LocalJournalsFragment;
 import eg.edu.eulc.librarysystem.Fragments.PapersFragment;
 import eg.edu.eulc.librarysystem.Fragments.StartFragment;
 import eg.edu.eulc.librarysystem.Fragments.ThesesFragment;
+import eg.edu.eulc.librarysystem.MyApplication;
 import eg.edu.eulc.librarysystem.R;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -225,6 +227,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             navigationView = (NavigationView) findViewById(R.id.nav_view);
             navigationView.setNavigationItemSelectedListener(this);
+
+            View headerView = navigationView.inflateHeaderView(R.layout.nav_header_main);
+            ImageView logo = (ImageView) headerView.findViewById(R.id.imageView);
+            logo.setImageResource(((MyApplication) MainActivity.this.getApplication()).getLogo());
 
             getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new StartFragment(), "FragmentStart").commit();
         }
