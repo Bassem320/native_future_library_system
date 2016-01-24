@@ -20,14 +20,17 @@
 
             <TextView
                 style="@style/TableHeader"
+                android:layout_weight="1"
                 android:text="@string/generalNo" />
 
             <TextView
                 style="@style/TableHeader"
+                android:layout_weight="1"
                 android:text="@string/callNo" />
 
             <TextView
                 style="@style/TableHeader"
+                android:layout_weight="3"
                 android:text="@string/location" />
         </TableRow>
     </TableLayout>
