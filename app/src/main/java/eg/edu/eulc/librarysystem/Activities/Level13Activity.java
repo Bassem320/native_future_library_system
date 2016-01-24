@@ -1945,6 +1945,7 @@ public class Level13Activity extends AppCompatActivity {
                 }
                 resultsAdapter.notifyDataSetChanged();
                 resultsAdapter.setResultsStartItems(resultsList);
+                resultsRecycler.setVisibility(View.VISIBLE);
                 resultsSwipe.setRefreshing(false);
             }
         }, new Response.ErrorListener() {

@@ -402,6 +402,7 @@ public class ThesesFragment extends Fragment {
                 }
                 resultsAdapter.notifyDataSetChanged();
                 resultsAdapter.setResultsStartItems(resultsList);
+                resultsRecycler.setVisibility(View.VISIBLE);
                 resultsSwipe.setRefreshing(false);
             }
         }, new Response.ErrorListener() {

@@ -256,6 +256,7 @@ public class InternetSearchFragment extends Fragment {
                     resultsList.add(null);
                 }
                 resultsAdapter.setResultsStartItems(resultsList);
+                resultsRecycler.setVisibility(View.VISIBLE);
                 resultsSwipe.setRefreshing(false);
             }
         }, new Response.ErrorListener() {

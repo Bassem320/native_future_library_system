@@ -514,6 +514,7 @@ public class DraftThesesFragment extends Fragment {
                 }
                 resultsAdapter.notifyDataSetChanged();
                 resultsAdapter.setDraftThesesItems(resultsList);
+                resultsRecycler.setVisibility(View.VISIBLE);
                 resultsSwipe.setRefreshing(false);
             }
         }, new Response.ErrorListener() {

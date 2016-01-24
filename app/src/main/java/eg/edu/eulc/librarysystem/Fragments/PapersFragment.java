@@ -250,6 +250,7 @@ public class PapersFragment extends Fragment {
                 }
                 resultsAdapter.notifyDataSetChanged();
                 resultsAdapter.setPapersItems(resultsList);
+                resultsRecycler.setVisibility(View.VISIBLE);
                 resultsSwipe.setRefreshing(false);
             }
         }, new Response.ErrorListener() {

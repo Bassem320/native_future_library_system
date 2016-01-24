@@ -383,6 +383,7 @@ public class StartFragment extends Fragment {
                 }
                 resultsStartAdapter.notifyDataSetChanged();
                 resultsStartAdapter.setResultsStartItems(resultsStartList);
+                resultsStartRecycler.setVisibility(View.VISIBLE);
                 resultsStartSwipe.setRefreshing(false);
             }
         }, new Response.ErrorListener() {
