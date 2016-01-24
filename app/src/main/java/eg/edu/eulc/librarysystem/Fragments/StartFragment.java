@@ -283,7 +283,7 @@ public class StartFragment extends Fragment {
                     siteNewsList = parseSiteNews(response);
                     itemsListAdapter.notifyDataSetChanged();
                     itemsListAdapter.setListSiteNewsItems(siteNewsList);
-                    listItemsRecycler.setMinimumHeight(listItemsRecycler.getHeight());
+                    listItemsRecycler.setVisibility(View.VISIBLE);
                     loadingItems.setVisibility(View.GONE);
                 }
             }

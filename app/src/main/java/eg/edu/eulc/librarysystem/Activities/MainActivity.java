@@ -358,6 +358,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onResume() {
         super.onResume();
         if (sharedPreferences.getBoolean("settingsChanged", false)) {
+            editor.remove("siteNewsList");
+            editor.apply();
             Resources res = getResources();
             DisplayMetrics dm = res.getDisplayMetrics();
             Configuration conf = res.getConfiguration();
