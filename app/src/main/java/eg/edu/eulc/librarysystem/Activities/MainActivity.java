@@ -152,6 +152,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 public void onClick(DialogInterface dialog, int which) {
                     editor.putBoolean("FirstRun", false);
                     editor.apply();
+                    editor.putBoolean("Change1", false);
+                    editor.apply();
                     finish();
                     startActivity(getIntent());
                 }
@@ -159,6 +161,41 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             AlertDialog dialog = builder.create();
             dialog.show();
         } else {
+            if (sharedPreferences.getBoolean("Change1", true)) {
+                editor.remove("langChanged");
+                editor.apply();
+                switch (sharedPreferences.getInt("site", 16)) {
+                    case 1:
+                    case 6:
+                    case 7:
+                    case 16:
+                        editor.putInt("site", 13);
+                        editor.apply();
+                        break;
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+                        editor.putInt("site", sharedPreferences.getInt("site", 16) - 1);
+                        editor.apply();
+                        break;
+                    case 8:
+                    case 9:
+                    case 10:
+                    case 11:
+                    case 12:
+                    case 13:
+                    case 14:
+                    case 15:
+                        editor.putInt("site", sharedPreferences.getInt("site", 16) - 3);
+                        editor.apply();
+                        break;
+                    default:
+                        break;
+                }
+                editor.putBoolean("Change1", false);
+                editor.apply();
+            }
             editor.putBoolean("settingsChanged", false);
             editor.apply();
             Resources res = getResources();
