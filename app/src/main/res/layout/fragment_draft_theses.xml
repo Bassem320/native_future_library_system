@@ -207,10 +207,6 @@
         style="@style/ResultsLayout">
 
         <TextView
-            style="@style/MainTitle"
-            android:text="@string/search_results" />
-
-        <TextView
             android:id="@+id/ResultsNumber"
             style="@style/ResultsNumber" />
 
