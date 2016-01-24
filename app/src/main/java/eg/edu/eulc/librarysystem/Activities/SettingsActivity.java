@@ -41,7 +41,7 @@ public class SettingsActivity extends AppCompatActivity {
         siteSpinner.setAdapter(adapter2);
 
         langSpinner.setSelection(sharedPreferences.getInt("lang", 0));
-        siteSpinner.setSelection(sharedPreferences.getInt("site", 16));
+        siteSpinner.setSelection(sharedPreferences.getInt("site", 13));
 
         langSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -63,7 +63,7 @@ public class SettingsActivity extends AppCompatActivity {
         siteSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (position != sharedPreferences.getInt("site", 16)) {
+                if (position != sharedPreferences.getInt("site", 13)) {
                     editor.putInt("site", position);
                     editor.apply();
                 }

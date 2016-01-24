@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             sitesSpinner.setAdapter(adapter2);
 
             langSpinner.setSelection(sharedPreferences.getInt("lang", 0));
-            sitesSpinner.setSelection(sharedPreferences.getInt("site", 16));
+            sitesSpinner.setSelection(sharedPreferences.getInt("site", 13));
 
             langSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             sitesSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    if (position != sharedPreferences.getInt("site", 16)) {
+                    if (position != sharedPreferences.getInt("site", 13)) {
                         editor.putInt("site", position);
                         editor.apply();
                     }
