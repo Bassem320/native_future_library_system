@@ -400,26 +400,32 @@ public class ThesesFragment extends Fragment {
         CustomRequest request = new CustomRequest(Request.Method.POST, ((MyApplication) getActivity().getApplication()).getServerName() + "libraries/fuapi.aspx?fn=ApplyMobileSearch", params, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                resultsList = parseResults(response, true);
-                if (!nextPage.equals("")) {
-                    resultsList.add(null);
+                try {
+                    resultsList = parseResults(response, true);
+                    if (!nextPage.equals("")) {
+                        resultsList.add(null);
+                    }
+                    resultsAdapter.notifyDataSetChanged();
+                    resultsAdapter.setResultsStartItems(resultsList);
+                    resultsRecycler.setVisibility(View.VISIBLE);
+                    resultsSwipe.setRefreshing(false);
+                } catch (NullPointerException e) {
                 }
-                resultsAdapter.notifyDataSetChanged();
-                resultsAdapter.setResultsStartItems(resultsList);
-                resultsRecycler.setVisibility(View.VISIBLE);
-                resultsSwipe.setRefreshing(false);
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                resultsSwipe.setRefreshing(false);
-                if (error instanceof NoConnectionError) {
-                    Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.no_internet), Snackbar.LENGTH_LONG).show();
-                } else {
-                    Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.error_fetching_results), Snackbar.LENGTH_LONG).show();
+                try {
+                    resultsSwipe.setRefreshing(false);
+                    if (error instanceof NoConnectionError) {
+                        Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.no_internet), Snackbar.LENGTH_LONG).show();
+                    } else {
+                        Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.error_fetching_results), Snackbar.LENGTH_LONG).show();
+                    }
+                    resultsLayout.setVisibility(View.GONE);
+                    searchLayout.setVisibility(View.VISIBLE);
+                } catch (NullPointerException e) {
                 }
-                resultsLayout.setVisibility(View.GONE);
-                searchLayout.setVisibility(View.VISIBLE);
             }
         });
         int socketTimeout = 60000;
@@ -506,18 +512,24 @@ public class ThesesFragment extends Fragment {
                         }
                     }
                 } else {
-                    if (firstLoad) {
-                        Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.error_fetching_results), Snackbar.LENGTH_LONG).show();
-                        resultsLayout.setVisibility(View.GONE);
-                        searchLayout.setVisibility(View.VISIBLE);
-                    } else {
-                        resultsSwipe.setRefreshing(false);
+                    try {
+                        if (firstLoad) {
+                            Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.error_fetching_results), Snackbar.LENGTH_LONG).show();
+                            resultsLayout.setVisibility(View.GONE);
+                            searchLayout.setVisibility(View.VISIBLE);
+                        } else {
+                            resultsSwipe.setRefreshing(false);
+                        }
+                    } catch (NullPointerException e) {
                     }
                 }
             } catch (JSONException e) {
-                Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.error_fetching_results), Snackbar.LENGTH_LONG).show();
-                resultsLayout.setVisibility(View.GONE);
-                searchLayout.setVisibility(View.VISIBLE);
+                try {
+                    Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.error_fetching_results), Snackbar.LENGTH_LONG).show();
+                    resultsLayout.setVisibility(View.GONE);
+                    searchLayout.setVisibility(View.VISIBLE);
+                } catch (NullPointerException ex) {
+                }
             }
         }
         return listItems;
@@ -529,28 +541,34 @@ public class ThesesFragment extends Fragment {
             JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, nextPage, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
-                    ArrayList<ResultsStartItem> resultsListMore = parseResults(response, false);
-                    resultsSwipe.setRefreshing(false);
-                    resultsList.remove(resultsList.size() - 1);
-                    resultsAdapter.notifyItemRemoved(resultsList.size());
-                    for (int i = 0; i < resultsListMore.size(); i++) {
-                        ResultsStartItem result = resultsListMore.get(i);
-                        resultsList.add(result);
-                        resultsAdapter.notifyItemInserted(resultsList.size());
-                    }
-                    if (!nextPage.equals("")) {
-                        resultsList.add(null);
-                        resultsAdapter.notifyItemInserted(resultsList.size());
+                    try {
+                        ArrayList<ResultsStartItem> resultsListMore = parseResults(response, false);
+                        resultsSwipe.setRefreshing(false);
+                        resultsList.remove(resultsList.size() - 1);
+                        resultsAdapter.notifyItemRemoved(resultsList.size());
+                        for (int i = 0; i < resultsListMore.size(); i++) {
+                            ResultsStartItem result = resultsListMore.get(i);
+                            resultsList.add(result);
+                            resultsAdapter.notifyItemInserted(resultsList.size());
+                        }
+                        if (!nextPage.equals("")) {
+                            resultsList.add(null);
+                            resultsAdapter.notifyItemInserted(resultsList.size());
+                        }
+                    } catch (NullPointerException e) {
                     }
                 }
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    resultsSwipe.setRefreshing(false);
-                    resultsList.remove(resultsList.size() - 1);
-                    resultsAdapter.notifyItemRemoved(resultsList.size());
-                    resultsList.add(null);
-                    resultsAdapter.notifyItemInserted(resultsList.size());
+                    try {
+                        resultsSwipe.setRefreshing(false);
+                        resultsList.remove(resultsList.size() - 1);
+                        resultsAdapter.notifyItemRemoved(resultsList.size());
+                        resultsList.add(null);
+                        resultsAdapter.notifyItemInserted(resultsList.size());
+                    } catch (NullPointerException e) {
+                    }
                 }
             });
             int socketTimeout = 60000;

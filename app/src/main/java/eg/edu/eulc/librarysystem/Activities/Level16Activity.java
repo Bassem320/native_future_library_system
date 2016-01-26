@@ -1936,40 +1936,46 @@ public class Level16Activity extends AppCompatActivity {
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, ((MyApplication) this.getApplication()).getServerName() + "libraries/FuAPI.aspx?fn=BrowseCategories&ScopeID=1.&Id=" + layout + "&ClassNo=" + classNo, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString(classNo, response.toString());
-                editor.apply();
-                resultsList = parseResults(response, true);
-                if (!nextPage.equals("")) {
-                    resultsList.add(null);
+                try {
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString(classNo, response.toString());
+                    editor.apply();
+                    resultsList = parseResults(response, true);
+                    if (!nextPage.equals("")) {
+                        resultsList.add(null);
+                    }
+                    resultsAdapter.notifyDataSetChanged();
+                    resultsAdapter.setResultsStartItems(resultsList);
+                    resultsRecycler.setVisibility(View.VISIBLE);
+                    resultsSwipe.setRefreshing(false);
+                } catch (NullPointerException e) {
                 }
-                resultsAdapter.notifyDataSetChanged();
-                resultsAdapter.setResultsStartItems(resultsList);
-                resultsRecycler.setVisibility(View.VISIBLE);
-                resultsSwipe.setRefreshing(false);
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                resultsSwipe.setRefreshing(false);
-                if (error instanceof NoConnectionError) {
-                    Snackbar.make(Level16Activity.this.findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.no_internet), Snackbar.LENGTH_LONG).show();
-                } else {
-                    Snackbar.make(Level16Activity.this.findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.error_fetching_subject), Snackbar.LENGTH_LONG).show();
-                }
-                String strJson = sharedPreferences.getString(classNo, "");
-                if (!strJson.equals("")) {
-                    try {
-                        JSONObject jsonData = new JSONObject(strJson);
-                        resultsList = parseResults(jsonData, true);
-                        resultsAdapter.setResultsStartItems(resultsList);
-                    } catch (JSONException e) {
+                try {
+                    resultsSwipe.setRefreshing(false);
+                    if (error instanceof NoConnectionError) {
+                        Snackbar.make(Level16Activity.this.findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.no_internet), Snackbar.LENGTH_LONG).show();
+                    } else {
+                        Snackbar.make(Level16Activity.this.findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.error_fetching_subject), Snackbar.LENGTH_LONG).show();
+                    }
+                    String strJson = sharedPreferences.getString(classNo, "");
+                    if (!strJson.equals("")) {
+                        try {
+                            JSONObject jsonData = new JSONObject(strJson);
+                            resultsList = parseResults(jsonData, true);
+                            resultsAdapter.setResultsStartItems(resultsList);
+                        } catch (JSONException e) {
+                            resultsSwipe.setVisibility(View.GONE);
+                            child.setVisibility(View.VISIBLE);
+                        }
+                    } else {
                         resultsSwipe.setVisibility(View.GONE);
                         child.setVisibility(View.VISIBLE);
                     }
-                } else {
-                    resultsSwipe.setVisibility(View.GONE);
-                    child.setVisibility(View.VISIBLE);
+                } catch (NullPointerException e) {
                 }
             }
         });
@@ -2052,18 +2058,24 @@ public class Level16Activity extends AppCompatActivity {
                         }
                     }
                 } else {
-                    if (firstLoad) {
-                        Snackbar.make(Level16Activity.this.findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.error_fetching_subject), Snackbar.LENGTH_LONG).show();
-                        resultsSwipe.setVisibility(View.GONE);
-                        child.setVisibility(View.VISIBLE);
-                    } else {
-                        resultsSwipe.setRefreshing(false);
+                    try {
+                        if (firstLoad) {
+                            Snackbar.make(Level16Activity.this.findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.error_fetching_subject), Snackbar.LENGTH_LONG).show();
+                            resultsSwipe.setVisibility(View.GONE);
+                            child.setVisibility(View.VISIBLE);
+                        } else {
+                            resultsSwipe.setRefreshing(false);
+                        }
+                    } catch (NullPointerException e) {
                     }
                 }
             } catch (JSONException e) {
-                Snackbar.make(Level16Activity.this.findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.error_fetching_subject), Snackbar.LENGTH_LONG).show();
-                resultsSwipe.setVisibility(View.GONE);
-                child.setVisibility(View.VISIBLE);
+                try {
+                    Snackbar.make(Level16Activity.this.findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.error_fetching_subject), Snackbar.LENGTH_LONG).show();
+                    resultsSwipe.setVisibility(View.GONE);
+                    child.setVisibility(View.VISIBLE);
+                } catch (NullPointerException ex) {
+                }
             }
         }
         return listResults;
@@ -2075,28 +2087,34 @@ public class Level16Activity extends AppCompatActivity {
             JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, nextPage, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
-                    ArrayList<ResultsStartItem> resultsListMore = parseResults(response, false);
-                    resultsSwipe.setRefreshing(false);
-                    resultsList.remove(resultsList.size() - 1);
-                    resultsAdapter.notifyItemRemoved(resultsList.size());
-                    for (int i = 0; i < resultsListMore.size(); i++) {
-                        ResultsStartItem result = resultsListMore.get(i);
-                        resultsList.add(result);
-                        resultsAdapter.notifyItemInserted(resultsList.size());
-                    }
-                    if (!nextPage.equals("")) {
-                        resultsList.add(null);
-                        resultsAdapter.notifyItemInserted(resultsList.size());
+                    try {
+                        ArrayList<ResultsStartItem> resultsListMore = parseResults(response, false);
+                        resultsSwipe.setRefreshing(false);
+                        resultsList.remove(resultsList.size() - 1);
+                        resultsAdapter.notifyItemRemoved(resultsList.size());
+                        for (int i = 0; i < resultsListMore.size(); i++) {
+                            ResultsStartItem result = resultsListMore.get(i);
+                            resultsList.add(result);
+                            resultsAdapter.notifyItemInserted(resultsList.size());
+                        }
+                        if (!nextPage.equals("")) {
+                            resultsList.add(null);
+                            resultsAdapter.notifyItemInserted(resultsList.size());
+                        }
+                    } catch (NullPointerException e) {
                     }
                 }
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    resultsSwipe.setRefreshing(false);
-                    resultsList.remove(resultsList.size() - 1);
-                    resultsAdapter.notifyItemRemoved(resultsList.size());
-                    resultsList.add(null);
-                    resultsAdapter.notifyItemInserted(resultsList.size());
+                    try {
+                        resultsSwipe.setRefreshing(false);
+                        resultsList.remove(resultsList.size() - 1);
+                        resultsAdapter.notifyItemRemoved(resultsList.size());
+                        resultsList.add(null);
+                        resultsAdapter.notifyItemInserted(resultsList.size());
+                    } catch (NullPointerException e) {
+                    }
                 }
             });
             int socketTimeout = 60000;
