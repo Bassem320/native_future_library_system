@@ -523,7 +523,7 @@ public class DigitalContentsFragment extends Fragment {
                     } catch (NullPointerException e) {
                     }
                 }
-            } catch (JSONException e) {
+            } catch (JSONException | NullPointerException | IllegalStateException e) {
                 try {
                     Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.error_fetching_results), Snackbar.LENGTH_LONG).show();
                     resultsLayout.setVisibility(View.GONE);
