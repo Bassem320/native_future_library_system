@@ -44,14 +44,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/separator"
-                android:text="برجاء اختيار اللغة والموقع" />
+                android:text="برجاء اختيار اللغة" />
 
             <TextView
                 android:id="@+id/select_lang_en"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/separator"
-                android:text="Please select language and site"
+                android:text="Please select language"
                 android:visibility="gone" />
 
             <TextView
@@ -92,31 +92,6 @@
 
             <Spinner
                 android:id="@+id/dialog_langs"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/separator" />
-
-            <TextView
-                android:id="@+id/site_ar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/separator"
-                android:paddingLeft="@dimen/separator"
-                android:paddingRight="@dimen/separator"
-                android:text="الموقع" />
-
-            <TextView
-                android:id="@+id/site_en"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/separator"
-                android:paddingLeft="@dimen/separator"
-                android:paddingRight="@dimen/separator"
-                android:text="Site"
-                android:visibility="gone" />
-
-            <Spinner
-                android:id="@+id/dialog_sites"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/separator" />

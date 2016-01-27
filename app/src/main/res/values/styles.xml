@@ -23,6 +23,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:maxHeight">@dimen/nav_header_height</item>
         <item name="android:adjustViewBounds">true</item>
+        <item name="android:src">@drawable/logo</item>
     </style>
 
     <style name="MainTitle" parent="Base.TextAppearance.AppCompat.Large">

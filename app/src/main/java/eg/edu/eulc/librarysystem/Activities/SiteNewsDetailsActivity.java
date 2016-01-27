@@ -10,10 +10,8 @@ import android.text.SpannableStringBuilder;
 import android.text.style.ClickableSpan;
 import android.text.style.URLSpan;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import eg.edu.eulc.librarysystem.MyApplication;
 import eg.edu.eulc.librarysystem.Objects.SiteNewsItem;
 import eg.edu.eulc.librarysystem.R;
 
@@ -28,9 +26,6 @@ public class SiteNewsDetailsActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        ImageView logo = (ImageView) findViewById(R.id.logo);
-        logo.setImageResource(((MyApplication) SiteNewsDetailsActivity.this.getApplication()).getLogo());
 
         title = (TextView) findViewById(R.id.siteNewsTitle);
         details = (TextView) findViewById(R.id.siteNewsDetails);

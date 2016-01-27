@@ -18,7 +18,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.Spinner;
@@ -67,7 +66,6 @@ public class ThesesFragment extends Fragment {
     private ArrayList<ResultsStartItem> resultsList = new ArrayList<>();
     private ResultsStartAdapter resultsAdapter;
     private RequestQueue requestQueue;
-    private LinearLayoutManager linearLayoutManager;
     private TextView resultsNumber;
 
     public ThesesFragment() {
@@ -103,9 +101,6 @@ public class ThesesFragment extends Fragment {
         resultsRecycler = (RecyclerView) rootView.findViewById(R.id.ResultsTheses);
         resultsSwipe = (SwipeRefreshLayout) rootView.findViewById(R.id.ResultsThesesSwipeRefresh);
         resultsNumber = (TextView) rootView.findViewById(R.id.ResultsNumber);
-
-        ImageView logo = (ImageView) rootView.findViewById(R.id.logo);
-        logo.setImageResource(((MyApplication) getActivity().getApplication()).getLogo());
 
         searchTextET1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -361,7 +356,7 @@ public class ThesesFragment extends Fragment {
     private void completeSearch() {
         searchLayout.setVisibility(View.GONE);
         resultsLayout.setVisibility(View.VISIBLE);
-        linearLayoutManager = new LinearLayoutManager(getActivity());
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         resultsRecycler.setLayoutManager(linearLayoutManager);
         resultsAdapter = new ResultsStartAdapter(getActivity(), ThesesFragment.this);
         resultsSwipe.setColorSchemeResources(R.color.colorPrimary, R.color.colorAccent);

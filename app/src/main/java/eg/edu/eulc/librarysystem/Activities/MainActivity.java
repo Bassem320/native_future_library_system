@@ -24,7 +24,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -37,7 +36,6 @@ import eg.edu.eulc.librarysystem.Fragments.LocalJournalsFragment;
 import eg.edu.eulc.librarysystem.Fragments.PapersFragment;
 import eg.edu.eulc.librarysystem.Fragments.StartFragment;
 import eg.edu.eulc.librarysystem.Fragments.ThesesFragment;
-import eg.edu.eulc.librarysystem.MyApplication;
 import eg.edu.eulc.librarysystem.R;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -70,28 +68,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     TextView canChangeEn = (TextView) firstRunLayout.findViewById(R.id.can_change_en);
                     TextView langAr = (TextView) firstRunLayout.findViewById(R.id.lang_ar);
                     TextView langEn = (TextView) firstRunLayout.findViewById(R.id.lang_en);
-                    TextView siteAr = (TextView) firstRunLayout.findViewById(R.id.site_ar);
-                    TextView siteEn = (TextView) firstRunLayout.findViewById(R.id.site_en);
                     if (tab.getPosition() == 0) {
                         selectLangEn.setVisibility(View.GONE);
                         canChangeEn.setVisibility(View.GONE);
                         langEn.setVisibility(View.GONE);
-                        siteEn.setVisibility(View.GONE);
 
                         selectLangAr.setVisibility(View.VISIBLE);
                         canChangeAr.setVisibility(View.VISIBLE);
                         langAr.setVisibility(View.VISIBLE);
-                        siteAr.setVisibility(View.VISIBLE);
                     } else {
                         selectLangAr.setVisibility(View.GONE);
                         canChangeAr.setVisibility(View.GONE);
                         langAr.setVisibility(View.GONE);
-                        siteAr.setVisibility(View.GONE);
 
                         selectLangEn.setVisibility(View.VISIBLE);
                         canChangeEn.setVisibility(View.VISIBLE);
                         langEn.setVisibility(View.VISIBLE);
-                        siteEn.setVisibility(View.VISIBLE);
                     }
                 }
 
@@ -105,39 +97,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             });
 
             Spinner langSpinner = (Spinner) firstRunLayout.findViewById(R.id.dialog_langs);
-            Spinner sitesSpinner = (Spinner) firstRunLayout.findViewById(R.id.dialog_sites);
 
             ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.languages, android.R.layout.simple_spinner_item);
-            ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.sites, android.R.layout.simple_spinner_item);
 
             adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
             langSpinner.setAdapter(adapter1);
-            sitesSpinner.setAdapter(adapter2);
 
             langSpinner.setSelection(sharedPreferences.getInt("lang", 0));
-            sitesSpinner.setSelection(sharedPreferences.getInt("site", 13));
 
             langSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                     if (position != sharedPreferences.getInt("lang", 0)) {
                         editor.putInt("lang", position);
-                        editor.apply();
-                    }
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
-                }
-            });
-
-            sitesSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    if (position != sharedPreferences.getInt("site", 13)) {
-                        editor.putInt("site", position);
                         editor.apply();
                     }
                 }
@@ -163,41 +136,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             AlertDialog dialog = builder.create();
             dialog.show();
         } else {
-            if (sharedPreferences.getBoolean("Change1", true)) {
-                editor.remove("langChanged");
-                editor.apply();
-                switch (sharedPreferences.getInt("site", 16)) {
-                    case 1:
-                    case 6:
-                    case 7:
-                    case 16:
-                        editor.putInt("site", 13);
-                        editor.apply();
-                        break;
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                        editor.putInt("site", sharedPreferences.getInt("site", 16) - 1);
-                        editor.apply();
-                        break;
-                    case 8:
-                    case 9:
-                    case 10:
-                    case 11:
-                    case 12:
-                    case 13:
-                    case 14:
-                    case 15:
-                        editor.putInt("site", sharedPreferences.getInt("site", 16) - 3);
-                        editor.apply();
-                        break;
-                    default:
-                        break;
-                }
-                editor.putBoolean("Change1", false);
-                editor.apply();
-            }
             editor.putBoolean("settingsChanged", false);
             editor.apply();
             Resources res = getResources();
@@ -227,10 +165,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             navigationView = (NavigationView) findViewById(R.id.nav_view);
             navigationView.setNavigationItemSelectedListener(this);
-
-            View headerView = navigationView.inflateHeaderView(R.layout.nav_header_main);
-            ImageView logo = (ImageView) headerView.findViewById(R.id.imageView);
-            logo.setImageResource(((MyApplication) MainActivity.this.getApplication()).getLogo());
 
             getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new StartFragment(), "FragmentStart").commit();
         }

@@ -29,42 +29,20 @@ public class SettingsActivity extends AppCompatActivity {
         editor = sharedPreferences.edit();
 
         Spinner langSpinner = (Spinner) findViewById(R.id.lang_spinner);
-        Spinner siteSpinner = (Spinner) findViewById(R.id.site_spinner);
 
         ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.langs, android.R.layout.simple_spinner_item);
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.sites, android.R.layout.simple_spinner_item);
 
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         langSpinner.setAdapter(adapter1);
-        siteSpinner.setAdapter(adapter2);
 
         langSpinner.setSelection(sharedPreferences.getInt("lang", 0));
-        siteSpinner.setSelection(sharedPreferences.getInt("site", 13));
 
         langSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (position != sharedPreferences.getInt("lang", 0)) {
                     editor.putInt("lang", position);
-                    editor.apply();
-                    editor.putBoolean("settingsChanged", true);
-                    editor.apply();
-                    SettingsActivity.this.finish();
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
-
-        siteSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (position != sharedPreferences.getInt("site", 13)) {
-                    editor.putInt("site", position);
                     editor.apply();
                     editor.putBoolean("settingsChanged", true);
                     editor.apply();

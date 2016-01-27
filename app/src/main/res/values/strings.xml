@@ -41,42 +41,6 @@
         <item>Arabic</item>
         <item>English</item>
     </string-array>
-    <string name="site">Site</string>
-    <!--<string-array name="sites">
-        <item>مكتبات جامعة الملك فيصل بالسعودية</item>
-        <item>المنظمة العربية للتنمية الإدارية</item>
-        <item>المجلس القومى للمرأة</item>
-        <item>مكتبات جامعة العلوم التطبيقية بالبحرين</item>
-        <item>مكتبات جامعة المملكة بالبحرين</item>
-        <item>مكتبات جامعة سيناء</item>
-        <item>مكتبات جامعة النهضة</item>
-        <item>مكتبات اكاديمية طيبة</item>
-        <item>كلية القرآن الكريم - جامعة الأزهر</item>
-        <item>مكتبات المعهد التكنولوجي العالي بالعاشر من رمضان</item>
-        <item>مكتبات مؤسسة المرأة و الذاكرة</item>
-        <item>الأكاديمية العربية للعلوم المالية والمصرفية</item>
-        <item>المعهد العالي للهندسة المعمارية</item>
-        <item>دار الجوهرة للنشر والتوزيع</item>
-        <item>الفهرس الموحد للمدارس المصرية</item>
-        <item>قصر ثقافة اسيوط</item>
-        <item>اتحاد مكتبات الجامعات المصرية</item>
-    </string-array>-->
-    <string-array name="sites">
-        <item>مكتبات جامعة الملك فيصل بالسعودية</item>
-        <item>المجلس القومى للمرأة</item>
-        <item>مكتبات جامعة العلوم التطبيقية بالبحرين</item>
-        <item>مكتبات جامعة المملكة بالبحرين</item>
-        <item>مكتبات جامعة سيناء</item>
-        <item>كلية القرآن الكريم - جامعة الأزهر</item>
-        <item>مكتبات المعهد التكنولوجي العالي بالعاشر من رمضان</item>
-        <item>مكتبات مؤسسة المرأة و الذاكرة</item>
-        <item>الأكاديمية العربية للعلوم المالية والمصرفية</item>
-        <item>المعهد العالي للهندسة المعمارية</item>
-        <item>دار الجوهرة للنشر والتوزيع</item>
-        <item>الفهرس الموحد للمدارس المصرية</item>
-        <item>قصر ثقافة اسيوط</item>
-        <item>اتحاد مكتبات الجامعات المصرية</item>
-    </string-array>
 
     <!-- Footer -->
     <string name="footer_text" translatable="false">Powered by <b>Future Library Software</b>\nAll rights reserved \u00A9 <b>CITC</b> - 2013 - Mansoura University</string>
