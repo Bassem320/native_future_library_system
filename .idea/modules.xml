@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/LibSysKingFaisal.iml" filepath="$PROJECT_DIR$/LibSysKingFaisal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LibSysKU.iml" filepath="$PROJECT_DIR$/LibSysKU.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

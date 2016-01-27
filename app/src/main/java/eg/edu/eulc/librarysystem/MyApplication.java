@@ -25,7 +25,7 @@ public class MyApplication extends Application {
     }
 
     public String getServerName() {
-        return "http://slbapp.kfu.edu.sa/KFU_v6/";
+        return "http://library.ku.edu.bh/ku5.5/";
     }
 
     public String getScopeID() {
