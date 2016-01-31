@@ -296,7 +296,7 @@ public class Level110Activity extends AppCompatActivity {
         resultsSwipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                startBrowse();
+                resultsSwipe.setRefreshing(false);
             }
         });
 
