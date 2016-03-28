@@ -24,6 +24,8 @@
     <string name="nav_e_publish">E-Publish</string>
     <string name="nav_digital_contents">Digital Contents</string>
     <string name="nav_my_account">My Account</string>
+    <string name="nav_barcode">Search books by Barcode</string>
+    <string name="nav_qr">Browse book by QR</string>
 
     <!-- Error -->
     <string name="no_internet">No Internet Connection!</string>
@@ -2020,5 +2022,10 @@
     <string name="author_id">Author ID</string>
     <string name="has_attachments">Has Attachments</string>
     <string name="site_news">Site News</string>
+
+    <!-- Barcode fragment -->
+    <string name="scan">Scan</string>
+    <string name="scan_canceled">Scan canceled</string>
+    <string name="site">Site</string>
 
 </resources>

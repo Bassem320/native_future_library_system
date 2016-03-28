@@ -4,13 +4,15 @@ android {
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
 
+    //noinspection GroovyAssignabilityCheck
     defaultConfig {
         applicationId "bh.edu.ku.futurelibrary"
         minSdkVersion 10
         targetSdkVersion 23
-        versionCode 1014114
-        versionName "1.1.4"
+        versionCode 1014200
+        versionName "2.0.0"
     }
+    //noinspection GroovyAssignabilityCheck
     buildTypes {
         release {
             minifyEnabled false
@@ -19,11 +21,21 @@ android {
     }
 }
 
+repositories {
+    jcenter()
+}
+
+//noinspection GroovyAssignabilityCheck
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
+    //noinspection GradleDependency,GrUnresolvedAccess
     compile 'com.android.support:appcompat-v7:23.1.1'
+    //noinspection GradleDependency
     compile 'com.android.support:design:23.1.1'
+    //noinspection GradleDependency
     compile 'com.android.support:recyclerview-v7:23.1.1'
     compile 'com.mcxiaoke.volley:library:1.0.19'
+    compile 'com.journeyapps:zxing-android-embedded:3.2.0@aar'
+    compile 'com.google.zxing:core:3.2.1'
 }

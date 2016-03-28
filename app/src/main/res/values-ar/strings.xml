@@ -1697,4 +1697,8 @@
     <string name="national_id_error">رقم قومي خطأ!</string>
     <string name="site">الموقع</string>
     <string name="load_more">تحميل المزيد</string>
+    <string name="nav_barcode">بحث الكتب بالباركود</string>
+    <string name="nav_qr">تصفح كتاب بالـ QR</string>
+    <string name="scan">مسح</string>
+    <string name="scan_canceled">تم الغاء المسح</string>
 </resources>

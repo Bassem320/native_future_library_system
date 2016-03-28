@@ -46,6 +46,18 @@
             android:title="@string/nav_my_account" />-->
     </group>
     <group
+        android:id="@+id/scan"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_barcode"
+            android:icon="@drawable/ic_barcode_black_36dp"
+            android:title="@string/nav_barcode" />
+        <item
+            android:id="@+id/nav_qr"
+            android:icon="@drawable/ic_qr_black_36dp"
+            android:title="@string/nav_qr" />
+    </group>
+    <group
         android:id="@+id/settings"
         android:checkableBehavior="none">
         <item

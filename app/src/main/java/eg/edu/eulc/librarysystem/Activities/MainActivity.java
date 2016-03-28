@@ -1,5 +1,6 @@
 package eg.edu.eulc.librarysystem.Activities;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -29,11 +30,13 @@ import android.widget.TextView;
 
 import java.util.Locale;
 
+import eg.edu.eulc.librarysystem.Fragments.BarcodeFragment;
 import eg.edu.eulc.librarysystem.Fragments.DigitalContentsFragment;
 import eg.edu.eulc.librarysystem.Fragments.DraftThesesFragment;
 import eg.edu.eulc.librarysystem.Fragments.HoldingsFragment;
 import eg.edu.eulc.librarysystem.Fragments.LocalJournalsFragment;
 import eg.edu.eulc.librarysystem.Fragments.PapersFragment;
+import eg.edu.eulc.librarysystem.Fragments.QrFragment;
 import eg.edu.eulc.librarysystem.Fragments.StartFragment;
 import eg.edu.eulc.librarysystem.Fragments.ThesesFragment;
 import eg.edu.eulc.librarysystem.R;
@@ -52,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (sharedPreferences.getBoolean("FirstRun", true)) {
             AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-            final View firstRunLayout = MainActivity.this.getLayoutInflater().inflate(R.layout.dialog_first_run, null);
+            @SuppressLint("InflateParams") final View firstRunLayout = MainActivity.this.getLayoutInflater().inflate(R.layout.dialog_first_run, null);
 
             TabLayout tabLayout = (TabLayout) firstRunLayout.findViewById(R.id.firstRunTabLayout);
             tabLayout.addTab(tabLayout.newTab().setText("عربي"));
@@ -186,6 +189,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             LocalJournalsFragment localJournalsFragment = (LocalJournalsFragment) getSupportFragmentManager().findFragmentByTag("FragmentLocalJournals");
 
             DigitalContentsFragment digitalContentsFragment = (DigitalContentsFragment) getSupportFragmentManager().findFragmentByTag("FragmentDigitalContents");
+            BarcodeFragment barcodeFragment = (BarcodeFragment) getSupportFragmentManager().findFragmentByTag("FragmentBarcode");
             if (navigationView.getMenu().getItem(0).isChecked()) {
                 if (startFragment.getLayoutVisibility()) {
                     startFragment.showSearch();
@@ -207,6 +211,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 localJournalsFragment.showSearch();
             } else if (navigationView.getMenu().getItem(6).isChecked() && digitalContentsFragment.getLayoutVisibility()) {
                 digitalContentsFragment.showSearch();
+            } else if (navigationView.getMenu().getItem(7).isChecked() && barcodeFragment.getLayoutVisibility()) {
+                barcodeFragment.showSearch();
             } else {
                 getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new StartFragment(), "FragmentStart").commit();
                 setSelectedItem(0);
@@ -274,7 +280,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } /*else if (id == R.id.nav_my_account) {
             fragment = new MyAccountFragment();
             tag = "FragmentMyAccount";
-        }*/ else if (id == R.id.nav_settings) {
+        }*/ else if (id == R.id.nav_barcode) {
+            fragment = new BarcodeFragment();
+            tag = "FragmentBarcode";
+        } else if (id == R.id.nav_qr) {
+            fragment = new QrFragment();
+            tag = "FragmentQr";
+        } else if (id == R.id.nav_settings) {
             item.setChecked(false);
             startActivity(new Intent(MainActivity.this, SettingsActivity.class));
         }
@@ -322,6 +334,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+        if (sharedPreferences.getInt("lang", 0) == 0) {
+            conf.locale = new Locale("ar");
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                conf.setLayoutDirection(conf.locale);
+            }
+        } else {
+            conf.locale = new Locale("en");
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                conf.setLayoutDirection(conf.locale);
+            }
+        }
+        res.updateConfiguration(conf, dm);
+    }
+
+    public void setConfig() {
         Resources res = getResources();
         DisplayMetrics dm = res.getDisplayMetrics();
         Configuration conf = res.getConfiguration();

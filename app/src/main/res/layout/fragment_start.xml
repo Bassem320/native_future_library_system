@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:descendantFocusability="beforeDescendants"
@@ -21,7 +22,8 @@
 
             <ImageView
                 style="@style/Logo"
-                android:layout_marginTop="@dimen/footer_padding" />
+                android:layout_marginTop="@dimen/footer_padding"
+                tools:ignore="ContentDescription" />
 
             <TextView
                 style="@style/MainTitle"
@@ -98,15 +100,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <LinearLayout style="@style/SubjectParentLayout">
+                <LinearLayout
+                    style="@style/SubjectParentLayout"
+                    tools:ignore="UselessParent">
 
                     <LinearLayout
                         android:id="@+id/Subject0"
-                        style="@style/SubjectLayout">
+                        style="@style/SubjectLayout"
+                        tools:ignore="UseCompoundDrawables">
 
                         <ImageView
                             style="@style/SubjectImage"
-                            android:src="@drawable/s000" />
+                            android:src="@drawable/s000"
+                            tools:ignore="ContentDescription" />
 
                         <TextView
                             style="@style/SubjectTitle"
@@ -115,11 +121,13 @@
 
                     <LinearLayout
                         android:id="@+id/Subject1"
-                        style="@style/SubjectLayout">
+                        style="@style/SubjectLayout"
+                        tools:ignore="UseCompoundDrawables">
 
                         <ImageView
                             style="@style/SubjectImage"
-                            android:src="@drawable/s100" />
+                            android:src="@drawable/s100"
+                            tools:ignore="ContentDescription" />
 
                         <TextView
                             style="@style/SubjectTitle"
@@ -132,15 +140,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <LinearLayout style="@style/SubjectParentLayout">
+                <LinearLayout
+                    style="@style/SubjectParentLayout"
+                    tools:ignore="UselessParent">
 
                     <LinearLayout
                         android:id="@+id/Subject2"
-                        style="@style/SubjectLayout">
+                        style="@style/SubjectLayout"
+                        tools:ignore="UseCompoundDrawables">
 
                         <ImageView
                             style="@style/SubjectImage"
-                            android:src="@drawable/s200" />
+                            android:src="@drawable/s200"
+                            tools:ignore="ContentDescription" />
 
                         <TextView
                             style="@style/SubjectTitle"
@@ -149,11 +161,13 @@
 
                     <LinearLayout
                         android:id="@+id/Subject3"
-                        style="@style/SubjectLayout">
+                        style="@style/SubjectLayout"
+                        tools:ignore="UseCompoundDrawables">
 
                         <ImageView
                             style="@style/SubjectImage"
-                            android:src="@drawable/s300" />
+                            android:src="@drawable/s300"
+                            tools:ignore="ContentDescription" />
 
                         <TextView
                             style="@style/SubjectTitle"
@@ -166,15 +180,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <LinearLayout style="@style/SubjectParentLayout">
+                <LinearLayout
+                    style="@style/SubjectParentLayout"
+                    tools:ignore="UselessParent">
 
                     <LinearLayout
                         android:id="@+id/Subject4"
-                        style="@style/SubjectLayout">
+                        style="@style/SubjectLayout"
+                        tools:ignore="UseCompoundDrawables">
 
                         <ImageView
                             style="@style/SubjectImage"
-                            android:src="@drawable/s400" />
+                            android:src="@drawable/s400"
+                            tools:ignore="ContentDescription" />
 
                         <TextView
                             style="@style/SubjectTitle"
@@ -183,11 +201,13 @@
 
                     <LinearLayout
                         android:id="@+id/Subject5"
-                        style="@style/SubjectLayout">
+                        style="@style/SubjectLayout"
+                        tools:ignore="UseCompoundDrawables">
 
                         <ImageView
                             style="@style/SubjectImage"
-                            android:src="@drawable/s500" />
+                            android:src="@drawable/s500"
+                            tools:ignore="ContentDescription" />
 
                         <TextView
                             style="@style/SubjectTitle"
@@ -200,15 +220,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <LinearLayout style="@style/SubjectParentLayout">
+                <LinearLayout
+                    style="@style/SubjectParentLayout"
+                    tools:ignore="UselessParent">
 
                     <LinearLayout
                         android:id="@+id/Subject6"
-                        style="@style/SubjectLayout">
+                        style="@style/SubjectLayout"
+                        tools:ignore="UseCompoundDrawables">
 
                         <ImageView
                             style="@style/SubjectImage"
-                            android:src="@drawable/s600" />
+                            android:src="@drawable/s600"
+                            tools:ignore="ContentDescription" />
 
                         <TextView
                             style="@style/SubjectTitle"
@@ -217,11 +241,13 @@
 
                     <LinearLayout
                         android:id="@+id/Subject7"
-                        style="@style/SubjectLayout">
+                        style="@style/SubjectLayout"
+                        tools:ignore="UseCompoundDrawables">
 
                         <ImageView
                             style="@style/SubjectImage"
-                            android:src="@drawable/s700" />
+                            android:src="@drawable/s700"
+                            tools:ignore="ContentDescription" />
 
                         <TextView
                             style="@style/SubjectTitle"
@@ -234,15 +260,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <LinearLayout style="@style/SubjectParentLayout">
+                <LinearLayout
+                    style="@style/SubjectParentLayout"
+                    tools:ignore="UselessParent">
 
                     <LinearLayout
                         android:id="@+id/Subject8"
-                        style="@style/SubjectLayout">
+                        style="@style/SubjectLayout"
+                        tools:ignore="UseCompoundDrawables">
 
                         <ImageView
                             style="@style/SubjectImage"
-                            android:src="@drawable/s800" />
+                            android:src="@drawable/s800"
+                            tools:ignore="ContentDescription" />
 
                         <TextView
                             style="@style/SubjectTitle"
@@ -251,11 +281,13 @@
 
                     <LinearLayout
                         android:id="@+id/Subject9"
-                        style="@style/SubjectLayout">
+                        style="@style/SubjectLayout"
+                        tools:ignore="UseCompoundDrawables">
 
                         <ImageView
                             style="@style/SubjectImage"
-                            android:src="@drawable/s900" />
+                            android:src="@drawable/s900"
+                            tools:ignore="ContentDescription" />
 
                         <TextView
                             style="@style/SubjectTitle"
@@ -284,6 +316,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autoLink="phone"
                 android:text="@string/contact_details" />
 
             <TextView
