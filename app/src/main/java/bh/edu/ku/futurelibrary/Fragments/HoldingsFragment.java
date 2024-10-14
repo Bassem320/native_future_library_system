@@ -1,5 +1,6 @@
 package bh.edu.ku.futurelibrary.Fragments;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
@@ -55,9 +56,11 @@ import bh.edu.ku.futurelibrary.R;
  */
 public class HoldingsFragment extends Fragment {
     private int itemType = 0, keywords1 = 0, keywords2 = 0, keywords3 = 0, conc1 = 0, conc2 = 0, wordProcessing = 0, orderBy = 0;
-    private String[] itemTypes = {"", "24.2.1.", "24.2.10.", "24.2.11.", "24.2.12.", "24.2.13.", "24.2.14.", "24.2.15.", "24.2.16.", "24.2.17.", "24.2.18.", "24.2.19.", "24.2.2.", "24.2.20.", "24.2.21.", "24.2.22.", "24.2.23.", "24.2.24.", "24.2.25.", "24.2.26.", "24.2.27.", "24.2.28.", "24.2.29.", "24.2.3.", "24.2.5.", "24.2.6.", "24.2.7.", "24.2.8.", "24.2.9."},
-            keywords = {"1.", "0.", "2.", "3.", "9.", "6.", "7.", "8.", "5."}, concs = {"and", "or", "and not"},
-            wordProcess = {"", "INFLECTIONAL", "THESAURUS"}, orders = {"", "Title", "Author", "publishYear asc", "publishYear desc"};
+    private final String[] itemTypes = {"", "24.2.1.", "24.2.10.", "24.2.11.", "24.2.12.", "24.2.13.", "24.2.14.", "24.2.15.", "24.2.16.", "24.2.17.", "24.2.18.", "24.2.19.", "24.2.2.", "24.2.20.", "24.2.21.", "24.2.22.", "24.2.23.", "24.2.24.", "24.2.25.", "24.2.26.", "24.2.27.", "24.2.28.", "24.2.29.", "24.2.3.", "24.2.5.", "24.2.6.", "24.2.7.", "24.2.8.", "24.2.9."};
+    private final String[] keywords = {"1.", "0.", "2.", "3.", "9.", "6.", "7.", "8.", "5."};
+    private final String[] concs = {"and", "or", "and not"};
+    private final String[] wordProcess = {"", "INFLECTIONAL", "THESAURUS"};
+    private final String[] orders = {"", "Title", "Author", "publishYear asc", "publishYear desc"};
     private EditText searchTextET1, searchTextET2, searchTextET3, attachContainsET, bibIDET, publishYearET;
     private String searchText1, searchText2, searchText3, attachContains, bibID, publishYear, nextPage = "";
     private LinearLayout resultsLayout;
@@ -82,77 +85,59 @@ public class HoldingsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_holdings, container, false);
 
-        Spinner itemTypeSpinner = (Spinner) rootView.findViewById(R.id.holdings_search_type);
-        Spinner keywordsSpinner1 = (Spinner) rootView.findViewById(R.id.keyword1);
-        Spinner keywordsSpinner2 = (Spinner) rootView.findViewById(R.id.keyword2);
-        Spinner keywordsSpinner3 = (Spinner) rootView.findViewById(R.id.keyword3);
-        Spinner concSpinner1 = (Spinner) rootView.findViewById(R.id.conc1);
-        Spinner concSpinner2 = (Spinner) rootView.findViewById(R.id.conc2);
-        Spinner wordProcessingSpinner = (Spinner) rootView.findViewById(R.id.WordProcessingSpinner);
-        Spinner orderBySpinner = (Spinner) rootView.findViewById(R.id.OrderBySpinner);
-        searchTextET1 = (EditText) rootView.findViewById(R.id.SearchText1);
-        searchTextET2 = (EditText) rootView.findViewById(R.id.SearchText2);
-        searchTextET3 = (EditText) rootView.findViewById(R.id.SearchText3);
-        attachContainsET = (EditText) rootView.findViewById(R.id.attach_contains);
-        bibIDET = (EditText) rootView.findViewById(R.id.BibID);
-        publishYearET = (EditText) rootView.findViewById(R.id.Publishyear);
-        Button searchButton = (Button) rootView.findViewById(R.id.searchButton);
-        searchLayout = (ScrollView) rootView.findViewById(R.id.searchLayout);
-        resultsLayout = (LinearLayout) rootView.findViewById(R.id.resultsLayout);
-        resultsRecycler = (RecyclerView) rootView.findViewById(R.id.ResultsHoldings);
-        resultsSwipe = (SwipeRefreshLayout) rootView.findViewById(R.id.ResultsHoldingsSwipeRefresh);
-        resultsNumber = (TextView) rootView.findViewById(R.id.ResultsNumber);
+        Spinner itemTypeSpinner = rootView.findViewById(R.id.holdings_search_type);
+        Spinner keywordsSpinner1 = rootView.findViewById(R.id.keyword1);
+        Spinner keywordsSpinner2 = rootView.findViewById(R.id.keyword2);
+        Spinner keywordsSpinner3 = rootView.findViewById(R.id.keyword3);
+        Spinner concSpinner1 = rootView.findViewById(R.id.conc1);
+        Spinner concSpinner2 = rootView.findViewById(R.id.conc2);
+        Spinner wordProcessingSpinner = rootView.findViewById(R.id.WordProcessingSpinner);
+        Spinner orderBySpinner = rootView.findViewById(R.id.OrderBySpinner);
+        searchTextET1 = rootView.findViewById(R.id.SearchText1);
+        searchTextET2 = rootView.findViewById(R.id.SearchText2);
+        searchTextET3 = rootView.findViewById(R.id.SearchText3);
+        attachContainsET = rootView.findViewById(R.id.attach_contains);
+        bibIDET = rootView.findViewById(R.id.BibID);
+        publishYearET = rootView.findViewById(R.id.Publishyear);
+        Button searchButton = rootView.findViewById(R.id.searchButton);
+        searchLayout = rootView.findViewById(R.id.searchLayout);
+        resultsLayout = rootView.findViewById(R.id.resultsLayout);
+        resultsRecycler = rootView.findViewById(R.id.ResultsHoldings);
+        resultsSwipe = rootView.findViewById(R.id.ResultsHoldingsSwipeRefresh);
+        resultsNumber = rootView.findViewById(R.id.ResultsNumber);
 
-        searchTextET1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    hide_keyboard_from(getActivity(), searchTextET1);
-                }
+        searchTextET1.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus) {
+                hide_keyboard_from(getActivity(), searchTextET1);
             }
         });
 
-        searchTextET2.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    hide_keyboard_from(getActivity(), searchTextET2);
-                }
+        searchTextET2.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus) {
+                hide_keyboard_from(getActivity(), searchTextET2);
             }
         });
 
-        searchTextET3.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    hide_keyboard_from(getActivity(), searchTextET3);
-                }
+        searchTextET3.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus) {
+                hide_keyboard_from(getActivity(), searchTextET3);
             }
         });
 
-        attachContainsET.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    hide_keyboard_from(getActivity(), attachContainsET);
-                }
+        attachContainsET.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus) {
+                hide_keyboard_from(getActivity(), attachContainsET);
             }
         });
 
-        bibIDET.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    hide_keyboard_from(getActivity(), bibIDET);
-                }
+        bibIDET.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus) {
+                hide_keyboard_from(getActivity(), bibIDET);
             }
         });
-        publishYearET.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    hide_keyboard_from(getActivity(), publishYearET);
-                }
+        publishYearET.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus) {
+                hide_keyboard_from(getActivity(), publishYearET);
             }
         });
 
@@ -267,76 +252,73 @@ public class HoldingsFragment extends Fragment {
             }
         });
 
-        searchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                searchText1 = searchTextET1.getText().toString();
+        searchButton.setOnClickListener(v -> {
+            searchText1 = searchTextET1.getText().toString();
 
-                bibID = bibIDET.getText().toString();
-                if (bibID == null) {
-                    bibID = "";
-                }
+            bibID = bibIDET.getText().toString();
+            if (bibID == null) {
+                bibID = "";
+            }
 
-                publishYear = publishYearET.getText().toString();
-                if (publishYear == null) {
-                    publishYear = "";
-                }
+            publishYear = publishYearET.getText().toString();
+            if (publishYear == null) {
+                publishYear = "";
+            }
 
-                searchText2 = searchTextET2.getText().toString();
-                if (searchText2 == null) {
-                    searchText2 = "";
-                }
-                searchText3 = searchTextET3.getText().toString();
-                if (searchText3 == null) {
-                    searchText3 = "";
-                }
-                attachContains = attachContainsET.getText().toString();
-                if (attachContains == null) {
-                    attachContains = "";
-                }
+            searchText2 = searchTextET2.getText().toString();
+            if (searchText2 == null) {
+                searchText2 = "";
+            }
+            searchText3 = searchTextET3.getText().toString();
+            if (searchText3 == null) {
+                searchText3 = "";
+            }
+            attachContains = attachContainsET.getText().toString();
+            if (attachContains == null) {
+                attachContains = "";
+            }
 
-                if ((searchText1.equals("") || searchText1 == null) && (bibID.equals("") || bibID == null)) {
-                    Snackbar.make(v, getResources().getText(R.string.enter_text), Snackbar.LENGTH_LONG).show();
-                } else if ((!(bibID.equals("") || bibID == null)) || (!(publishYear.equals("") || publishYear == null))) {
-                    String BIB_PATTERN = "\\b\\d{1,9}-\\d{1,9}|\\d{1,9}\\b";
-                    String YEAR_PATTERN = "\\b((19|20)\\d{2}[-](19|20)\\d{2})|(19|20)\\d{2}\\b";
-                    Pattern patternBib = Pattern.compile(BIB_PATTERN);
-                    Pattern patternYear = Pattern.compile(YEAR_PATTERN);
-                    Matcher matcherBib = patternBib.matcher(bibID);
-                    Matcher matcherYear = patternYear.matcher(publishYear);
-                    if ((!(bibID.equals("") || bibID == null)) && (!(publishYear.equals("") || publishYear == null))) {
-                        boolean bibOK, yearOK;
-                        if (!matcherBib.matches()) {
-                            bibOK = false;
-                            bibIDET.setError(getText(R.string.bib_id_error));
-                        } else {
-                            bibOK = true;
-                        }
-                        if (!matcherYear.matches()) {
-                            yearOK = false;
-                            publishYearET.setError(getText(R.string.pub_year_error));
-                        } else {
-                            yearOK = true;
-                        }
-                        if (bibOK && yearOK) {
-                            completeSearch();
-                        }
-                    } else if (!(bibID.equals("") || bibID == null)) {
-                        if (!matcherBib.matches()) {
-                            bibIDET.setError(getText(R.string.bib_id_error));
-                        } else {
-                            completeSearch();
-                        }
-                    } else if (!(publishYear.equals("") || publishYear == null)) {
-                        if (!matcherYear.matches()) {
-                            publishYearET.setError(getText(R.string.pub_year_error));
-                        } else {
-                            completeSearch();
-                        }
+            if (searchText1.isEmpty() && bibID.isEmpty()) {
+                Snackbar.make(v, getResources().getText(R.string.enter_text), Snackbar.LENGTH_LONG).show();
+            } else if (!bibID.isEmpty() || !publishYear.isEmpty()) {
+                String BIB_PATTERN = getString(R.string.bib_pattern);
+                String YEAR_PATTERN = getString(R.string.year_pattern);
+                Pattern patternBib = Pattern.compile(BIB_PATTERN);
+                Pattern patternYear = Pattern.compile(YEAR_PATTERN);
+                Matcher matcherBib = patternBib.matcher(bibID);
+                Matcher matcherYear = patternYear.matcher(publishYear);
+                if (!bibID.isEmpty() && !publishYear.isEmpty()) {
+                    boolean bibOK, yearOK;
+                    if (!matcherBib.matches()) {
+                        bibOK = false;
+                        bibIDET.setError(getText(R.string.bib_id_error));
+                    } else {
+                        bibOK = true;
                     }
-                } else {
-                    completeSearch();
+                    if (!matcherYear.matches()) {
+                        yearOK = false;
+                        publishYearET.setError(getText(R.string.pub_year_error));
+                    } else {
+                        yearOK = true;
+                    }
+                    if (bibOK && yearOK) {
+                        completeSearch();
+                    }
+                } else if (!bibID.isEmpty()) {
+                    if (!matcherBib.matches()) {
+                        bibIDET.setError(getText(R.string.bib_id_error));
+                    } else {
+                        completeSearch();
+                    }
+                } else if (!publishYear.isEmpty()) {
+                    if (!matcherYear.matches()) {
+                        publishYearET.setError(getText(R.string.pub_year_error));
+                    } else {
+                        completeSearch();
+                    }
                 }
+            } else {
+                completeSearch();
             }
         });
 
@@ -359,12 +341,7 @@ public class HoldingsFragment extends Fragment {
         resultsRecycler.setLayoutManager(linearLayoutManager);
         resultsAdapter = new ResultsStartAdapter(getActivity(), HoldingsFragment.this);
         resultsSwipe.setColorSchemeResources(R.color.colorPrimary, R.color.colorAccent);
-        resultsSwipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                resultsSwipe.setRefreshing(false);
-            }
-        });
+        resultsSwipe.setOnRefreshListener(() -> resultsSwipe.setRefreshing(false));
         resultsRecycler.setAdapter(resultsAdapter);
         resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
         resultsSwipe.setRefreshing(true);
@@ -392,11 +369,12 @@ public class HoldingsFragment extends Fragment {
         params.put("PublishYear", publishYear);
         params.put("OrderKey", orders[orderBy]);
         CustomRequest request = new CustomRequest(Request.Method.POST, ((MyApplication) getActivity().getApplication()).getServerName() + "libraries/fuapi.aspx?fn=ApplyMobileSearch", params, new Response.Listener<JSONObject>() {
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onResponse(JSONObject response) {
                 try {
                     resultsList = parseResults(response, true);
-                    if (!nextPage.equals("")) {
+                    if (!nextPage.isEmpty()) {
                         resultsList.add(null);
                     }
                     resultsAdapter.notifyDataSetChanged();
@@ -430,7 +408,7 @@ public class HoldingsFragment extends Fragment {
         if (response != null && response.length() > 0) {
             try {
                 if (response.has("TotalNoOfResults") && !response.isNull("TotalNoOfResults")) {
-                    resultsNumber.setText(getText(R.string.total_result) + " " + response.getString("TotalNoOfResults"));
+                    resultsNumber.setText(String.format("%s %s", getText(R.string.total_result), response.getString("TotalNoOfResults")));
                 } else {
                     resultsNumber.setVisibility(View.GONE);
                 }
@@ -457,13 +435,13 @@ public class HoldingsFragment extends Fragment {
                         if (currentItem.has("type") && !currentItem.isNull("type")) {
                             type = currentItem.getString("type");
                         }
-                        String classification = "";
+                        StringBuilder classification = new StringBuilder();
                         if (currentItem.has("classification") && !currentItem.isNull("classification")) {
                             JSONArray arrayClassification = currentItem.getJSONArray("classification");
                             for (int j = 0; j < arrayClassification.length(); j++) {
-                                classification += "\u00BB " + arrayClassification.getString(j);
+                                classification.append("» ").append(arrayClassification.getString(j));
                                 if (j < (arrayClassification.length() - 1)) {
-                                    classification += "\t\t";
+                                    classification.append("\t\t");
                                 }
                             }
                         }
@@ -492,7 +470,7 @@ public class HoldingsFragment extends Fragment {
                         item.setTitle(title);
                         item.setImage(image);
                         item.setType(type);
-                        item.setClassification(classification);
+                        item.setClassification(classification.toString());
                         item.setPublisher(publisher);
                         item.setMoreTitle(moreTitle);
                         item.setDetails(details);
@@ -527,7 +505,7 @@ public class HoldingsFragment extends Fragment {
     }
 
     public void loadMore() {
-        if (!nextPage.equals("")) {
+        if (!nextPage.isEmpty()) {
             resultsSwipe.setRefreshing(true);
             JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, nextPage, new Response.Listener<JSONObject>() {
                 @Override
@@ -542,7 +520,7 @@ public class HoldingsFragment extends Fragment {
                             resultsList.add(result);
                             resultsAdapter.notifyItemInserted(resultsList.size());
                         }
-                        if (!nextPage.equals("")) {
+                        if (!nextPage.isEmpty()) {
                             resultsList.add(null);
                             resultsAdapter.notifyItemInserted(resultsList.size());
                         }

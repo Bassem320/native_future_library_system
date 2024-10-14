@@ -65,240 +65,205 @@ public class Level110Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level110);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        parent = (ScrollView) findViewById(R.id.level09);
+        parent = findViewById(R.id.level09);
 
-        level090 = (ScrollView) findViewById(R.id.level090);
-        level091 = (ScrollView) findViewById(R.id.level091);
-        level092 = (ScrollView) findViewById(R.id.level092);
-        level093 = (ScrollView) findViewById(R.id.level093);
-        level094 = (ScrollView) findViewById(R.id.level094);
-        level095 = (ScrollView) findViewById(R.id.level095);
-        level096 = (ScrollView) findViewById(R.id.level096);
-        level097 = (ScrollView) findViewById(R.id.level097);
-        level098 = (ScrollView) findViewById(R.id.level098);
-        level099 = (ScrollView) findViewById(R.id.level099);
+        level090 = findViewById(R.id.level090);
+        level091 = findViewById(R.id.level091);
+        level092 = findViewById(R.id.level092);
+        level093 = findViewById(R.id.level093);
+        level094 = findViewById(R.id.level094);
+        level095 = findViewById(R.id.level095);
+        level096 = findViewById(R.id.level096);
+        level097 = findViewById(R.id.level097);
+        level098 = findViewById(R.id.level098);
+        level099 = findViewById(R.id.level099);
 
-        subject90 = (LinearLayout) findViewById(R.id.Subject90);
-        subject91 = (LinearLayout) findViewById(R.id.Subject91);
-        subject92 = (LinearLayout) findViewById(R.id.Subject92);
-        subject93 = (LinearLayout) findViewById(R.id.Subject93);
-        subject94 = (LinearLayout) findViewById(R.id.Subject94);
-        subject95 = (LinearLayout) findViewById(R.id.Subject95);
-        subject96 = (LinearLayout) findViewById(R.id.Subject96);
-        subject97 = (LinearLayout) findViewById(R.id.Subject97);
-        subject98 = (LinearLayout) findViewById(R.id.Subject98);
-        subject99 = (LinearLayout) findViewById(R.id.Subject99);
+        subject90 = findViewById(R.id.Subject90);
+        subject91 = findViewById(R.id.Subject91);
+        subject92 = findViewById(R.id.Subject92);
+        subject93 = findViewById(R.id.Subject93);
+        subject94 = findViewById(R.id.Subject94);
+        subject95 = findViewById(R.id.Subject95);
+        subject96 = findViewById(R.id.Subject96);
+        subject97 = findViewById(R.id.Subject97);
+        subject98 = findViewById(R.id.Subject98);
+        subject99 = findViewById(R.id.Subject99);
 
-        subject900 = (LinearLayout) findViewById(R.id.Subject900);
-        subject901 = (LinearLayout) findViewById(R.id.Subject901);
-        subject902 = (LinearLayout) findViewById(R.id.Subject902);
-        subject903 = (LinearLayout) findViewById(R.id.Subject903);
-        subject904 = (LinearLayout) findViewById(R.id.Subject904);
-        subject905 = (LinearLayout) findViewById(R.id.Subject905);
-        subject906 = (LinearLayout) findViewById(R.id.Subject906);
-        subject907 = (LinearLayout) findViewById(R.id.Subject907);
-        subject908 = (LinearLayout) findViewById(R.id.Subject908);
-        subject909 = (LinearLayout) findViewById(R.id.Subject909);
+        subject900 = findViewById(R.id.Subject900);
+        subject901 = findViewById(R.id.Subject901);
+        subject902 = findViewById(R.id.Subject902);
+        subject903 = findViewById(R.id.Subject903);
+        subject904 = findViewById(R.id.Subject904);
+        subject905 = findViewById(R.id.Subject905);
+        subject906 = findViewById(R.id.Subject906);
+        subject907 = findViewById(R.id.Subject907);
+        subject908 = findViewById(R.id.Subject908);
+        subject909 = findViewById(R.id.Subject909);
 
-        subject910 = (LinearLayout) findViewById(R.id.Subject910);
-        subject911 = (LinearLayout) findViewById(R.id.Subject911);
-        subject912 = (LinearLayout) findViewById(R.id.Subject912);
-        subject913 = (LinearLayout) findViewById(R.id.Subject913);
-        subject914 = (LinearLayout) findViewById(R.id.Subject914);
-        subject915 = (LinearLayout) findViewById(R.id.Subject915);
-        subject916 = (LinearLayout) findViewById(R.id.Subject916);
-        subject917 = (LinearLayout) findViewById(R.id.Subject917);
-        subject918 = (LinearLayout) findViewById(R.id.Subject918);
-        subject919 = (LinearLayout) findViewById(R.id.Subject919);
+        subject910 = findViewById(R.id.Subject910);
+        subject911 = findViewById(R.id.Subject911);
+        subject912 = findViewById(R.id.Subject912);
+        subject913 = findViewById(R.id.Subject913);
+        subject914 = findViewById(R.id.Subject914);
+        subject915 = findViewById(R.id.Subject915);
+        subject916 = findViewById(R.id.Subject916);
+        subject917 = findViewById(R.id.Subject917);
+        subject918 = findViewById(R.id.Subject918);
+        subject919 = findViewById(R.id.Subject919);
 
-        subject920 = (LinearLayout) findViewById(R.id.Subject920);
-        subject921 = (LinearLayout) findViewById(R.id.Subject921);
-        subject922 = (LinearLayout) findViewById(R.id.Subject922);
-        subject923 = (LinearLayout) findViewById(R.id.Subject923);
-        subject924 = (LinearLayout) findViewById(R.id.Subject924);
-        subject925 = (LinearLayout) findViewById(R.id.Subject925);
-        subject926 = (LinearLayout) findViewById(R.id.Subject926);
-        subject927 = (LinearLayout) findViewById(R.id.Subject927);
-        subject928 = (LinearLayout) findViewById(R.id.Subject928);
-        subject929 = (LinearLayout) findViewById(R.id.Subject929);
+        subject920 = findViewById(R.id.Subject920);
+        subject921 = findViewById(R.id.Subject921);
+        subject922 = findViewById(R.id.Subject922);
+        subject923 = findViewById(R.id.Subject923);
+        subject924 = findViewById(R.id.Subject924);
+        subject925 = findViewById(R.id.Subject925);
+        subject926 = findViewById(R.id.Subject926);
+        subject927 = findViewById(R.id.Subject927);
+        subject928 = findViewById(R.id.Subject928);
+        subject929 = findViewById(R.id.Subject929);
 
-        subject930 = (LinearLayout) findViewById(R.id.Subject930);
-        subject931 = (LinearLayout) findViewById(R.id.Subject931);
-        subject932 = (LinearLayout) findViewById(R.id.Subject932);
-        subject933 = (LinearLayout) findViewById(R.id.Subject933);
-        subject934 = (LinearLayout) findViewById(R.id.Subject934);
-        subject935 = (LinearLayout) findViewById(R.id.Subject935);
-        subject936 = (LinearLayout) findViewById(R.id.Subject936);
-        subject937 = (LinearLayout) findViewById(R.id.Subject937);
-        subject938 = (LinearLayout) findViewById(R.id.Subject938);
-        subject939 = (LinearLayout) findViewById(R.id.Subject939);
+        subject930 = findViewById(R.id.Subject930);
+        subject931 = findViewById(R.id.Subject931);
+        subject932 = findViewById(R.id.Subject932);
+        subject933 = findViewById(R.id.Subject933);
+        subject934 = findViewById(R.id.Subject934);
+        subject935 = findViewById(R.id.Subject935);
+        subject936 = findViewById(R.id.Subject936);
+        subject937 = findViewById(R.id.Subject937);
+        subject938 = findViewById(R.id.Subject938);
+        subject939 = findViewById(R.id.Subject939);
 
-        subject940 = (LinearLayout) findViewById(R.id.Subject940);
-        subject941 = (LinearLayout) findViewById(R.id.Subject941);
-        subject942 = (LinearLayout) findViewById(R.id.Subject942);
-        subject943 = (LinearLayout) findViewById(R.id.Subject943);
-        subject944 = (LinearLayout) findViewById(R.id.Subject944);
-        subject945 = (LinearLayout) findViewById(R.id.Subject945);
-        subject946 = (LinearLayout) findViewById(R.id.Subject946);
-        subject947 = (LinearLayout) findViewById(R.id.Subject947);
-        subject948 = (LinearLayout) findViewById(R.id.Subject948);
-        subject949 = (LinearLayout) findViewById(R.id.Subject949);
+        subject940 = findViewById(R.id.Subject940);
+        subject941 = findViewById(R.id.Subject941);
+        subject942 = findViewById(R.id.Subject942);
+        subject943 = findViewById(R.id.Subject943);
+        subject944 = findViewById(R.id.Subject944);
+        subject945 = findViewById(R.id.Subject945);
+        subject946 = findViewById(R.id.Subject946);
+        subject947 = findViewById(R.id.Subject947);
+        subject948 = findViewById(R.id.Subject948);
+        subject949 = findViewById(R.id.Subject949);
 
-        subject950 = (LinearLayout) findViewById(R.id.Subject950);
-        subject951 = (LinearLayout) findViewById(R.id.Subject951);
-        subject952 = (LinearLayout) findViewById(R.id.Subject952);
-        subject953 = (LinearLayout) findViewById(R.id.Subject953);
-        subject954 = (LinearLayout) findViewById(R.id.Subject954);
-        subject955 = (LinearLayout) findViewById(R.id.Subject955);
-        subject956 = (LinearLayout) findViewById(R.id.Subject956);
-        subject957 = (LinearLayout) findViewById(R.id.Subject957);
-        subject958 = (LinearLayout) findViewById(R.id.Subject958);
-        subject959 = (LinearLayout) findViewById(R.id.Subject959);
+        subject950 = findViewById(R.id.Subject950);
+        subject951 = findViewById(R.id.Subject951);
+        subject952 = findViewById(R.id.Subject952);
+        subject953 = findViewById(R.id.Subject953);
+        subject954 = findViewById(R.id.Subject954);
+        subject955 = findViewById(R.id.Subject955);
+        subject956 = findViewById(R.id.Subject956);
+        subject957 = findViewById(R.id.Subject957);
+        subject958 = findViewById(R.id.Subject958);
+        subject959 = findViewById(R.id.Subject959);
 
-        subject960 = (LinearLayout) findViewById(R.id.Subject960);
-        subject961 = (LinearLayout) findViewById(R.id.Subject961);
-        subject962 = (LinearLayout) findViewById(R.id.Subject962);
-        subject963 = (LinearLayout) findViewById(R.id.Subject963);
-        subject964 = (LinearLayout) findViewById(R.id.Subject964);
-        subject965 = (LinearLayout) findViewById(R.id.Subject965);
-        subject966 = (LinearLayout) findViewById(R.id.Subject966);
-        subject967 = (LinearLayout) findViewById(R.id.Subject967);
-        subject968 = (LinearLayout) findViewById(R.id.Subject968);
-        subject969 = (LinearLayout) findViewById(R.id.Subject969);
+        subject960 = findViewById(R.id.Subject960);
+        subject961 = findViewById(R.id.Subject961);
+        subject962 = findViewById(R.id.Subject962);
+        subject963 = findViewById(R.id.Subject963);
+        subject964 = findViewById(R.id.Subject964);
+        subject965 = findViewById(R.id.Subject965);
+        subject966 = findViewById(R.id.Subject966);
+        subject967 = findViewById(R.id.Subject967);
+        subject968 = findViewById(R.id.Subject968);
+        subject969 = findViewById(R.id.Subject969);
 
-        subject970 = (LinearLayout) findViewById(R.id.Subject970);
-        subject971 = (LinearLayout) findViewById(R.id.Subject971);
-        subject972 = (LinearLayout) findViewById(R.id.Subject972);
-        subject973 = (LinearLayout) findViewById(R.id.Subject973);
-        subject974 = (LinearLayout) findViewById(R.id.Subject974);
-        subject975 = (LinearLayout) findViewById(R.id.Subject975);
-        subject976 = (LinearLayout) findViewById(R.id.Subject976);
-        subject977 = (LinearLayout) findViewById(R.id.Subject977);
-        subject978 = (LinearLayout) findViewById(R.id.Subject978);
-        subject979 = (LinearLayout) findViewById(R.id.Subject979);
+        subject970 = findViewById(R.id.Subject970);
+        subject971 = findViewById(R.id.Subject971);
+        subject972 = findViewById(R.id.Subject972);
+        subject973 = findViewById(R.id.Subject973);
+        subject974 = findViewById(R.id.Subject974);
+        subject975 = findViewById(R.id.Subject975);
+        subject976 = findViewById(R.id.Subject976);
+        subject977 = findViewById(R.id.Subject977);
+        subject978 = findViewById(R.id.Subject978);
+        subject979 = findViewById(R.id.Subject979);
 
-        subject980 = (LinearLayout) findViewById(R.id.Subject980);
-        subject981 = (LinearLayout) findViewById(R.id.Subject981);
-        subject982 = (LinearLayout) findViewById(R.id.Subject982);
-        subject983 = (LinearLayout) findViewById(R.id.Subject983);
-        subject984 = (LinearLayout) findViewById(R.id.Subject984);
-        subject985 = (LinearLayout) findViewById(R.id.Subject985);
-        subject986 = (LinearLayout) findViewById(R.id.Subject986);
-        subject987 = (LinearLayout) findViewById(R.id.Subject987);
-        subject988 = (LinearLayout) findViewById(R.id.Subject988);
-        subject989 = (LinearLayout) findViewById(R.id.Subject989);
+        subject980 = findViewById(R.id.Subject980);
+        subject981 = findViewById(R.id.Subject981);
+        subject982 = findViewById(R.id.Subject982);
+        subject983 = findViewById(R.id.Subject983);
+        subject984 = findViewById(R.id.Subject984);
+        subject985 = findViewById(R.id.Subject985);
+        subject986 = findViewById(R.id.Subject986);
+        subject987 = findViewById(R.id.Subject987);
+        subject988 = findViewById(R.id.Subject988);
+        subject989 = findViewById(R.id.Subject989);
 
-        subject990 = (LinearLayout) findViewById(R.id.Subject990);
-        subject991 = (LinearLayout) findViewById(R.id.Subject991);
-        subject992 = (LinearLayout) findViewById(R.id.Subject992);
-        subject993 = (LinearLayout) findViewById(R.id.Subject993);
-        subject994 = (LinearLayout) findViewById(R.id.Subject994);
-        subject995 = (LinearLayout) findViewById(R.id.Subject995);
-        subject996 = (LinearLayout) findViewById(R.id.Subject996);
-        subject997 = (LinearLayout) findViewById(R.id.Subject997);
-        subject998 = (LinearLayout) findViewById(R.id.Subject998);
-        subject999 = (LinearLayout) findViewById(R.id.Subject999);
+        subject990 = findViewById(R.id.Subject990);
+        subject991 = findViewById(R.id.Subject991);
+        subject992 = findViewById(R.id.Subject992);
+        subject993 = findViewById(R.id.Subject993);
+        subject994 = findViewById(R.id.Subject994);
+        subject995 = findViewById(R.id.Subject995);
+        subject996 = findViewById(R.id.Subject996);
+        subject997 = findViewById(R.id.Subject997);
+        subject998 = findViewById(R.id.Subject998);
+        subject999 = findViewById(R.id.Subject999);
 
-        resultsSwipe = (SwipeRefreshLayout) findViewById(R.id.ResultsSwipeRefresh);
-        resultsRecycler = (RecyclerView) findViewById(R.id.ResultsRecycler);
+        resultsSwipe = findViewById(R.id.ResultsSwipeRefresh);
+        resultsRecycler = findViewById(R.id.ResultsRecycler);
 
         sharedPreferences = Level110Activity.this.getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE);
 
         VolleySingleton volleySingleton = VolleySingleton.getInstance();
         requestQueue = volleySingleton.getRequestQueue();
 
-        subject90.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                parent.setVisibility(View.GONE);
-                child = level090;
-                child.setVisibility(View.VISIBLE);
-            }
+        subject90.setOnClickListener(v -> {
+            parent.setVisibility(View.GONE);
+            child = level090;
+            child.setVisibility(View.VISIBLE);
         });
-        subject91.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                parent.setVisibility(View.GONE);
-                child = level091;
-                child.setVisibility(View.VISIBLE);
-            }
+        subject91.setOnClickListener(v -> {
+            parent.setVisibility(View.GONE);
+            child = level091;
+            child.setVisibility(View.VISIBLE);
         });
-        subject92.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                parent.setVisibility(View.GONE);
-                child = level092;
-                child.setVisibility(View.VISIBLE);
-            }
+        subject92.setOnClickListener(v -> {
+            parent.setVisibility(View.GONE);
+            child = level092;
+            child.setVisibility(View.VISIBLE);
         });
-        subject93.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                parent.setVisibility(View.GONE);
-                child = level093;
-                child.setVisibility(View.VISIBLE);
-            }
+        subject93.setOnClickListener(v -> {
+            parent.setVisibility(View.GONE);
+            child = level093;
+            child.setVisibility(View.VISIBLE);
         });
-        subject94.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                parent.setVisibility(View.GONE);
-                child = level094;
-                child.setVisibility(View.VISIBLE);
-            }
+        subject94.setOnClickListener(v -> {
+            parent.setVisibility(View.GONE);
+            child = level094;
+            child.setVisibility(View.VISIBLE);
         });
-        subject95.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                parent.setVisibility(View.GONE);
-                child = level095;
-                child.setVisibility(View.VISIBLE);
-            }
+        subject95.setOnClickListener(v -> {
+            parent.setVisibility(View.GONE);
+            child = level095;
+            child.setVisibility(View.VISIBLE);
         });
-        subject96.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                parent.setVisibility(View.GONE);
-                child = level096;
-                child.setVisibility(View.VISIBLE);
-            }
+        subject96.setOnClickListener(v -> {
+            parent.setVisibility(View.GONE);
+            child = level096;
+            child.setVisibility(View.VISIBLE);
         });
-        subject97.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                parent.setVisibility(View.GONE);
-                child = level097;
-                child.setVisibility(View.VISIBLE);
-            }
+        subject97.setOnClickListener(v -> {
+            parent.setVisibility(View.GONE);
+            child = level097;
+            child.setVisibility(View.VISIBLE);
         });
-        subject98.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                parent.setVisibility(View.GONE);
-                child = level098;
-                child.setVisibility(View.VISIBLE);
-            }
+        subject98.setOnClickListener(v -> {
+            parent.setVisibility(View.GONE);
+            child = level098;
+            child.setVisibility(View.VISIBLE);
         });
-        subject99.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                parent.setVisibility(View.GONE);
-                child = level099;
-                child.setVisibility(View.VISIBLE);
-            }
+        subject99.setOnClickListener(v -> {
+            parent.setVisibility(View.GONE);
+            child = level099;
+            child.setVisibility(View.VISIBLE);
         });
 
         resultsSwipe.setColorSchemeResources(R.color.colorPrimary, R.color.colorAccent);
-        resultsSwipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                resultsSwipe.setRefreshing(false);
-            }
-        });
+        resultsSwipe.setOnRefreshListener(() -> resultsSwipe.setRefreshing(false));
 
         subject900.setOnClickListener(new View.OnClickListener() {
             @Override
