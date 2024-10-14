@@ -28,13 +28,13 @@
                 android:layout_marginBottom="@dimen/activity_vertical_margin"
                 android:text="@string/nav_draft_theses" />
 
-            <android.support.design.widget.TextInputLayout style="@style/HoldingsEditTextLayout">
+            <com.google.android.material.textfield.TextInputLayout style="@style/HoldingsEditTextLayout">
 
                 <EditText
                     android:id="@+id/SearchText1"
                     style="@style/HoldingsEditText"
                     android:hint="@string/search_hint" />
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout style="@style/KeywordLayout">
 
@@ -49,13 +49,13 @@
                     android:layout_weight="3" />
             </LinearLayout>
 
-            <android.support.design.widget.TextInputLayout style="@style/HoldingsEditTextLayout">
+            <com.google.android.material.textfield.TextInputLayout style="@style/HoldingsEditTextLayout">
 
                 <EditText
                     android:id="@+id/SearchText2"
                     style="@style/HoldingsEditText"
                     android:hint="@string/search_hint" />
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout style="@style/KeywordLayout">
 
@@ -70,13 +70,13 @@
                     android:layout_weight="3" />
             </LinearLayout>
 
-            <android.support.design.widget.TextInputLayout style="@style/HoldingsEditTextLayout">
+            <com.google.android.material.textfield.TextInputLayout style="@style/HoldingsEditTextLayout">
 
                 <EditText
                     android:id="@+id/SearchText3"
                     style="@style/HoldingsEditText"
                     android:hint="@string/search_hint" />
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Spinner
                 android:id="@+id/searchin3"
@@ -94,7 +94,7 @@
                     style="@style/TypeSpinner"
                     android:orientation="vertical">
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
@@ -105,9 +105,9 @@
                             android:ems="10"
                             android:hint="@string/from"
                             android:inputType="date" />
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
@@ -118,7 +118,7 @@
                             android:ems="10"
                             android:hint="@string/to"
                             android:inputType="date" />
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
             </LinearLayout>
 
@@ -148,7 +148,7 @@
                     style="@style/TypeSpinner" />
             </LinearLayout>
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -159,7 +159,7 @@
                     android:ems="10"
                     android:hint="@string/draft_theses_id"
                     android:inputType="numberDecimal" />
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
                 style="@style/TypeLayout"
@@ -222,16 +222,16 @@
             android:id="@+id/ResultsNumber"
             style="@style/ResultsNumber" />
 
-        <android.support.v4.widget.SwipeRefreshLayout
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/ResultsDraftThesesSwipeRefresh"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/ResultsDraftTheses"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:visibility="gone" />
-        </android.support.v4.widget.SwipeRefreshLayout>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     </LinearLayout>
 </RelativeLayout>

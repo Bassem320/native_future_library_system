@@ -28,55 +28,55 @@
                 android:layout_marginBottom="@dimen/activity_vertical_margin"
                 android:text="@string/nav_papers" />
 
-            <android.support.design.widget.TextInputLayout style="@style/HoldingsEditTextLayout">
+            <com.google.android.material.textfield.TextInputLayout style="@style/HoldingsEditTextLayout">
 
                 <EditText
                     android:id="@+id/PaperTitle"
                     style="@style/HoldingsEditText"
                     android:hint="@string/paper_title" />
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout style="@style/HoldingsEditTextLayout">
+            <com.google.android.material.textfield.TextInputLayout style="@style/HoldingsEditTextLayout">
 
                 <EditText
                     android:id="@+id/Authors"
                     style="@style/HoldingsEditText"
                     android:hint="@string/authors" />
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout style="@style/HoldingsEditTextLayout">
+            <com.google.android.material.textfield.TextInputLayout style="@style/HoldingsEditTextLayout">
 
                 <EditText
                     android:id="@+id/Keywords"
                     style="@style/HoldingsEditText"
                     android:hint="@string/keywords" />
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout style="@style/HoldingsEditTextLayout">
+            <com.google.android.material.textfield.TextInputLayout style="@style/HoldingsEditTextLayout">
 
                 <EditText
                     android:id="@+id/Abstract"
                     style="@style/HoldingsEditText"
                     android:hint="@string/paper_abstract" />
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout style="@style/HoldingsEditTextLayout">
+            <com.google.android.material.textfield.TextInputLayout style="@style/HoldingsEditTextLayout">
 
                 <EditText
                     android:id="@+id/AuthorNationalID"
                     style="@style/HoldingsEditText"
                     android:hint="@string/author_national_id" />
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout style="@style/HoldingsEditTextLayout">
+            <com.google.android.material.textfield.TextInputLayout style="@style/HoldingsEditTextLayout">
 
                 <EditText
                     android:id="@+id/AuthorID"
                     style="@style/HoldingsEditText"
                     android:hint="@string/author_id" />
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <android.support.v7.widget.SwitchCompat
+            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/HasAttachments"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -132,16 +132,16 @@
             android:id="@+id/ResultsNumber"
             style="@style/ResultsNumber" />
 
-        <android.support.v4.widget.SwipeRefreshLayout
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/ResultsPapersSwipeRefresh"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/ResultsPapers"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:visibility="gone" />
-        </android.support.v4.widget.SwipeRefreshLayout>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     </LinearLayout>
 </RelativeLayout>
