@@ -70,19 +70,14 @@ public class BarcodeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_barcode, container, false);
 
-        searchLayout = (FrameLayout) rootView.findViewById(R.id.searchLayout);
-        resultsLayout = (LinearLayout) rootView.findViewById(R.id.resultsLayout);
-        resultsRecycler = (RecyclerView) rootView.findViewById(R.id.ResultsBarcode);
-        resultsSwipe = (SwipeRefreshLayout) rootView.findViewById(R.id.ResultsBarcodeSwipeRefresh);
-        resultsNumber = (TextView) rootView.findViewById(R.id.ResultsNumber);
+        searchLayout = rootView.findViewById(R.id.searchLayout);
+        resultsLayout = rootView.findViewById(R.id.resultsLayout);
+        resultsRecycler = rootView.findViewById(R.id.ResultsBarcode);
+        resultsSwipe = rootView.findViewById(R.id.ResultsBarcodeSwipeRefresh);
+        resultsNumber = rootView.findViewById(R.id.ResultsNumber);
 
-        Button scan = (Button) rootView.findViewById(R.id.scan);
-        scan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                scanBarcode();
-            }
-        });
+        Button scan = rootView.findViewById(R.id.scan);
+        scan.setOnClickListener(v -> scanBarcode());
 
         VolleySingleton volleySingleton = VolleySingleton.getInstance();
         requestQueue = volleySingleton.getRequestQueue();
@@ -125,12 +120,7 @@ public class BarcodeFragment extends Fragment {
         resultsRecycler.setLayoutManager(linearLayoutManager);
         resultsAdapter = new ResultsStartAdapter(getActivity(), BarcodeFragment.this);
         resultsSwipe.setColorSchemeResources(R.color.colorPrimary, R.color.colorAccent);
-        resultsSwipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                resultsSwipe.setRefreshing(false);
-            }
-        });
+        resultsSwipe.setOnRefreshListener(() -> resultsSwipe.setRefreshing(false));
         resultsRecycler.setAdapter(resultsAdapter);
         resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
         resultsSwipe.setRefreshing(true);
@@ -143,35 +133,29 @@ public class BarcodeFragment extends Fragment {
         params.put("SearchText1", isbn);
         params.put("criteria1", "6.");
 
-        CustomRequest request = new CustomRequest(Request.Method.POST, ((MyApplication) getActivity().getApplication()).getServerName() + "libraries/fuapi.aspx?fn=ApplyMobileSearch", params, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-                    resultsList = parseResults(response, true);
-                    if (!nextPage.equals("")) {
-                        resultsList.add(null);
-                    }
-                    resultsAdapter.notifyDataSetChanged();
-                    resultsAdapter.setResultsStartItems(resultsList);
-                    resultsRecycler.setVisibility(View.VISIBLE);
-                    resultsSwipe.setRefreshing(false);
-                } catch (NullPointerException ignored) {
+        CustomRequest request = new CustomRequest(Request.Method.POST, ((MyApplication) getActivity().getApplication()).getServerName() + "libraries/fuapi.aspx?fn=ApplyMobileSearch", params, response -> {
+            try {
+                resultsList = parseResults(response, true);
+                if (!nextPage.isEmpty()) {
+                    resultsList.add(null);
                 }
+                resultsAdapter.notifyDataSetChanged();
+                resultsAdapter.setResultsStartItems(resultsList);
+                resultsRecycler.setVisibility(View.VISIBLE);
+                resultsSwipe.setRefreshing(false);
+            } catch (NullPointerException ignored) {
             }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                try {
-                    resultsSwipe.setRefreshing(false);
-                    if (error instanceof NoConnectionError) {
-                        Snackbar.make(rootView, getResources().getText(R.string.no_internet), Snackbar.LENGTH_LONG).show();
-                    } else {
-                        Snackbar.make(rootView, getResources().getText(R.string.error_fetching_results), Snackbar.LENGTH_LONG).show();
-                    }
-                    resultsLayout.setVisibility(View.GONE);
-                    searchLayout.setVisibility(View.VISIBLE);
-                } catch (NullPointerException ignored) {
+        }, error -> {
+            try {
+                resultsSwipe.setRefreshing(false);
+                if (error instanceof NoConnectionError) {
+                    Snackbar.make(rootView, getResources().getText(R.string.no_internet), Snackbar.LENGTH_LONG).show();
+                } else {
+                    Snackbar.make(rootView, getResources().getText(R.string.error_fetching_results), Snackbar.LENGTH_LONG).show();
                 }
+                resultsLayout.setVisibility(View.GONE);
+                searchLayout.setVisibility(View.VISIBLE);
+            } catch (NullPointerException ignored) {
             }
         });
         int socketTimeout = 60000;
@@ -213,13 +197,13 @@ public class BarcodeFragment extends Fragment {
                         if (currentItem.has("type") && !currentItem.isNull("type")) {
                             type = currentItem.getString("type");
                         }
-                        String classification = "";
+                        StringBuilder classification = new StringBuilder();
                         if (currentItem.has("classification") && !currentItem.isNull("classification")) {
                             JSONArray arrayClassification = currentItem.getJSONArray("classification");
                             for (int j = 0; j < arrayClassification.length(); j++) {
-                                classification += "\u00BB " + arrayClassification.getString(j);
+                                classification.append("» ").append(arrayClassification.getString(j));
                                 if (j < (arrayClassification.length() - 1)) {
-                                    classification += "\t\t";
+                                    classification.append("\t\t");
                                 }
                             }
                         }
@@ -248,7 +232,7 @@ public class BarcodeFragment extends Fragment {
                         item.setTitle(title);
                         item.setImage(image);
                         item.setType(type);
-                        item.setClassification(classification);
+                        item.setClassification(classification.toString());
                         item.setPublisher(publisher);
                         item.setMoreTitle(moreTitle);
                         item.setDetails(details);
@@ -283,39 +267,33 @@ public class BarcodeFragment extends Fragment {
     }
 
     public void loadMore() {
-        if (!nextPage.equals("")) {
+        if (!nextPage.isEmpty()) {
             resultsSwipe.setRefreshing(true);
-            JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, nextPage, new Response.Listener<JSONObject>() {
-                @Override
-                public void onResponse(JSONObject response) {
-                    try {
-                        ArrayList<ResultsStartItem> resultsListMore = parseResults(response, false);
-                        resultsSwipe.setRefreshing(false);
-                        resultsList.remove(resultsList.size() - 1);
-                        resultsAdapter.notifyItemRemoved(resultsList.size());
-                        for (int i = 0; i < resultsListMore.size(); i++) {
-                            ResultsStartItem result = resultsListMore.get(i);
-                            resultsList.add(result);
-                            resultsAdapter.notifyItemInserted(resultsList.size());
-                        }
-                        if (!nextPage.equals("")) {
-                            resultsList.add(null);
-                            resultsAdapter.notifyItemInserted(resultsList.size());
-                        }
-                    } catch (NullPointerException ignored) {
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, nextPage, response -> {
+                try {
+                    ArrayList<ResultsStartItem> resultsListMore = parseResults(response, false);
+                    resultsSwipe.setRefreshing(false);
+                    resultsList.remove(resultsList.size() - 1);
+                    resultsAdapter.notifyItemRemoved(resultsList.size());
+                    for (int i = 0; i < resultsListMore.size(); i++) {
+                        ResultsStartItem result = resultsListMore.get(i);
+                        resultsList.add(result);
+                        resultsAdapter.notifyItemInserted(resultsList.size());
                     }
-                }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    try {
-                        resultsSwipe.setRefreshing(false);
-                        resultsList.remove(resultsList.size() - 1);
-                        resultsAdapter.notifyItemRemoved(resultsList.size());
+                    if (!nextPage.isEmpty()) {
                         resultsList.add(null);
                         resultsAdapter.notifyItemInserted(resultsList.size());
-                    } catch (NullPointerException ignored) {
                     }
+                } catch (NullPointerException ignored) {
+                }
+            }, error -> {
+                try {
+                    resultsSwipe.setRefreshing(false);
+                    resultsList.remove(resultsList.size() - 1);
+                    resultsAdapter.notifyItemRemoved(resultsList.size());
+                    resultsList.add(null);
+                    resultsAdapter.notifyItemInserted(resultsList.size());
+                } catch (NullPointerException ignored) {
                 }
             });
             int socketTimeout = 60000;

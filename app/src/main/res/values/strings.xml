@@ -2027,7 +2027,7 @@
     <string name="scan">Scan</string>
     <string name="scan_canceled">Scan canceled</string>
     <string name="site">Site</string>
-    <string name="bib_pattern">\\b\\d{1,9}-\\d{1,9}|\\d{1,9}\\b</string>
-    <string name="year_pattern">\\b((19|20)\\d{2}[-](19|20)\\d{2})|(19|20)\\d{2}\\b</string>
+    <string name="bib_pattern" translatable="false">\\b\\d{1,9}-\\d{1,9}|\\d{1,9}\\b</string>
+    <string name="year_pattern" translatable="false">\\b((19|20)\\d{2}[-](19|20)\\d{2})|(19|20)\\d{2}\\b</string>
 
 </resources>

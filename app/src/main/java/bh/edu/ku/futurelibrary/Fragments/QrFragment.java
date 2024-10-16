@@ -32,13 +32,8 @@ public class QrFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_qr, container, false);
-        Button scan = (Button) rootView.findViewById(R.id.scan);
-        scan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                scanBarcode();
-            }
-        });
+        Button scan = rootView.findViewById(R.id.scan);
+        scan.setOnClickListener(v -> scanBarcode());
         scanBarcode();
         return rootView;
     }

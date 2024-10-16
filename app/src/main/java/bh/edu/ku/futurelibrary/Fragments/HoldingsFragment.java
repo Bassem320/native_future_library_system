@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,7 +31,6 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.RetryPolicy;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -55,6 +55,7 @@ import bh.edu.ku.futurelibrary.R;
  * Created by Eslam El-Meniawy on 01-Nov-15.
  */
 public class HoldingsFragment extends Fragment {
+    public static final String TAG = "HoldingsFragment";
     private int itemType = 0, keywords1 = 0, keywords2 = 0, keywords3 = 0, conc1 = 0, conc2 = 0, wordProcessing = 0, orderBy = 0;
     private final String[] itemTypes = {"", "24.2.1.", "24.2.10.", "24.2.11.", "24.2.12.", "24.2.13.", "24.2.14.", "24.2.15.", "24.2.16.", "24.2.17.", "24.2.18.", "24.2.19.", "24.2.2.", "24.2.20.", "24.2.21.", "24.2.22.", "24.2.23.", "24.2.24.", "24.2.25.", "24.2.26.", "24.2.27.", "24.2.28.", "24.2.29.", "24.2.3.", "24.2.5.", "24.2.6.", "24.2.7.", "24.2.8.", "24.2.9."};
     private final String[] keywords = {"1.", "0.", "2.", "3.", "9.", "6.", "7.", "8.", "5."};
@@ -256,27 +257,12 @@ public class HoldingsFragment extends Fragment {
             searchText1 = searchTextET1.getText().toString();
 
             bibID = bibIDET.getText().toString();
-            if (bibID == null) {
-                bibID = "";
-            }
 
             publishYear = publishYearET.getText().toString();
-            if (publishYear == null) {
-                publishYear = "";
-            }
 
             searchText2 = searchTextET2.getText().toString();
-            if (searchText2 == null) {
-                searchText2 = "";
-            }
             searchText3 = searchTextET3.getText().toString();
-            if (searchText3 == null) {
-                searchText3 = "";
-            }
             attachContains = attachContainsET.getText().toString();
-            if (attachContains == null) {
-                attachContains = "";
-            }
 
             if (searchText1.isEmpty() && bibID.isEmpty()) {
                 Snackbar.make(v, getResources().getText(R.string.enter_text), Snackbar.LENGTH_LONG).show();
@@ -350,7 +336,7 @@ public class HoldingsFragment extends Fragment {
 
     private void startSearch() {
         nextPage = "";
-        Map<String, String> params = new HashMap<String, String>();
+        Map<String, String> params = new HashMap<>();
         params.put("ScopeID", ((MyApplication) getActivity().getApplication()).getScopeID());
         params.put("fn", "ApplyMobileSearch");
         params.put("SearchIdForm", "");
@@ -382,6 +368,7 @@ public class HoldingsFragment extends Fragment {
                     resultsRecycler.setVisibility(View.VISIBLE);
                     resultsSwipe.setRefreshing(false);
                 } catch (NullPointerException e) {
+                    Log.e(TAG, "onResponse: " + null);
                 }
             }
         }, error -> {
@@ -395,6 +382,7 @@ public class HoldingsFragment extends Fragment {
                 resultsLayout.setVisibility(View.GONE);
                 searchLayout.setVisibility(View.VISIBLE);
             } catch (NullPointerException e) {
+                Log.e(TAG, "startSearch: " + null);
             }
         });
         int socketTimeout = 60000;
@@ -490,6 +478,7 @@ public class HoldingsFragment extends Fragment {
                             resultsSwipe.setRefreshing(false);
                         }
                     } catch (NullPointerException e) {
+                        Log.e(TAG, "parseResults: " + e);
                     }
                 }
             } catch (JSONException | NullPointerException | IllegalStateException e) {
@@ -498,6 +487,7 @@ public class HoldingsFragment extends Fragment {
                     resultsLayout.setVisibility(View.GONE);
                     searchLayout.setVisibility(View.VISIBLE);
                 } catch (NullPointerException ex) {
+                    Log.e(TAG, "parseResults: " + e);
                 }
             }
         }
@@ -507,37 +497,33 @@ public class HoldingsFragment extends Fragment {
     public void loadMore() {
         if (!nextPage.isEmpty()) {
             resultsSwipe.setRefreshing(true);
-            JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, nextPage, new Response.Listener<JSONObject>() {
-                @Override
-                public void onResponse(JSONObject response) {
-                    try {
-                        ArrayList<ResultsStartItem> resultsListMore = parseResults(response, false);
-                        resultsSwipe.setRefreshing(false);
-                        resultsList.remove(resultsList.size() - 1);
-                        resultsAdapter.notifyItemRemoved(resultsList.size());
-                        for (int i = 0; i < resultsListMore.size(); i++) {
-                            ResultsStartItem result = resultsListMore.get(i);
-                            resultsList.add(result);
-                            resultsAdapter.notifyItemInserted(resultsList.size());
-                        }
-                        if (!nextPage.isEmpty()) {
-                            resultsList.add(null);
-                            resultsAdapter.notifyItemInserted(resultsList.size());
-                        }
-                    } catch (NullPointerException e) {
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, nextPage, response -> {
+                try {
+                    ArrayList<ResultsStartItem> resultsListMore = parseResults(response, false);
+                    resultsSwipe.setRefreshing(false);
+                    resultsList.remove(resultsList.size() - 1);
+                    resultsAdapter.notifyItemRemoved(resultsList.size());
+                    for (int i = 0; i < resultsListMore.size(); i++) {
+                        ResultsStartItem result = resultsListMore.get(i);
+                        resultsList.add(result);
+                        resultsAdapter.notifyItemInserted(resultsList.size());
                     }
-                }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    try {
-                        resultsSwipe.setRefreshing(false);
-                        resultsList.remove(resultsList.size() - 1);
-                        resultsAdapter.notifyItemRemoved(resultsList.size());
+                    if (!nextPage.isEmpty()) {
                         resultsList.add(null);
                         resultsAdapter.notifyItemInserted(resultsList.size());
-                    } catch (NullPointerException e) {
                     }
+                } catch (NullPointerException e) {
+                    Log.e(TAG, "onResponse: " + e);
+                }
+            }, error -> {
+                try {
+                    resultsSwipe.setRefreshing(false);
+                    resultsList.remove(resultsList.size() - 1);
+                    resultsAdapter.notifyItemRemoved(resultsList.size());
+                    resultsList.add(null);
+                    resultsAdapter.notifyItemInserted(resultsList.size());
+                } catch (NullPointerException e) {
+                    Log.e(TAG, "onErrorResponse: " + e);
                 }
             });
             int socketTimeout = 60000;

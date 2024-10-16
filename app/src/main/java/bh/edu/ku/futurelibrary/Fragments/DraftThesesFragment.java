@@ -3,6 +3,7 @@ package bh.edu.ku.futurelibrary.Fragments;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,9 +28,7 @@ import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.NoConnectionError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
 import com.android.volley.RetryPolicy;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -54,11 +53,14 @@ import bh.edu.ku.futurelibrary.R;
  * Created by Eslam El-Meniawy on 01-Nov-15.
  */
 public class DraftThesesFragment extends Fragment {
+    public static final String TAG = "DraftThesesFragment";
     private Spinner subSpecialitySpinner;
     private int searchin1 = 0, searchin2 = 0, searchin3 = 0, conc1 = 0, conc2 = 0, speciality = 0, subSpeciality = 0, degree = 0;
-    private String[] searchIn = {"*", "f2", "f8", "f5"}, concs = {"and", "or", "and not"}, degrees = {"", "24.15.1.", "24.15.2."},
-           specialities = {"", "100.1.", "100.10.", "100.11.", "100.12.", "100.13.", "100.14.", "100.15.", "100.16.", "100.17.", "100.18.", "100.19.", "100.2.", "100.20.", "100.21.", "100.22.", "100.23.", "100.24.", "100.25.", "100.26.", "100.27.", "100.28.", "100.3.", "100.4.", "100.5.", "100.6.", "100.7.", "100.8.", "100.9.", "100.96."};
-    private String[][] subSpecialities = {
+    private final String[] searchIn = {"*", "f2", "f8", "f5"};
+    private final String[] concs = {"and", "or", "and not"};
+    private final String[] degrees = {"", "24.15.1.", "24.15.2."};
+    private final String[] specialities = {"", "100.1.", "100.10.", "100.11.", "100.12.", "100.13.", "100.14.", "100.15.", "100.16.", "100.17.", "100.18.", "100.19.", "100.2.", "100.20.", "100.21.", "100.22.", "100.23.", "100.24.", "100.25.", "100.26.", "100.27.", "100.28.", "100.3.", "100.4.", "100.5.", "100.6.", "100.7.", "100.8.", "100.9.", "100.96."};
+    private final String[][] subSpecialities = {
             {""}, {"", "100.1.2.", "100.1.8.", "100.1.1.", "100.1.7.", "100.1.5.", "100.1.3.", "100.1.4.", "100.1.11.", "100.1.9.", "100.1.10.", "100.1.6."},
             {"", "100.10.8.", "100.10.13.", "100.10.5.", "100.10.7.", "100.10.6.", "100.10.9.", "100.10.11.", "100.10.10.", "100.10.3.", "100.10.1.", "100.10.12.", "100.10.2.", "100.10.4."},
             {"", "100.11.3.", "100.11.2.", "100.11.1."}, {"", "100.12.5.", "100.12.1.", "100.12.4.", "100.12.3.", "100.12.2."},
@@ -105,77 +107,59 @@ public class DraftThesesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_draft_theses, container, false);
 
-        Spinner searchinSpinner1 = (Spinner) rootView.findViewById(R.id.searchin1);
-        Spinner searchinSpinner2 = (Spinner) rootView.findViewById(R.id.searchin2);
-        Spinner searchinSpinner3 = (Spinner) rootView.findViewById(R.id.searchin3);
-        Spinner concSpinner1 = (Spinner) rootView.findViewById(R.id.conc1);
-        Spinner concSpinner2 = (Spinner) rootView.findViewById(R.id.conc2);
-        Spinner specialitySpinner = (Spinner) rootView.findViewById(R.id.SpecialitySpinner);
-        subSpecialitySpinner = (Spinner) rootView.findViewById(R.id.SubSpecialitySpinner);
-        Spinner degreeSpinner = (Spinner) rootView.findViewById(R.id.DegreeSpinner);
-        searchTextET1 = (EditText) rootView.findViewById(R.id.SearchText1);
-        searchTextET2 = (EditText) rootView.findViewById(R.id.SearchText2);
-        searchTextET3 = (EditText) rootView.findViewById(R.id.SearchText3);
-        dateFromET = (EditText) rootView.findViewById(R.id.date_from);
-        dateToET = (EditText) rootView.findViewById(R.id.date_to);
-        draftThesesIDET = (EditText) rootView.findViewById(R.id.DraftTheses_ID);
-        Button searchButton = (Button) rootView.findViewById(R.id.searchButton);
-        searchLayout = (ScrollView) rootView.findViewById(R.id.searchLayout);
-        resultsLayout = (LinearLayout) rootView.findViewById(R.id.resultsLayout);
-        resultsRecycler = (RecyclerView) rootView.findViewById(R.id.ResultsDraftTheses);
-        resultsSwipe = (SwipeRefreshLayout) rootView.findViewById(R.id.ResultsDraftThesesSwipeRefresh);
-        resultsNumber = (TextView) rootView.findViewById(R.id.ResultsNumber);
+        Spinner searchinSpinner1 = rootView.findViewById(R.id.searchin1);
+        Spinner searchinSpinner2 = rootView.findViewById(R.id.searchin2);
+        Spinner searchinSpinner3 = rootView.findViewById(R.id.searchin3);
+        Spinner concSpinner1 = rootView.findViewById(R.id.conc1);
+        Spinner concSpinner2 = rootView.findViewById(R.id.conc2);
+        Spinner specialitySpinner = rootView.findViewById(R.id.SpecialitySpinner);
+        subSpecialitySpinner = rootView.findViewById(R.id.SubSpecialitySpinner);
+        Spinner degreeSpinner = rootView.findViewById(R.id.DegreeSpinner);
+        searchTextET1 = rootView.findViewById(R.id.SearchText1);
+        searchTextET2 = rootView.findViewById(R.id.SearchText2);
+        searchTextET3 = rootView.findViewById(R.id.SearchText3);
+        dateFromET = rootView.findViewById(R.id.date_from);
+        dateToET = rootView.findViewById(R.id.date_to);
+        draftThesesIDET = rootView.findViewById(R.id.DraftTheses_ID);
+        Button searchButton = rootView.findViewById(R.id.searchButton);
+        searchLayout = rootView.findViewById(R.id.searchLayout);
+        resultsLayout = rootView.findViewById(R.id.resultsLayout);
+        resultsRecycler = rootView.findViewById(R.id.ResultsDraftTheses);
+        resultsSwipe = rootView.findViewById(R.id.ResultsDraftThesesSwipeRefresh);
+        resultsNumber = rootView.findViewById(R.id.ResultsNumber);
 
-        searchTextET1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    hide_keyboard_from(getActivity(), searchTextET1);
-                }
+        searchTextET1.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus) {
+                hide_keyboard_from(getActivity(), searchTextET1);
             }
         });
 
-        searchTextET2.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    hide_keyboard_from(getActivity(), searchTextET2);
-                }
+        searchTextET2.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus) {
+                hide_keyboard_from(getActivity(), searchTextET2);
             }
         });
 
-        searchTextET3.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    hide_keyboard_from(getActivity(), searchTextET3);
-                }
+        searchTextET3.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus) {
+                hide_keyboard_from(getActivity(), searchTextET3);
             }
         });
 
-        dateFromET.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    hide_keyboard_from(getActivity(), dateFromET);
-                }
+        dateFromET.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus) {
+                hide_keyboard_from(getActivity(), dateFromET);
             }
         });
 
-        dateToET.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    hide_keyboard_from(getActivity(), dateToET);
-                }
+        dateToET.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus) {
+                hide_keyboard_from(getActivity(), dateToET);
             }
         });
-        draftThesesIDET.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    hide_keyboard_from(getActivity(), draftThesesIDET);
-                }
+        draftThesesIDET.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus) {
+                hide_keyboard_from(getActivity(), draftThesesIDET);
             }
         });
 
@@ -385,74 +369,56 @@ public class DraftThesesFragment extends Fragment {
             }
         });
 
-        searchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                searchText1 = searchTextET1.getText().toString();
+        searchButton.setOnClickListener(v -> {
+            searchText1 = searchTextET1.getText().toString();
 
-                dateFrom = dateFromET.getText().toString();
-                if (dateFrom == null) {
-                    dateFrom = "";
-                }
+            dateFrom = dateFromET.getText().toString();
 
-                dateTo = dateToET.getText().toString();
-                if (dateTo == null) {
-                    dateTo = "";
-                }
+            dateTo = dateToET.getText().toString();
 
-                searchText2 = searchTextET2.getText().toString();
-                if (searchText2 == null) {
-                    searchText2 = "";
-                }
-                searchText3 = searchTextET3.getText().toString();
-                if (searchText3 == null) {
-                    searchText3 = "";
-                }
-                draftThesesID = draftThesesIDET.getText().toString();
-                if (draftThesesID == null) {
-                    draftThesesID = "";
-                }
+            searchText2 = searchTextET2.getText().toString();
+            searchText3 = searchTextET3.getText().toString();
+            draftThesesID = draftThesesIDET.getText().toString();
 
-                if (searchText1.equals("") || searchText1 == null) {
-                    searchTextET1.setError(getText(R.string.enter_text));
-                } else if ((!(dateFrom.equals("") || dateFrom == null)) || (!(dateTo.equals("") || dateTo == null))) {
-                    String DATE_PATTERN = "^(0?[1-9]|[12][0-9]|3[01])[- /.](0?[1-9]|1[012])[- /.](19|20)\\d{2}$";
-                    Pattern patternDate = Pattern.compile(DATE_PATTERN);
-                    Matcher matcherDateFrom = patternDate.matcher(dateFrom);
-                    Matcher matcherDateTo = patternDate.matcher(dateTo);
-                    if ((!(dateFrom.equals("") || dateFrom == null)) && (!(dateTo.equals("") || dateTo == null))) {
-                        boolean fromOK, toOK;
-                        if (!matcherDateFrom.matches()) {
-                            fromOK = false;
-                            dateFromET.setError(getText(R.string.date_error));
-                        } else {
-                            fromOK = true;
-                        }
-                        if (!matcherDateTo.matches()) {
-                            toOK = false;
-                            dateToET.setError(getText(R.string.date_error));
-                        } else {
-                            toOK = true;
-                        }
-                        if (fromOK && toOK) {
-                            completeSearch();
-                        }
-                    } else if (!(dateFrom.equals("") || dateFrom == null)) {
-                        if (!matcherDateFrom.matches()) {
-                            dateFromET.setError(getText(R.string.date_error));
-                        } else {
-                            completeSearch();
-                        }
-                    } else if (!(dateTo.equals("") || dateTo == null)) {
-                        if (!matcherDateTo.matches()) {
-                            dateToET.setError(getText(R.string.date_error));
-                        } else {
-                            completeSearch();
-                        }
+            if (searchText1 == null || searchText1.isEmpty()) {
+                searchTextET1.setError(getText(R.string.enter_text));
+            } else if ((!(dateFrom == null || dateFrom.isEmpty())) || (!(dateTo == null || dateTo.isEmpty()))) {
+                String DATE_PATTERN = "^(0?[1-9]|[12][0-9]|3[01])[- /.](0?[1-9]|1[012])[- /.](19|20)\\d{2}$";
+                Pattern patternDate = Pattern.compile(DATE_PATTERN);
+                Matcher matcherDateFrom = patternDate.matcher(dateFrom);
+                Matcher matcherDateTo = patternDate.matcher(dateTo);
+                if ((!(dateFrom == null || dateFrom.isEmpty())) && (!(dateTo == null || dateTo.isEmpty()))) {
+                    boolean fromOK, toOK;
+                    if (!matcherDateFrom.matches()) {
+                        fromOK = false;
+                        dateFromET.setError(getText(R.string.date_error));
+                    } else {
+                        fromOK = true;
                     }
-                } else {
-                    completeSearch();
+                    if (!matcherDateTo.matches()) {
+                        toOK = false;
+                        dateToET.setError(getText(R.string.date_error));
+                    } else {
+                        toOK = true;
+                    }
+                    if (fromOK && toOK) {
+                        completeSearch();
+                    }
+                } else if (!(dateFrom == null || dateFrom.isEmpty())) {
+                    if (!matcherDateFrom.matches()) {
+                        dateFromET.setError(getText(R.string.date_error));
+                    } else {
+                        completeSearch();
+                    }
+                } else if (!(dateTo == null || dateTo.isEmpty())) {
+                    if (!matcherDateTo.matches()) {
+                        dateToET.setError(getText(R.string.date_error));
+                    } else {
+                        completeSearch();
+                    }
                 }
+            } else {
+                completeSearch();
             }
         });
 
@@ -475,12 +441,7 @@ public class DraftThesesFragment extends Fragment {
         resultsRecycler.setLayoutManager(linearLayoutManager);
         resultsAdapter = new ResultsDraftThesesAdapter(getActivity(), DraftThesesFragment.this);
         resultsSwipe.setColorSchemeResources(R.color.colorPrimary, R.color.colorAccent);
-        resultsSwipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                resultsSwipe.setRefreshing(false);
-            }
-        });
+        resultsSwipe.setOnRefreshListener(() -> resultsSwipe.setRefreshing(false));
         resultsRecycler.setAdapter(resultsAdapter);
         resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
         resultsSwipe.setRefreshing(true);
@@ -489,7 +450,7 @@ public class DraftThesesFragment extends Fragment {
 
     private void startSearch() {
         nextPage = "";
-        Map<String, String> params = new HashMap<String, String>();
+        Map<String, String> params = new HashMap<>();
         params.put("ScopeIDSelect", ((MyApplication) getActivity().getApplication()).getScopeID());
         params.put("Search1", searchText1);
         params.put("critria1", searchIn[searchin1]);
@@ -505,35 +466,31 @@ public class DraftThesesFragment extends Fragment {
         params.put("sub_Subject", subSpecialities[speciality][subSpeciality]);
         params.put("ThesisID", draftThesesID);
         params.put("Degree", degrees[degree]);
-        CustomRequest request = new CustomRequest(Request.Method.POST, ((MyApplication) getActivity().getApplication()).getServerName() + "libraries/fuapi.aspx?fn=ApplaySearchDraftThesis", params, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-                    resultsList = parseResults(response, true);
-                    if (!nextPage.equals("")) {
-                        resultsList.add(null);
-                    }
-                    resultsAdapter.notifyDataSetChanged();
-                    resultsAdapter.setDraftThesesItems(resultsList);
-                    resultsRecycler.setVisibility(View.VISIBLE);
-                    resultsSwipe.setRefreshing(false);
-                } catch (NullPointerException e) {
+        CustomRequest request = new CustomRequest(Request.Method.POST, ((MyApplication) getActivity().getApplication()).getServerName() + "libraries/fuapi.aspx?fn=ApplaySearchDraftThesis", params, response -> {
+            try {
+                resultsList = parseResults(response, true);
+                if (!nextPage.isEmpty()) {
+                    resultsList.add(null);
                 }
+                resultsAdapter.notifyDataSetChanged();
+                resultsAdapter.setDraftThesesItems(resultsList);
+                resultsRecycler.setVisibility(View.VISIBLE);
+                resultsSwipe.setRefreshing(false);
+            } catch (NullPointerException e) {
+                Log.e(TAG, "onResponse: " + e);
             }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                try {
-                    resultsSwipe.setRefreshing(false);
-                    if (error instanceof NoConnectionError) {
-                        Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.no_internet), Snackbar.LENGTH_LONG).show();
-                    } else {
-                        Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.error_fetching_results), Snackbar.LENGTH_LONG).show();
-                    }
-                    resultsLayout.setVisibility(View.GONE);
-                    searchLayout.setVisibility(View.VISIBLE);
-                } catch (NullPointerException e) {
+        }, error -> {
+            try {
+                resultsSwipe.setRefreshing(false);
+                if (error instanceof NoConnectionError) {
+                    Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.no_internet), Snackbar.LENGTH_LONG).show();
+                } else {
+                    Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.error_fetching_results), Snackbar.LENGTH_LONG).show();
                 }
+                resultsLayout.setVisibility(View.GONE);
+                searchLayout.setVisibility(View.VISIBLE);
+            } catch (NullPointerException e) {
+                Log.e(TAG, "onErrorResponse: " + e);
             }
         });
         int socketTimeout = 60000;
@@ -547,7 +504,7 @@ public class DraftThesesFragment extends Fragment {
         if (response != null && response.length() > 0) {
             try {
                 if (response.has("TotalNoOfResults") && !response.isNull("TotalNoOfResults")) {
-                    resultsNumber.setText(getText(R.string.total_result) + " " + response.getString("TotalNoOfResults"));
+                    resultsNumber.setText(String.format("%s %s", getText(R.string.total_result), response.getString("TotalNoOfResults")));
                 } else {
                     resultsNumber.setVisibility(View.GONE);
                 }
@@ -608,6 +565,7 @@ public class DraftThesesFragment extends Fragment {
                             resultsSwipe.setRefreshing(false);
                         }
                     } catch (NullPointerException e) {
+                        Log.e(TAG, "parseResults: " + e);
                     }
                 }
             } catch (JSONException | NullPointerException | IllegalStateException e) {
@@ -617,6 +575,7 @@ public class DraftThesesFragment extends Fragment {
                     searchLayout.setVisibility(View.VISIBLE);
 
                 } catch (NullPointerException ex) {
+                    Log.e(TAG, "parseResults: " + e);
                 }
             }
         }
@@ -624,39 +583,35 @@ public class DraftThesesFragment extends Fragment {
     }
 
     public void loadMore() {
-        if (!nextPage.equals("")) {
+        if (!nextPage.isEmpty()) {
             resultsSwipe.setRefreshing(true);
-            JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, nextPage, new Response.Listener<JSONObject>() {
-                @Override
-                public void onResponse(JSONObject response) {
-                    try {
-                        ArrayList<DraftThesesItem> resultsListMore = parseResults(response, false);
-                        resultsSwipe.setRefreshing(false);
-                        resultsList.remove(resultsList.size() - 1);
-                        resultsAdapter.notifyItemRemoved(resultsList.size());
-                        for (int i = 0; i < resultsListMore.size(); i++) {
-                            DraftThesesItem result = resultsListMore.get(i);
-                            resultsList.add(result);
-                            resultsAdapter.notifyItemInserted(resultsList.size());
-                        }
-                        if (!nextPage.equals("")) {
-                            resultsList.add(null);
-                            resultsAdapter.notifyItemInserted(resultsList.size());
-                        }
-                    } catch (NullPointerException e) {
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, nextPage, response -> {
+                try {
+                    ArrayList<DraftThesesItem> resultsListMore = parseResults(response, false);
+                    resultsSwipe.setRefreshing(false);
+                    resultsList.remove(resultsList.size() - 1);
+                    resultsAdapter.notifyItemRemoved(resultsList.size());
+                    for (int i = 0; i < resultsListMore.size(); i++) {
+                        DraftThesesItem result = resultsListMore.get(i);
+                        resultsList.add(result);
+                        resultsAdapter.notifyItemInserted(resultsList.size());
                     }
-                }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    try {
-                        resultsSwipe.setRefreshing(false);
-                        resultsList.remove(resultsList.size() - 1);
-                        resultsAdapter.notifyItemRemoved(resultsList.size());
+                    if (!nextPage.isEmpty()) {
                         resultsList.add(null);
                         resultsAdapter.notifyItemInserted(resultsList.size());
-                    } catch (NullPointerException e) {
                     }
+                } catch (NullPointerException e) {
+                    Log.e(TAG, "onResponse: " + e);
+                }
+            }, error -> {
+                try {
+                    resultsSwipe.setRefreshing(false);
+                    resultsList.remove(resultsList.size() - 1);
+                    resultsAdapter.notifyItemRemoved(resultsList.size());
+                    resultsList.add(null);
+                    resultsAdapter.notifyItemInserted(resultsList.size());
+                } catch (NullPointerException e) {
+                    Log.e(TAG, "onErrorResponse: " + e);
                 }
             });
             int socketTimeout = 60000;

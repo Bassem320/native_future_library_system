@@ -8,6 +8,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -17,9 +19,7 @@ import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.NoConnectionError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
 import com.android.volley.RetryPolicy;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -37,6 +37,7 @@ import bh.edu.ku.futurelibrary.R;
 
 public class Level110Activity extends AppCompatActivity {
     public static final String PREF_FILE_NAME = "LibrarySystemPref";
+    public static final String TAG = "LEVEL10";
     ScrollView parent, child = null,
             level090, level091, level092, level093, level094, level095, level096, level097, level098, level099;
     LinearLayout subject90, subject91, subject92, subject93, subject94, subject95, subject96, subject97, subject98, subject99,
@@ -265,1614 +266,1314 @@ public class Level110Activity extends AppCompatActivity {
         resultsSwipe.setColorSchemeResources(R.color.colorPrimary, R.color.colorAccent);
         resultsSwipe.setOnRefreshListener(() -> resultsSwipe.setRefreshing(false));
 
-        subject900.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.1.1.";
-                classNo = "900";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject900.setOnClickListener(v -> {
+            layout = "1.10.1.1.";
+            classNo = "900";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject901.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.1.2.";
-                classNo = "901";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject901.setOnClickListener(v -> {
+            layout = "1.10.1.2.";
+            classNo = "901";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject902.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.1.3.";
-                classNo = "902";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject902.setOnClickListener(v -> {
+            layout = "1.10.1.3.";
+            classNo = "902";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject903.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.1.4.";
-                classNo = "903";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject903.setOnClickListener(v -> {
+            layout = "1.10.1.4.";
+            classNo = "903";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject904.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.1.5.";
-                classNo = "904";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject904.setOnClickListener(v -> {
+            layout = "1.10.1.5.";
+            classNo = "904";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject905.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.1.6.";
-                classNo = "905";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject905.setOnClickListener(v -> {
+            layout = "1.10.1.6.";
+            classNo = "905";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject906.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.1.7.";
-                classNo = "906";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject906.setOnClickListener(v -> {
+            layout = "1.10.1.7.";
+            classNo = "906";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject907.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.1.8.";
-                classNo = "907";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject907.setOnClickListener(v -> {
+            layout = "1.10.1.8.";
+            classNo = "907";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject908.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.1.9.";
-                classNo = "908";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject908.setOnClickListener(v -> {
+            layout = "1.10.1.9.";
+            classNo = "908";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject909.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.1.10.";
-                classNo = "909";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject909.setOnClickListener(v -> {
+            layout = "1.10.1.10.";
+            classNo = "909";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
 
-        subject910.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.2.1.";
-                classNo = "910";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject910.setOnClickListener(v -> {
+            layout = "1.10.2.1.";
+            classNo = "910";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject911.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.2.2.";
-                classNo = "911";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject911.setOnClickListener(v -> {
+            layout = "1.10.2.2.";
+            classNo = "911";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject912.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.2.3.";
-                classNo = "912";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject912.setOnClickListener(v -> {
+            layout = "1.10.2.3.";
+            classNo = "912";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject913.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.2.4.";
-                classNo = "913";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject913.setOnClickListener(v -> {
+            layout = "1.10.2.4.";
+            classNo = "913";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject914.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.2.5.";
-                classNo = "914";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject914.setOnClickListener(v -> {
+            layout = "1.10.2.5.";
+            classNo = "914";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject915.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.2.6.";
-                classNo = "915";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject915.setOnClickListener(v -> {
+            layout = "1.10.2.6.";
+            classNo = "915";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject916.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.2.7.";
-                classNo = "916";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject916.setOnClickListener(v -> {
+            layout = "1.10.2.7.";
+            classNo = "916";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject917.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.2.8.";
-                classNo = "917";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject917.setOnClickListener(v -> {
+            layout = "1.10.2.8.";
+            classNo = "917";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject918.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.2.9.";
-                classNo = "918";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject918.setOnClickListener(v -> {
+            layout = "1.10.2.9.";
+            classNo = "918";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject919.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.2.10.";
-                classNo = "919";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject919.setOnClickListener(v -> {
+            layout = "1.10.2.10.";
+            classNo = "919";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
 
-        subject920.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.3.1.";
-                classNo = "920";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject920.setOnClickListener(v -> {
+            layout = "1.10.3.1.";
+            classNo = "920";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject921.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.3.2.";
-                classNo = "921";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject921.setOnClickListener(v -> {
+            layout = "1.10.3.2.";
+            classNo = "921";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject922.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.3.3.";
-                classNo = "922";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject922.setOnClickListener(v -> {
+            layout = "1.10.3.3.";
+            classNo = "922";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject923.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.3.4.";
-                classNo = "923";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject923.setOnClickListener(v -> {
+            layout = "1.10.3.4.";
+            classNo = "923";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject924.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.3.5.";
-                classNo = "924";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject924.setOnClickListener(v -> {
+            layout = "1.10.3.5.";
+            classNo = "924";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject925.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.3.6.";
-                classNo = "925";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject925.setOnClickListener(v -> {
+            layout = "1.10.3.6.";
+            classNo = "925";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject926.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.3.7.";
-                classNo = "926";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject926.setOnClickListener(v -> {
+            layout = "1.10.3.7.";
+            classNo = "926";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject927.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.3.8.";
-                classNo = "927";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject927.setOnClickListener(v -> {
+            layout = "1.10.3.8.";
+            classNo = "927";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject928.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.3.9.";
-                classNo = "928";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject928.setOnClickListener(v -> {
+            layout = "1.10.3.9.";
+            classNo = "928";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject929.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.3.10.";
-                classNo = "929";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject929.setOnClickListener(v -> {
+            layout = "1.10.3.10.";
+            classNo = "929";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
 
-        subject930.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.4.1.";
-                classNo = "930";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject930.setOnClickListener(v -> {
+            layout = "1.10.4.1.";
+            classNo = "930";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject931.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.4.2.";
-                classNo = "931";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject931.setOnClickListener(v -> {
+            layout = "1.10.4.2.";
+            classNo = "931";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject932.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.4.3.";
-                classNo = "932";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject932.setOnClickListener(v -> {
+            layout = "1.10.4.3.";
+            classNo = "932";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject933.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.4.4.";
-                classNo = "933";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject933.setOnClickListener(v -> {
+            layout = "1.10.4.4.";
+            classNo = "933";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject934.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.4.5.";
-                classNo = "934";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject934.setOnClickListener(v -> {
+            layout = "1.10.4.5.";
+            classNo = "934";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject935.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.4.6.";
-                classNo = "935";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject935.setOnClickListener(v -> {
+            layout = "1.10.4.6.";
+            classNo = "935";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject936.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.4.7.";
-                classNo = "936";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject936.setOnClickListener(v -> {
+            layout = "1.10.4.7.";
+            classNo = "936";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject937.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.4.8.";
-                classNo = "937";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject937.setOnClickListener(v -> {
+            layout = "1.10.4.8.";
+            classNo = "937";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject938.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.4.9.";
-                classNo = "938";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject938.setOnClickListener(v -> {
+            layout = "1.10.4.9.";
+            classNo = "938";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject939.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.4.10.";
-                classNo = "939";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject939.setOnClickListener(v -> {
+            layout = "1.10.4.10.";
+            classNo = "939";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
 
-        subject940.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.5.1.";
-                classNo = "940";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject940.setOnClickListener(v -> {
+            layout = "1.10.5.1.";
+            classNo = "940";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject941.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.5.2.";
-                classNo = "941";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject941.setOnClickListener(v -> {
+            layout = "1.10.5.2.";
+            classNo = "941";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject942.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.5.3.";
-                classNo = "942";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject942.setOnClickListener(v -> {
+            layout = "1.10.5.3.";
+            classNo = "942";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject943.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.5.4.";
-                classNo = "943";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject943.setOnClickListener(v -> {
+            layout = "1.10.5.4.";
+            classNo = "943";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject944.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.5.5.";
-                classNo = "944";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject944.setOnClickListener(v -> {
+            layout = "1.10.5.5.";
+            classNo = "944";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject945.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.5.6.";
-                classNo = "945";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject945.setOnClickListener(v -> {
+            layout = "1.10.5.6.";
+            classNo = "945";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject946.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.5.7.";
-                classNo = "946";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject946.setOnClickListener(v -> {
+            layout = "1.10.5.7.";
+            classNo = "946";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject947.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.5.8.";
-                classNo = "947";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject947.setOnClickListener(v -> {
+            layout = "1.10.5.8.";
+            classNo = "947";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject948.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.5.9.";
-                classNo = "948";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject948.setOnClickListener(v -> {
+            layout = "1.10.5.9.";
+            classNo = "948";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject949.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.5.10.";
-                classNo = "949";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject949.setOnClickListener(v -> {
+            layout = "1.10.5.10.";
+            classNo = "949";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
 
-        subject950.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.6.1.";
-                classNo = "950";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject950.setOnClickListener(v -> {
+            layout = "1.10.6.1.";
+            classNo = "950";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject951.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.6.2.";
-                classNo = "951";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject951.setOnClickListener(v -> {
+            layout = "1.10.6.2.";
+            classNo = "951";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject952.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.6.3.";
-                classNo = "952";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject952.setOnClickListener(v -> {
+            layout = "1.10.6.3.";
+            classNo = "952";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject953.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.6.4.";
-                classNo = "953";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject953.setOnClickListener(v -> {
+            layout = "1.10.6.4.";
+            classNo = "953";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject954.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.6.5.";
-                classNo = "954";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject954.setOnClickListener(v -> {
+            layout = "1.10.6.5.";
+            classNo = "954";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject955.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.6.6.";
-                classNo = "955";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject955.setOnClickListener(v -> {
+            layout = "1.10.6.6.";
+            classNo = "955";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject956.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.6.7.";
-                classNo = "956";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject956.setOnClickListener(v -> {
+            layout = "1.10.6.7.";
+            classNo = "956";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject957.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.6.8.";
-                classNo = "957";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject957.setOnClickListener(v -> {
+            layout = "1.10.6.8.";
+            classNo = "957";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject958.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.6.9.";
-                classNo = "958";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject958.setOnClickListener(v -> {
+            layout = "1.10.6.9.";
+            classNo = "958";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject959.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.6.10.";
-                classNo = "959";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject959.setOnClickListener(v -> {
+            layout = "1.10.6.10.";
+            classNo = "959";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
 
-        subject960.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.7.1.";
-                classNo = "960";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject960.setOnClickListener(v -> {
+            layout = "1.10.7.1.";
+            classNo = "960";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject961.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.7.2.";
-                classNo = "961";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject961.setOnClickListener(v -> {
+            layout = "1.10.7.2.";
+            classNo = "961";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject962.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.7.3.";
-                classNo = "962";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject962.setOnClickListener(v -> {
+            layout = "1.10.7.3.";
+            classNo = "962";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject963.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.7.4.";
-                classNo = "963";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject963.setOnClickListener(v -> {
+            layout = "1.10.7.4.";
+            classNo = "963";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject964.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.7.5.";
-                classNo = "964";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject964.setOnClickListener(v -> {
+            layout = "1.10.7.5.";
+            classNo = "964";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject965.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.7.6.";
-                classNo = "965";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject965.setOnClickListener(v -> {
+            layout = "1.10.7.6.";
+            classNo = "965";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject966.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.7.7.";
-                classNo = "966";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject966.setOnClickListener(v -> {
+            layout = "1.10.7.7.";
+            classNo = "966";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject967.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.7.8.";
-                classNo = "967";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject967.setOnClickListener(v -> {
+            layout = "1.10.7.8.";
+            classNo = "967";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject968.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.7.9.";
-                classNo = "968";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject968.setOnClickListener(v -> {
+            layout = "1.10.7.9.";
+            classNo = "968";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject969.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.7.10.";
-                classNo = "969";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject969.setOnClickListener(v -> {
+            layout = "1.10.7.10.";
+            classNo = "969";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
 
-        subject970.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.8.1.";
-                classNo = "970";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject970.setOnClickListener(v -> {
+            layout = "1.10.8.1.";
+            classNo = "970";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject971.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.8.2.";
-                classNo = "971";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject971.setOnClickListener(v -> {
+            layout = "1.10.8.2.";
+            classNo = "971";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject972.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.8.3.";
-                classNo = "972";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject972.setOnClickListener(v -> {
+            layout = "1.10.8.3.";
+            classNo = "972";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject973.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.8.4.";
-                classNo = "973";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject973.setOnClickListener(v -> {
+            layout = "1.10.8.4.";
+            classNo = "973";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject974.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.8.5.";
-                classNo = "974";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject974.setOnClickListener(v -> {
+            layout = "1.10.8.5.";
+            classNo = "974";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject975.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.8.6.";
-                classNo = "975";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject975.setOnClickListener(v -> {
+            layout = "1.10.8.6.";
+            classNo = "975";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject976.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.8.7.";
-                classNo = "976";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject976.setOnClickListener(v -> {
+            layout = "1.10.8.7.";
+            classNo = "976";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject977.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.8.8.";
-                classNo = "977";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject977.setOnClickListener(v -> {
+            layout = "1.10.8.8.";
+            classNo = "977";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject978.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.8.9.";
-                classNo = "978";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject978.setOnClickListener(v -> {
+            layout = "1.10.8.9.";
+            classNo = "978";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject979.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.8.10.";
-                classNo = "979";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject979.setOnClickListener(v -> {
+            layout = "1.10.8.10.";
+            classNo = "979";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
 
-        subject980.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.9.1.";
-                classNo = "980";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject980.setOnClickListener(v -> {
+            layout = "1.10.9.1.";
+            classNo = "980";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject981.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.9.2.";
-                classNo = "981";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject981.setOnClickListener(v -> {
+            layout = "1.10.9.2.";
+            classNo = "981";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject982.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.9.3.";
-                classNo = "982";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject982.setOnClickListener(v -> {
+            layout = "1.10.9.3.";
+            classNo = "982";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject983.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.9.4.";
-                classNo = "983";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject983.setOnClickListener(v -> {
+            layout = "1.10.9.4.";
+            classNo = "983";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject984.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.9.5.";
-                classNo = "984";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject984.setOnClickListener(v -> {
+            layout = "1.10.9.5.";
+            classNo = "984";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject985.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.9.6.";
-                classNo = "985";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject985.setOnClickListener(v -> {
+            layout = "1.10.9.6.";
+            classNo = "985";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject986.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.9.7.";
-                classNo = "986";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject986.setOnClickListener(v -> {
+            layout = "1.10.9.7.";
+            classNo = "986";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject987.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.9.8.";
-                classNo = "987";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject987.setOnClickListener(v -> {
+            layout = "1.10.9.8.";
+            classNo = "987";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject988.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.9.9.";
-                classNo = "988";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject988.setOnClickListener(v -> {
+            layout = "1.10.9.9.";
+            classNo = "988";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject989.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.9.10.";
-                classNo = "989";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject989.setOnClickListener(v -> {
+            layout = "1.10.9.10.";
+            classNo = "989";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
 
-        subject990.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.10.1.";
-                classNo = "990";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject990.setOnClickListener(v -> {
+            layout = "1.10.10.1.";
+            classNo = "990";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject991.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.10.2.";
-                classNo = "991";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject991.setOnClickListener(v -> {
+            layout = "1.10.10.2.";
+            classNo = "991";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject992.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.10.3.";
-                classNo = "992";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject992.setOnClickListener(v -> {
+            layout = "1.10.10.3.";
+            classNo = "992";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject993.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.10.4.";
-                classNo = "993";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject993.setOnClickListener(v -> {
+            layout = "1.10.10.4.";
+            classNo = "993";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject994.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.10.5.";
-                classNo = "994";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject994.setOnClickListener(v -> {
+            layout = "1.10.10.5.";
+            classNo = "994";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject995.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.10.6.";
-                classNo = "995";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject995.setOnClickListener(v -> {
+            layout = "1.10.10.6.";
+            classNo = "995";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject996.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.10.7.";
-                classNo = "996";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject996.setOnClickListener(v -> {
+            layout = "1.10.10.7.";
+            classNo = "996";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject997.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.10.8.";
-                classNo = "997";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject997.setOnClickListener(v -> {
+            layout = "1.10.10.8.";
+            classNo = "997";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject998.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.10.9.";
-                classNo = "998";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject998.setOnClickListener(v -> {
+            layout = "1.10.10.9.";
+            classNo = "998";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
-        subject999.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout = "1.10.10.10.";
-                classNo = "099";
-                child.setVisibility(View.GONE);
-                resultsSwipe.setVisibility(View.VISIBLE);
-                linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
-                resultsRecycler.setLayoutManager(linearLayoutManager);
-                resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
-                resultsRecycler.setAdapter(resultsAdapter);
-                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                resultsSwipe.setRefreshing(true);
-                startBrowse();
-            }
+        subject999.setOnClickListener(v -> {
+            layout = "1.10.10.10.";
+            classNo = "099";
+            child.setVisibility(View.GONE);
+            resultsSwipe.setVisibility(View.VISIBLE);
+            linearLayoutManager = new LinearLayoutManager(Level110Activity.this);
+            resultsRecycler.setLayoutManager(linearLayoutManager);
+            resultsAdapter = new ResultsStartAdapter(Level110Activity.this, null);
+            resultsRecycler.setAdapter(resultsAdapter);
+            resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+            resultsSwipe.setRefreshing(true);
+            startBrowse();
         });
     }
 
@@ -1898,50 +1599,46 @@ public class Level110Activity extends AppCompatActivity {
 
     private void startBrowse() {
         nextPage = "";
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, ((MyApplication) this.getApplication()).getServerName() + "libraries/FuAPI.aspx?fn=BrowseCategories&ScopeID=1.&Id=" + layout + "&ClassNo=" + classNo, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString(classNo, response.toString());
-                    editor.apply();
-                    resultsList = parseResults(response, true);
-                    if (!nextPage.equals("")) {
-                        resultsList.add(null);
-                    }
-                    resultsAdapter.notifyDataSetChanged();
-                    resultsAdapter.setResultsStartItems(resultsList);
-                    resultsRecycler.setVisibility(View.VISIBLE);
-                    resultsSwipe.setRefreshing(false);
-                } catch (NullPointerException e) {
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, ((MyApplication) this.getApplication()).getServerName() + "libraries/FuAPI.aspx?fn=BrowseCategories&ScopeID=1.&Id=" + layout + "&ClassNo=" + classNo, response -> {
+            try {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString(classNo, response.toString());
+                editor.apply();
+                resultsList = parseResults(response, true);
+                if (!nextPage.isEmpty()) {
+                    resultsList.add(null);
                 }
+                resultsAdapter.notifyDataSetChanged();
+                resultsAdapter.setResultsStartItems(resultsList);
+                resultsRecycler.setVisibility(View.VISIBLE);
+                resultsSwipe.setRefreshing(false);
+            } catch (NullPointerException e) {
+                Log.e(TAG, "onResponse: " + e);
             }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                try {
-                    resultsSwipe.setRefreshing(false);
-                    if (error instanceof NoConnectionError) {
-                        Snackbar.make(Level110Activity.this.findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.no_internet), Snackbar.LENGTH_LONG).show();
-                    } else {
-                        Snackbar.make(Level110Activity.this.findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.error_fetching_subject), Snackbar.LENGTH_LONG).show();
-                    }
-                    String strJson = sharedPreferences.getString(classNo, "");
-                    if (!strJson.equals("")) {
-                        try {
-                            JSONObject jsonData = new JSONObject(strJson);
-                            resultsList = parseResults(jsonData, true);
-                            resultsAdapter.setResultsStartItems(resultsList);
-                        } catch (JSONException e) {
-                            resultsSwipe.setVisibility(View.GONE);
-                            child.setVisibility(View.VISIBLE);
-                        }
-                    } else {
+        }, error -> {
+            try {
+                resultsSwipe.setRefreshing(false);
+                if (error instanceof NoConnectionError) {
+                    Snackbar.make(Level110Activity.this.findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.no_internet), Snackbar.LENGTH_LONG).show();
+                } else {
+                    Snackbar.make(Level110Activity.this.findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.error_fetching_subject), Snackbar.LENGTH_LONG).show();
+                }
+                String strJson = sharedPreferences.getString(classNo, "");
+                if (!strJson.isEmpty()) {
+                    try {
+                        JSONObject jsonData = new JSONObject(strJson);
+                        resultsList = parseResults(jsonData, true);
+                        resultsAdapter.setResultsStartItems(resultsList);
+                    } catch (JSONException e) {
                         resultsSwipe.setVisibility(View.GONE);
                         child.setVisibility(View.VISIBLE);
                     }
-                } catch (NullPointerException e) {
+                } else {
+                    resultsSwipe.setVisibility(View.GONE);
+                    child.setVisibility(View.VISIBLE);
                 }
+            } catch (NullPointerException e) {
+                Log.e(TAG, "onErrorResponse: " + e);
             }
         });
         int socketTimeout = 60000;
@@ -1977,13 +1674,13 @@ public class Level110Activity extends AppCompatActivity {
                         if (currentItem.has("type") && !currentItem.isNull("type")) {
                             type = currentItem.getString("type");
                         }
-                        String classification = "";
+                        StringBuilder classification = new StringBuilder();
                         if (currentItem.has("classification") && !currentItem.isNull("classification")) {
                             JSONArray arrayClassification = currentItem.getJSONArray("classification");
                             for (int j = 0; j < arrayClassification.length(); j++) {
-                                classification += "\u00BB " + arrayClassification.getString(j);
+                                classification.append("» ").append(arrayClassification.getString(j));
                                 if (j < (arrayClassification.length() - 1)) {
-                                    classification += "\t\t";
+                                    classification.append("\t\t");
                                 }
                             }
                         }
@@ -2012,7 +1709,7 @@ public class Level110Activity extends AppCompatActivity {
                         item.setTitle(title);
                         item.setImage(image);
                         item.setType(type);
-                        item.setClassification(classification);
+                        item.setClassification(classification.toString());
                         item.setPublisher(publisher);
                         item.setMoreTitle(moreTitle);
                         item.setDetails(details);
@@ -2032,6 +1729,7 @@ public class Level110Activity extends AppCompatActivity {
                             resultsSwipe.setRefreshing(false);
                         }
                     } catch (NullPointerException e) {
+                        Log.e(TAG, "parseResults: " + e);
                     }
                 }
             } catch (JSONException e) {
@@ -2040,6 +1738,7 @@ public class Level110Activity extends AppCompatActivity {
                     resultsSwipe.setVisibility(View.GONE);
                     child.setVisibility(View.VISIBLE);
                 } catch (NullPointerException ex) {
+                    Log.e(TAG, "parseResults: " + e);
                 }
             }
         }
@@ -2047,39 +1746,35 @@ public class Level110Activity extends AppCompatActivity {
     }
 
     public void loadMore() {
-        if (!nextPage.equals("")) {
+        if (!nextPage.isEmpty()) {
             resultsSwipe.setRefreshing(true);
-            JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, nextPage, new Response.Listener<JSONObject>() {
-                @Override
-                public void onResponse(JSONObject response) {
-                    try {
-                        ArrayList<ResultsStartItem> resultsListMore = parseResults(response, false);
-                        resultsSwipe.setRefreshing(false);
-                        resultsList.remove(resultsList.size() - 1);
-                        resultsAdapter.notifyItemRemoved(resultsList.size());
-                        for (int i = 0; i < resultsListMore.size(); i++) {
-                            ResultsStartItem result = resultsListMore.get(i);
-                            resultsList.add(result);
-                            resultsAdapter.notifyItemInserted(resultsList.size());
-                        }
-                        if (!nextPage.equals("")) {
-                            resultsList.add(null);
-                            resultsAdapter.notifyItemInserted(resultsList.size());
-                        }
-                    } catch (NullPointerException e) {
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, nextPage, response -> {
+                try {
+                    ArrayList<ResultsStartItem> resultsListMore = parseResults(response, false);
+                    resultsSwipe.setRefreshing(false);
+                    resultsList.remove(resultsList.size() - 1);
+                    resultsAdapter.notifyItemRemoved(resultsList.size());
+                    for (int i = 0; i < resultsListMore.size(); i++) {
+                        ResultsStartItem result = resultsListMore.get(i);
+                        resultsList.add(result);
+                        resultsAdapter.notifyItemInserted(resultsList.size());
                     }
-                }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    try {
-                        resultsSwipe.setRefreshing(false);
-                        resultsList.remove(resultsList.size() - 1);
-                        resultsAdapter.notifyItemRemoved(resultsList.size());
+                    if (!nextPage.isEmpty()) {
                         resultsList.add(null);
                         resultsAdapter.notifyItemInserted(resultsList.size());
-                    } catch (NullPointerException e) {
                     }
+                } catch (NullPointerException e) {
+                    Log.e(TAG, "onResponse: " + e);
+                }
+            }, error -> {
+                try {
+                    resultsSwipe.setRefreshing(false);
+                    resultsList.remove(resultsList.size() - 1);
+                    resultsAdapter.notifyItemRemoved(resultsList.size());
+                    resultsList.add(null);
+                    resultsAdapter.notifyItemInserted(resultsList.size());
+                } catch (NullPointerException e) {
+                    Log.e(TAG, "onErrorResponse: " + e);
                 }
             });
             int socketTimeout = 60000;

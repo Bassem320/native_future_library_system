@@ -53,8 +53,8 @@ public class ResultsStartAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     private static boolean loadImage = true;
     private static Fragment fragment;
     private final int VIEW_ITEM = 1;
-    private LayoutInflater layoutInflater;
-    private ImageLoader imageLoader;
+    private final LayoutInflater layoutInflater;
+    private final ImageLoader imageLoader;
 
     public ResultsStartAdapter(Context context, Fragment fragment) {
         layoutInflater = LayoutInflater.from(context);
@@ -93,12 +93,12 @@ public class ResultsStartAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             ResultsStartItem currentItem = listResultsStartItems.get(position);
             final ViewHolderResultsStartList holderItem = (ViewHolderResultsStartList) holder;
             holderItem.item = currentItem;
-            holderItem.itemType.setText("(" + currentItem.getType() + ")");
+            holderItem.itemType.setText(String.format("(%s)", currentItem.getType()));
             holderItem.itemTitle.setText(currentItem.getTitle());
             holderItem.itemClassification.setText(currentItem.getClassification());
             holderItem.itemPublisher.setText(currentItem.getPublisher());
             String imageName = currentItem.getImage();
-            if (imageName != null && !imageName.equals("") && loadImage) {
+            if (imageName != null && !imageName.isEmpty() && loadImage) {
                 imageLoader.get(imageName, new ImageLoader.ImageListener() {
                     @Override
                     public void onResponse(ImageLoader.ImageContainer response, boolean isImmediate) {
@@ -122,18 +122,21 @@ public class ResultsStartAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     static class ViewHolderResultsStartList extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private ImageView itemImage;
-        private TextView itemType, itemTitle, itemClassification, itemPublisher;
+        private final ImageView itemImage;
+        private final TextView itemType;
+        private final TextView itemTitle;
+        private final TextView itemClassification;
+        private final TextView itemPublisher;
         private ResultsStartItem item;
 
         public ViewHolderResultsStartList(View itemView) {
             super(itemView);
-            itemImage = (ImageView) itemView.findViewById(R.id.itemImage);
-            itemType = (TextView) itemView.findViewById(R.id.itemType);
-            itemTitle = (TextView) itemView.findViewById(R.id.itemTitle);
-            itemClassification = (TextView) itemView.findViewById(R.id.itemClassification);
-            itemPublisher = (TextView) itemView.findViewById(R.id.itemPublisher);
-            LinearLayout titleLayout = (LinearLayout) itemView.findViewById(R.id.title_layout);
+            itemImage = itemView.findViewById(R.id.itemImage);
+            itemType = itemView.findViewById(R.id.itemType);
+            itemTitle = itemView.findViewById(R.id.itemTitle);
+            itemClassification = itemView.findViewById(R.id.itemClassification);
+            itemPublisher = itemView.findViewById(R.id.itemPublisher);
+            LinearLayout titleLayout = itemView.findViewById(R.id.title_layout);
             DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
             if (displayMetrics.widthPixels < 480) {
                 loadImage = false;
@@ -171,7 +174,7 @@ public class ResultsStartAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
         public LoadViewHolder(View itemView) {
             super(itemView);
-            loadMore = (Button) itemView.findViewById(R.id.load_more);
+            loadMore = itemView.findViewById(R.id.load_more);
             loadMore.setOnClickListener(this);
         }
 

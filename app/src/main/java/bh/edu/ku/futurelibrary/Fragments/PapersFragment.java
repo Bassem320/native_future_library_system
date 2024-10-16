@@ -3,13 +3,13 @@ package bh.edu.ku.futurelibrary.Fragments;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -26,9 +26,7 @@ import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.NoConnectionError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
 import com.android.volley.RetryPolicy;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -53,6 +51,7 @@ import bh.edu.ku.futurelibrary.R;
  * Created by Eslam El-Meniawy on 01-Nov-15.
  */
 public class PapersFragment extends Fragment {
+    public static final String TAG = "PapersFragment";
     private EditText paperTitleET, authorsET, keywordsET, paperAbstractET, authorNationalIDET, authorIDET;
     private String paperTitle, authors, keywords, paperAbstract, authorNationalID, authorID, nextPage = "";
     private boolean hasAttach = false;
@@ -79,143 +78,94 @@ public class PapersFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_papers, container, false);
 
-        paperTitleET = (EditText) rootView.findViewById(R.id.PaperTitle);
-        authorsET = (EditText) rootView.findViewById(R.id.Authors);
-        keywordsET = (EditText) rootView.findViewById(R.id.Keywords);
-        paperAbstractET = (EditText) rootView.findViewById(R.id.Abstract);
-        authorNationalIDET = (EditText) rootView.findViewById(R.id.AuthorNationalID);
-        authorIDET = (EditText) rootView.findViewById(R.id.AuthorID);
-        SwitchCompat hasAttachments = (SwitchCompat) rootView.findViewById(R.id.HasAttachments);
-        Button searchButton = (Button) rootView.findViewById(R.id.searchButton);
-        searchLayout = (ScrollView) rootView.findViewById(R.id.searchLayout);
-        resultsLayout = (LinearLayout) rootView.findViewById(R.id.resultsLayout);
-        resultsRecycler = (RecyclerView) rootView.findViewById(R.id.ResultsPapers);
-        resultsSwipe = (SwipeRefreshLayout) rootView.findViewById(R.id.ResultsPapersSwipeRefresh);
-        resultsNumber = (TextView) rootView.findViewById(R.id.ResultsNumber);
+        paperTitleET = rootView.findViewById(R.id.PaperTitle);
+        authorsET = rootView.findViewById(R.id.Authors);
+        keywordsET = rootView.findViewById(R.id.Keywords);
+        paperAbstractET = rootView.findViewById(R.id.Abstract);
+        authorNationalIDET = rootView.findViewById(R.id.AuthorNationalID);
+        authorIDET = rootView.findViewById(R.id.AuthorID);
+        SwitchCompat hasAttachments = rootView.findViewById(R.id.HasAttachments);
+        Button searchButton = rootView.findViewById(R.id.searchButton);
+        searchLayout = rootView.findViewById(R.id.searchLayout);
+        resultsLayout = rootView.findViewById(R.id.resultsLayout);
+        resultsRecycler = rootView.findViewById(R.id.ResultsPapers);
+        resultsSwipe = rootView.findViewById(R.id.ResultsPapersSwipeRefresh);
+        resultsNumber = rootView.findViewById(R.id.ResultsNumber);
 
-        paperTitleET.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    hide_keyboard_from(getActivity(), paperTitleET);
-                }
+        paperTitleET.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus) {
+                hide_keyboard_from(getActivity(), paperTitleET);
             }
         });
 
-        authorsET.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    hide_keyboard_from(getActivity(), authorsET);
-                }
+        authorsET.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus) {
+                hide_keyboard_from(getActivity(), authorsET);
             }
         });
 
-        keywordsET.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    hide_keyboard_from(getActivity(), keywordsET);
-                }
+        keywordsET.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus) {
+                hide_keyboard_from(getActivity(), keywordsET);
             }
         });
 
-        paperAbstractET.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    hide_keyboard_from(getActivity(), paperAbstractET);
-                }
+        paperAbstractET.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus) {
+                hide_keyboard_from(getActivity(), paperAbstractET);
             }
         });
 
-        authorNationalIDET.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    hide_keyboard_from(getActivity(), authorNationalIDET);
-                }
+        authorNationalIDET.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus) {
+                hide_keyboard_from(getActivity(), authorNationalIDET);
             }
         });
 
-        authorIDET.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    hide_keyboard_from(getActivity(), authorIDET);
-                }
+        authorIDET.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus) {
+                hide_keyboard_from(getActivity(), authorIDET);
             }
         });
 
         VolleySingleton volleySingleton = VolleySingleton.getInstance();
         requestQueue = volleySingleton.getRequestQueue();
 
-        hasAttachments.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                hasAttach = isChecked;
-            }
-        });
+        hasAttachments.setOnCheckedChangeListener((buttonView, isChecked) -> hasAttach = isChecked);
 
-        searchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                paperTitle = paperTitleET.getText().toString();
-                if (paperTitle == null) {
-                    paperTitle = "";
-                }
+        searchButton.setOnClickListener(v -> {
+            paperTitle = paperTitleET.getText().toString();
 
-                authors = authorsET.getText().toString();
-                if (authors == null) {
-                    authors = "";
-                }
+            authors = authorsET.getText().toString();
 
-                keywords = keywordsET.getText().toString();
-                if (keywords == null) {
-                    keywords = "";
-                }
+            keywords = keywordsET.getText().toString();
 
-                paperAbstract = paperAbstractET.getText().toString();
-                if (paperAbstract == null) {
-                    paperAbstract = "";
-                }
+            paperAbstract = paperAbstractET.getText().toString();
 
-                authorNationalID = authorNationalIDET.getText().toString();
-                if (authorNationalID == null) {
-                    authorNationalID = "";
-                }
+            authorNationalID = authorNationalIDET.getText().toString();
 
-                authorID = authorIDET.getText().toString();
-                if (authorID == null) {
-                    authorID = "";
-                }
+            authorID = authorIDET.getText().toString();
 
-                String NAT_ID_PATTERN = "(2|3)[0-9][1-9][0-1][1-9][0-3][1-9](01|02|03|04|11|12|13|14|15|16|17|18|19|21|22|23|24|25|26|27|28|29|31|32|33|34|35|88)\\d\\d\\d\\d\\d";
-                Pattern patternNatId = Pattern.compile(NAT_ID_PATTERN);
-                Matcher matcherNatId = patternNatId.matcher(authorNationalID);
+            String NAT_ID_PATTERN = "(2|3)[0-9][1-9][0-1][1-9][0-3][1-9](01|02|03|04|11|12|13|14|15|16|17|18|19|21|22|23|24|25|26|27|28|29|31|32|33|34|35|88)\\d\\d\\d\\d\\d";
+            Pattern patternNatId = Pattern.compile(NAT_ID_PATTERN);
+            Matcher matcherNatId = patternNatId.matcher(authorNationalID);
 
-                if ((paperTitle.equals("") || paperTitle == null) && (authors.equals("") || authors == null) && (keywords.equals("") || keywords == null) && (paperAbstract.equals("") || paperAbstract == null) && (authorNationalID.equals("") || authorNationalID == null) && (authorID.equals("") || authorID == null)) {
-                    Snackbar.make(v, getResources().getText(R.string.enter_text), Snackbar.LENGTH_LONG).show();
-                } else if (!authorNationalID.equals("") && authorNationalID != null && !matcherNatId.matches()) {
-                    authorNationalIDET.setError(getText(R.string.national_id_error));
-                } else {
-                    searchLayout.setVisibility(View.GONE);
-                    resultsLayout.setVisibility(View.VISIBLE);
-                    linearLayoutManager = new LinearLayoutManager(getActivity());
-                    resultsRecycler.setLayoutManager(linearLayoutManager);
-                    resultsAdapter = new ResultsPapersAdapter(getActivity(), PapersFragment.this);
-                    resultsSwipe.setColorSchemeResources(R.color.colorPrimary, R.color.colorAccent);
-                    resultsSwipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-                        @Override
-                        public void onRefresh() {
-                            resultsSwipe.setRefreshing(false);
-                        }
-                    });
-                    resultsRecycler.setAdapter(resultsAdapter);
-                    resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                    resultsSwipe.setRefreshing(true);
-                    startSearch();
-                }
+            if ((paperTitle == null || paperTitle.isEmpty()) && (authors == null || authors.isEmpty()) && (keywords == null || keywords.isEmpty()) && (paperAbstract == null || paperAbstract.isEmpty()) && (authorNationalID == null || authorNationalID.isEmpty()) && (authorID == null || authorID.isEmpty())) {
+                Snackbar.make(v, getResources().getText(R.string.enter_text), Snackbar.LENGTH_LONG).show();
+            } else if (authorNationalID != null && !authorNationalID.isEmpty() && !matcherNatId.matches()) {
+                authorNationalIDET.setError(getText(R.string.national_id_error));
+            } else {
+                searchLayout.setVisibility(View.GONE);
+                resultsLayout.setVisibility(View.VISIBLE);
+                linearLayoutManager = new LinearLayoutManager(getActivity());
+                resultsRecycler.setLayoutManager(linearLayoutManager);
+                resultsAdapter = new ResultsPapersAdapter(getActivity(), PapersFragment.this);
+                resultsSwipe.setColorSchemeResources(R.color.colorPrimary, R.color.colorAccent);
+                resultsSwipe.setOnRefreshListener(() -> resultsSwipe.setRefreshing(false));
+                resultsRecycler.setAdapter(resultsAdapter);
+                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+                resultsSwipe.setRefreshing(true);
+                startSearch();
             }
         });
 
@@ -233,7 +183,7 @@ public class PapersFragment extends Fragment {
 
     private void startSearch() {
         nextPage = "";
-        Map<String, String> params = new HashMap<String, String>();
+        Map<String, String> params = new HashMap<>();
         params.put("ScopeIDSelect", ((MyApplication) getActivity().getApplication()).getScopeID());
         params.put("PaperTitle", paperTitle);
         params.put("PaperAuthor", authors);
@@ -242,35 +192,31 @@ public class PapersFragment extends Fragment {
         params.put("ResearchID", authorNationalID);
         params.put("BorrowerID", authorID);
         params.put("attach", hasAttach ? "1" : "0");
-        CustomRequest request = new CustomRequest(Request.Method.POST, ((MyApplication) getActivity().getApplication()).getServerName() + "libraries/fuapi.aspx?fn=ApplaySearch4Serial", params, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-                    resultsList = parseResults(response, true);
-                    if (!nextPage.equals("")) {
-                        resultsList.add(null);
-                    }
-                    resultsAdapter.notifyDataSetChanged();
-                    resultsAdapter.setPapersItems(resultsList);
-                    resultsRecycler.setVisibility(View.VISIBLE);
-                    resultsSwipe.setRefreshing(false);
-                } catch (NullPointerException e) {
+        CustomRequest request = new CustomRequest(Request.Method.POST, ((MyApplication) getActivity().getApplication()).getServerName() + "libraries/fuapi.aspx?fn=ApplaySearch4Serial", params, response -> {
+            try {
+                resultsList = parseResults(response, true);
+                if (!nextPage.isEmpty()) {
+                    resultsList.add(null);
                 }
+                resultsAdapter.notifyDataSetChanged();
+                resultsAdapter.setPapersItems(resultsList);
+                resultsRecycler.setVisibility(View.VISIBLE);
+                resultsSwipe.setRefreshing(false);
+            } catch (NullPointerException e) {
+                Log.e(TAG, "onResponse: " + e);
             }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                try {
-                    resultsSwipe.setRefreshing(false);
-                    if (error instanceof NoConnectionError) {
-                        Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.no_internet), Snackbar.LENGTH_LONG).show();
-                    } else {
-                        Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.error_fetching_results), Snackbar.LENGTH_LONG).show();
-                    }
-                    resultsLayout.setVisibility(View.GONE);
-                    searchLayout.setVisibility(View.VISIBLE);
-                } catch (NullPointerException e) {
+        }, error -> {
+            try {
+                resultsSwipe.setRefreshing(false);
+                if (error instanceof NoConnectionError) {
+                    Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.no_internet), Snackbar.LENGTH_LONG).show();
+                } else {
+                    Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.error_fetching_results), Snackbar.LENGTH_LONG).show();
                 }
+                resultsLayout.setVisibility(View.GONE);
+                searchLayout.setVisibility(View.VISIBLE);
+            } catch (NullPointerException e) {
+                Log.e(TAG, "onErrorResponse: " + e);
             }
         });
         int socketTimeout = 60000;
@@ -284,7 +230,7 @@ public class PapersFragment extends Fragment {
         if (response != null && response.length() > 0) {
             try {
                 if (response.has("TotalNoOfResults") && !response.isNull("TotalNoOfResults")) {
-                    resultsNumber.setText(getText(R.string.total_result) + " " + response.getString("TotalNoOfResults"));
+                    resultsNumber.setText(String.format("%s %s", getText(R.string.total_result), response.getString("TotalNoOfResults")));
                 } else {
                     resultsNumber.setVisibility(View.GONE);
                 }
@@ -303,13 +249,13 @@ public class PapersFragment extends Fragment {
                         if (currentItem.has("title") && !currentItem.isNull("title")) {
                             title = currentItem.getString("title");
                         }
-                        String authors = "";
+                        StringBuilder authors = new StringBuilder();
                         if (currentItem.has("authors") && !currentItem.isNull("authors")) {
                             JSONArray arrayAuthors = currentItem.getJSONArray("authors");
                             for (int j = 0; j < arrayAuthors.length(); j++) {
-                                authors += arrayAuthors.getString(j);
+                                authors.append(arrayAuthors.getString(j));
                                 if (j < (arrayAuthors.length() - 1)) {
-                                    authors += "\n";
+                                    authors.append("\n");
                                 }
                             }
                         }
@@ -340,7 +286,7 @@ public class PapersFragment extends Fragment {
                         PapersItem item = new PapersItem();
                         item.setId(id);
                         item.setTitle(title);
-                        item.setAuthors(authors);
+                        item.setAuthors(authors.toString());
                         item.setVolume(volume);
                         item.setPages(pages);
                         item.setPublishedIn(publishedIn);
@@ -361,6 +307,7 @@ public class PapersFragment extends Fragment {
                             resultsSwipe.setRefreshing(false);
                         }
                     } catch (NullPointerException e) {
+                        Log.e(TAG, "parseResults: " + e);
                     }
                 }
             } catch (JSONException | NullPointerException | IllegalStateException e) {
@@ -369,6 +316,7 @@ public class PapersFragment extends Fragment {
                     resultsLayout.setVisibility(View.GONE);
                     searchLayout.setVisibility(View.VISIBLE);
                 } catch (NullPointerException ex) {
+                    Log.e(TAG, "parseResults: " + null);
                 }
             }
         }
@@ -376,39 +324,35 @@ public class PapersFragment extends Fragment {
     }
 
     public void loadMore() {
-        if (!nextPage.equals("")) {
+        if (!nextPage.isEmpty()) {
             resultsSwipe.setRefreshing(true);
-            JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, nextPage, new Response.Listener<JSONObject>() {
-                @Override
-                public void onResponse(JSONObject response) {
-                    try {
-                        ArrayList<PapersItem> resultsListMore = parseResults(response, false);
-                        resultsSwipe.setRefreshing(false);
-                        resultsList.remove(resultsList.size() - 1);
-                        resultsAdapter.notifyItemRemoved(resultsList.size());
-                        for (int i = 0; i < resultsListMore.size(); i++) {
-                            PapersItem result = resultsListMore.get(i);
-                            resultsList.add(result);
-                            resultsAdapter.notifyItemInserted(resultsList.size());
-                        }
-                        if (!nextPage.equals("")) {
-                            resultsList.add(null);
-                            resultsAdapter.notifyItemInserted(resultsList.size());
-                        }
-                    } catch (NullPointerException e) {
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, nextPage, response -> {
+                try {
+                    ArrayList<PapersItem> resultsListMore = parseResults(response, false);
+                    resultsSwipe.setRefreshing(false);
+                    resultsList.remove(resultsList.size() - 1);
+                    resultsAdapter.notifyItemRemoved(resultsList.size());
+                    for (int i = 0; i < resultsListMore.size(); i++) {
+                        PapersItem result = resultsListMore.get(i);
+                        resultsList.add(result);
+                        resultsAdapter.notifyItemInserted(resultsList.size());
                     }
-                }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    try {
-                        resultsSwipe.setRefreshing(false);
-                        resultsList.remove(resultsList.size() - 1);
-                        resultsAdapter.notifyItemRemoved(resultsList.size());
+                    if (!nextPage.isEmpty()) {
                         resultsList.add(null);
                         resultsAdapter.notifyItemInserted(resultsList.size());
-                    } catch (NullPointerException e) {
                     }
+                } catch (NullPointerException e) {
+                    Log.e(TAG, "onResponse: " + e);
+                }
+            }, error -> {
+                try {
+                    resultsSwipe.setRefreshing(false);
+                    resultsList.remove(resultsList.size() - 1);
+                    resultsAdapter.notifyItemRemoved(resultsList.size());
+                    resultsList.add(null);
+                    resultsAdapter.notifyItemInserted(resultsList.size());
+                } catch (NullPointerException e) {
+                    Log.e(TAG, "onErrorResponse: " + null);
                 }
             });
             int socketTimeout = 60000;

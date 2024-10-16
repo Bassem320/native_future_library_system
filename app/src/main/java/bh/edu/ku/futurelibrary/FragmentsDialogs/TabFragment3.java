@@ -2,6 +2,7 @@ package bh.edu.ku.futurelibrary.FragmentsDialogs;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +26,7 @@ import bh.edu.ku.futurelibrary.R;
  */
 public class TabFragment3 extends Fragment {
 
+    public static final String TAG = "TabFragment3";
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -36,7 +38,7 @@ public class TabFragment3 extends Fragment {
             if (holdings.length() > 0) {
                 for (int i = 0; i < holdings.length(); i++) {
                     JSONObject currentHolding = holdings.getJSONObject(i);
-                    TableLayout tableLayout = (TableLayout) rootView.findViewById(R.id.itemHoldings);
+                    TableLayout tableLayout = rootView.findViewById(R.id.itemHoldings);
                     TableRow headingRow = new TableRow(getActivity());
                     TextView headView = new TextView(getActivity());
                     headView.setLayoutParams(new TableRow.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
@@ -74,7 +76,7 @@ public class TabFragment3 extends Fragment {
                 }
             }
         } catch (JSONException e) {
-            e.printStackTrace();
+            Log.e(TAG, "onCreateView: "+ e);
         }
         return rootView;
     }

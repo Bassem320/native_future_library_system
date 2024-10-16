@@ -3,6 +3,7 @@ package bh.edu.ku.futurelibrary.FragmentsDialogs;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +35,7 @@ import bh.edu.ku.futurelibrary.R;
  */
 public class TabFragment1 extends Fragment {
     private ResultsStartItem item;
+    public static final String TAG = "TabFragment1";
 
     @Nullable
     @Override
@@ -41,11 +43,11 @@ public class TabFragment1 extends Fragment {
         Bundle args = getArguments();
         item = args.getParcelable("item");
         View rootView = inflater.inflate(R.layout.tab_fragment_1, container, false);
-        final ImageView itemImage = (ImageView) rootView.findViewById(R.id.itemImage);
+        final ImageView itemImage = rootView.findViewById(R.id.itemImage);
         String imageName = item.getImage();
         VolleySingleton volleySingleton = VolleySingleton.getInstance();
         ImageLoader imageLoader = volleySingleton.getImageLoader();
-        if (imageName != null && !imageName.equals("")) {
+        if (imageName != null && !imageName.isEmpty()) {
             imageLoader.get(imageName, new ImageLoader.ImageListener() {
                 @Override
                 public void onResponse(ImageLoader.ImageContainer response, boolean isImmediate) {
@@ -57,75 +59,69 @@ public class TabFragment1 extends Fragment {
                 }
             });
         }
-        TextView itemType = (TextView) rootView.findViewById(R.id.itemType);
+        TextView itemType = rootView.findViewById(R.id.itemType);
         itemType.setText(item.getType());
-        TextView itemTitle = (TextView) rootView.findViewById(R.id.itemTitle);
+        TextView itemTitle = rootView.findViewById(R.id.itemTitle);
         itemTitle.setText(item.getTitle());
-        TextView itemClassification = (TextView) rootView.findViewById(R.id.itemClassification);
+        TextView itemClassification = rootView.findViewById(R.id.itemClassification);
         itemClassification.setText(item.getClassification());
-        TextView itemPublisher = (TextView) rootView.findViewById(R.id.itemPublisher);
+        TextView itemPublisher = rootView.findViewById(R.id.itemPublisher);
         itemPublisher.setText(item.getPublisher());
         final JSONObject moreTitle;
         try {
             moreTitle = new JSONObject(item.getMoreTitle());
             if (moreTitle.has("author") && !moreTitle.isNull("author")) {
-                TextView itemAuthor = (TextView) rootView.findViewById(R.id.itemAuthor);
+                TextView itemAuthor = rootView.findViewById(R.id.itemAuthor);
                 itemAuthor.setText(moreTitle.getString("author"));
             }
             if (moreTitle.has("ISBN") && !moreTitle.isNull("ISBN")) {
-                String isbn = "ISBN: ";
+                StringBuilder isbn = new StringBuilder("ISBN: ");
                 JSONArray arrayISBN = moreTitle.getJSONArray("ISBN");
                 for (int j = 0; j < arrayISBN.length(); j++) {
-                    isbn += arrayISBN.getString(j);
+                    isbn.append(arrayISBN.getString(j));
                     if (j < (arrayISBN.length() - 1)) {
-                        isbn += ", ";
+                        isbn.append(", ");
                     }
                 }
-                TextView itemISBN = (TextView) rootView.findViewById(R.id.itemISBN);
-                itemISBN.setText(isbn);
+                TextView itemISBN = rootView.findViewById(R.id.itemISBN);
+                itemISBN.setText(isbn.toString());
             }
-            if (moreTitle.has("info") && !moreTitle.isNull("info") && !moreTitle.getString("info").equals("")) {
-                Button info = (Button) rootView.findViewById(R.id.itemBookInfo);
+            if (moreTitle.has("info") && !moreTitle.isNull("info") && !moreTitle.getString("info").isEmpty()) {
+                Button info = rootView.findViewById(R.id.itemBookInfo);
                 info.setVisibility(View.VISIBLE);
-                info.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        try {
-                            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(moreTitle.getString("info")));
-                            startActivity(browserIntent);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+                info.setOnClickListener(v -> {
+                    try {
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(moreTitle.getString("info")));
+                        startActivity(browserIntent);
+                    } catch (JSONException e) {
+                        Log.e(TAG, "onClick: " + e);
                     }
                 });
             }
-            if (moreTitle.has("preview") && !moreTitle.isNull("preview") && !moreTitle.getString("preview").equals("")) {
-                Button preview = (Button) rootView.findViewById(R.id.itemPreview);
+            if (moreTitle.has("preview") && !moreTitle.isNull("preview") && !moreTitle.getString("preview").isEmpty()) {
+                Button preview = rootView.findViewById(R.id.itemPreview);
                 preview.setVisibility(View.VISIBLE);
-                preview.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        try {
-                            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(moreTitle.getString("preview")));
-                            startActivity(browserIntent);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+                preview.setOnClickListener(v -> {
+                    try {
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(moreTitle.getString("preview")));
+                        startActivity(browserIntent);
+                    } catch (JSONException e) {
+                        Log.e(TAG, "onClick: " + e);
                     }
                 });
             }
             if (moreTitle.has("download") && !moreTitle.isNull("download") && moreTitle.getJSONArray("download").length() > 0) {
                 JSONArray downloadJSON = moreTitle.getJSONArray("download");
-                List<String> downloadList = new ArrayList<String>();
+                List<String> downloadList = new ArrayList<>();
                 for(int i = 0; i < downloadJSON.length(); i++){
                     downloadList.add(downloadJSON.getString(i));
                 }
                 String[] download = downloadList.toArray(new String[downloadList.size()]);
-                GridView gridView = (GridView) rootView.findViewById(R.id.itemDownloadGrid);
+                GridView gridView = rootView.findViewById(R.id.itemDownloadGrid);
                 gridView.setAdapter(new GridDownloadAdapter(getActivity(), download));
             }
         } catch (JSONException e) {
-            e.printStackTrace();
+            Log.e(TAG, "onCreateView: " + e);
         }
         return rootView;
     }

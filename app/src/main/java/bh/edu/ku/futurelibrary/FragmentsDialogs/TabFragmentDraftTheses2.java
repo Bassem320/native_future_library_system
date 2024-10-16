@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,7 @@ import bh.edu.ku.futurelibrary.R;
  */
 public class TabFragmentDraftTheses2 extends Fragment {
     public static final String PREF_FILE_NAME = "LibrarySystemPref";
+    public static final String TAG = "TabFragmentDraftTheses2";
 
     @Nullable
     @Override
@@ -34,17 +36,17 @@ public class TabFragmentDraftTheses2 extends Fragment {
         try {
             JSONObject details = new JSONObject(item.getDetails());
             if (details.has("supervisors") && !details.isNull("supervisors")) {
-                TextView supervisors = (TextView) rootView.findViewById(R.id.supervisors);
+                TextView supervisors = rootView.findViewById(R.id.supervisors);
                 supervisors.setText(details.getString("supervisors"));
             }
             if (details.has("subjects") && !details.isNull("subjects")) {
-                TextView subjects = (TextView) rootView.findViewById(R.id.subjects);
+                TextView subjects = rootView.findViewById(R.id.subjects);
                 subjects.setText(details.getString("subjects"));
             }
             if (details.has("degree") && !details.isNull("degree")) {
-                TextView degree = (TextView) rootView.findViewById(R.id.degree);
+                TextView degree = rootView.findViewById(R.id.degree);
                 String degreeText = details.getString("degree");
-                if (degreeText.contains("\u007c")) {
+                if (degreeText.contains("|")) {
                     String[] parts = degreeText.split("\\u007c");
                     if (sharedPreferences.getInt("lang", 0) == 0) {
                         degree.setText(parts[0]);
@@ -56,13 +58,13 @@ public class TabFragmentDraftTheses2 extends Fragment {
                 }
             }
             if (details.has("specialty") && !details.isNull("specialty")) {
-                TextView specialty = (TextView) rootView.findViewById(R.id.specialty);
+                TextView specialty = rootView.findViewById(R.id.specialty);
                 specialty.setText(details.getString("specialty"));
             }
             if (details.has("siteRegistration") && !details.isNull("siteRegistration")) {
-                TextView siteRegistration = (TextView) rootView.findViewById(R.id.siteRegistration);
+                TextView siteRegistration = rootView.findViewById(R.id.siteRegistration);
                 String siteRegistrationText = details.getString("siteRegistration");
-                if (siteRegistrationText.contains("\u007c")) {
+                if (siteRegistrationText.contains("|")) {
                     String[] parts = siteRegistrationText.split("\\u007c");
                     if (sharedPreferences.getInt("lang", 0) == 0) {
                         siteRegistration.setText(parts[0]);
@@ -74,6 +76,7 @@ public class TabFragmentDraftTheses2 extends Fragment {
                 }
             }
         } catch (JSONException e) {
+            Log.e(TAG, "onCreateView: " + e);
         }
         return rootView;
     }

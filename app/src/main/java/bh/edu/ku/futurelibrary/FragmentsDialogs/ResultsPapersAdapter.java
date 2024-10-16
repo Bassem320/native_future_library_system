@@ -33,7 +33,7 @@ public class ResultsPapersAdapter extends RecyclerView.Adapter<RecyclerView.View
     private static Context context;
     private static Fragment fragment;
     private final int VIEW_ITEM = 1;
-    private LayoutInflater layoutInflater;
+    private final LayoutInflater layoutInflater;
 
     public ResultsPapersAdapter(Context context, Fragment fragment) {
         layoutInflater = LayoutInflater.from(context);
@@ -71,35 +71,35 @@ public class ResultsPapersAdapter extends RecyclerView.Adapter<RecyclerView.View
             final ViewHolderPapersList holderItem = (ViewHolderPapersList) holder;
             holderItem.item = currentItem;
             holderItem.itemTitle.setText(currentItem.getTitle());
-            if (currentItem.getAuthors().equals("")) {
+            if (currentItem.getAuthors().isEmpty()) {
                 holderItem.itemAuthors.setVisibility(View.GONE);
             } else {
                 holderItem.itemAuthors.setText(currentItem.getAuthors());
             }
-            if (currentItem.getVolume().equals("")) {
+            if (currentItem.getVolume().isEmpty()) {
                 holderItem.itemVolume.setVisibility(View.GONE);
             } else {
-                holderItem.itemVolume.setText(Html.fromHtml("<b>" + context.getText(R.string.volume) + ": </b>" + currentItem.getVolume()));
+                holderItem.itemVolume.setText(Html.fromHtml("<b>" + context.getText(R.string.volume) + ": </b>" + currentItem.getVolume(), Html.FROM_HTML_MODE_LEGACY));
             }
-            if (currentItem.getPages().equals("")) {
+            if (currentItem.getPages().isEmpty()) {
                 holderItem.itemPages.setVisibility(View.GONE);
             } else {
-                holderItem.itemPages.setText(Html.fromHtml("<b>" + context.getText(R.string.pages) + ": </b>" + currentItem.getPages()));
+                holderItem.itemPages.setText(Html.fromHtml("<b>" + context.getText(R.string.pages) + ": </b>" + currentItem.getPages(), Html.FROM_HTML_MODE_LEGACY));
             }
-            if (currentItem.getPublishedIn().equals("")) {
+            if (currentItem.getPublishedIn().isEmpty()) {
                 holderItem.itemPublishedIn.setVisibility(View.GONE);
             } else {
-                holderItem.itemPublishedIn.setText(Html.fromHtml("<b>" + context.getText(R.string.published_in) + ": </b>" + currentItem.getPublishedIn()));
+                holderItem.itemPublishedIn.setText(Html.fromHtml("<b>" + context.getText(R.string.published_in) + ": </b>" + currentItem.getPublishedIn(), Html.FROM_HTML_MODE_LEGACY));
             }
-            if (currentItem.getPublishedAt().equals("")) {
+            if (currentItem.getPublishedAt().isEmpty()) {
                 holderItem.itemPublishedAt.setVisibility(View.GONE);
             } else {
-                holderItem.itemPublishedAt.setText(Html.fromHtml("<b>" + context.getText(R.string.published_at) + ": </b>" + currentItem.getPublishedAt()));
+                holderItem.itemPublishedAt.setText(Html.fromHtml("<b>" + context.getText(R.string.published_at) + ": </b>" + currentItem.getPublishedAt(), Html.FROM_HTML_MODE_LEGACY));
             }
-            if (currentItem.getSerialName().equals("")) {
+            if (currentItem.getSerialName().isEmpty()) {
                 holderItem.itemSerialName.setVisibility(View.GONE);
             } else {
-                holderItem.itemSerialName.setText(Html.fromHtml("<b>" + context.getText(R.string.serial_name) + ": </b>" + currentItem.getSerialName()));
+                holderItem.itemSerialName.setText(Html.fromHtml("<b>" + context.getText(R.string.serial_name) + ": </b>" + currentItem.getSerialName(), Html.FROM_HTML_MODE_LEGACY));
             }
         } else {
             LoadViewHolder holderItem = (LoadViewHolder) holder;
@@ -113,19 +113,25 @@ public class ResultsPapersAdapter extends RecyclerView.Adapter<RecyclerView.View
     }
 
     static class ViewHolderPapersList extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private TextView itemTitle, itemAuthors, itemVolume, itemPages, itemPublishedIn, itemPublishedAt, itemSerialName;
+        private final TextView itemTitle;
+        private final TextView itemAuthors;
+        private final TextView itemVolume;
+        private final TextView itemPages;
+        private final TextView itemPublishedIn;
+        private final TextView itemPublishedAt;
+        private final TextView itemSerialName;
         private PapersItem item;
 
         public ViewHolderPapersList(View itemView) {
             super(itemView);
-            itemTitle = (TextView) itemView.findViewById(R.id.itemTitle);
-            itemAuthors = (TextView) itemView.findViewById(R.id.itemAuthors);
-            itemVolume = (TextView) itemView.findViewById(R.id.itemVolume);
-            itemPages = (TextView) itemView.findViewById(R.id.itemPages);
-            itemPublishedIn = (TextView) itemView.findViewById(R.id.itemPublishedIn);
-            itemPublishedAt = (TextView) itemView.findViewById(R.id.itemPublishedAt);
-            itemSerialName = (TextView) itemView.findViewById(R.id.itemSerialName);
-            ImageView itemImage = (ImageView) itemView.findViewById(R.id.itemImage);
+            itemTitle = itemView.findViewById(R.id.itemTitle);
+            itemAuthors = itemView.findViewById(R.id.itemAuthors);
+            itemVolume = itemView.findViewById(R.id.itemVolume);
+            itemPages = itemView.findViewById(R.id.itemPages);
+            itemPublishedIn = itemView.findViewById(R.id.itemPublishedIn);
+            itemPublishedAt = itemView.findViewById(R.id.itemPublishedAt);
+            itemSerialName = itemView.findViewById(R.id.itemSerialName);
+            ImageView itemImage = itemView.findViewById(R.id.itemImage);
             DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
             if (displayMetrics.widthPixels < 480) {
                 itemImage.setVisibility(View.GONE);
@@ -182,7 +188,7 @@ public class ResultsPapersAdapter extends RecyclerView.Adapter<RecyclerView.View
 
         public LoadViewHolder(View itemView) {
             super(itemView);
-            loadMore = (Button) itemView.findViewById(R.id.load_more);
+            loadMore = itemView.findViewById(R.id.load_more);
             loadMore.setOnClickListener(this);
         }
 

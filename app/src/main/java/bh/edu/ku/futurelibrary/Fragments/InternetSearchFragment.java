@@ -3,6 +3,7 @@ package bh.edu.ku.futurelibrary.Fragments;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,8 +27,6 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.android.volley.NoConnectionError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -49,8 +48,10 @@ import bh.edu.ku.futurelibrary.R;
  * Created by Eslam El-Meniawy on 01-Nov-15.
  */
 public class InternetSearchFragment extends Fragment {
-    private int searchin1 = 0, searchin2 = 0, searchin3 = 0, conc1 = 0, conc2 = 0;
-    private String[] searchIn = {"bath.isbn", "bath.title", "dc.creator", "dc.subject", "bath.keyTitle", "bath.issn"}, concs = {"and", "or", "not"};
+    public  static final String TAG = "InternetSearchFragment";
+    private int searchIn1 = 0, searchIn2 = 0, searchIn3 = 0, conc1 = 0, conc2 = 0;
+    private final String[] searchIn = {"bath.isbn", "bath.title", "dc.creator", "dc.subject", "bath.keyTitle", "bath.issn"};
+    private final String[] concs = {"and", "or", "not"};
     private EditText searchTextET1, searchTextET2, searchTextET3;
     private String searchText1, searchText2, searchText3, nextPage = "";
     private LinearLayout resultsLayout;
@@ -76,45 +77,36 @@ public class InternetSearchFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_internet_search, container, false);
 
-        Spinner searchinSpinner1 = (Spinner) rootView.findViewById(R.id.searchin1);
-        Spinner searchinSpinner2 = (Spinner) rootView.findViewById(R.id.searchin2);
-        Spinner searchinSpinner3 = (Spinner) rootView.findViewById(R.id.searchin3);
-        Spinner concSpinner1 = (Spinner) rootView.findViewById(R.id.conc1);
-        Spinner concSpinner2 = (Spinner) rootView.findViewById(R.id.conc2);
-        searchTextET1 = (EditText) rootView.findViewById(R.id.SearchText1);
-        searchTextET2 = (EditText) rootView.findViewById(R.id.SearchText2);
-        searchTextET3 = (EditText) rootView.findViewById(R.id.SearchText3);
-        Button searchButton = (Button) rootView.findViewById(R.id.searchButton);
-        searchLayout = (ScrollView) rootView.findViewById(R.id.searchLayout);
-        resultsLayout = (LinearLayout) rootView.findViewById(R.id.resultsLayout);
-        resultsRecycler = (RecyclerView) rootView.findViewById(R.id.ResultsInternetSearch);
-        resultsSwipe = (SwipeRefreshLayout) rootView.findViewById(R.id.ResultsInternetSearchSwipeRefresh);
-        resultsNumber = (TextView) rootView.findViewById(R.id.ResultsNumber);
+        Spinner searchInSpinner1 = rootView.findViewById(R.id.searchin1);
+        Spinner searchInSpinner2 = rootView.findViewById(R.id.searchin2);
+        Spinner searchInSpinner3 = rootView.findViewById(R.id.searchin3);
+        Spinner concSpinner1 = rootView.findViewById(R.id.conc1);
+        Spinner concSpinner2 = rootView.findViewById(R.id.conc2);
+        searchTextET1 = rootView.findViewById(R.id.SearchText1);
+        searchTextET2 = rootView.findViewById(R.id.SearchText2);
+        searchTextET3 = rootView.findViewById(R.id.SearchText3);
+        Button searchButton = rootView.findViewById(R.id.searchButton);
+        searchLayout = rootView.findViewById(R.id.searchLayout);
+        resultsLayout = rootView.findViewById(R.id.resultsLayout);
+        resultsRecycler = rootView.findViewById(R.id.ResultsInternetSearch);
+        resultsSwipe = rootView.findViewById(R.id.ResultsInternetSearchSwipeRefresh);
+        resultsNumber = rootView.findViewById(R.id.ResultsNumber);
 
-        searchTextET1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    hide_keyboard_from(getActivity(), searchTextET1);
-                }
+        searchTextET1.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus) {
+                hide_keyboard_from(getActivity(), searchTextET1);
             }
         });
 
-        searchTextET2.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    hide_keyboard_from(getActivity(), searchTextET2);
-                }
+        searchTextET2.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus) {
+                hide_keyboard_from(getActivity(), searchTextET2);
             }
         });
 
-        searchTextET3.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    hide_keyboard_from(getActivity(), searchTextET3);
-                }
+        searchTextET3.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus) {
+                hide_keyboard_from(getActivity(), searchTextET3);
             }
         });
 
@@ -127,12 +119,12 @@ public class InternetSearchFragment extends Fragment {
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        searchinSpinner1.setAdapter(adapter1);
-        searchinSpinner1.setSelection(1);
-        searchinSpinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        searchInSpinner1.setAdapter(adapter1);
+        searchInSpinner1.setSelection(1);
+        searchInSpinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                searchin1 = position;
+                searchIn1 = position;
             }
 
             @Override
@@ -140,12 +132,12 @@ public class InternetSearchFragment extends Fragment {
             }
         });
 
-        searchinSpinner2.setAdapter(adapter1);
-        searchinSpinner2.setSelection(1);
-        searchinSpinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        searchInSpinner2.setAdapter(adapter1);
+        searchInSpinner2.setSelection(1);
+        searchInSpinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                searchin2 = position;
+                searchIn2 = position;
             }
 
             @Override
@@ -153,12 +145,12 @@ public class InternetSearchFragment extends Fragment {
             }
         });
 
-        searchinSpinner3.setAdapter(adapter1);
-        searchinSpinner3.setSelection(1);
-        searchinSpinner3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        searchInSpinner3.setAdapter(adapter1);
+        searchInSpinner3.setSelection(1);
+        searchInSpinner3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                searchin3 = position;
+                searchIn3 = position;
             }
 
             @Override
@@ -190,39 +182,25 @@ public class InternetSearchFragment extends Fragment {
             }
         });
 
-        searchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                searchText1 = searchTextET1.getText().toString();
+        searchButton.setOnClickListener(v -> {
+            searchText1 = searchTextET1.getText().toString();
 
-                searchText2 = searchTextET2.getText().toString();
-                if (searchText2 == null) {
-                    searchText2 = "";
-                }
-                searchText3 = searchTextET3.getText().toString();
-                if (searchText3 == null) {
-                    searchText3 = "";
-                }
-                if (searchText1.equals("") || searchText1 == null) {
-                    searchTextET1.setError(getText(R.string.enter_text));
-                } else {
-                    searchLayout.setVisibility(View.GONE);
-                    resultsLayout.setVisibility(View.VISIBLE);
-                    linearLayoutManager = new LinearLayoutManager(getActivity());
-                    resultsRecycler.setLayoutManager(linearLayoutManager);
-                    resultsAdapter = new ResultsStartAdapter(getActivity(), InternetSearchFragment.this);
-                    resultsSwipe.setColorSchemeResources(R.color.colorPrimary, R.color.colorAccent);
-                    resultsSwipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-                        @Override
-                        public void onRefresh() {
-                            resultsSwipe.setRefreshing(false);
-                        }
-                    });
-                    resultsRecycler.setAdapter(resultsAdapter);
-                    resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-                    resultsSwipe.setRefreshing(true);
-                    startSearch();
-                }
+            searchText2 = searchTextET2.getText().toString();
+            searchText3 = searchTextET3.getText().toString();
+            if (searchText1 == null || searchText1.isEmpty()) {
+                searchTextET1.setError(getText(R.string.enter_text));
+            } else {
+                searchLayout.setVisibility(View.GONE);
+                resultsLayout.setVisibility(View.VISIBLE);
+                linearLayoutManager = new LinearLayoutManager(getActivity());
+                resultsRecycler.setLayoutManager(linearLayoutManager);
+                resultsAdapter = new ResultsStartAdapter(getActivity(), InternetSearchFragment.this);
+                resultsSwipe.setColorSchemeResources(R.color.colorPrimary, R.color.colorAccent);
+                resultsSwipe.setOnRefreshListener(() -> resultsSwipe.setRefreshing(false));
+                resultsRecycler.setAdapter(resultsAdapter);
+                resultsSwipe.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+                resultsSwipe.setRefreshing(true);
+                startSearch();
             }
         });
 
@@ -240,43 +218,40 @@ public class InternetSearchFragment extends Fragment {
 
     private void startSearch() {
         nextPage = "";
-        Map<String, String> params = new HashMap<String, String>();
+        Map<String, String> params = new HashMap<>();
         params.put("SearchText1", searchText1);
-        params.put("criteria1", searchIn[searchin1]);
+        params.put("criteria1", searchIn[searchIn1]);
         params.put("opr1", concs[conc1]);
         params.put("SearchText2", searchText2);
-        params.put("criteria2", searchIn[searchin2]);
+        params.put("criteria2", searchIn[searchIn2]);
         params.put("opr2", concs[conc2]);
         params.put("SearchText3", searchText3);
-        params.put("criteria3", searchIn[searchin3]);
-        CustomRequest request = new CustomRequest(Request.Method.POST, "http://192.168.200.217:3000/librarySystem/startSearch", params, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-                    resultsList = parseResults(response, true);
-                    if (!nextPage.equals("")) {
-                        resultsList.add(null);
-                    }
-                    resultsAdapter.setResultsStartItems(resultsList);
-                    resultsRecycler.setVisibility(View.VISIBLE);
-                    resultsSwipe.setRefreshing(false);
-                } catch (NullPointerException e) {
+        params.put("criteria3", searchIn[searchIn3]);
+        //TODO change url
+        CustomRequest request = new CustomRequest(Request.Method.POST, "http://192.168.200.217:3000/librarySystem/startSearch", params, response -> {
+            try {
+                resultsList = parseResults(response, true);
+                if (!nextPage.isEmpty()) {
+                    resultsList.add(null);
                 }
+                resultsAdapter.setResultsStartItems(resultsList);
+                resultsRecycler.setVisibility(View.VISIBLE);
+                resultsSwipe.setRefreshing(false);
+            } catch (NullPointerException e) {
+                Log.e(TAG, "startSearch: " + e);
             }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                try {
-                    resultsSwipe.setRefreshing(false);
-                    if (error instanceof NoConnectionError) {
-                        Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.no_internet), Snackbar.LENGTH_LONG).show();
-                    } else {
-                        Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.error_fetching_results), Snackbar.LENGTH_LONG).show();
-                    }
-                    resultsLayout.setVisibility(View.GONE);
-                    searchLayout.setVisibility(View.VISIBLE);
-                } catch (NullPointerException e) {
+        }, error -> {
+            try {
+                resultsSwipe.setRefreshing(false);
+                if (error instanceof NoConnectionError) {
+                    Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.no_internet), Snackbar.LENGTH_LONG).show();
+                } else {
+                    Snackbar.make(getActivity().findViewById(R.id.MainCoordinatorLayout), getResources().getText(R.string.error_fetching_results), Snackbar.LENGTH_LONG).show();
                 }
+                resultsLayout.setVisibility(View.GONE);
+                searchLayout.setVisibility(View.VISIBLE);
+            } catch (NullPointerException e) {
+                Log.e(TAG, "startSearch: " + e);
             }
         });
         requestQueue.add(request);
@@ -287,7 +262,7 @@ public class InternetSearchFragment extends Fragment {
         if (response != null && response.length() > 0) {
             try {
                 if (response.has("TotalNoOfResults") && !response.isNull("TotalNoOfResults")) {
-                    resultsNumber.setText(getText(R.string.total_result) + " " + response.getString("TotalNoOfResults"));
+                    resultsNumber.setText(String.format("%s %s", getText(R.string.total_result), response.getString("TotalNoOfResults")));
                 } else {
                     resultsNumber.setVisibility(View.GONE);
                 }
@@ -314,13 +289,13 @@ public class InternetSearchFragment extends Fragment {
                         if (currentItem.has("type") && !currentItem.isNull("type")) {
                             type = currentItem.getString("type");
                         }
-                        String classification = "";
+                        StringBuilder classification = new StringBuilder();
                         if (currentItem.has("classification") && !currentItem.isNull("classification")) {
                             JSONArray arrayClassification = currentItem.getJSONArray("classification");
                             for (int j = 0; j < arrayClassification.length(); j++) {
-                                classification += "\u00BB " + arrayClassification.getString(j);
+                                classification.append("» ").append(arrayClassification.getString(j));
                                 if (j < (arrayClassification.length() - 1)) {
-                                    classification += "\t\t";
+                                    classification.append("\t\t");
                                 }
                             }
                         }
@@ -349,7 +324,7 @@ public class InternetSearchFragment extends Fragment {
                         item.setTitle(title);
                         item.setImage(image);
                         item.setType(type);
-                        item.setClassification(classification);
+                        item.setClassification(classification.toString());
                         item.setPublisher(publisher);
                         item.setMoreTitle(moreTitle);
                         item.setDetails(details);
@@ -369,6 +344,7 @@ public class InternetSearchFragment extends Fragment {
                             resultsSwipe.setRefreshing(false);
                         }
                     } catch (NullPointerException e) {
+                        Log.e(TAG, "parseResults: " + e);
                     }
                 }
             } catch (JSONException | NullPointerException | IllegalStateException e) {
@@ -377,6 +353,7 @@ public class InternetSearchFragment extends Fragment {
                     resultsLayout.setVisibility(View.GONE);
                     searchLayout.setVisibility(View.VISIBLE);
                 } catch (NullPointerException ex) {
+                    Log.e(TAG, "parseResults: " + e);
                 }
             }
         }
@@ -384,39 +361,35 @@ public class InternetSearchFragment extends Fragment {
     }
 
     public void loadMore() {
-        if (!nextPage.equals("")) {
+        if (!nextPage.isEmpty()) {
             resultsSwipe.setRefreshing(true);
-            JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, nextPage, new Response.Listener<JSONObject>() {
-                @Override
-                public void onResponse(JSONObject response) {
-                    try {
-                        ArrayList<ResultsStartItem> resultsListMore = parseResults(response, false);
-                        resultsSwipe.setRefreshing(false);
-                        resultsList.remove(resultsList.size() - 1);
-                        resultsAdapter.notifyItemRemoved(resultsList.size());
-                        for (int i = 0; i < resultsListMore.size(); i++) {
-                            ResultsStartItem result = resultsListMore.get(i);
-                            resultsList.add(result);
-                            resultsAdapter.notifyItemInserted(resultsList.size());
-                        }
-                        if (!nextPage.equals("")) {
-                            resultsList.add(null);
-                            resultsAdapter.notifyItemInserted(resultsList.size());
-                        }
-                    } catch (NullPointerException e) {
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, nextPage, response -> {
+                try {
+                    ArrayList<ResultsStartItem> resultsListMore = parseResults(response, false);
+                    resultsSwipe.setRefreshing(false);
+                    resultsList.remove(resultsList.size() - 1);
+                    resultsAdapter.notifyItemRemoved(resultsList.size());
+                    for (int i = 0; i < resultsListMore.size(); i++) {
+                        ResultsStartItem result = resultsListMore.get(i);
+                        resultsList.add(result);
+                        resultsAdapter.notifyItemInserted(resultsList.size());
                     }
-                }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    try {
-                        resultsSwipe.setRefreshing(false);
-                        resultsList.remove(resultsList.size() - 1);
-                        resultsAdapter.notifyItemRemoved(resultsList.size());
+                    if (!nextPage.isEmpty()) {
                         resultsList.add(null);
                         resultsAdapter.notifyItemInserted(resultsList.size());
-                    } catch (NullPointerException e) {
                     }
+                } catch (NullPointerException e) {
+                    Log.e(TAG, "onResponse: " + e);
+                }
+            }, error -> {
+                try {
+                    resultsSwipe.setRefreshing(false);
+                    resultsList.remove(resultsList.size() - 1);
+                    resultsAdapter.notifyItemRemoved(resultsList.size());
+                    resultsList.add(null);
+                    resultsAdapter.notifyItemInserted(resultsList.size());
+                } catch (NullPointerException e) {
+                    Log.e(TAG, "loadMore: " + e);
                 }
             });
             requestQueue.add(request);

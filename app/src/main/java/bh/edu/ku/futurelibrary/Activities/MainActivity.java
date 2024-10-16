@@ -1,12 +1,12 @@
 package bh.edu.ku.futurelibrary.Activities;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.LocaleList;
 import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -65,12 +65,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 @Override
                 public void onTabSelected(TabLayout.Tab tab) {
-                    TextView selectLangAr = (TextView) firstRunLayout.findViewById(R.id.select_lang_ar);
-                    TextView selectLangEn = (TextView) firstRunLayout.findViewById(R.id.select_lang_en);
-                    TextView canChangeAr = (TextView) firstRunLayout.findViewById(R.id.can_change_ar);
-                    TextView canChangeEn = (TextView) firstRunLayout.findViewById(R.id.can_change_en);
-                    TextView langAr = (TextView) firstRunLayout.findViewById(R.id.lang_ar);
-                    TextView langEn = (TextView) firstRunLayout.findViewById(R.id.lang_en);
+                    TextView selectLangAr = firstRunLayout.findViewById(R.id.select_lang_ar);
+                    TextView selectLangEn = firstRunLayout.findViewById(R.id.select_lang_en);
+                    TextView canChangeAr = firstRunLayout.findViewById(R.id.can_change_ar);
+                    TextView canChangeEn = firstRunLayout.findViewById(R.id.can_change_en);
+                    TextView langAr = firstRunLayout.findViewById(R.id.lang_ar);
+                    TextView langEn = firstRunLayout.findViewById(R.id.lang_en);
                     if (tab.getPosition() == 0) {
                         selectLangEn.setVisibility(View.GONE);
                         canChangeEn.setVisibility(View.GONE);
@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
             });
 
-            Spinner langSpinner = (Spinner) firstRunLayout.findViewById(R.id.dialog_langs);
+            Spinner langSpinner = firstRunLayout.findViewById(R.id.dialog_langs);
 
             ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.languages, android.R.layout.simple_spinner_item);
 
@@ -125,16 +125,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             builder.setView(firstRunLayout);
             builder.setCancelable(false);
-            builder.setNeutralButton("OK", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    editor.putBoolean("FirstRun", false);
-                    editor.apply();
-                    editor.putBoolean("Change1", false);
-                    editor.apply();
-                    finish();
-                    startActivity(getIntent());
-                }
+            builder.setNeutralButton("OK", (dialog, which) -> {
+                editor.putBoolean("FirstRun", false);
+                editor.apply();
+                editor.putBoolean("Change1", false);
+                editor.apply();
+                finish();
+                startActivity(getIntent());
             });
             AlertDialog dialog = builder.create();
             dialog.show();
@@ -144,25 +141,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Resources res = getResources();
             DisplayMetrics dm = res.getDisplayMetrics();
             Configuration conf = res.getConfiguration();
+            Locale newLocale;
             if (sharedPreferences.getInt("lang", 0) == 0) {
-                conf.locale = new Locale("ar");
-                conf.setLayoutDirection(conf.locale);
+                newLocale = new Locale("ar");
             } else {
-                conf.locale = new Locale("en");
-                conf.setLayoutDirection(conf.locale);
+                newLocale = new Locale("en");
             }
+            conf.setLocale(newLocale);
+            conf.setLayoutDirection(newLocale);
+            LocaleList localeList = new LocaleList(newLocale);
+            LocaleList.setDefault(localeList);
+            conf.setLocales(localeList);
             res.updateConfiguration(conf, dm);
             setContentView(R.layout.activity_main);
             Toolbar toolbar = findViewById(R.id.toolbar);
             setSupportActionBar(toolbar);
 
-            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            DrawerLayout drawer = findViewById(R.id.drawer_layout);
             ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                     this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
             drawer.setDrawerListener(toggle);
             toggle.syncState();
 
-            navigationView = (NavigationView) findViewById(R.id.nav_view);
+            navigationView = findViewById(R.id.nav_view);
             navigationView.setNavigationItemSelectedListener(this);
 
             getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new StartFragment(), "FragmentStart").commit();
@@ -171,7 +172,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -291,7 +292,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.frame_container, fragment, tag).commit();
         }
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
@@ -305,13 +306,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Resources res = getResources();
             DisplayMetrics dm = res.getDisplayMetrics();
             Configuration conf = res.getConfiguration();
+            Locale newLocale;
             if (sharedPreferences.getInt("lang", 0) == 0) {
-                conf.locale = new Locale("ar");
-                conf.setLayoutDirection(conf.locale);
+                newLocale = new Locale("ar");
             } else {
-                conf.locale = new Locale("en");
-                conf.setLayoutDirection(conf.locale);
+                newLocale = new Locale("en");
             }
+            conf.setLocale(newLocale);
+            conf.setLayoutDirection(newLocale);
+            LocaleList localeList = new LocaleList(newLocale);
+            LocaleList.setDefault(localeList);
+            conf.setLocales(localeList);
             res.updateConfiguration(conf, dm);
             finish();
             startActivity(getIntent());
@@ -329,13 +334,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Resources res = getResources();
         DisplayMetrics dm = res.getDisplayMetrics();
         Configuration conf = res.getConfiguration();
+        Locale newLocale;
         if (sharedPreferences.getInt("lang", 0) == 0) {
-            conf.locale = new Locale("ar");
-            conf.setLayoutDirection(conf.locale);
+            newLocale = new Locale("ar");
         } else {
-            conf.locale = new Locale("en");
-            conf.setLayoutDirection(conf.locale);
+            newLocale = new Locale("en");
         }
+        conf.setLocale(newLocale);
+        conf.setLayoutDirection(newLocale);
+        LocaleList localeList = new LocaleList(newLocale);
+        LocaleList.setDefault(localeList);
+        conf.setLocales(localeList);
         res.updateConfiguration(conf, dm);
     }
 
@@ -343,13 +352,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Resources res = getResources();
         DisplayMetrics dm = res.getDisplayMetrics();
         Configuration conf = res.getConfiguration();
+        Locale newLocale;
         if (sharedPreferences.getInt("lang", 0) == 0) {
-            conf.locale = new Locale("ar");
-            conf.setLayoutDirection(conf.locale);
+            newLocale = new Locale("ar");
         } else {
-            conf.locale = new Locale("en");
-            conf.setLayoutDirection(conf.locale);
+            newLocale = new Locale("en");
         }
+        conf.setLocale(newLocale);
+        conf.setLayoutDirection(newLocale);
+        LocaleList localeList = new LocaleList(newLocale);
+        LocaleList.setDefault(localeList);
+        conf.setLocales(localeList);
+        // Update context with the new configuration
         res.updateConfiguration(conf, dm);
     }
 }

@@ -21,16 +21,16 @@ import bh.edu.ku.futurelibrary.R;
  */
 public class SiteNewsListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private static ArrayList<SiteNewsItem> listSiteNewsItems = new ArrayList<>();
-    private LayoutInflater layoutInflater;
+    private final LayoutInflater layoutInflater;
     private static Context context;
 
     public SiteNewsListAdapter(Context context) {
         layoutInflater = LayoutInflater.from(context);
-        this.context = context;
+        SiteNewsListAdapter.context = context;
     }
 
     public void setListSiteNewsItems(ArrayList<SiteNewsItem> listSiteNewsItems) {
-        this.listSiteNewsItems = listSiteNewsItems;
+        SiteNewsListAdapter.listSiteNewsItems = listSiteNewsItems;
         notifyItemRangeChanged(0, listSiteNewsItems.size());
     }
 
@@ -55,11 +55,11 @@ public class SiteNewsListAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     static class ViewHolderSiteNewsList extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private TextView siteNewsItemTitle;
+        private final TextView siteNewsItemTitle;
 
         public ViewHolderSiteNewsList(View itemView) {
             super(itemView);
-            siteNewsItemTitle = (TextView) itemView.findViewById(R.id.SiteNewsItem);
+            siteNewsItemTitle = itemView.findViewById(R.id.SiteNewsItem);
             itemView.setOnClickListener(this);
         }
 

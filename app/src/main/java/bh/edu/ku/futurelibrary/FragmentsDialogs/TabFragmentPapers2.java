@@ -24,8 +24,8 @@ public class TabFragmentPapers2 extends Fragment {
         Bundle args = getArguments();
         item = args.getParcelable("item");
         View rootView = inflater.inflate(R.layout.tab_fragment_papers2, container, false);
-        TextView itemAbstract = (TextView) rootView.findViewById(R.id.abstractText);
-        if (!item.getAbstractText().equals("")) {
+        TextView itemAbstract = rootView.findViewById(R.id.abstractText);
+        if (!item.getAbstractText().isEmpty()) {
             itemAbstract.setText(item.getAbstractText());
         } else {
             itemAbstract.setText(getText(R.string.no_abstract));

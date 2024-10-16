@@ -28,7 +28,7 @@ public class ResultsDraftThesesAdapter extends RecyclerView.Adapter<RecyclerView
     private static Context context;
     private static Fragment fragment;
     private final int VIEW_ITEM = 1;
-    private LayoutInflater layoutInflater;
+    private final LayoutInflater layoutInflater;
 
     public ResultsDraftThesesAdapter(Context context, Fragment fragment) {
         layoutInflater = LayoutInflater.from(context);
@@ -67,9 +67,9 @@ public class ResultsDraftThesesAdapter extends RecyclerView.Adapter<RecyclerView
             final ViewHolderDraftThesesList holderItem = (ViewHolderDraftThesesList) holder;
             holderItem.item = currentItem;
             holderItem.itemYear.setText(currentItem.getYear());
-            holderItem.itemID.setText("ID: " + currentItem.getId());
+            holderItem.itemID.setText(String.format("ID: %s", currentItem.getId()));
             holderItem.itemTitle.setText(currentItem.getTitle());
-            if (currentItem.getDescription().equals("")) {
+            if (currentItem.getDescription().isEmpty()) {
                 holderItem.itemDescription.setVisibility(View.GONE);
             } else {
                 holderItem.itemDescription.setText(currentItem.getDescription());
@@ -87,16 +87,20 @@ public class ResultsDraftThesesAdapter extends RecyclerView.Adapter<RecyclerView
     }
 
     static class ViewHolderDraftThesesList extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private TextView itemYear, itemID, itemTitle, itemDescription, itemAuthor;
+        private final TextView itemYear;
+        private final TextView itemID;
+        private final TextView itemTitle;
+        private final TextView itemDescription;
+        private final TextView itemAuthor;
         private DraftThesesItem item;
 
         public ViewHolderDraftThesesList(View itemView) {
             super(itemView);
-            itemYear = (TextView) itemView.findViewById(R.id.itemYear);
-            itemID = (TextView) itemView.findViewById(R.id.itemID);
-            itemTitle = (TextView) itemView.findViewById(R.id.itemTitle);
-            itemDescription = (TextView) itemView.findViewById(R.id.itemDescription);
-            itemAuthor = (TextView) itemView.findViewById(R.id.itemAuthor);
+            itemYear = itemView.findViewById(R.id.itemYear);
+            itemID = itemView.findViewById(R.id.itemID);
+            itemTitle = itemView.findViewById(R.id.itemTitle);
+            itemDescription = itemView.findViewById(R.id.itemDescription);
+            itemAuthor = itemView.findViewById(R.id.itemAuthor);
             itemView.setOnClickListener(this);
         }
 
@@ -113,7 +117,7 @@ public class ResultsDraftThesesAdapter extends RecyclerView.Adapter<RecyclerView
 
         public LoadViewHolder(View itemView) {
             super(itemView);
-            loadMore = (Button) itemView.findViewById(R.id.load_more);
+            loadMore = itemView.findViewById(R.id.load_more);
             loadMore.setOnClickListener(this);
         }
 

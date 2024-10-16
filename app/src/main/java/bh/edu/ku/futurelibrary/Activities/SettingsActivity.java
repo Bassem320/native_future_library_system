@@ -22,14 +22,14 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         sharedPreferences = SettingsActivity.this.getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
-        Spinner langSpinner = (Spinner) findViewById(R.id.lang_spinner);
+        Spinner langSpinner = findViewById(R.id.lang_spinner);
 
         ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.langs, android.R.layout.simple_spinner_item);
 

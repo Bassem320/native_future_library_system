@@ -16,8 +16,8 @@ import bh.edu.ku.futurelibrary.R;
  * Created by Eslam El-Meniawy on 07-Dec-15.
  */
 public class GridDownloadAdapter extends BaseAdapter {
-    private Context context;
-    private String[] urls;
+    private final Context context;
+    private final String[] urls;
 
     public GridDownloadAdapter(Context context, String[] urls) {
         this.context = context;
@@ -44,18 +44,14 @@ public class GridDownloadAdapter extends BaseAdapter {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View gridView;
         if (convertView == null) {
-            gridView = new View(context);
             gridView = inflater.inflate(R.layout.grid_download_item, null);
-            Button download = (Button) gridView.findViewById(R.id.download);
-            download.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(urls[position]));
-                    context.startActivity(browserIntent);
-                }
+            Button download = gridView.findViewById(R.id.download);
+            download.setOnClickListener(v -> {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(urls[position]));
+                context.startActivity(browserIntent);
             });
         } else {
-            gridView = (View) convertView;
+            gridView = convertView;
         }
         return gridView;
     }

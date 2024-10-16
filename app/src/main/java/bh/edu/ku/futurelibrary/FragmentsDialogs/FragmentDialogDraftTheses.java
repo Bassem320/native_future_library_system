@@ -60,10 +60,10 @@ public class FragmentDialogDraftTheses extends DialogFragment {
 
         sectionsPagerAdapter = new SectionsPagerAdapter(getChildFragmentManager());
 
-        viewPager = (ViewPager) view.findViewById(R.id.detailsPager);
+        viewPager = view.findViewById(R.id.detailsPager);
         viewPager.setAdapter(sectionsPagerAdapter);
 
-        TabLayout tabLayout = (TabLayout) view.findViewById(R.id.detailsTabLayout);
+        TabLayout tabLayout = view.findViewById(R.id.detailsTabLayout);
         tabLayout.addTab(tabLayout.newTab().setText(R.string.search_results_title));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.search_results_details));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.search_results_abstract));
