@@ -3,6 +3,7 @@ package bh.edu.ku.futurelibrary.Fragments;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,6 +52,7 @@ import bh.edu.ku.futurelibrary.VolleySingleton;
  */
 @SuppressWarnings("DefaultFileTemplate")
 public class BarcodeFragment extends Fragment {
+    public static final String TAG = "BarcodeFragment";
     private View rootView;
     private LinearLayout resultsLayout;
     private FrameLayout searchLayout;
@@ -132,7 +134,7 @@ public class BarcodeFragment extends Fragment {
         params.put("fn", "ApplyMobileSearch");
         params.put("SearchText1", isbn);
         params.put("criteria1", "6.");
-
+        Log.i(TAG, "startSearch: " + params);
         CustomRequest request = new CustomRequest(Request.Method.POST, ((MyApplication) getActivity().getApplication()).getServerName() + "libraries/fuapi.aspx?fn=ApplyMobileSearch", params, response -> {
             try {
                 resultsList = parseResults(response, true);
@@ -146,6 +148,7 @@ public class BarcodeFragment extends Fragment {
             } catch (NullPointerException ignored) {
             }
         }, error -> {
+            Log.e(TAG, "startSearch: " + error);
             try {
                 resultsSwipe.setRefreshing(false);
                 if (error instanceof NoConnectionError) {

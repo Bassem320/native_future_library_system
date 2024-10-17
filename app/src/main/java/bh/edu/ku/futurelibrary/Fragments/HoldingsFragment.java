@@ -372,6 +372,7 @@ public class HoldingsFragment extends Fragment {
                 }
             }
         }, error -> {
+            Log.e(TAG, "startSearch: " + error);
             try {
                 resultsSwipe.setRefreshing(false);
                 if (error instanceof NoConnectionError) {

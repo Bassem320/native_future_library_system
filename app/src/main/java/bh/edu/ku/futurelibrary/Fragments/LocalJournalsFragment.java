@@ -369,6 +369,7 @@ public class LocalJournalsFragment extends Fragment {
                 Log.e(TAG, "onResponse: " + e);
             }
         }, error -> {
+            Log.e(TAG, "startSearch: " + error);
             try {
                 resultsSwipe.setRefreshing(false);
                 if (error instanceof NoConnectionError) {

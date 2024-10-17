@@ -241,6 +241,7 @@ public class InternetSearchFragment extends Fragment {
                 Log.e(TAG, "startSearch: " + e);
             }
         }, error -> {
+            Log.e(TAG, "startSearch: " + error);
             try {
                 resultsSwipe.setRefreshing(false);
                 if (error instanceof NoConnectionError) {

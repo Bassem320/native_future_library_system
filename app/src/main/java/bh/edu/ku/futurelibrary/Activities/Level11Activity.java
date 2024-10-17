@@ -1616,6 +1616,7 @@ public class Level11Activity extends AppCompatActivity {
                 Log.e(TAG, "onResponse: " + e);
             }
         }, error -> {
+            Log.e(TAG, "startBrowse: " + error);
             try {
                 resultsSwipe.setRefreshing(false);
                 if (error instanceof NoConnectionError) {

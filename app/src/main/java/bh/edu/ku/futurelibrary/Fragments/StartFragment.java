@@ -225,6 +225,7 @@ public class StartFragment extends Fragment {
                 Log.e(TAG, "requestSiteNews: " + e );
             }
         }, error -> {
+            Log.e(TAG, "requestSiteNews: " + error );
             try {
                 if (!stop) {
                     loadingItems.setVisibility(View.GONE);
@@ -333,6 +334,7 @@ public class StartFragment extends Fragment {
                 Log.e(TAG, "startSearch: " + e );
             }
         }, error -> {
+            Log.e(TAG, "startSearch: " +error);
             try {
                 resultsStartSwipe.setRefreshing(false);
                 if (error instanceof NoConnectionError) {
